@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/quxbaz/todo-2020.git"
@@ -28,6 +25,11 @@
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --content-base=public",
+    "test": "webpack-dev-server --content-base=public_test"
   }
 }
