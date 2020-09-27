@@ -1,5 +1,5 @@
 {
-  "name": "todo-learn",
+  "name": "todo-2020",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,12 +8,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quxbaz/todo-learn.git"
+    "url": "git+https://github.com/quxbaz/todo-2020.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/quxbaz/todo-learn/issues"
+    "url": "https://github.com/quxbaz/todo-2020/issues"
   },
-  "homepage": "https://github.com/quxbaz/todo-learn#readme"
+  "homepage": "https://github.com/quxbaz/todo-2020#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  }
 }
