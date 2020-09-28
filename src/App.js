@@ -1,13 +1,15 @@
 import React from 'react'
+import styled from 'styled-components'
 
-const style = {
-}
+const StyledApp = styled.h1`
+  color: red;
+`
 
 class App extends React.Component {
 
   render () {
     return (
-      <div>Todo 2020</div>
+      <StyledApp>Todo 2020</StyledApp>
     );
   }
 
