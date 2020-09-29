@@ -3,6 +3,7 @@ Todo
 * Learn
   - [ ] Hooks.
   - [ ] CSS Grid.
+  - [ ] TypeScript.
   - [ ] GraphQL.
 ** Backend
    - [ ] Django basics.
