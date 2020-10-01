@@ -1,8 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
-import App from './src/App'
 
 render(
-  <App />,
+  <div>foobar1</div>,
   document.getElementById('main')
 );

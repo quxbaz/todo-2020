@@ -1,12 +1,14 @@
 Todo
 
 * Learn
-  - [ ] Hooks.
-  - [ ] CSS Grid.
   - [ ] TypeScript.
   - [ ] GraphQL.
+** CSS
+   - [ ] CSS Grid.
 ** Backend
    - [ ] Django basics.
+** TypeScript
+   --
 
 * TODO
   - [ ] Add data layer (todo items).

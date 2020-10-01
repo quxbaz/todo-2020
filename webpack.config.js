@@ -3,8 +3,8 @@ var webpack = require('webpack');
 
 module.exports = {
 
-  entry: './index.js',
-  devtool: 'eval-source-map',
+  entry: path.resolve(__dirname, 'src/index.tsx'),
+  devtool: 'inline-source-map',
 
   output: {
     filename: 'bundle.js',
@@ -14,17 +14,15 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        include: [
-          path.resolve(__dirname, 'index.js'),
-          path.resolve(__dirname, './src'),
-        ],
-        loader: 'babel-loader',
-        query: {
-          presets: ['@babel/preset-env', '@babel/preset-react']
-        }
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
       }
     ]
+  },
+
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx']
   }
 
 };
