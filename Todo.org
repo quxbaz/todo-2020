@@ -1,7 +1,6 @@
 Todo
 
 * Learn
-  - [ ] TypeScript.
   - [ ] GraphQL.
 ** CSS
    - [ ] CSS Grid.
