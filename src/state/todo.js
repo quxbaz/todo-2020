@@ -6,9 +6,10 @@ const reducer = (state={}, action) => {
     return {
       id: action.payload.id,
       text: action.payload.text,
-    };
+      timestamp: action.payload.timestamp,
+    }
   default:
-    return state;
+    return state
   }
 }
 
