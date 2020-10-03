@@ -1,9 +1,9 @@
-var path = require('path');
-var webpack = require('webpack');
+var path = require('path')
+var webpack = require('webpack')
 
 module.exports = {
 
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: path.resolve(__dirname, 'src/index.tsx'),
   devtool: 'inline-source-map',
 
   output: {
@@ -14,16 +14,15 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        include: [
-          path.resolve(__dirname, './src'),
-        ],
-        loader: 'babel-loader',
-        query: {
-          presets: ['@babel/preset-env', '@babel/preset-react']
-        }
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        include: path.resolve(__dirname, 'src'),
       }
     ]
-  }
+  },
 
-};
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx'],
+  },
+
+}
