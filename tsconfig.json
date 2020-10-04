@@ -1,14 +1,13 @@
 {
-  "files": [
-    "src/index.tsx",
-  ],
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react",
     "module": "es6",
+    "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "./dist/",
+    "sourceMap": true,
     "strictNullChecks": true,
     "target": "es5",
   },
