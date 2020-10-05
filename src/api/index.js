@@ -1,9 +1,7 @@
 import todos from './todos'
 
-const createApi = function (dispatch) {
-  return {
-    todos: todos(dispatch),
-  }
-}
+const createApi = (dispatch) => ({
+  todos: todos(dispatch),
+})
 
 export default createApi
