@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import api from './api'
+import {createApi} from './api'
 
 function InputField ({onSubmit}) {
 
@@ -51,7 +51,7 @@ InputField.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   onSubmit (text) {
-    api(dispatch).todos.createTodo(text)
+    createApi(dispatch).todos.createTodo(text)
   },
 })
 

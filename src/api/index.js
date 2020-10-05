@@ -4,4 +4,4 @@ const createApi = (dispatch) => ({
   todos: todos(dispatch),
 })
 
-export default createApi
+export {createApi}
