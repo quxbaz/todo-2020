@@ -27,12 +27,16 @@ function TodoItem ({todo, onToggle, onRemove}) {
     onToggle(todo.id, !todo.isDone)
   }
 
+  const handleEdit = () => {
+    console.log('edit')
+  }
+
   const handleRemove = () => {
     onRemove(todo.id)
   }
 
   const textStyle = {
-    width: '100%',
+    opacity: todo.isDone && 0.4,
     textDecoration: todo.isDone && 'line-through',
   }
 
@@ -43,8 +47,10 @@ function TodoItem ({todo, onToggle, onRemove}) {
         checked={todo.isDone}
         style={checkboxStyle}
         onChange={handleToggle} />
-      <div style={textStyle}>
-        {todo.text}
+      <div style={{width: '100%', paddingRight: '8px'}}>
+        <div style={textStyle} onClick={handleEdit}>
+          {todo.text}
+        </div>
       </div>
       <button style={removeButtonStyle} onClick={handleRemove}>
         Remove

@@ -5,6 +5,7 @@ const createApi = (dispatch) => {
     create (text) {
       const action = todosActions.create(text)
       dispatch(action)
+      return action.payload.id
     },
     remove (id) {
       const action = todosActions.remove(id)
