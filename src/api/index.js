@@ -1,6 +1,3 @@
-/*
-
-
 import todos from './todos'
 
 const createApi = function (dispatch) {
@@ -9,7 +6,4 @@ const createApi = function (dispatch) {
   }
 }
 
-export {createApi}
-
-
-*/
+export default createApi

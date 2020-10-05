@@ -1,9 +1,8 @@
-import ACTION_TYPES from '../ACTION_TYPES'
-import {Reducer} from '../types'
+import {actionTypes as todoActionTypes} from './todos'
 
-const reducer: Reducer = (state={}, action) => {
+const reducer = (state={}, action) => {
   switch (action.type) {
-  case ACTION_TYPES.TODOS_CREATE:
+  case todoActionTypes.CREATE:
     return {
       id: action.payload.id,
       text: action.payload.text,
@@ -14,4 +13,6 @@ const reducer: Reducer = (state={}, action) => {
   }
 }
 
-export default reducer
+export {
+  reducer,
+}
