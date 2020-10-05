@@ -1,15 +1,17 @@
 import {actions as todosActions} from '../state/todos'
 
 const createApi = (dispatch) => {
-
-  const createTodo = (text) => {
-    dispatch(todosActions.create(text))
+  const api = {
+    create (text) {
+      const action = todosActions.create(text)
+      dispatch(action)
+    },
+    toggle (id, isDone) {
+      const action = todosActions.toggle(id, isDone)
+      dispatch(action)
+    },
   }
-
-  return {
-    createTodo,
-  }
-
+  return api
 }
 
 export default createApi
