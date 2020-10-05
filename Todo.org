@@ -1,5 +1,8 @@
 Todo
 
+* NOW
+  - [ ] Make basic TODO app.
+
 * Learn
   - [ ] GraphQL.
 ** CSS
@@ -8,7 +11,6 @@ Todo
    - [ ] Django basics.
 
 * TODO
-  - [X] Try converting components to hooks.
   - [X] Cleanup API pattern and interface.
   - [X] Use new redux helpers (.addCase).
   - [ ] Add persisted data layer (todo items).
@@ -17,6 +19,4 @@ Todo
     - [ ] Persistence.
     - [ ] CRUD operations.
   - [ ] Remove prop-types library after using typescript.
-
-* Sometime
   - [ ] Add linting.
