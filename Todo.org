@@ -5,10 +5,8 @@ Todo
 
 * Learn
   - [ ] GraphQL.
-** CSS
-   - [ ] CSS Grid.
-** Backend
-   - [ ] Django basics.
+  - [ ] CSS Grid.
+  - [ ] Django basics.
 
 * TODO
   - [ ] Add persisted data layer (todo items).
@@ -16,5 +14,4 @@ Todo
   - [ ] Add networking layer.
     - [ ] Persistence.
     - [ ] CRUD operations.
-  - [ ] Remove prop-types library after using typescript.
   - [ ] Add linting.
