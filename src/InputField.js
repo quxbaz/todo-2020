@@ -20,7 +20,7 @@ function InputField ({onSubmit}) {
     if (text === '')
       return
     onSubmit(text)
-    setText({text: ''})
+    setText('')
   }
 
   const handleChange = (event) => {
