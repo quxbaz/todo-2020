@@ -1,46 +1,47 @@
-/*
-  ::TODO:: Try rewriting component in hooks.
-*/
-
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import api from './api'
 
-class InputField extends React.Component {
+function InputField ({onSubmit}) {
 
-  constructor (props) {
-    super(props)
-    this.state = {text: ''}
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-  }
+  /*
+    State declarations
+  */
 
-  handleSubmit (event) {
+  const [text, setText] = React.useState('')
+
+  /*
+    Event handlers
+  */
+
+  const handleSubmit = (event) => {
     event.preventDefault()
-    if (this.state.text === '')
+    if (text === '')
       return
-    this.props.onSubmit(this.state.text)
-    this.setState({text: ''})
+    onSubmit(text)
+    setText({text: ''})
   }
 
-  handleChange (event) {
-    this.setState({text: event.target.value})
+  const handleChange = (event) => {
+    setText(event.target.value)
   }
 
-  render () {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type='text'
-          placeholder='What needs to be done?'
-          autoFocus
-          value={this.state.text}
-          onChange={this.handleChange} />
-        <button type='submit'>Add</button>
-      </form>
-    )
-  }
+  /*
+    Rendering
+  */
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type='text'
+        placeholder='What needs to be done?'
+        autoFocus
+        value={text}
+        onChange={handleChange} />
+      <button type='submit'>Add</button>
+    </form>
+  )
 
 }
 
