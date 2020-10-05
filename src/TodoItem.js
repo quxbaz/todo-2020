@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {createApi} from './api'
@@ -23,17 +23,24 @@ const removeButtonStyle = {
 
 function TodoItem ({todo, onToggle, onRemove}) {
 
-  const handleToggle = () => {
-    onToggle(todo.id, !todo.isDone)
-  }
+  /*
+    State declarations
+  */
 
-  const handleEdit = () => {
-    console.log('edit')
-  }
+  const {isEditing, setIsEditing} = useState(false)
 
-  const handleRemove = () => {
-    onRemove(todo.id)
-  }
+  /*
+    Event handlers
+  */
+
+  const handleToggle = () => onToggle(todo.id, !todo.isDone)
+  const handleStartEdit = () => setIsEditing(true)
+  const handleEndEdit = () => setIsEditing(false)
+  const handleRemove = () => onRemove(todo.id)
+
+  /*
+    Rendering
+  */
 
   const textStyle = {
     opacity: todo.isDone && 0.4,
@@ -48,7 +55,7 @@ function TodoItem ({todo, onToggle, onRemove}) {
         style={checkboxStyle}
         onChange={handleToggle} />
       <div style={{width: '100%', paddingRight: '8px'}}>
-        <div style={textStyle} onClick={handleEdit}>
+        <div style={textStyle} onClick={handleStartEdit}>
           {todo.text}
         </div>
       </div>

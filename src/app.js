@@ -9,13 +9,19 @@ function createApp () {
   const store = createStore()
 
   // ::TEMP::
+
   const api = createApi(store.dispatch)
-  api.todos.create('one')
-  api.todos.create('two')
-  let id = api.todos.create('three')
-  api.todos.create('four')
-  api.todos.create('five')
-  api.todos.toggle(id, true)
+
+  const todo1 = api.todos.create('one')
+  const todo2 = api.todos.create('two')
+  const todo3 = api.todos.create('three')
+  const todo4 = api.todos.create('four')
+  const todo5 = api.todos.create('five')
+
+  api.todos.toggle(todo1, true)
+  api.todos.toggle(todo3, true)
+
+  // ::END TEMP::
 
   return {
     store,
