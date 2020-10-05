@@ -12,7 +12,6 @@ Todo
 
 * TODO
   - [X] Cleanup API pattern and interface.
-  - [X] Use new redux helpers (.addCase).
   - [ ] Add persisted data layer (todo items).
   - [ ] Basic styling (CSS grid based, visually grid based).
   - [ ] Add networking layer.
