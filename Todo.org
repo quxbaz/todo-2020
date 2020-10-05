@@ -9,14 +9,15 @@ Todo
 
 * TODO
   - [X] Use TypeScript (again).
-  - [X] Try converting components to hooks.
-  - [ ] Use new redux helpers (.addCase).
-  - [ ] Add persisted data layer (todo items).
+  - [X] Try hooks..
+  - [ ] Add data layer (todo items).
   - [ ] Basic styling (CSS grid based, visually grid based).
   - [ ] Add networking layer.
     - [ ] Persistence.
     - [ ] CRUD operations.
   - [ ] Remove prop-types library after using TypeScript.
+  - [ ] Review redux/react-redux principles and make sure you
+    understand everything. Go over the intro material.
   - [ ] Cleanup API pattern and interface.
 
 * Sometime
