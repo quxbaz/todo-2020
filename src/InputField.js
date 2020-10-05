@@ -22,15 +22,6 @@ const inputStyle = {
   fontSize: '14px',
 }
 
-const buttonStyle = {
-  height: '40px',
-  padding: '0 24px',
-  border: 'none',
-  outline: 'none',
-  background: 'none',
-  fontSize: '14px',
-}
-
 function InputField ({onSubmit}) {
 
   /*
@@ -68,9 +59,6 @@ function InputField ({onSubmit}) {
         value={text}
         style={inputStyle}
         onChange={handleChange} />
-      <button type='submit' style={buttonStyle}>
-        Add
-      </button>
     </form>
   )
 

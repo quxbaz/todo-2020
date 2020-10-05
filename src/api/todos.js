@@ -6,6 +6,10 @@ const createApi = (dispatch) => {
       const action = todosActions.create(text)
       dispatch(action)
     },
+    remove (id) {
+      const action = todosActions.remove(id)
+      dispatch(action)
+    },
     toggle (id, isDone) {
       const action = todosActions.toggle(id, isDone)
       dispatch(action)

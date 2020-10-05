@@ -35,7 +35,7 @@ const reducer = (state={}, action) => {
         [action.payload.id]: todoReducer(undefined, action),
       }
     case ACTION_TYPES.TODOS_REMOVE:
-      return omit(newState, id)
+      return omit(state, action.payload.id)
     case ACTION_TYPES.TODOS_TOGGLE:
       return {
         ...state,

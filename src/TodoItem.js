@@ -9,10 +9,26 @@ const style = {
   margin: '20px 0',
 }
 
-function TodoItem ({todo, onToggle}) {
+const checkboxStyle = {
+  position: 'relative',
+  left: '-3px',
+  width: '24px',
+}
+
+const removeButtonStyle = {
+  padding: '2px 6px',
+  height: '27px',
+  maxHeight: '27px',
+}
+
+function TodoItem ({todo, onToggle, onRemove}) {
 
   const handleToggle = () => {
     onToggle(todo.id, !todo.isDone)
+  }
+
+  const handleRemove = () => {
+    onRemove(todo.id)
   }
 
   const textStyle = {
@@ -25,11 +41,14 @@ function TodoItem ({todo, onToggle}) {
       <input
         type='checkbox'
         checked={todo.isDone}
-        style={{width: '24px'}}
+        style={checkboxStyle}
         onChange={handleToggle} />
       <div style={textStyle}>
         {todo.text}
       </div>
+      <button style={removeButtonStyle} onClick={handleRemove}>
+        Remove
+      </button>
     </div>
   )
 
@@ -38,12 +57,19 @@ function TodoItem ({todo, onToggle}) {
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
   onToggle: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired,
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  onToggle (id, isDone) {
-    createApi(dispatch).todos.toggle(id, isDone)
+const mapDispatchToProps = (dispatch) => {
+  const api = createApi(dispatch)
+  return {
+    onToggle (id, isDone) {
+      api.todos.toggle(id, isDone)
+    },
+    onRemove (id) {
+      api.todos.remove(id)
+    },
   }
-})
+}
 
 export default connect(null, mapDispatchToProps)(TodoItem)

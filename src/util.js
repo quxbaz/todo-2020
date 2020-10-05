@@ -1,6 +1,6 @@
 function omit (obj, key) {
   const newObj = {...obj}
-  newObj[key] = undefined
+  delete newObj[key]
   return newObj
 }
 
