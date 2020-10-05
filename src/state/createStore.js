@@ -2,7 +2,7 @@ import {applyMiddleware, combineReducers, createStore} from 'redux'
 import {createLogger} from 'redux-logger'
 import {reducer as todosReducer} from './todos'
 
-export default function () {
+const _createStore = () => {
   const reducer = combineReducers({
     todos: todosReducer,
   })
@@ -11,3 +11,5 @@ export default function () {
   )
   return createStore(reducer, middleware)
 }
+
+export default _createStore

@@ -19,12 +19,21 @@ function sortBy (list, key) {
   return sorted
 }
 
+const uniqId = (function () {
+  let id = -1
+  return () => {
+    id++
+    return id.toString()
+  }
+})()
+
 function values (obj) {
   return Object.keys(obj).map(k => obj[k])
 }
 
-export default {
+export {
   omit,
   sortBy,
+  uniqId,
   values,
 }

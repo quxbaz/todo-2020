@@ -1,10 +1,10 @@
 import React from 'react'
-import { render } from 'react-dom'
-import App from './App'
+import {render} from 'react-dom'
+import {createApp} from './app'
 
-const app = new App()
+const app = createApp()
 
 render(
-  app.reactComponent,
+  app.component,
   document.getElementById('main')
 )

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
-import util from './util'
+import {sortBy, values} from './util'
 import TodoItem from './TodoItem'
 
 const StyledItem = styled.div`
@@ -26,10 +26,7 @@ TodoList.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  todos: util.sortBy(
-    util.values(state.todos),
-    'timestamp',
-  )
+  todos: sortBy(values(state.todos), 'timestamp')
 })
 
 export default connect(mapStateToProps)(TodoList)

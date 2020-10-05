@@ -1,19 +1,13 @@
-import util from '../util'
+import {omit, uniqId} from '../util'
+import ACTION_TYPES from './ACTION_TYPES'
 import {reducer as todoReducer} from './todo'
-
-let id = 0
-
-const actionTypes = {
-  CREATE: 'todo-2020/todos/CREATE',
-  REMOVE: 'todo-2020/todos/REMOVE',
-}
 
 const actions = {
   create (text) {
     return {
-      type: actionTypes.CREATE,
+      type: ACTION_TYPES.TODOS_CREATE,
       payload: {
-        id: id++,
+        id: uniqId(),
         text,
         timestamp: Date.now(),
       },
@@ -21,7 +15,7 @@ const actions = {
   },
   remove (id) {
     return {
-      type: actionTypes.REMOVE,
+      type: ACTION_TYPES.TODOS_REMOVE,
       payload: {id},
     }
   },
@@ -29,20 +23,19 @@ const actions = {
 
 const reducer = (state={}, action) => {
   switch (action.type) {
-  case actionTypes.CREATE:
+  case ACTION_TYPES.TODOS_CREATE:
     return {
       ...state,
       [action.payload.id]: todoReducer(undefined, action),
     }
-  case actionTypes.REMOVE:
-    return util.omit(newState, action.payload.id)
+  case ACTION_TYPES.TODOS_REMOVE:
+    return omit(newState, action.payload.id)
   default:
     return state
   }
 }
 
 export {
-  actionTypes,
   actions,
   reducer,
 }
