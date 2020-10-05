@@ -3,6 +3,34 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {createApi} from './api'
 
+/*
+  Styles
+*/
+
+const formStyle = {
+  display: 'flex',
+  marginBottom: '20px',
+  border: '1px solid #000',
+}
+
+const inputStyle = {
+  width: '100%',
+  height: '40px',
+  padding: '0 24px',
+  border: 'none',
+  outline: 'none',
+  fontSize: '14px',
+}
+
+const buttonStyle = {
+  height: '40px',
+  padding: '0 24px',
+  border: 'none',
+  outline: 'none',
+  background: 'none',
+  fontSize: '14px',
+}
+
 function InputField ({onSubmit}) {
 
   /*
@@ -32,14 +60,17 @@ function InputField ({onSubmit}) {
   */
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form style={formStyle} onSubmit={handleSubmit}>
       <input
         type='text'
         placeholder='What needs to be done?'
         autoFocus
         value={text}
+        style={inputStyle}
         onChange={handleChange} />
-      <button type='submit'>Add</button>
+      <button type='submit' style={buttonStyle}>
+        Add
+      </button>
     </form>
   )
 
