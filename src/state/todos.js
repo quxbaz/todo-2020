@@ -19,6 +19,12 @@ const actions = {
       payload: {id},
     }
   },
+  update (id, state) {
+    return {
+      type: ACTION_TYPES.TODOS_UPDATE,
+      payload: {id, state},
+    }
+  },
   toggle (id, isDone) {
     return {
       type: ACTION_TYPES.TODOS_TOGGLE,
@@ -36,6 +42,7 @@ const reducer = (state={}, action) => {
       }
     case ACTION_TYPES.TODOS_REMOVE:
       return omit(state, action.payload.id)
+    case ACTION_TYPES.TODOS_UPDATE:
     case ACTION_TYPES.TODOS_TOGGLE:
       return {
         ...state,

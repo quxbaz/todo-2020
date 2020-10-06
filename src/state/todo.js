@@ -9,6 +9,11 @@ const reducer = (state, action) => {
         isDone: false,
         timestamp: action.payload.timestamp,
       }
+    case ACTION_TYPES.TODOS_UPDATE:
+      return {
+        ...state,
+        ...action.payload.state,
+      }
     case ACTION_TYPES.TODOS_TOGGLE:
       return {
         ...state,
