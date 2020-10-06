@@ -27,6 +27,11 @@ module.exports = {
   },
 
   resolve: {
+    /*
+      Enables absolute imports from the /src directory. Example:
+
+        import {sortBy} from '/util'
+    */
     roots: [
       path.resolve('./src'),
     ],
