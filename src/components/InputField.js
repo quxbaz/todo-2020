@@ -38,7 +38,7 @@ function InputField ({onSubmit}) {
     event.preventDefault()
     if (text === '')
       return
-    onSubmit(text)
+    onSubmit(text.trim())
     setText('')
   }
 
