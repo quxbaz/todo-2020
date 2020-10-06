@@ -49,6 +49,7 @@ function TodoItem ({todo, onToggle, onRemove, onEndEdit}) {
   */
 
   const textStyle = {
+    paddingRight: '8px',
     opacity: todo.isDone && 0.4,
     textDecoration: todo.isDone && 'line-through',
   }
