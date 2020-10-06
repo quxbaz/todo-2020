@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {sortBy, values} from './util'
+import {sortBy, values} from '/util'
 import TodoItem from './TodoItem'
 
 function TodoList ({todos}) {

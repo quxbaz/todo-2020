@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {createApi} from './api'
+import {createApi} from '/api'
+import EditField from './EditField'
 
 const style = {
   display: 'flex',
@@ -27,7 +28,7 @@ function TodoItem ({todo, onToggle, onRemove}) {
     State declarations
   */
 
-  const {isEditing, setIsEditing} = useState(false)
+  const [isEditing, setIsEditing] = useState(false)
 
   /*
     Event handlers
@@ -55,9 +56,12 @@ function TodoItem ({todo, onToggle, onRemove}) {
         style={checkboxStyle}
         onChange={handleToggle} />
       <div style={{width: '100%', paddingRight: '8px'}}>
-        <div style={textStyle} onClick={handleStartEdit}>
-          {todo.text}
-        </div>
+        {isEditing ?
+          <input autoFocus type='text' /> : (
+          <div style={textStyle} onClick={handleStartEdit}>
+            {todo.text}
+          </div>)}
+
       </div>
       <button style={removeButtonStyle} onClick={handleRemove}>
         Remove

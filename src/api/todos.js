@@ -1,4 +1,4 @@
-import {actions as todosActions} from '../state/todos'
+import {actions as todosActions} from '/state/todos'
 
 const createApi = (dispatch) => {
   const api = {

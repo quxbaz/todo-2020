@@ -1,4 +1,4 @@
-import {omit, uniqId} from '../util'
+import {omit, uniqId} from '/util'
 import ACTION_TYPES from './ACTION_TYPES'
 import {reducer as todoReducer} from './todo'
 
