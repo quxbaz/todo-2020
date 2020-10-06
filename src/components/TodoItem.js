@@ -11,6 +11,7 @@ const style = {
 
 const checkboxStyle = {
   position: 'relative',
+  top: '2px',
   left: '-3px',
   width: '24px',
 }
@@ -57,15 +58,16 @@ function TodoItem ({todo, onToggle, onRemove, onEndEdit}) {
       <input
         type='checkbox'
         checked={todo.isDone}
-        style={checkboxStyle}
+        style={{...checkboxStyle, visibility: isEditing ? 'hidden' : 'visible'}}
         onChange={() => onToggle(todo.id, !todo.isDone)} />
-      <div style={{width: '100%', paddingRight: '8px'}}>
+      <div style={{width: '100%'}}>
         {isEditing ? (
           <form onSubmit={handleEndEdit}>
             <input
               autoFocus
               type='text'
               value={editText}
+              style={{fontSize: '14px', width: '100%', padding: '2px 4px'}}
               onChange={(event) => setEditText(event.target.value)} />
           </form>
         ) : (
@@ -74,9 +76,10 @@ function TodoItem ({todo, onToggle, onRemove, onEndEdit}) {
           </div>
         )}
       </div>
-      <button style={removeButtonStyle} onClick={() => onRemove(todo.id)}>
-        Remove
-      </button>
+      {!isEditing && (
+        <button style={removeButtonStyle} onClick={() => onRemove(todo.id)}>
+          Remove
+        </button>)}
     </div>
   )
 
