@@ -5,14 +5,22 @@ import Frame from './Frame'
 import InputField from './InputField'
 import TodoList from './TodoList'
 
+const style = {
+  width: '500px',
+  margin: '0 auto',
+  marginTop: '40px',
+}
+
 function AppComponent ({store}) {
   return (
-    <Provider store={store}>
-      <Frame>
-        <InputField />
-        <TodoList />
-      </Frame>
-    </Provider>
+    <div style={style}>
+      <Provider store={store}>
+        <Frame>
+          <InputField />
+          <TodoList />
+        </Frame>
+      </Provider>
+    </div>
   )
 }
 
