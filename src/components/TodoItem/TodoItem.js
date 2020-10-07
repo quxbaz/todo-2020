@@ -1,26 +1,10 @@
+import css from './index.css'
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {createApi} from '/api'
-
-const style = {
-  display: 'flex',
-  width: '100%',
-  margin: '20px 0',
-}
-
-const checkboxStyle = {
-  position: 'relative',
-  top: '2px',
-  left: '-3px',
-  width: '24px',
-}
-
-const removeButtonStyle = {
-  padding: '2px 6px',
-  height: '27px',
-  maxHeight: '27px',
-}
+import Checkbox from './Checkbox'
+import EditForm from './EditForm'
 
 function TodoItem ({todo, onToggle, onRemove, onEndEdit}) {
 
@@ -55,22 +39,17 @@ function TodoItem ({todo, onToggle, onRemove, onEndEdit}) {
   }
 
   return (
-    <div style={style}>
-      <input
-        type='checkbox'
+    <div className={css.TodoItem}>
+      <Checkbox
         checked={todo.isDone}
-        style={{...checkboxStyle, visibility: isEditing ? 'hidden' : 'visible'}}
+        style={{visibility: isEditing ? 'hidden' : 'visible'}}
         onChange={() => onToggle(todo.id, !todo.isDone)} />
       <div style={{width: '100%'}}>
         {isEditing ? (
-          <form onSubmit={handleEndEdit}>
-            <input
-              autoFocus
-              type='text'
-              value={editText}
-              style={{fontSize: '14px', width: '100%', padding: '2px 4px'}}
-              onChange={(event) => setEditText(event.target.value)} />
-          </form>
+          <EditForm
+            value={editText}
+            onChange={(event) => setEditText(event.target.value)}
+            onSubmit={handleEndEdit} />
         ) : (
           <div style={textStyle} onClick={() => setIsEditing(true)}>
             {todo.text}
@@ -78,7 +57,7 @@ function TodoItem ({todo, onToggle, onRemove, onEndEdit}) {
         )}
       </div>
       {!isEditing && (
-        <button style={removeButtonStyle} onClick={() => onRemove(todo.id)}>
+        <button className={css.RemoveButton} onClick={() => onRemove(todo.id)}>
           Remove
         </button>)}
     </div>
