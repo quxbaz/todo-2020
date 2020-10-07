@@ -1,10 +1,10 @@
-.form {
+.Form {
   display: flex;
   marginBottom: 20px;
   border: 1px solid #000;
 }
 
-.input {
+.Input {
   width: 100%;
   height: 40px;
   padding: 0 24px;

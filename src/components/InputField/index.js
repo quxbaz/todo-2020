@@ -1,4 +1,4 @@
-import style from './index.css'
+import css from './index.css'
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
@@ -33,9 +33,9 @@ function InputField ({onSubmit}) {
   */
 
   return (
-    <form className={style.form} onSubmit={handleSubmit}>
+    <form className={css.Form} onSubmit={handleSubmit}>
       <input
-        className={style.input}
+        className={css.Input}
         type='text'
         placeholder='What needs to be done?'
         autoFocus
