@@ -7,5 +7,5 @@ const app = createApp()
 
 render(
   app.component,
-  document.body
+  document.getElementById('main')
 )
