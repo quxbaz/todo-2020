@@ -21,9 +21,16 @@ module.exports = {
         loader: 'babel-loader',
         query: {
           presets: ['@babel/preset-env', '@babel/preset-react']
-        }
-      }
-    ]
+        },
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader?{"modules": {"localIdentName": "[path][name]__[local]"}}'
+        ]
+      },
+    ],
   },
 
   resolve: {
