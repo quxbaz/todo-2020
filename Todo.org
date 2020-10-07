@@ -2,9 +2,7 @@ Todo
 
 * NOW
   - [ ] Make basic TODO app.
-  - [ ] Switch to css modules.
   - [ ] Make editing more like google keep.
-  - [ ] Remove styled-components.
 
 * Learn
   - [ ] GraphQL.
