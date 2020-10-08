@@ -7,7 +7,9 @@ import Switch from './Switch'
 import Button from './Button'
 
 /*
-  ::TODO:: Hover state on <Switch>
+  ::TODO::
+  - Hover state on <Switch>
+  - Highlight the active line.
 */
 
 const TodoItem = ({todo, onToggle, onRemove, onChange}) => {
@@ -25,7 +27,7 @@ const TodoItem = ({todo, onToggle, onRemove, onChange}) => {
           value={todo.text}
           className={css.Input}
           style={{
-            opacity: todo.isDone ? 0.4 : 1,
+            opacity: todo.isDone ? 0.3 : 1,
             textDecoration: todo.isDone ? 'line-through' : 'none',
           }}
           onChange={event => onChange(todo.id, event.target.value)}

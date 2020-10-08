@@ -2,4 +2,5 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background: hsl(200, 82%, 70%);
 }

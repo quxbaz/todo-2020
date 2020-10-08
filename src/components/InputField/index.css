@@ -10,5 +10,10 @@
   padding: 0 24px;
   border: none;
   outline: none;
-  fontSize: 14px;
+  text-align: center;
+}
+
+.Input::placeholder {
+  color: #000;
+  opacity: 0.5;
 }
