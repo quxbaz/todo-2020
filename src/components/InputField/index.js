@@ -37,7 +37,7 @@ function InputField ({onSubmit}) {
       <input
         className={css.Input}
         type='text'
-        placeholder='What needs to be done?'
+        placeholder='Write your note here.'
         autoFocus
         value={text}
         onChange={handleChange} />

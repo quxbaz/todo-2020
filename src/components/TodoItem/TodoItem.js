@@ -3,7 +3,12 @@ import React, {useState, useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {createApi} from '/api'
-import Checkbox from './Checkbox'
+import Switch from './Switch'
+import Button from './Button'
+
+/*
+  ::TODO:: Hover state on <Switch>
+*/
 
 const TodoItem = ({todo, onToggle, onRemove, onChange}) => {
   const handleKeyDown = (event) => {
@@ -12,9 +17,9 @@ const TodoItem = ({todo, onToggle, onRemove, onChange}) => {
   }
   return (
     <div className={css.TodoItem}>
-      <Checkbox
-        checked={todo.isDone}
-        onChange={() => onToggle(todo.id, !todo.isDone)} />
+      <Switch
+        isOn={todo.isDone}
+        onClick={() => onToggle(todo.id, !todo.isDone)} />
       <div style={{width: '100%'}}>
         <input
           value={todo.text}
@@ -26,9 +31,9 @@ const TodoItem = ({todo, onToggle, onRemove, onChange}) => {
           onChange={event => onChange(todo.id, event.target.value)}
           onKeyDown={handleKeyDown} />
       </div>
-      <button className={css.RemoveButton} onClick={() => onRemove(todo.id)}>
-        Remove
-      </button>
+      <Button className={css.RemoveButton} onClick={() => onRemove(todo.id)}>
+        🗑
+      </Button>
     </div>
   )
 }
