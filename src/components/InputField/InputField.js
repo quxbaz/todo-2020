@@ -15,7 +15,7 @@ function InputField ({onSubmit}) {
   /*
     Event handlers
   */
-order
+
   const handleSubmit = (event) => {
     event.preventDefault()
     if (text === '')
