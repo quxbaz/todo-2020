@@ -2,6 +2,7 @@ import css from './style.css'
 import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import classNames from 'classnames'
 import {values, sortBy, last, getState} from '/util'
 import {createApi} from '/api'
 import Switch from './Switch'
@@ -25,6 +26,7 @@ const TodoItem = ({todo, onToggle, onRemove, onChange, onEnterKey}) => {
       onRemove(todo.id)
     }
   }
+
   return (
     <div ref={ref} className={css.TodoItem}>
       <Switch
@@ -32,12 +34,8 @@ const TodoItem = ({todo, onToggle, onRemove, onChange, onEnterKey}) => {
         onClick={() => onToggle(todo.id, !todo.isDone)} />
       <div style={{width: '100%'}}>
         <input
+          className={classNames(css.Input, {[css.isDone]: todo.isDone})}
           value={todo.text}
-          className={css.Input}
-          style={{
-            opacity: todo.isDone ? 0.3 : 1,
-            textDecoration: todo.isDone ? 'line-through' : 'none',
-          }}
           onChange={event => onChange(todo.id, event.target.value)}
           onKeyDown={handleKeyDown} />
       </div>

@@ -49,3 +49,8 @@
   background: #fff;
   transition: opacity 100ms linear;
 }
+
+.Input.isDone {
+  opacity: 0.3;
+  text-decoration: line-through;
+}
