@@ -1,8 +1,11 @@
 Todo
 
 * NOW
+  - [ ] Hover state on <Switch>
+  - [ ] Highlight the active line.
   - [ ] Make basic TODO app.
   - [ ] Make editing more like google keep.
+  - [ ] Handle Enter key to add new items..
 
 * Learn
   - [ ] GraphQL.

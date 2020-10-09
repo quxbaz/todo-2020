@@ -6,12 +6,6 @@ import {createApi} from '/api'
 import Switch from './Switch'
 import Button from './Button'
 
-/*
-  ::TODO::
-  - Hover state on <Switch>
-  - Highlight the active line.
-*/
-
 const TodoItem = ({todo, onToggle, onRemove, onChange}) => {
   const handleKeyDown = (event) => {
     if (todo.text === '' && event.keyCode === 8)
