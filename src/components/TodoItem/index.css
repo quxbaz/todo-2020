@@ -47,6 +47,5 @@
   border: none;
   border-radius: 2px;
   background: #fff;
-  box-shadow: inset 0px 2px 3px 1px hsla(230, 8%, 81%, 0.7);
   transition: opacity 100ms linear;
 }
