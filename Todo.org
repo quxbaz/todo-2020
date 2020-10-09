@@ -5,7 +5,6 @@ Todo
   - [ ] Highlight the active line.
   - [ ] Make basic TODO app.
   - [ ] Make editing more like google keep.
-  - [ ] Handle Enter key to add new items.
   - [ ] On enter key, split text if cursor is in middle of text.
 
 * Learn

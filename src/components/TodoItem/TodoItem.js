@@ -1,5 +1,5 @@
 import css from './style.css'
-import React, {useRef} from 'react'
+import React, {useState, useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
@@ -8,8 +8,28 @@ import Switch from './Switch'
 import Button from './Button'
 
 const TodoItem = ({todo, onToggle, onRemove, onChange, onEnterKey}) => {
+
   const ref = useRef()
+  const input = useRef()
+
+  const [caretPos, setCaretPos] = useState(0)
+
+  const handleFocus = () => {
+    // Restore the caret position.
+    requestAnimationFrame(() => {
+      input.current.setSelectionRange(caretPos, caretPos)
+    })
+  }
+
+  const saveCaretPosition = () => {
+    if (input.current.selectionDirection === 'forward')
+      setCaretPos(input.current.selectionEnd)
+    else
+      setCaretPos(input.current.selectionStart)
+  }
+
   const handleKeyDown = (event) => {
+    saveCaretPosition()
     if (event.keyCode === 13 /* ENTER */) {
       onEnterKey(todo.id)
       setTimeout(() => {
@@ -41,8 +61,10 @@ const TodoItem = ({todo, onToggle, onRemove, onChange, onEnterKey}) => {
         onClick={() => onToggle(todo.id, !todo.isDone)} />
       <div style={{width: '100%'}}>
         <input
+          ref={input}
           className={classNames(css.Input, {[css.isDone]: todo.isDone})}
           value={todo.text}
+          onFocus={handleFocus}
           onChange={event => onChange(todo.id, event.target.value)}
           onKeyDown={handleKeyDown} />
       </div>
@@ -51,6 +73,7 @@ const TodoItem = ({todo, onToggle, onRemove, onChange, onEnterKey}) => {
       </Button>
     </div>
   )
+
 }
 
 TodoItem.propTypes = {
