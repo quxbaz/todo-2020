@@ -7,7 +7,12 @@ Todo
   - [ ] Make editing more like google keep.
   - [ ] On enter key, split text if cursor is in middle of text.
   - [ ] On backspace, if text still exists and caret is in
-    pos 0. Merge text with previous item.
+    [pos 0]. Merge text with previous item.
+  - [ ] If at [pos 0] and left arrow, move to previous item at last
+    position.
+  - [ ] To simplify things, maybe pass in focusNext, focusPrev props
+    in item. focusNext(START | END | DEFAULT). Move navigation code to
+    list.
 
 * Learn
   - [ ] GraphQL.
