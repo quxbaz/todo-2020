@@ -35,6 +35,7 @@ function InputField ({onSubmit}) {
   return (
     <form className={css.Form} onSubmit={handleSubmit}>
       <input
+        id='MainTextInput'
         className={css.Input}
         type='text'
         placeholder='Write your note here.'

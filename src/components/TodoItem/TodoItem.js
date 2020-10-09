@@ -1,5 +1,5 @@
 import css from './index.css'
-import React, {useState, useRef} from 'react'
+import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {createApi} from '/api'
@@ -7,12 +7,20 @@ import Switch from './Switch'
 import Button from './Button'
 
 const TodoItem = ({todo, onToggle, onRemove, onChange}) => {
+  const ref = useRef()
   const handleKeyDown = (event) => {
-    if (todo.text === '' && event.keyCode === 8)
+    if (todo.text === '' && event.keyCode === 8) {
+      event.preventDefault()
+      const {previousSibling} = ref.current
+      if (previousSibling)
+        previousSibling.querySelector('input').focus()
+      else
+        document.getElementById('MainTextInput').focus()
       onRemove(todo.id)
+    }
   }
   return (
-    <div className={css.TodoItem}>
+    <div ref={ref} className={css.TodoItem}>
       <Switch
         isOn={todo.isDone}
         onClick={() => onToggle(todo.id, !todo.isDone)} />
