@@ -2,11 +2,6 @@ import {omit, uniqId} from '/util'
 import ACTION_TYPES from './ACTION_TYPES'
 import {reducer as todoReducer} from './todo'
 
-const nextOrder = (() => {
-  let order = 0
-  return () => order++
-})()
-
 const actions = {
   create (props={}) {
     return {
@@ -14,8 +9,11 @@ const actions = {
       payload: {
         id: uniqId(),
         text: props.text || '',
-        order: props.order || nextOrder(),
         timestamp: Date.now(),
+
+        // A todo 'id' that is only used for initial insertion. One
+        // time use only. Afterwards, this is unreliable.
+        insertAfter: props.insertAfter,
       },
     }
   },

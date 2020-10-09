@@ -3,7 +3,6 @@ import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
-import {values, sortBy, last, getState} from '/util'
 import {createApi} from '/api'
 import Switch from './Switch'
 import Button from './Button'
@@ -12,7 +11,7 @@ const TodoItem = ({todo, onToggle, onRemove, onChange, onEnterKey}) => {
   const ref = useRef()
   const handleKeyDown = (event) => {
     if (event.keyCode === 13) {
-      onEnterKey(todo.id, todo.order)
+      onEnterKey(todo.id)
       setTimeout(() => {
         ref.current.nextSibling.querySelector('input').focus()
       }, 0)
@@ -66,16 +65,8 @@ const mapDispatchToProps = (dispatch) => {
     onChange (id, text) {
       api.todos.update(id, {text})
     },
-    onEnterKey (id, order) {
-      let state = getState(dispatch)
-      const todos = sortBy(values(state.todos), 'order')
-      if (id === last(todos).id) {
-        api.todos.create()
-      } else {
-        const next = todos.find(t => t.order > order)
-        const midpoint = (order + next.order) / 2
-        api.todos.create({order: midpoint})
-      }
+    onEnterKey (id) {
+      api.todos.create({insertAfter: id})
     }
   }
 }

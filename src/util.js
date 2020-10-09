@@ -39,6 +39,16 @@ const getState = (dispatch) => {
 
 const last = (list) => list[list.length - 1]
 
+const without = (array, ...values) => {
+  const result = array.filter(
+    (item) => !values.includes(item)
+  )
+  if (array.length === result.length)
+    return array
+  else
+    return result
+}
+
 export {
   omit,
   sortBy,
@@ -46,4 +56,5 @@ export {
   values,
   getState,
   last,
+  without,
 }

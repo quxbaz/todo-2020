@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {sortBy, values} from '/util'
+import {values} from '/util'
 import TodoItem from './TodoItem'
 
 const TodoList = ({todos}) => {
@@ -19,7 +19,7 @@ TodoList.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  todos: sortBy(values(state.todos), 'order'),
+  todos: state.order.map(id => state.todos[id]),
 })
 
 export default connect(mapStateToProps, null)(TodoList)

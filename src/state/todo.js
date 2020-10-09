@@ -6,7 +6,6 @@ const reducer = (state, action) => {
       return {
         id: action.payload.id,
         text: action.payload.text,
-        order: action.payload.order,
         isDone: false,
         timestamp: action.payload.timestamp,
       }
