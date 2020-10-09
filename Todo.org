@@ -6,6 +6,8 @@ Todo
   - [ ] Make basic TODO app.
   - [ ] Make editing more like google keep.
   - [ ] On enter key, split text if cursor is in middle of text.
+  - [ ] On backspace, if text still exists and caret is in
+    pos 0. Merge text with previous item.
 
 * Learn
   - [ ] GraphQL.

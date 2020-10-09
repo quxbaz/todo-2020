@@ -13,13 +13,7 @@ const TodoItem = ({todo, onToggle, onRemove, onChange, onEnterKey}) => {
   const input = useRef()
 
   const [caretPos, setCaretPos] = useState(0)
-
-  const handleFocus = () => {
-    // Restore the caret position.
-    requestAnimationFrame(() => {
-      input.current.setSelectionRange(caretPos, caretPos)
-    })
-  }
+  const [wasClicked, setWasClicked] = useState(false)
 
   const saveCaretPosition = () => {
     if (input.current.selectionDirection === 'forward')
@@ -28,8 +22,28 @@ const TodoItem = ({todo, onToggle, onRemove, onChange, onEnterKey}) => {
       setCaretPos(input.current.selectionStart)
   }
 
+  // Restore the caret position on keyboard focus.
+  const handleFocus = () => {
+    if (wasClicked)
+      return
+    requestAnimationFrame(() => {
+      input.current.setSelectionRange(caretPos, caretPos)
+    })
+  }
+
+  const handleMouseDown = () => {
+    // Allows the cursor to set the caret position instead of
+    // restoring the caret position during keyboard navigation.
+    setWasClicked(true)
+
+    requestAnimationFrame(() => {
+      saveCaretPosition()
+      setWasClicked(false)
+    })
+  }
+
   const handleKeyDown = (event) => {
-    saveCaretPosition()
+    requestAnimationFrame(saveCaretPosition)
     if (event.keyCode === 13 /* ENTER */) {
       onEnterKey(todo.id)
       setTimeout(() => {
@@ -51,6 +65,8 @@ const TodoItem = ({todo, onToggle, onRemove, onChange, onEnterKey}) => {
       else
         document.getElementById('MainTextInput').focus()
       onRemove(todo.id)
+    } else if (caretPos === 0 && todo.text.length > 1 && event.keyCode === 8 /*BACKSPACE*/) {
+      console.log('merge')
     }
   }
 
@@ -65,6 +81,7 @@ const TodoItem = ({todo, onToggle, onRemove, onChange, onEnterKey}) => {
           className={classNames(css.Input, {[css.isDone]: todo.isDone})}
           value={todo.text}
           onFocus={handleFocus}
+          onMouseDown={handleMouseDown}
           onChange={event => onChange(todo.id, event.target.value)}
           onKeyDown={handleKeyDown} />
       </div>
