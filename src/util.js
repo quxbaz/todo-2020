@@ -31,9 +31,16 @@ function values (obj) {
   return Object.keys(obj).map(k => obj[k])
 }
 
+const getState = (dispatch) => {
+  let state = null
+  dispatch((d, getState) => state = getState())
+  return state
+}
+
 export {
   omit,
   sortBy,
   uniqId,
   values,
+  getState,
 }
