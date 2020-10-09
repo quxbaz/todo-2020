@@ -2,13 +2,19 @@ import {omit, uniqId} from '/util'
 import ACTION_TYPES from './ACTION_TYPES'
 import {reducer as todoReducer} from './todo'
 
+const nextOrder = (() => {
+  let order = 0
+  return () => order++
+})()
+
 const actions = {
-  create (text) {
+  create ({text, order}) {
     return {
       type: ACTION_TYPES.TODOS_CREATE,
       payload: {
         id: uniqId(),
         text,
+        order: order || nextOrder(),
         timestamp: Date.now(),
       },
     }

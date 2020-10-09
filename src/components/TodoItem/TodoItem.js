@@ -6,10 +6,12 @@ import {createApi} from '/api'
 import Switch from './Switch'
 import Button from './Button'
 
-const TodoItem = ({todo, onToggle, onRemove, onChange}) => {
+const TodoItem = ({todo, onToggle, onRemove, onChange, onEnterKey}) => {
   const ref = useRef()
   const handleKeyDown = (event) => {
-    if (todo.text === '' && event.keyCode === 8) {
+    if (event.keyCode === 13) {
+      onEnterKey(todo.id)
+    } else if (todo.text === '' && event.keyCode === 8) {
       event.preventDefault()
       const {previousSibling} = ref.current
       if (previousSibling)
@@ -47,6 +49,7 @@ TodoItem.propTypes = {
   onToggle: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
+  onEnterKey: PropTypes.func.isRequired,
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -61,6 +64,10 @@ const mapDispatchToProps = (dispatch) => {
     onChange (id, text) {
       api.todos.update(id, {text})
     },
+    onEnterKey (id) {
+      // api.todos.create('')
+      // console.log('enter')
+    }
   }
 }
 

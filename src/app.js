@@ -12,12 +12,12 @@ function createApp () {
 
   const api = createApi(store.dispatch)
 
-  const todo0 = api.todos.create('zero')
-  const todo1 = api.todos.create('one')
-  const todo2 = api.todos.create('two')
-  const todo3 = api.todos.create('three')
-  const todo4 = api.todos.create('four')
-  const todo5 = api.todos.create('five')
+  const todo0 = api.todos.create({text: 'zero'})
+  const todo1 = api.todos.create({text: 'one'})
+  const todo2 = api.todos.create({text: 'two'})
+  const todo3 = api.todos.create({text: 'three'})
+  const todo4 = api.todos.create({text: 'four'})
+  const todo5 = api.todos.create({text: 'five'})
 
   api.todos.toggle(todo1, true)
   api.todos.toggle(todo3, true)
