@@ -6,6 +6,13 @@ Todo
   - [ ] Make basic TODO app.
   - [ ] Make editing more like google keep.
   - [ ] Handle Enter key to add new items.
+  - [ ] Handle up/down keys.
+  - [ ] On enter key, split text if cursor is in middle of text.
+
+* BUGS
+  - [ ] Re-sort orders because eventually the 2.999999999999 numbers
+    will resolve to integers and mess up ordering.
+  - [ ] Or, just store a list of [ids] in sorted order.
 
 * Learn
   - [ ] GraphQL.

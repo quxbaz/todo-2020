@@ -8,13 +8,13 @@ const nextOrder = (() => {
 })()
 
 const actions = {
-  create ({text, order}) {
+  create (props={}) {
     return {
       type: ACTION_TYPES.TODOS_CREATE,
       payload: {
         id: uniqId(),
-        text,
-        order: order || nextOrder(),
+        text: props.text || '',
+        order: props.order || nextOrder(),
         timestamp: Date.now(),
       },
     }
