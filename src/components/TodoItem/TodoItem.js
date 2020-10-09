@@ -12,10 +12,12 @@ const TodoItem = ({todo, onToggle, onRemove, onChange, onEnterKey}) => {
   const ref = useRef()
   const input = useRef()
 
-  const [caretPos, setCaretPos] = useState(0)
+  const [caretPos, setCaretPos] = useState(todo.text.length)
   const [wasClicked, setWasClicked] = useState(false)
 
   const saveCaretPosition = () => {
+    if (input.current == null)
+      return
     if (input.current.selectionDirection === 'forward')
       setCaretPos(input.current.selectionEnd)
     else
@@ -65,8 +67,9 @@ const TodoItem = ({todo, onToggle, onRemove, onChange, onEnterKey}) => {
       else
         document.getElementById('MainTextInput').focus()
       onRemove(todo.id)
-    } else if (caretPos === 0 && todo.text.length > 1 && event.keyCode === 8 /*BACKSPACE*/) {
-      console.log('merge')
+    } else if (caretPos === 0 && todo.text.length > 0 && event.keyCode === 8 /*BACKSPACE*/) {
+      // Merge the previous line with current line.
+      console.log('MERGE')
     }
   }
 
