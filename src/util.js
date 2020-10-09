@@ -37,10 +37,13 @@ const getState = (dispatch) => {
   return state
 }
 
+const last = (list) => list[list.length - 1]
+
 export {
   omit,
   sortBy,
   uniqId,
   values,
   getState,
+  last,
 }
