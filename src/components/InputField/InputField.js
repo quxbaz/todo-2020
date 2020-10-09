@@ -1,4 +1,4 @@
-import css from './index.css'
+import css from './style.css'
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
@@ -15,7 +15,7 @@ function InputField ({onSubmit}) {
   /*
     Event handlers
   */
-
+order
   const handleSubmit = (event) => {
     event.preventDefault()
     if (text === '')

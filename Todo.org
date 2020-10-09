@@ -6,7 +6,6 @@ Todo
   - [ ] Make basic TODO app.
   - [ ] Make editing more like google keep.
   - [ ] Handle Enter key to add new items.
-  - [ ] Rename index.css -> style.css
 
 * Learn
   - [ ] GraphQL.
