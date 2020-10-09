@@ -10,16 +10,24 @@ import Button from './Button'
 const TodoItem = ({todo, onToggle, onRemove, onChange, onEnterKey}) => {
   const ref = useRef()
   const handleKeyDown = (event) => {
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13 /* ENTER */) {
       onEnterKey(todo.id)
       setTimeout(() => {
         ref.current.nextSibling.querySelector('input').focus()
       }, 0)
-    } else if (todo.text === '' && event.keyCode === 8) {
+    } else if (event.keyCode === 38 /* UP ARROW */) {
+      const prev = ref.current.previousSibling
+      if (prev)
+        prev.querySelector('input').focus()
+    } else if (event.keyCode === 40 /* DOWN ARROW */) {
+      const next = ref.current.nextSibling
+      if (next)
+        next.querySelector('input').focus()
+    } else if (todo.text === '' && event.keyCode === 8 /* BACKSPACE */) {
       event.preventDefault()
-      const {previousSibling} = ref.current
-      if (previousSibling)
-        previousSibling.querySelector('input').focus()
+      const prev = ref.current.previousSibling
+      if (prev)
+        prev.querySelector('input').focus()
       else
         document.getElementById('MainTextInput').focus()
       onRemove(todo.id)
