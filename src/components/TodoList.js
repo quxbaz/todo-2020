@@ -5,7 +5,7 @@ import {values} from '/util'
 import {createApi} from '/api'
 import TodoItem from './TodoItem'
 
-const TodoList = ({todos}) => {
+const TodoList = ({list, todos}) => {
 
   const ref = useRef()
 
@@ -50,6 +50,7 @@ const TodoList = ({todos}) => {
 }
 
 TodoList.propTypes = {
+  list: PropTypes.object.isRequired,
   todos: PropTypes.array.isRequired,
 }
 

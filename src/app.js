@@ -14,6 +14,7 @@ function createApp () {
 
   const list0 = api.lists.create({title: 'list-0'})
   const list1 = api.lists.create({title: 'list-1'})
+  api.workspace.setActiveList(list0)
 
   // const todo0 = api.todos.create({text: 'zero'})
   // const todo1 = api.todos.create({text: 'one'})
