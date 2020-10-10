@@ -40,6 +40,7 @@ function InputField ({onSubmit}) {
         type='text'
         placeholder='Write your note here.'
         autoFocus
+        autoComplete='off'
         value={text}
         onChange={handleChange} />
     </form>
