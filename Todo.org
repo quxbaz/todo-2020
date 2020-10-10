@@ -1,17 +1,10 @@
 Todo
 
 * NOW
-  - [ ] Hover state on <Switch>
-  - [ ] Highlight the active line.
   - [ ] Make basic TODO app.
-  - [ ] Make editing more like google keep.
-  - [ ] Backspace to delete if text is empty.
+  - [ ] Hover state on <Switch>
   - [ ] On backspace, if text still exists and caret is in
     [pos 0]. Merge text with previous item.
-  - [ ] If at [pos 0] and left arrow, move to previous item at last
-    position.
-  - [ ] If at [pos end] and right arrow, move to nextitem at start
-    position.
   - [ ] Title field.
   - [ ] Remove InputField at some point and make last item
     undeletable.
