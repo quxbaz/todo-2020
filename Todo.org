@@ -11,7 +11,7 @@ Todo
     position.
   - [ ] On ENTER key, split text if caret is in middle of text.
   - [ ] On ENTER key, prepend todo if caret is at start.
-
+  - [ ] Focus on mount if todo item is the last created item.
 
 * Learn
   - [ ] GraphQL.

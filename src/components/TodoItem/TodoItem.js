@@ -18,15 +18,7 @@ const TodoItem = ({todo, onToggle, onRemove, onChange, onKeyDown, onSubmit}) => 
       : input.selectionStart
     onKeyDown(event, todo.id, pos)
     if (event.keyCode === 13)
-      handleSubmit(event)
-  }
-
-  function handleSubmit (event) {
-    onSubmit(todo.id)
-    // Wait until the dom node is created and attached.
-    requestAnimationFrame(() => {
-      ref.current.nextSibling.querySelector('input').focus()
-    })
+      handleSubmit(event, pos)
   }
 
   return (
