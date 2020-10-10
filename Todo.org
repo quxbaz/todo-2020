@@ -13,8 +13,6 @@ Todo
     position.
   - [ ] on ENTER key. If caret is at 0, do not focus on new item. Stay
     cursor on current item.
-  - [ ] On ENTER key, split text if caret is in middle of text.
-  - [ ] On ENTER key, prepend todo if caret is at start.
 
 * Learn
   - [ ] GraphQL.
