@@ -20,10 +20,12 @@ const TodoItem = ({
       ref.current.querySelector('input').focus()
   }, [])
 
-  function withPrevInput (fn) {
+  function withPrevInput (fn, alt) {
     const prev = ref.current.previousSibling
     if (prev)
       fn(prev.querySelector('input'), prev)
+    else
+      alt()
   }
 
   function withNextInput (fn) {
@@ -44,7 +46,12 @@ const TodoItem = ({
       else onEnterAtPos(todo.id, todo.text, pos)
     } else if (event.keyCode === 8 /* BACKSPACE */) {
       if (todo.text === '') {
-        // ::TODO:: Focus on previous element
+        withPrevInput(prev => {
+          event.preventDefault()
+          prev.focus()
+        }, () => {
+          document.getElementById('InputField').focus()
+        })
         onRemove(todo.id)
       }
     } else if (event.keyCode === 37 /* LEFT */ && pos === 0) {
