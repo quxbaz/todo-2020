@@ -11,8 +11,6 @@ Todo
     position.
   - [ ] If at [pos end] and right arrow, move to nextitem at start
     position.
-  - [ ] on ENTER key. If caret is at 0, do not focus on new item. Stay
-    cursor on current item.
 
 * Learn
   - [ ] GraphQL.

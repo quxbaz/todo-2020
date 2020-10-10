@@ -22,6 +22,10 @@ const actions = {
 
         // INPUT_FIELD | TODO_ITEM
         createdBy: props.createdBy,
+
+        // If the todo was created by pressing the ENTER key at caret
+        // position 0. If so, do not focus at mount.
+        wasCreatedAtStartPos: props.wasCreatedAtStartPos || false,
       },
     }
   },

@@ -16,7 +16,7 @@ const TodoItem = ({
   const ref = useRef()
 
   useEffect(() => {
-    if (isLastCreated && todo.createdBy === 'TODO_ITEM')
+    if (isLastCreated && todo.createdBy === 'TODO_ITEM' && !todo.wasCreatedAtStartPos)
       ref.current.querySelector('input').focus()
   }, [])
 
@@ -85,7 +85,12 @@ const mapDispatchToProps = (dispatch) => {
       api.todos.create({text: '', insertAfter: id, createdBy: 'TODO_ITEM'})
     },
     onEnterAtStart (id) {
-      api.todos.create({text: '', insertBefore: id, createdBy: 'TODO_ITEM'})
+      api.todos.create({
+        text: '',
+        insertBefore: id,
+        createdBy: 'TODO_ITEM',
+        wasCreatedAtStartPos: true,
+      })
     },
     onEnterAtPos (id, text, pos) {
       api.todos.update(id, {text: text.slice(0, pos)})
