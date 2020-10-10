@@ -9,7 +9,9 @@ import Button from './Button'
 
 const TodoItem = ({
   todo, isLastCreated,
-  onToggle, onRemove, onChange, onKeyDown, onSubmit}) => {
+  onToggle, onRemove, onChange, onKeyDown,
+  onEnterAtEnd, onEnterAtStart, onEnterAtPos,
+}) => {
 
   const ref = useRef()
 
@@ -24,8 +26,11 @@ const TodoItem = ({
       ? input.selectionEnd
       : input.selectionStart
     onKeyDown(event, todo.id, pos)
-    if (event.keyCode === 13)
-      onSubmit(todo.id)
+    if (event.keyCode === 13) {
+      if (pos === input.value.length) onEnterAtEnd(todo.id)
+      else if (pos === 0) onEnterAtStart(todo.id)
+      else onEnterAtPos(todo.id, todo.text, pos)
+    }
   }
 
   return (
@@ -55,7 +60,9 @@ TodoItem.propTypes = {
   onRemove: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onKeyDown: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  onEnterAtEnd: PropTypes.func.isRequired,
+  onEnterAtStart: PropTypes.func.isRequired,
+  onEnterAtPos: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state, {todo}) => ({
@@ -74,8 +81,19 @@ const mapDispatchToProps = (dispatch) => {
     onChange (id, text) {
       api.todos.update(id, {text})
     },
-    onSubmit (id) {
+    onEnterAtEnd (id) {
       api.todos.create({text: '', insertAfter: id, createdBy: 'TODO_ITEM'})
+    },
+    onEnterAtStart (id) {
+      api.todos.create({text: '', insertBefore: id, createdBy: 'TODO_ITEM'})
+    },
+    onEnterAtPos (id, text, pos) {
+      api.todos.update(id, {text: text.slice(0, pos)})
+      api.todos.create({
+        text: text.slice(pos),
+        insertAfter: id,
+        createdBy: 'TODO_ITEM',
+      })
     },
   }
 }
