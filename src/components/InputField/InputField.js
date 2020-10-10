@@ -53,7 +53,7 @@ InputField.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   onSubmit (text) {
-    createApi(dispatch).todos.create({text})
+    createApi(dispatch).todos.create({text, createdBy: 'INPUT_FIELD'})
   },
 })
 

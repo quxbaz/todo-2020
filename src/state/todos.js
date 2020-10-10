@@ -14,6 +14,9 @@ const actions = {
         // A todo 'id' that is only used for initial insertion. One
         // time use only. Afterwards, this is unreliable.
         insertAfter: props.insertAfter,
+
+        // INPUT_FIELD | TODO_ITEM
+        createdBy: props.createdBy,
       },
     }
   },

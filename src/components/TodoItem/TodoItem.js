@@ -1,5 +1,5 @@
 import css from './style.css'
-import React, {useRef} from 'react'
+import React, {useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
@@ -7,9 +7,16 @@ import {createApi} from '/api'
 import Switch from './Switch'
 import Button from './Button'
 
-const TodoItem = ({todo, onToggle, onRemove, onChange, onKeyDown, onSubmit}) => {
+const TodoItem = ({
+  todo, isLastCreated,
+  onToggle, onRemove, onChange, onKeyDown, onSubmit}) => {
 
   const ref = useRef()
+
+  useEffect(() => {
+    if (isLastCreated && todo.createdBy === 'TODO_ITEM')
+      ref.current.querySelector('input').focus()
+  }, [])
 
   function handleKeyDown (event) {
     const input = ref.current.querySelector('input')
@@ -18,7 +25,7 @@ const TodoItem = ({todo, onToggle, onRemove, onChange, onKeyDown, onSubmit}) => 
       : input.selectionStart
     onKeyDown(event, todo.id, pos)
     if (event.keyCode === 13)
-      handleSubmit(event, pos)
+      onSubmit(todo.id)
   }
 
   return (
@@ -43,12 +50,17 @@ const TodoItem = ({todo, onToggle, onRemove, onChange, onKeyDown, onSubmit}) => 
 
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
+  isLastCreated: PropTypes.bool.isRequired,
   onToggle: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onKeyDown: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
 }
+
+const mapStateToProps = (state, {todo}) => ({
+  isLastCreated: todo.id === state.meta.recent,
+})
 
 const mapDispatchToProps = (dispatch) => {
   const api = createApi(dispatch)
@@ -63,9 +75,9 @@ const mapDispatchToProps = (dispatch) => {
       api.todos.update(id, {text})
     },
     onSubmit (id) {
-      api.todos.create({text: '', insertAfter: id})
+      api.todos.create({text: '', insertAfter: id, createdBy: 'TODO_ITEM'})
     },
   }
 }
 
-export default connect(null, mapDispatchToProps)(TodoItem)
+export default connect(mapStateToProps, mapDispatchToProps)(TodoItem)

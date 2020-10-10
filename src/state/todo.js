@@ -8,6 +8,7 @@ const reducer = (state, action) => {
         text: action.payload.text,
         isDone: false,
         timestamp: action.payload.timestamp,
+        createdBy: action.payload.createdBy,
       }
     case ACTION_TYPES.TODOS_UPDATE:
       return {
