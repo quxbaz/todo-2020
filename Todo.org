@@ -5,6 +5,7 @@ Todo
   - [ ] Highlight the active line.
   - [ ] Make basic TODO app.
   - [ ] Make editing more like google keep.
+  - [ ] Backspace to delete if text is empty.
   - [ ] On backspace, if text still exists and caret is in
     [pos 0]. Merge text with previous item.
   - [ ] If at [pos 0] and left arrow, move to previous item at last

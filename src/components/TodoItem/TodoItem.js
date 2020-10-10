@@ -26,10 +26,28 @@ const TodoItem = ({
       ? input.selectionEnd
       : input.selectionStart
     onKeyDown(event, todo.id, pos)
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13 /* ENTER */) {
       if (pos === input.value.length) onEnterAtEnd(todo.id)
       else if (pos === 0) onEnterAtStart(todo.id)
       else onEnterAtPos(todo.id, todo.text, pos)
+    } else if (event.keyCode === 37 /* LEFT */ && pos === 0) {
+      const prev = ref.current.previousSibling
+      if (prev) {
+        event.preventDefault()
+        const prevInput = prev.querySelector('input')
+        const pos = prevInput.value.length
+        prevInput.focus()
+        prevInput.setSelectionRange(pos, pos)
+      }
+    } else if (event.keyCode === 39 /* RIGHT */ && pos === input.value.length) {
+      const next = ref.current.nextSibling
+      if (next) {
+        event.preventDefault()
+        const nextInput = next.querySelector('input')
+        const pos = nextInput.value.length
+        nextInput.focus()
+        nextInput.setSelectionRange(0, 0)
+      }
     }
   }
 

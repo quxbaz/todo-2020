@@ -31,14 +31,14 @@ const TodoList = ({todos}) => {
 
   }
 
-  function handleBackspaceKey () {
-    event.preventDefault()
-    const prev = ref.current.previousSibling
-    if (prev)
-      prev.querySelector('input').focus()
-    else
-      document.getElementById('MainTextInput').focus()
-  }
+  // function handleBackspaceKey () {
+  //   event.preventDefault()
+  //   const prev = ref.current.previousSibling
+  //   if (prev)
+  //     prev.querySelector('input').focus()
+  //   else
+  //     document.getElementById('MainTextInput').focus()
+  // }
 
   function mergeTodos () {
     console.log('MERGE')
