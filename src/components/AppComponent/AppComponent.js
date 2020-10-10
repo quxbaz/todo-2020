@@ -2,17 +2,16 @@ import css from './style.css'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Provider} from 'react-redux'
-import Frame from '/components/Frame'
+import Sidebar from '/components/Sidebar'
 import InputField from '/components/InputField'
 import TodoList from '/components/TodoList'
 
 const AppComponent = ({store}) => (
   <div className={css.AppComponent}>
     <Provider store={store}>
-      <Frame>
-        <InputField />
-        <TodoList />
-      </Frame>
+      <Sidebar />
+      <InputField />
+      <TodoList />
     </Provider>
   </div>
 )

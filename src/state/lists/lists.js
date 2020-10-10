@@ -12,6 +12,8 @@ const lists = (state={}, action) => {
   }
   //
 
+  const {id} = action.payload
+
   switch (action.type) {
     case ACTION_TYPES.LISTS__CREATE:
       return {
@@ -24,4 +26,4 @@ const lists = (state={}, action) => {
 
 }
 
-export default list
+export default lists

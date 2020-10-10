@@ -3,12 +3,12 @@ const ACTION_TYPES = {
   /*
     workspace namespace
   */
-  workspace__set_active_list: 'todo-2020/workspace/SET_ACTIVE_LIST',
+  WORKSPACE__SET_ACTIVE_LIST: 'todo-2020/workspace/SET_ACTIVE_LIST',
 
   /*
     lists namespace
   */
-  lists__create: 'todo-2020/lists/CREATE',
+  LISTS__CREATE: 'todo-2020/lists/CREATE',
 
   /*
     todos namespace

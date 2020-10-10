@@ -5,5 +5,7 @@
 }
 
 body {
+  font-family: arial, sans-serif;
+  font-size: 14px;
   background: hsl(200, 82%, 70%);
 }
