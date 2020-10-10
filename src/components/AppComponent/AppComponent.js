@@ -2,14 +2,14 @@ import css from './style.css'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Provider} from 'react-redux'
-import Sidebar from '/components/Sidebar'
+import SideNav from '/components/SideNav'
 import InputField from '/components/InputField'
 import TodoList from '/components/TodoList'
 
 const AppComponent = ({store}) => (
   <div className={css.AppComponent}>
     <Provider store={store}>
-      <Sidebar />
+      <SideNav />
       <InputField />
       <TodoList />
     </Provider>

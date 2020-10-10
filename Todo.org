@@ -22,6 +22,9 @@ Todo
 * BRANCH: refactor/state
   - [ ] Remove state/order.
 
+* UX
+  - [ ] Handle SHIFT-UP.
+
 * Learn
   - [ ] GraphQL.
   - [ ] CSS Grid.
