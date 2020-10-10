@@ -12,6 +12,11 @@ Todo
     position.
   - [ ] If at [pos end] and right arrow, move to nextitem at start
     position.
+  - [ ] Title field.
+  - [ ] Remove InputField at some point and make last item
+    undeletable.
+  - [ ] Add multiple lists.
+  - [ ] Add workspaces/tags/organization/etc.
 
 * Learn
   - [ ] GraphQL.
