@@ -2,34 +2,34 @@
   ::TODO:: Reformat.
 */
 
-import {actions as todosActions} from '/state/todos'
+import {actions} from '/state/todos'
 
 const createApi = (dispatch) => {
-  const api = {
-    create (props) {
-      const action = todosActions.create(props)
-      dispatch(action)
-      return action.payload.id
-    },
-    remove (id) {
-      const action = todosActions.remove(id)
-      dispatch(action)
-    },
-    update (id, state) {
-      const action = todosActions.update(id, state)
-      dispatch(action)
-    },
-    toggle (id, isDone) {
-      const action = todosActions.toggle(id, isDone)
-      dispatch(action)
-    },
-    merge (id) {
-      console.log('api.todos.merge :: TODO')
-      const action = todosActions.merge(id)
-      dispatch(action)
-    },
+
+  const api = {}
+
+  // ::TODO::
+
+  api.create = (props) => {
+    const action = actions.create(props)
+    dispatch(action)
+    return action.payload.id
   }
+
+  api.remove = (id) => dispatch(actions.remove(id))
+
+  api.update = (id, state) => dispatch(actions.update(id, state))
+
+  api.toggle = (id, isDone) => dispatch(actions.toggle(id, isDone))
+
+  api.merge = (id) => {
+    console.log('api.todos.merge :: TODO')
+    const action = actions.merge(id)
+    dispatch(action)
+  }
+
   return api
+
 }
 
 export default createApi
