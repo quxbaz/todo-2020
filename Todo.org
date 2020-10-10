@@ -13,6 +13,8 @@ Todo
   - [ ] To simplify things, maybe pass in focusNext, focusPrev props
     in item. focusNext(START | END | DEFAULT). Move navigation code to
     list.
+  - [ ] Change cursor behavior. Don't save position. Just move to the
+    index of the previous item. Feels more natural.
 
 * Learn
   - [ ] GraphQL.

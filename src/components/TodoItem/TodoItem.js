@@ -1,5 +1,5 @@
 import css from './style.css'
-import React, {useState, useRef} from 'react'
+import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
@@ -7,86 +7,29 @@ import {createApi} from '/api'
 import Switch from './Switch'
 import Button from './Button'
 
-const TodoItem = ({todo, onToggle, onRemove, onChange, onEnterKey}) => {
+const TodoItem = ({todo, onToggle, onRemove, onChange, onKeyDown}) => {
 
   const ref = useRef()
-  const input = useRef()
 
-  const [caretPos, setCaretPos] = useState(todo.text.length)
-  const [wasClicked, setWasClicked] = useState(false)
-
-  const saveCaretPosition = () => {
-    if (input.current == null)
-      return
-    if (input.current.selectionDirection === 'forward')
-      setCaretPos(input.current.selectionEnd)
-    else
-      setCaretPos(input.current.selectionStart)
-  }
-
-  // Restore the caret position on keyboard focus.
-  const handleFocus = () => {
-    if (wasClicked)
-      return
-    requestAnimationFrame(() => {
-      input.current.setSelectionRange(caretPos, caretPos)
-    })
-  }
-
-  const handleMouseDown = () => {
-    // Allows the cursor to set the caret position instead of
-    // restoring the caret position during keyboard navigation.
-    setWasClicked(true)
-
-    requestAnimationFrame(() => {
-      saveCaretPosition()
-      setWasClicked(false)
-    })
-  }
-
-  const handleKeyDown = (event) => {
-    requestAnimationFrame(saveCaretPosition)
-    if (event.keyCode === 13 /* ENTER */) {
-      onEnterKey(todo.id)
-      setTimeout(() => {
-        ref.current.nextSibling.querySelector('input').focus()
-      }, 0)
-    } else if (event.keyCode === 38 /* UP ARROW */) {
-      const prev = ref.current.previousSibling
-      if (prev)
-        prev.querySelector('input').focus()
-    } else if (event.keyCode === 40 /* DOWN ARROW */) {
-      const next = ref.current.nextSibling
-      if (next)
-        next.querySelector('input').focus()
-    } else if (todo.text === '' && event.keyCode === 8 /* BACKSPACE */) {
-      event.preventDefault()
-      const prev = ref.current.previousSibling
-      if (prev)
-        prev.querySelector('input').focus()
-      else
-        document.getElementById('MainTextInput').focus()
-      onRemove(todo.id)
-    } else if (caretPos === 0 && todo.text.length > 0 && event.keyCode === 8 /*BACKSPACE*/) {
-      // Merge the previous line with current line.
-      console.log('MERGE')
-    }
+  function handleKeyDown (event) {
+    const input = ref.current.querySelector('input')
+    const pos = input.selectionDirection === 'forward'
+      ? input.selectionEnd
+      : input.selectionStart
+    onKeyDown(event, pos)
   }
 
   return (
-    <div ref={ref} className={css.TodoItem}>
+    <div ref={ref} className={'TodoItem ' + css.TodoItem}>
       <Switch
         isOn={todo.isDone}
         onClick={() => onToggle(todo.id, !todo.isDone)} />
       <div style={{width: '100%'}}>
         <input
-          ref={input}
           className={classNames(css.Input, {[css.isDone]: todo.isDone})}
           value={todo.text}
-          onFocus={handleFocus}
-          onMouseDown={handleMouseDown}
-          onChange={event => onChange(todo.id, event.target.value)}
-          onKeyDown={handleKeyDown} />
+          onKeyDown={handleKeyDown}
+          onChange={event => onChange(todo.id, event.target.value)} />
       </div>
       <Button className={css.RemoveButton} onClick={() => onRemove(todo.id)}>
         🗑
@@ -101,7 +44,7 @@ TodoItem.propTypes = {
   onToggle: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  onEnterKey: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func.isRequired,
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -116,9 +59,6 @@ const mapDispatchToProps = (dispatch) => {
     onChange (id, text) {
       api.todos.update(id, {text})
     },
-    onEnterKey (id) {
-      api.todos.create({insertAfter: id})
-    }
   }
 }
 
