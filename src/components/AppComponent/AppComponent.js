@@ -10,8 +10,10 @@ const AppComponent = ({store}) => (
   <div className={css.AppComponent}>
     <Provider store={store}>
       <SideNav />
-      <InputField />
-      <TodoList />
+      <div className={css.ListFrame}>
+        <InputField />
+        <TodoList />
+      </div>
     </Provider>
   </div>
 )

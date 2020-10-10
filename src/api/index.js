@@ -1,9 +1,3 @@
-import lists from './lists'
-import todos from './todos'
-
-const createApi = (dispatch) => ({
-  lists: lists(dispatch),
-  todos: todos(dispatch),
-})
+import createApi from './createApi'
 
 export {createApi}

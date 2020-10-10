@@ -8,8 +8,6 @@ const createApi = (dispatch) => {
 
   const api = {}
 
-  // ::TODO::
-
   api.create = (props) => {
     const action = actions.create(props)
     dispatch(action)

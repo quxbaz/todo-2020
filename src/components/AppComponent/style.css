@@ -1,7 +1,10 @@
 .AppComponent {
+  border: 1px solid red;
+}
+
+.ListFrame {
   width: 500px;
   margin: 0 auto;
-  margin-top: 40px;
   padding: 20px 32px;
   background: #fff;
 }

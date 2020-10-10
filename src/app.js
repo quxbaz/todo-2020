@@ -12,8 +12,8 @@ function createApp () {
 
   const api = createApi(store.dispatch)
 
-  const list0 = api.lists.create({title: 'zero-list'})
-  const list1 = api.lists.create({title: 'one-list'})
+  const list0 = api.lists.create({title: 'list-0'})
+  const list1 = api.lists.create({title: 'list-1'})
 
   // const todo0 = api.todos.create({text: 'zero'})
   // const todo1 = api.todos.create({text: 'one'})
