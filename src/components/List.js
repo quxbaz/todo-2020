@@ -5,7 +5,7 @@ import {values} from '/util'
 import {createApi} from '/api'
 import TodoItem from './TodoItem'
 
-const TodoList = ({list, todos}) => {
+const List = ({list, todos}) => {
 
   const ref = useRef()
 
@@ -49,7 +49,7 @@ const TodoList = ({list, todos}) => {
 
 }
 
-TodoList.propTypes = {
+List.propTypes = {
   list: PropTypes.object.isRequired,
   todos: PropTypes.array.isRequired,
 }
@@ -58,4 +58,4 @@ const mapStateToProps = (state) => ({
   todos: state.order.map(id => state.todos[id]),
 })
 
-export default connect(mapStateToProps, null)(TodoList)
+export default connect(mapStateToProps, null)(List)
