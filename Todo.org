@@ -8,9 +8,16 @@ Todo
   - [ ] Title field.
   - [ ] Remove InputField at some point and make last item
     undeletable.
-  - [ ] Add multiple lists.
   - [ ] Add workspaces/tags/organization/etc.
+  - [ ] Remove redux-logger.
+  - [::MIDDLEWARE::] Write middleware to automatically add .payload {} and meta {}
+    to action if missing. Then refactor reducers to always assume a
+    payload object.
   - [ ] Merge state/order and state/meta into state/todos.
+  - [ ] Add multiple lists.
+
+* BRANCH: refactor/state
+  - [ ] Remove state/order.
 
 * Learn
   - [ ] GraphQL.
@@ -24,3 +31,16 @@ Todo
     - [ ] Persistence.
     - [ ] CRUD operations.
   - [ ] Add linting.
+
+{
+  lists: {
+    [id]: {
+      todos: [1, 2, 3, 4],
+    }
+    [...]
+  }
+  todos: {
+    [id]: {text, ...}
+    [...]
+  },
+}
