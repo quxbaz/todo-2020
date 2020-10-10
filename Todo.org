@@ -9,6 +9,7 @@ Todo
   - [ ] Remove InputField at some point and make last item
     undeletable.
   - [ ] Add workspaces/tags/organization/etc.
+  - [ ] Rename todos/todo -> notes/note.
   - [ ] Remove redux-logger.
   - [ ] Rename TODO_ actions to use double underscore for namespacing TODO__
   - [::MIDDLEWARE::] Write middleware to automatically add .payload {} and meta {}

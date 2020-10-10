@@ -1,8 +1,19 @@
 const ACTION_TYPES = {
 
   /*
+    workspace namespace
+  */
+  workspace__set_active_list: 'todo-2020/workspace/SET_ACTIVE_LIST',
+
+  /*
+    lists namespace
+  */
+  lists__create: 'todo-2020/lists/CREATE',
+
+  /*
     todos namespace
   */
+  // ::TODO:: Rename using TODOS__ namespace.
   TODOS_CREATE: 'todo-2020/todos/CREATE',
   TODOS_REMOVE: 'todo-2020/todos/REMOVE',
   TODOS_UPDATE: 'todo-2020/todos/UPDATE',
