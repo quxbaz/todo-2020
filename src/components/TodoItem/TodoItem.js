@@ -7,7 +7,7 @@ import {createApi} from '/api'
 import Switch from './Switch'
 import Button from './Button'
 
-const TodoItem = ({todo, onToggle, onRemove, onChange, onKeyDown}) => {
+const TodoItem = ({todo, onToggle, onRemove, onChange, onKeyDown, onSubmit}) => {
 
   const ref = useRef()
 
@@ -16,7 +16,17 @@ const TodoItem = ({todo, onToggle, onRemove, onChange, onKeyDown}) => {
     const pos = input.selectionDirection === 'forward'
       ? input.selectionEnd
       : input.selectionStart
-    onKeyDown(event, pos)
+    onKeyDown(event, todo.id, pos)
+    if (event.keyCode === 13)
+      handleSubmit(event)
+  }
+
+  function handleSubmit (event) {
+    onSubmit(todo.id)
+    // Wait until the dom node is created and attached.
+    requestAnimationFrame(() => {
+      ref.current.nextSibling.querySelector('input').focus()
+    })
   }
 
   return (
@@ -45,6 +55,7 @@ TodoItem.propTypes = {
   onRemove: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onKeyDown: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -58,6 +69,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     onChange (id, text) {
       api.todos.update(id, {text})
+    },
+    onSubmit (id) {
+      api.todos.create({text: '', insertAfter: id})
     },
   }
 }

@@ -5,16 +5,13 @@ Todo
   - [ ] Highlight the active line.
   - [ ] Make basic TODO app.
   - [ ] Make editing more like google keep.
-  - [ ] On enter key, split text if cursor is in middle of text.
   - [ ] On backspace, if text still exists and caret is in
     [pos 0]. Merge text with previous item.
   - [ ] If at [pos 0] and left arrow, move to previous item at last
     position.
-  - [ ] To simplify things, maybe pass in focusNext, focusPrev props
-    in item. focusNext(START | END | DEFAULT). Move navigation code to
-    list.
-  - [ ] Change cursor behavior. Don't save position. Just move to the
-    index of the previous item. Feels more natural.
+  - [ ] On ENTER key, split text if caret is in middle of text.
+  - [ ] On ENTER key, prepend todo if caret is at start.
+
 
 * Learn
   - [ ] GraphQL.

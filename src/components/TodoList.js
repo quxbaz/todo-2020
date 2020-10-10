@@ -2,6 +2,7 @@ import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {values} from '/util'
+import {createApi} from '/api'
 import TodoItem from './TodoItem'
 
 const TodoList = ({todos}) => {
@@ -30,13 +31,6 @@ const TodoList = ({todos}) => {
 
   }
 
-  function handleEnterKey () {
-    // onEnterKey(todo.id)
-    // setTimeout(() => {
-    //   ref.current.nextSibling.querySelector('input').focus()
-    // }, 0)
-  }
-
   function handleBackspaceKey () {
     event.preventDefault()
     const prev = ref.current.previousSibling
@@ -50,17 +44,16 @@ const TodoList = ({todos}) => {
     console.log('MERGE')
   }
 
-  function handleKeyDown (event, pos) {
+  function handleKeyDown (event, id, pos) {
     if (event.keyCode === 38) moveCaret(event, pos, 'UP')
     else if (event.keyCode === 40) moveCaret(event, pos, 'DOWN')
-    else if (event.keyCode === 13) handleEnterKey()
-    else if (event.keyCode === 8) {
-      // if (todo.text.length === 0) {
-      //   // onRemove(todo.id)
-      // } else if (true /* caretPos === 0 */) {
-      //   // mergeTodos()
-      // }
-    }
+    // else if (event.keyCode === 8) {
+    //   if (todo.text.length === 0) {
+    //     onRemove(todo.id)
+    //   } else if (true /* caretPos === 0 */) {
+    //     mergeTodos()
+    //   }
+    // }
   }
 
   return (
