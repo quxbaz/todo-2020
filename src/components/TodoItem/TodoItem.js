@@ -9,7 +9,8 @@ import Button from './Button'
 
 const TodoItem = ({
   todo, isLastCreated,
-  onToggle, onRemove, onChange, onKeyDown,
+  onToggle, onChange, onKeyDown,
+  onRemove, onMergeWithPrev,
   onEnterAtEnd, onEnterAtStart, onEnterAtPos,
 }) => {
 
@@ -25,7 +26,7 @@ const TodoItem = ({
     if (prev)
       fn(prev.querySelector('input'), prev)
     else
-      alt()
+      if (alt) alt()
   }
 
   function withNextInput (fn) {
@@ -53,6 +54,13 @@ const TodoItem = ({
           document.getElementById('InputField').focus()
         })
         onRemove(todo.id)
+      } else if (pos === 0) {
+        withPrevInput(prev => {
+          event.preventDefault()
+          prev.focus()
+          // ::TODO:: Focus at last character
+          onMergeWithPrev(todo.id, todo.text)
+        })
       }
     } else if (event.keyCode === 37 /* LEFT */ && pos === 0) {
       withPrevInput((prev) => {
@@ -93,9 +101,10 @@ TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
   isLastCreated: PropTypes.bool.isRequired,
   onToggle: PropTypes.func.isRequired,
-  onRemove: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onKeyDown: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired,
+  onMergeWithPrev: PropTypes.func.isRequired,
   onEnterAtEnd: PropTypes.func.isRequired,
   onEnterAtStart: PropTypes.func.isRequired,
   onEnterAtPos: PropTypes.func.isRequired,
@@ -111,11 +120,15 @@ const mapDispatchToProps = (dispatch) => {
     onToggle (id, isDone) {
       api.todos.toggle(id, isDone)
     },
+    onChange (id, text) {
+      api.todos.update(id, {text})
+    },
     onRemove (id) {
       api.todos.remove(id)
     },
-    onChange (id, text) {
-      api.todos.update(id, {text})
+    onMergeWithPrev (id, text) {
+      console.log('MERGE')
+      api.todos.merge(id)
     },
     onEnterAtEnd (id) {
       api.todos.create({text: '', insertAfter: id, createdBy: 'TODO_ITEM'})

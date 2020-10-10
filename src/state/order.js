@@ -22,6 +22,7 @@ const reducer = (state=[], action) => {
         return [...state, action.payload.id]
       }
     case ACTION_TYPES.TODOS_REMOVE:
+    case ACTION_TYPES.TODOS_MERGE:
       return without(state, action.payload.id)
     default:
       return state

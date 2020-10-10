@@ -47,6 +47,15 @@ const actions = {
       payload: {id, isDone},
     }
   },
+  merge (id) {
+    /*
+      Merges a todo with the one previos to it.
+    */
+    return {
+      type: ACTION_TYPES.TODOS_MERGE,
+      payload: {id},
+    }
+  },
 }
 
 const reducer = (state={}, action) => {
@@ -64,6 +73,8 @@ const reducer = (state={}, action) => {
         ...state,
         [action.payload.id]: todoReducer(state[action.payload.id], action)
       }
+    case ACTION_TYPES.TODOS_MERGE:
+      return omit(state, action.payload.id)
     default:
       return state
   }

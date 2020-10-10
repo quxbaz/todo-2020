@@ -10,6 +10,7 @@ Todo
     undeletable.
   - [ ] Add multiple lists.
   - [ ] Add workspaces/tags/organization/etc.
+  - [ ] Merge state/order and state/meta into state/todos.
 
 * Learn
   - [ ] GraphQL.

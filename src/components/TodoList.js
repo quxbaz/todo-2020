@@ -31,20 +31,9 @@ const TodoList = ({todos}) => {
 
   }
 
-  // function mergeTodos () {
-  //   console.log('MERGE')
-  // }
-
   function handleKeyDown (event, id, pos) {
     if (event.keyCode === 38) moveCaret(event, pos, 'UP')
     else if (event.keyCode === 40) moveCaret(event, pos, 'DOWN')
-    // else if (event.keyCode === 8) {
-    //   if (todo.text.length === 0) {
-    //     onRemove(todo.id)
-    //   } else if (true /* caretPos === 0 */) {
-    //     mergeTodos()
-    //   }
-    // }
   }
 
   return (

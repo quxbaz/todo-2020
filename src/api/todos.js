@@ -19,6 +19,11 @@ const createApi = (dispatch) => {
       const action = todosActions.toggle(id, isDone)
       dispatch(action)
     },
+    merge (id) {
+      console.log('api.todos.merge :: TODO')
+      const action = todosActions.merge(id)
+      dispatch(action)
+    },
   }
   return api
 }
