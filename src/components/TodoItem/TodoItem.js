@@ -20,6 +20,18 @@ const TodoItem = ({
       ref.current.querySelector('input').focus()
   }, [])
 
+  function withPrevInput (fn) {
+    const prev = ref.current.previousSibling
+    if (prev)
+      fn(prev.querySelector('input'), prev)
+  }
+
+  function withNextInput (fn) {
+    const next = ref.current.nextSibling
+    if (next)
+      fn(next.querySelector('input'), next)
+  }
+
   function handleKeyDown (event) {
     const input = ref.current.querySelector('input')
     const pos = input.selectionDirection === 'forward'
@@ -30,24 +42,23 @@ const TodoItem = ({
       if (pos === input.value.length) onEnterAtEnd(todo.id)
       else if (pos === 0) onEnterAtStart(todo.id)
       else onEnterAtPos(todo.id, todo.text, pos)
+    } else if (event.keyCode === 8 /* BACKSPACE */) {
+      if (todo.text === '') {
+        // ::TODO:: Focus on previous element
+        onRemove(todo.id)
+      }
     } else if (event.keyCode === 37 /* LEFT */ && pos === 0) {
-      const prev = ref.current.previousSibling
-      if (prev) {
+      withPrevInput((prev) => {
         event.preventDefault()
-        const prevInput = prev.querySelector('input')
-        const pos = prevInput.value.length
-        prevInput.focus()
-        prevInput.setSelectionRange(pos, pos)
-      }
+        prev.focus()
+        prev.setSelectionRange(prev.value.length, prev.value.length)
+      })
     } else if (event.keyCode === 39 /* RIGHT */ && pos === input.value.length) {
-      const next = ref.current.nextSibling
-      if (next) {
+      withNextInput((next) => {
         event.preventDefault()
-        const nextInput = next.querySelector('input')
-        const pos = nextInput.value.length
-        nextInput.focus()
-        nextInput.setSelectionRange(0, 0)
-      }
+        next.focus()
+        next.setSelectionRange(0, 0)
+      })
     }
   }
 

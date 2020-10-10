@@ -31,18 +31,9 @@ const TodoList = ({todos}) => {
 
   }
 
-  // function handleBackspaceKey () {
-  //   event.preventDefault()
-  //   const prev = ref.current.previousSibling
-  //   if (prev)
-  //     prev.querySelector('input').focus()
-  //   else
-  //     document.getElementById('MainTextInput').focus()
+  // function mergeTodos () {
+  //   console.log('MERGE')
   // }
-
-  function mergeTodos () {
-    console.log('MERGE')
-  }
 
   function handleKeyDown (event, id, pos) {
     if (event.keyCode === 38) moveCaret(event, pos, 'UP')
