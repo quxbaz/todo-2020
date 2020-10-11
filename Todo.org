@@ -8,7 +8,6 @@ Todo
   - [ ] Hover state on <Switch>
   - [ ] On backspace, if text still exists and caret is in
     [pos 0]. Merge text with previous item.
-  - [ ] Title field.
   - [ ] Remove InputField at some point and make last item
     undeletable.
   - [ ] Add workspaces/tags/organization/etc.
