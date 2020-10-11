@@ -49,6 +49,12 @@ const without = (array, ...values) => {
     return result
 }
 
+const insert = (array, i, item) => ([
+  ...array.slice(0, i),
+  item,
+  ...array.slice(i),
+])
+
 export {
   omit,
   sortBy,
@@ -57,4 +63,5 @@ export {
   getState,
   last,
   without,
+  insert,
 }
