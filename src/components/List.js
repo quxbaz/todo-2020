@@ -38,6 +38,7 @@ const List = ({list, todos}) => {
 
   return (
     <div ref={ref}>
+      <h2>{list.title}</h2>
       {todos.map((todo, i) => (
         <TodoItem
           key={todo.id}
@@ -54,8 +55,9 @@ List.propTypes = {
   todos: PropTypes.array.isRequired,
 }
 
-const mapStateToProps = (state) => ({
-  todos: state.order.map(id => state.todos[id]),
+const mapStateToProps = (state, {list}) => ({
+  todos: list.todos.map(id => state.todos[id]),
+  // todos: state.order.map(id => state.todos[id]),
 })
 
 export default connect(mapStateToProps, null)(List)

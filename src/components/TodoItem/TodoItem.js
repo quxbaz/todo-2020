@@ -1,3 +1,7 @@
+/*
+  ::TODO:: Rename to Note.js
+*/
+
 import css from './style.css'
 import React, {useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'

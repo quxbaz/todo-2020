@@ -20,6 +20,11 @@ const lists = (state={}, action) => {
         ...state,
         [id]: list(undefined, action),
       }
+    case ACTION_TYPES.LISTS__ADD_TODO:
+      return {
+        ...state,
+        [id]: list(list[id], action),
+      }
     default:
       return state
   }

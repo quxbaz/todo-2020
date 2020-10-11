@@ -8,23 +8,22 @@ const init = {
 
 const list = (state=init, action) => {
 
-  // ::TODO::MIDDLEWARE::
-  if (action.payload == null) {
-    action = {...action, payload: {}}
-  }
-  if (action.meta == null) {
-    action = {...action, meta: {}}
-  }
-  //
+  const payload = action.payload || {}
 
-  const {id, title, todos} = action.payload
+  if (action.type === ACTION_TYPES.LISTS__CREATE)
+    return {
+      ...state,
+      id: payload.id,
+      title: payload.title,
+    }
 
-  switch (action.type) {
-    case ACTION_TYPES.LISTS__CREATE:
-      return {...state, id, title}
-    default:
-      return state
-  }
+  if (action.type === ACTION_TYPES.LISTS__ADD_TODO)
+    return {
+      ...state,
+      todos: [...state.todos, payload.todo],
+    }
+
+  return state
 
 }
 

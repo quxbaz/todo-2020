@@ -1,13 +1,19 @@
-import {actions} from '/state/lists'
+import {actions as todosActions} from '/state/todos'
+import {actions as listsActions} from '/state/lists'
 
 const createApi = (dispatch) => {
 
   const api = {}
 
   api.create = ({title}) => {
-    const action = actions.create({title})
+    const action = listsActions.create({title})
     dispatch(action)
     return action.payload.id
+  }
+
+  api.createTodo = (id, props) => {
+    const action = dispatch(todosActions.create(props))
+    dispatch(listsActions.addTodo(id, action.id))
   }
 
   return api

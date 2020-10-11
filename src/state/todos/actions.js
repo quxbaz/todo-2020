@@ -9,22 +9,14 @@ actions.create = (props) => ({
   payload: {
     id: uniqId(),
     text: props.text || '',
+
+    // ::TODO:: Remove.
     timestamp: Date.now(),
 
-    /*
-      A todo 'id' that is only used for initial insertion. One
-      time use only. Afterwards, this is unreliable. Provide only
-      either one of these props, not both. 'insertAfter' will take
-      priority if both are provided.
-    */
+    // ::TODO:: Remove these hacks.
     insertAfter: props.insertAfter,
     insertBefore: props.insertBefore,
-
-    // INPUT_FIELD | TODO_ITEM
     createdBy: props.createdBy,
-
-    // If the todo was created by pressing the ENTER key at caret
-    // position 0. If so, do not focus at mount.
     wasCreatedAtStartPos: props.wasCreatedAtStartPos || false,
   }
 })

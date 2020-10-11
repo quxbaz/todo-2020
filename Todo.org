@@ -18,6 +18,8 @@ Todo
     payload object.
   - [ ] Merge state/order and state/meta into state/todos.
   - [ ] Add multiple lists.
+  - [ ] Use 'payload' as alias to 'action.payload' and default to {}
+  - [ ] In reducers, use 'if' form instead of 'switch' statement.
 
 * BRANCH: refactor/state
   - [ ] Remove state/order.

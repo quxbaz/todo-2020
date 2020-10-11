@@ -11,4 +11,12 @@ actions.create = ({title}) => ({
   },
 })
 
+actions.addTodo = (id, todo) => ({
+  type: ACTION_TYPES.LISTS__ADD_TODO,
+  payload: {
+    id,
+    todo,
+  },
+})
+
 export default actions
