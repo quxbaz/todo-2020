@@ -52,13 +52,16 @@ InputField.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  onSubmit (text) {
-    createApi(dispatch).todos.create({
-      text,
-      createdBy: 'INPUT_FIELD',
-    })
-  },
-})
+const mapDispatchToProps = (dispatch) => {
+  const api = createApi(dispatch)
+  return {
+    onSubmit (text) {
+      api.todos.create({
+        text,
+        createdBy: 'INPUT_FIELD',
+      })
+    },
+  }
+}
 
 export default connect(null, mapDispatchToProps)(InputField)
