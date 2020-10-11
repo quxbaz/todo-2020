@@ -1,4 +1,4 @@
-import {actions} from '/state/todos'
+import {actions} from '/state/notes'
 
 const createApi = (dispatch) => {
 
@@ -18,7 +18,7 @@ const createApi = (dispatch) => {
 
   // ::TODO::
   // api.merge = (id) => {
-  //   console.log('api.todos.merge :: TODO')
+  //   console.log('api.notes.merge :: TODO')
   //   const action = actions.merge(id)
   //   dispatch(action)
   // }

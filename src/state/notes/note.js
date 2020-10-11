@@ -1,8 +1,8 @@
 import ACTION_TYPES from '/state/ACTION_TYPES'
 
-const todo = (state, action) => {
+const note = (state, action) => {
 
-  if (action.type === ACTION_TYPES.TODOS__CREATE) {
+  if (action.type === ACTION_TYPES.NOTES__CREATE) {
     const {id, text, createdBy, wasCreatedAtStartPos} = action.payload
     return {
       id,
@@ -13,7 +13,7 @@ const todo = (state, action) => {
     }
   }
 
-  if (action.type === ACTION_TYPES.TODOS__UPDATE) {
+  if (action.type === ACTION_TYPES.NOTES__UPDATE) {
     const {props} = action.payload
     return {
       ...state,
@@ -21,7 +21,7 @@ const todo = (state, action) => {
     }
   }
 
-  if (action.type === ACTION_TYPES.TODOS__TOGGLE) {
+  if (action.type === ACTION_TYPES.NOTES__TOGGLE) {
     const {isDone} = action.payload
     return {...state, isDone}
   }
@@ -30,4 +30,4 @@ const todo = (state, action) => {
 
 }
 
-export default todo
+export default note

@@ -1,7 +1,7 @@
 import actions from './actions'
-import todos from './todos'
+import notes from './notes'
 
 export {
   actions,
-  todos,
+  notes,
 }

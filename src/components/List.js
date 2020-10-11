@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {values} from '/util'
 import {createApi} from '/api'
-import TodoItem from './TodoItem'
+import Note from './Note'
 
-const List = ({list, todos}) => {
+const List = ({list, notes}) => {
 
   const ref = useRef()
 
@@ -18,11 +18,11 @@ const List = ({list, todos}) => {
     }
 
     const sourceInput = event.currentTarget
-    const sourceTodo = sourceInput.closest('.TodoItem')
-    const targetTodo = DIRECTION === 'UP' ? sourceTodo.previousSibling : sourceTodo.nextSibling
+    const sourceNote = sourceInput.closest('.Note')
+    const targetNote = DIRECTION === 'UP' ? sourceNote.previousSibling : sourceNote.nextSibling
 
-    if (targetTodo) {
-      const targetInput = targetTodo.querySelector('input')
+    if (targetNote) {
+      const targetInput = targetNote.querySelector('input')
       targetInput.focus()
       exec(targetInput, pos)
     } else {
@@ -39,10 +39,10 @@ const List = ({list, todos}) => {
   return (
     <div ref={ref}>
       <h2>{list.title}</h2>
-      {todos.map((todo, i) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
+      {notes.map((note, i) => (
+        <Note
+          key={note.id}
+          note={note}
           onKeyDown={handleKeyDown} />
       ))}
     </div>
@@ -52,12 +52,11 @@ const List = ({list, todos}) => {
 
 List.propTypes = {
   list: PropTypes.object.isRequired,
-  todos: PropTypes.array.isRequired,
+  notes: PropTypes.array.isRequired,
 }
 
 const mapStateToProps = (state, {list}) => ({
-  todos: list.todos.map(id => state.todos[id]),
-  // todos: state.order.map(id => state.todos[id]),
+  notes: list.notes.map(id => state.notes[id]),
 })
 
 export default connect(mapStateToProps, null)(List)

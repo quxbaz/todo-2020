@@ -4,7 +4,10 @@ var webpack = require('webpack');
 module.exports = {
 
   entry: path.resolve(__dirname, 'src/index.js'),
+
+  // devtool: 'source-map',
   devtool: 'inline-source-map',
+  // devtool: 'eval',
 
   output: {
     filename: 'bundle.js',

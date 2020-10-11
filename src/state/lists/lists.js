@@ -11,7 +11,7 @@ const lists = (state={}, action) => {
     }
   }
 
-  if (action.type === ACTION_TYPES.LISTS__ADD_TODO) {
+  if (action.type === ACTION_TYPES.LISTS__ADD_NOTE) {
     const {id} = action.payload
     return {
       ...state,

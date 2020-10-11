@@ -5,7 +5,7 @@ import ReduxThunk from 'redux-thunk'
 // ::TODO:: Fix naming.
 import {workspace} from './workspace'
 import {lists} from './lists'
-import {todos} from './todos'
+import {notes} from './notes'
 import {order} from './order'
 import {meta} from './meta'
 
@@ -13,7 +13,7 @@ const _createStore = () => {
   const reducer = combineReducers({
     workspace,
     lists,
-    todos,
+    notes,
     order,
     meta,
   })

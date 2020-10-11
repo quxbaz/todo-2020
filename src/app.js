@@ -15,17 +15,17 @@ function createApp () {
   const list1 = api.lists.create({title: 'list-1'})
   api.workspace.setActiveList(list0)
 
-  // const todo0 = api.todos.create({text: 'zero'})
-  // const todo1 = api.todos.create({text: 'one'})
-  // api.todos.toggle(todo1, true)
-  // const todo2 = api.todos.create({text: 'two'})
+  // const note0 = api.notes.create({text: 'zero'})
+  // const note1 = api.notes.create({text: 'one'})
+  // api.notes.toggle(note1, true)
+  // const note2 = api.notes.create({text: 'two'})
 
-  // const todo3 = api.todos.create({text: 'three'})
-  // const todo4 = api.todos.create({text: 'four'})
-  // const todo5 = api.todos.create({text: 'five'})
+  // const note3 = api.notes.create({text: 'three'})
+  // const note4 = api.notes.create({text: 'four'})
+  // const note5 = api.notes.create({text: 'five'})
 
-  // api.todos.toggle(todo1, true)
-  // api.todos.toggle(todo3, true)
+  // api.notes.toggle(note1, true)
+  // api.notes.toggle(note3, true)
 
   // ::END TEMP::
 

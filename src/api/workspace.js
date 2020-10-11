@@ -1,7 +1,7 @@
 import {getState} from '/util'
 import {actions as workspaceActions} from '/state/workspace'
 import {actions as listsActions} from '/state/lists'
-import {actions as todosActions} from '/state/todos'
+import {actions as notesActions} from '/state/notes'
 
 const createApi = (dispatch) => {
 
@@ -16,10 +16,10 @@ const createApi = (dispatch) => {
   api.setActiveList = (id) =>
     dispatch(workspaceActions.setActiveList(id))
 
-  api.createTodo = (props) => {
-    const action = dispatch(todosActions.create(props))
+  api.createNote = (props) => {
+    const action = dispatch(notesActions.create(props))
     dispatch(
-      listsActions.addTodo(
+      listsActions.addNote(
         getState(dispatch).workspace.activeList,
         action.payload.id
       )

@@ -12,7 +12,6 @@ Todo
   - [ ] Remove InputField at some point and make last item
     undeletable.
   - [ ] Add workspaces/tags/organization/etc.
-  - [ ] Rename todos/todo -> notes/note.
   - [ ] Remove redux-logger.
   - [::MIDDLEWARE::] Write middleware to automaticanlly add .payload {} and meta {}
     to action if missing. Then refactor reducers to always assume a

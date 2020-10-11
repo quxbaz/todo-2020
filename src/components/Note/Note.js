@@ -1,7 +1,3 @@
-/*
-  ::TODO:: Rename to Note.js
-*/
-
 import css from './style.css'
 import React, {useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
@@ -11,8 +7,8 @@ import {createApi} from '/api'
 import Switch from './Switch'
 import Button from './Button'
 
-const TodoItem = ({
-  todo, isLastCreated,
+const Note = ({
+  note, isLastCreated,
   onToggle, onChange, onKeyDown,
   onRemove, onMergeWithPrev,
   onEnterAtEnd, onEnterAtStart, onEnterAtPos,
@@ -21,7 +17,7 @@ const TodoItem = ({
   const ref = useRef()
 
   useEffect(() => {
-    if (isLastCreated && todo.createdBy === 'TODO_ITEM' && !todo.wasCreatedAtStartPos)
+    if (isLastCreated && note.createdBy === 'NOTE_ITEM' && !note.wasCreatedAtStartPos)
       ref.current.querySelector('input').focus()
   }, [])
 
@@ -44,26 +40,26 @@ const TodoItem = ({
     const pos = input.selectionDirection === 'forward'
       ? input.selectionEnd
       : input.selectionStart
-    onKeyDown(event, todo.id, pos)
+    onKeyDown(event, note.id, pos)
     if (event.keyCode === 13 /* ENTER */) {
-      if (pos === input.value.length) onEnterAtEnd(todo.id)
-      else if (pos === 0) onEnterAtStart(todo.id)
-      else onEnterAtPos(todo.id, todo.text, pos)
+      if (pos === input.value.length) onEnterAtEnd(note.id)
+      else if (pos === 0) onEnterAtStart(note.id)
+      else onEnterAtPos(note.id, note.text, pos)
     } else if (event.keyCode === 8 /* BACKSPACE */) {
-      if (todo.text === '') {
+      if (note.text === '') {
         withPrevInput(prev => {
           event.preventDefault()
           prev.focus()
         }, () => {
           document.getElementById('InputField').focus()
         })
-        onRemove(todo.id)
+        onRemove(note.id)
       } else if (pos === 0) {
         withPrevInput(prev => {
           event.preventDefault()
           prev.focus()
           // ::TODO:: Focus at last character
-          onMergeWithPrev(todo.id, todo.text)
+          onMergeWithPrev(note.id, note.text)
         })
       }
     } else if (event.keyCode === 37 /* LEFT */ && pos === 0) {
@@ -82,18 +78,18 @@ const TodoItem = ({
   }
 
   return (
-    <div ref={ref} className={'TodoItem ' + css.TodoItem}>
+    <div ref={ref} className={'Note ' + css.Note}>
       <Switch
-        isOn={todo.isDone}
-        onClick={() => onToggle(todo.id, !todo.isDone)} />
+        isOn={note.isDone}
+        onClick={() => onToggle(note.id, !note.isDone)} />
       <div style={{width: '100%'}}>
         <input
-          className={classNames(css.Input, {[css.isDone]: todo.isDone})}
-          value={todo.text}
+          className={classNames(css.Input, {[css.isDone]: note.isDone})}
+          value={note.text}
           onKeyDown={handleKeyDown}
-          onChange={event => onChange(todo.id, event.target.value)} />
+          onChange={event => onChange(note.id, event.target.value)} />
       </div>
-      <Button className={css.RemoveButton} onClick={() => onRemove(todo.id)}>
+      <Button className={css.RemoveButton} onClick={() => onRemove(note.id)}>
         🗑
       </Button>
     </div>
@@ -101,8 +97,8 @@ const TodoItem = ({
 
 }
 
-TodoItem.propTypes = {
-  todo: PropTypes.object.isRequired,
+Note.propTypes = {
+  note: PropTypes.object.isRequired,
   isLastCreated: PropTypes.bool.isRequired,
   onToggle: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -114,46 +110,46 @@ TodoItem.propTypes = {
   onEnterAtPos: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = (state, {todo}) => ({
-  isLastCreated: todo.id === state.meta.recent,
+const mapStateToProps = (state, {note}) => ({
+  isLastCreated: note.id === state.meta.recent,
 })
 
 const mapDispatchToProps = (dispatch) => {
   const api = createApi(dispatch)
   return {
     onToggle (id, isDone) {
-      api.todos.toggle(id, isDone)
+      api.notes.toggle(id, isDone)
     },
     onChange (id, text) {
-      api.todos.update(id, {text})
+      api.notes.update(id, {text})
     },
     onRemove (id) {
-      api.todos.remove(id)
+      api.notes.remove(id)
     },
     onMergeWithPrev (id, text) {
       console.log('MERGE')
-      api.todos.merge(id)
+      api.notes.merge(id)
     },
     onEnterAtEnd (id) {
-      api.todos.create({text: '', insertAfter: id, createdBy: 'TODO_ITEM'})
+      api.notes.create({text: '', insertAfter: id, createdBy: 'NOTE_ITEM'})
     },
     onEnterAtStart (id) {
-      api.todos.create({
+      api.notes.create({
         text: '',
         insertBefore: id,
-        createdBy: 'TODO_ITEM',
+        createdBy: 'NOTE_ITEM',
         wasCreatedAtStartPos: true,
       })
     },
     onEnterAtPos (id, text, pos) {
-      api.todos.update(id, {text: text.slice(0, pos)})
-      api.todos.create({
+      api.notes.update(id, {text: text.slice(0, pos)})
+      api.notes.create({
         text: text.slice(pos),
         insertAfter: id,
-        createdBy: 'TODO_ITEM',
+        createdBy: 'NOTE_ITEM',
       })
     },
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoItem)
+export default connect(mapStateToProps, mapDispatchToProps)(Note)

@@ -5,7 +5,7 @@ const actions = {}
 
 // ::TODO:: Clean this up.
 actions.create = (props) => ({
-  type: ACTION_TYPES.TODOS__CREATE,
+  type: ACTION_TYPES.NOTES__CREATE,
   payload: {
     id: uniqId(),
     text: props.text || '',
@@ -22,18 +22,18 @@ actions.create = (props) => ({
 })
 
 actions.remove = (id) => ({
-  type: ACTION_TYPES.TODOS__REMOVE,
+  type: ACTION_TYPES.NOTES__REMOVE,
   payload: {id},
 })
 
 actions.update = (id, props) => ({
-  type: ACTION_TYPES.TODOS__UPDATE,
+  type: ACTION_TYPES.NOTES__UPDATE,
   payload: {id, props},
 })
 
-// Merges a todo with the one previos to it.
+// Merges a note with the one previos to it.
 actions.merge = (id) => ({
-  type: ACTION_TYPES.TODOS__MERGE,
+  type: ACTION_TYPES.NOTES__MERGE,
   payload: {id},
 })
 

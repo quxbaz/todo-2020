@@ -56,7 +56,7 @@ const mapDispatchToProps = (dispatch) => {
   const api = createApi(dispatch)
   return {
     onSubmit (text) {
-      api.workspace.createTodo({
+      api.workspace.createNote({
         text,
         createdBy: 'INPUT_FIELD',
       })

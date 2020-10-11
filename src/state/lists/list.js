@@ -3,7 +3,7 @@ import ACTION_TYPES from '/state/ACTION_TYPES'
 const init = {
   id: '',
   title: '',
-  todos: [],
+  notes: [],
 }
 
 const list = (state=init, action) => {
@@ -13,11 +13,11 @@ const list = (state=init, action) => {
     return {...state, id, title}
   }
 
-  if (action.type === ACTION_TYPES.LISTS__ADD_TODO) {
-    const {todo} = action.payload
+  if (action.type === ACTION_TYPES.LISTS__ADD_NOTE) {
+    const {note} = action.payload
     return {
       ...state,
-      todos: [...state.todos, todo],
+      notes: [...state.notes, note],
     }
   }
 

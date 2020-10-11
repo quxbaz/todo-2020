@@ -1,11 +1,11 @@
 import workspace from './workspace'
 import lists from './lists'
-import todos from './todos'
+import notes from './notes'
 
 const createApi = (dispatch) => ({
   workspace: workspace(dispatch),
   lists: lists(dispatch),
-  todos: todos(dispatch),
+  notes: notes(dispatch),
 })
 
 export default createApi

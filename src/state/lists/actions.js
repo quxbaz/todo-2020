@@ -11,11 +11,11 @@ actions.create = ({title}) => ({
   },
 })
 
-actions.addTodo = (id, todo) => ({
-  type: ACTION_TYPES.LISTS__ADD_TODO,
+actions.addNote = (id, note) => ({
+  type: ACTION_TYPES.LISTS__ADD_NOTE,
   payload: {
     id,
-    todo,
+    note,
   },
 })
 

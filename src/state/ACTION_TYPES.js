@@ -9,16 +9,16 @@ const ACTION_TYPES = {
     lists namespace
   */
   LISTS__CREATE:   'todo-2020/lists/CREATE',
-  LISTS__ADD_TODO: 'todo-2020/lists/ADD_TODO',
+  LISTS__ADD_NOTE: 'todo-2020/lists/ADD_NOTE',
 
   /*
-    todos namespace
+    notes namespace
   */
-  TODOS__CREATE: 'todo-2020/todos/CREATE',
-  TODOS__REMOVE: 'todo-2020/todos/REMOVE',
-  TODOS__UPDATE: 'todo-2020/todos/UPDATE',
-  TODOS__TOGGLE: 'todo-2020/todos/TOGGLE',
-  TODOS__MERGE:  'todo-2020/todos/MERGE',
+  NOTES__CREATE: 'todo-2020/notes/CREATE',
+  NOTES__REMOVE: 'todo-2020/notes/REMOVE',
+  NOTES__UPDATE: 'todo-2020/notes/UPDATE',
+  NOTES__TOGGLE: 'todo-2020/notes/TOGGLE',
+  NOTES__MERGE:  'todo-2020/notes/MERGE',
 
 }
 
