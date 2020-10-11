@@ -8,10 +8,9 @@ import {createApi} from './api'
 function createApp () {
   const store = createStore()
 
-  // ::TEMP::
+  // ::TODO::TEMP::
 
-  const api = createApi(store.dispatch)
-
+  const api = createApi(store.dispatch.bind(store))
   const list0 = api.lists.create({title: 'list-0'})
   const list1 = api.lists.create({title: 'list-1'})
   api.workspace.setActiveList(list0)
@@ -29,6 +28,14 @@ function createApp () {
   // api.todos.toggle(todo3, true)
 
   // ::END TEMP::
+
+  // ::TODO::TEMP::
+  window.addEventListener('keydown', ({keyCode}) => {
+    if (keyCode === 33 /* PAGE UP*/)
+      api.workspace.setActiveList(list0)
+    else if (keyCode === 34 /* PAGE UP*/)
+      api.workspace.setActiveList(list1)
+  })
 
   return {
     store,

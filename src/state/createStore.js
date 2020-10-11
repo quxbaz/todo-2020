@@ -1,5 +1,5 @@
 import {applyMiddleware, combineReducers, createStore, compose} from 'redux'
-import {createLogger} from 'redux-logger'
+// import {createLogger} from 'redux-logger'
 import ReduxThunk from 'redux-thunk'
 
 // ::TODO:: Fix naming.

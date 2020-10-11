@@ -11,11 +11,6 @@ const createApi = (dispatch) => {
     return action.payload.id
   }
 
-  api.createTodo = (id, props) => {
-    const action = dispatch(todosActions.create(props))
-    dispatch(listsActions.addTodo(id, action.id))
-  }
-
   return api
 
 }

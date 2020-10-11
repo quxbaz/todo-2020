@@ -8,8 +8,8 @@ const ACTION_TYPES = {
   /*
     lists namespace
   */
-  LISTS__CREATE: 'todo-2020/lists/CREATE',
-  LISTS__ADD_TODO: 'todo-2020/lists/CREATE',
+  LISTS__CREATE:   'todo-2020/lists/CREATE',
+  LISTS__ADD_TODO: 'todo-2020/lists/ADD_TODO',
 
   /*
     todos namespace

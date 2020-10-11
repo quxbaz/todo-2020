@@ -21,8 +21,17 @@ Todo
     payload object.
   - [ ] Merge state/order and state/meta into state/todos.
   - [ ] Add multiple lists.
-  - [ ] Use 'payload' as alias to 'action.payload' and default to {}
   - [ ] In reducers, use 'if' form instead of 'switch' statement.
+  - [ ] In reducers, use 'if' form and in each if block declare the
+    expected 'arguments' from 'payload'. See src/state/lists/lists.js
+  - [ ] Rework 'createApi'. Because we have thunks we can assume a
+    dispatch argument. We don't need to take a dispatch function
+    because it's passed into every dispatch event. That means we also
+    may not need to 'createApi' and can just use plain functions
+    unattached to any instance.
+  - [ ] In state submodules, use more consistent export default form:
+    todos.actions, todos.reducer. export default {actions, reducer}
+  - [ ] api.workspace.cycleNextList/cyclePrevList
 
 * BRANCH: refactor/state
   - [ ] Remove state/order.

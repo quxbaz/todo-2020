@@ -8,20 +8,18 @@ const init = {
 
 const list = (state=init, action) => {
 
-  const payload = action.payload || {}
+  if (action.type === ACTION_TYPES.LISTS__CREATE) {
+    const {id, title} = action.payload
+    return {...state, id, title}
+  }
 
-  if (action.type === ACTION_TYPES.LISTS__CREATE)
+  if (action.type === ACTION_TYPES.LISTS__ADD_TODO) {
+    const {todo} = action.payload
     return {
       ...state,
-      id: payload.id,
-      title: payload.title,
+      todos: [...state.todos, todo],
     }
-
-  if (action.type === ACTION_TYPES.LISTS__ADD_TODO)
-    return {
-      ...state,
-      todos: [...state.todos, payload.todo],
-    }
+  }
 
   return state
 

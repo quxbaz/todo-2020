@@ -3,31 +3,23 @@ import list from './list'
 
 const lists = (state={}, action) => {
 
-  // ::TODO::MIDDLEWARE::
-  if (action.payload == null) {
-    action = {...action, payload: {}}
+  if (action.type === ACTION_TYPES.LISTS__CREATE) {
+    const {id} = action.payload
+    return {
+      ...state,
+      [id]: list(undefined, action),
+    }
   }
-  if (action.meta == null) {
-    action = {...action, meta: {}}
-  }
-  //
 
-  const {id} = action.payload
-
-  switch (action.type) {
-    case ACTION_TYPES.LISTS__CREATE:
-      return {
-        ...state,
-        [id]: list(undefined, action),
-      }
-    case ACTION_TYPES.LISTS__ADD_TODO:
-      return {
-        ...state,
-        [id]: list(list[id], action),
-      }
-    default:
-      return state
+  if (action.type === ACTION_TYPES.LISTS__ADD_TODO) {
+    const {id} = action.payload
+    return {
+      ...state,
+      [id]: list(state[id], action),
+    }
   }
+
+  return state
 
 }
 

@@ -56,7 +56,7 @@ const mapDispatchToProps = (dispatch) => {
   const api = createApi(dispatch)
   return {
     onSubmit (text) {
-      api.todos.create({
+      api.workspace.createTodo({
         text,
         createdBy: 'INPUT_FIELD',
       })
