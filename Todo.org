@@ -16,7 +16,7 @@ Todo
   - [ ] Remove redux-logger.
   - [ ] Rename TODO_ actions to use double underscore for namespacing TODO__
   - [ ] Rename components -> com
-  - [::MIDDLEWARE::] Write middleware to automatically add .payload {} and meta {}
+  - [::MIDDLEWARE::] Write middleware to automaticanlly add .payload {} and meta {}
     to action if missing. Then refactor reducers to always assume a
     payload object.
   - [ ] Merge state/order and state/meta into state/todos.
@@ -34,7 +34,7 @@ Todo
   - [ ] api.workspace.cycleNextList/cyclePrevList
 
 * BRANCH: refactor/state
-  - [ ] Remove state/order.
+  - [ ] Remove state/order and shift functionality into list.todos
 
 * UX
   - [ ] Handle SHIFT-UP.
@@ -52,15 +52,7 @@ Todo
     - [ ] CRUD operations.
   - [ ] Add linting.
 
-{
-  lists: {
-    [id]: {
-      todos: [1, 2, 3, 4],
-    }
-    [...]
-  }
-  todos: {
-    [id]: {text, ...}
-    [...]
-  },
-}
+* Features
+  - Search
+  - Filter
+  - Sort
