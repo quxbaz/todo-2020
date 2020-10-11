@@ -10,7 +10,10 @@ Todo
     [pos 0]. Merge text with previous item.
   - [ ] Remove InputField at some point and make last item
     undeletable.
-  - [X] Merge state/order into state/todos.
+  - [ ] Re-evaluate if there's a better method than using
+    .insertAfter/.insertBefore on payload.
+  - [X] Merge state/order into state/list.
+  - [X] Remove previous order resources.
   - [ ] api.workspace.cycleNextList/cyclePrevList
   - [ ] Find out why redux dev tools 'persist' feature isn't working
     correctly. Probably a conflict with uniqId. How to make work with
