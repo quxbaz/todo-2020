@@ -15,8 +15,6 @@ Todo
     to action if missing. Then refactor reducers to always assume a
     payload object.
   - [ ] Merge state/order and state/meta into state/todos.
-  - [ ] In state submodules, use more consistent export default form:
-    todos.actions, todos.reducer. export default {actions, reducer}
   - [ ] api.workspace.cycleNextList/cyclePrevList
   - [ ] Find out why redux dev tools 'persist' feature isn't working
     correctly. Probably a conflict with uniqId. How to make work with
