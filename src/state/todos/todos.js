@@ -4,7 +4,7 @@ import todo from './todo'
 
 const todos = (state={}, action) => {
 
-  if (action.type === ACTION_TYPES.TODOS_CREATE) {
+  if (action.type === ACTION_TYPES.TODOS__CREATE) {
     const {id} = action.payload
     return {
       ...state,
@@ -12,13 +12,13 @@ const todos = (state={}, action) => {
     }
   }
 
-  if (action.type === ACTION_TYPES.TODOS_REMOVE) {
+  if (action.type === ACTION_TYPES.TODOS__REMOVE) {
     const {id} = action.payload
     return omit(state, id)
   }
 
-  if (action.type === ACTION_TYPES.TODOS_UPDATE ||
-      action.type === ACTION_TYPES.TODOS_TOGGLE) {
+  if (action.type === ACTION_TYPES.TODOS__UPDATE ||
+      action.type === ACTION_TYPES.TODOS__TOGGLE) {
     const {id} = action.payload
     return {
       ...state,
@@ -27,7 +27,7 @@ const todos = (state={}, action) => {
   }
 
   // // ::TODO::
-  // if (action.type === ACTION_TYPES.TODOS_MERGE) {
+  // if (action.type === ACTION_TYPES.TODOS__MERGE) {
   //   omit(state, id)
   // }
 

@@ -14,7 +14,6 @@ Todo
   - [ ] Add workspaces/tags/organization/etc.
   - [ ] Rename todos/todo -> notes/note.
   - [ ] Remove redux-logger.
-  - [X] Rename TODO_ actions to use double underscore for namespacing TODO__
   - [::MIDDLEWARE::] Write middleware to automaticanlly add .payload {} and meta {}
     to action if missing. Then refactor reducers to always assume a
     payload object.

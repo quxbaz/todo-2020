@@ -14,12 +14,11 @@ const ACTION_TYPES = {
   /*
     todos namespace
   */
-  // ::TODO:: Rename using TODOS__ namespace.
-  TODOS_CREATE: 'todo-2020/todos/CREATE',
-  TODOS_REMOVE: 'todo-2020/todos/REMOVE',
-  TODOS_UPDATE: 'todo-2020/todos/UPDATE',
-  TODOS_TOGGLE: 'todo-2020/todos/TOGGLE',
-  TODOS_MERGE:  'todo-2020/todos/MERGE',
+  TODOS__CREATE: 'todo-2020/todos/CREATE',
+  TODOS__REMOVE: 'todo-2020/todos/REMOVE',
+  TODOS__UPDATE: 'todo-2020/todos/UPDATE',
+  TODOS__TOGGLE: 'todo-2020/todos/TOGGLE',
+  TODOS__MERGE:  'todo-2020/todos/MERGE',
 
 }
 

@@ -3,7 +3,7 @@ import ACTION_TYPES from '/state/ACTION_TYPES'
 
 const order = (state=[], action) => {
 
-  if (action.type === ACTION_TYPES.TODOS_CREATE) {
+  if (action.type === ACTION_TYPES.TODOS__CREATE) {
     const {id, insertAfter, insertBefore} = action.payload
     if (insertAfter == null && insertBefore == null) {
       return [...state, id]
@@ -14,7 +14,7 @@ const order = (state=[], action) => {
     }
   }
 
-  if (action.type === ACTION_TYPES.TODOS_REMOVE) {
+  if (action.type === ACTION_TYPES.TODOS__REMOVE) {
     const {id} = action.payload
     return without(state, id)
   }

@@ -6,7 +6,7 @@ const init = {
 
 const meta = (state=init, action) => {
 
-  if (action.type === ACTION_TYPES.TODOS_CREATE) {
+  if (action.type === ACTION_TYPES.TODOS__CREATE) {
     const {id} = action.payload
     return {...state, recent: id}
   }
