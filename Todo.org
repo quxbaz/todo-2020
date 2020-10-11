@@ -15,7 +15,6 @@ Todo
     to action if missing. Then refactor reducers to always assume a
     payload object.
   - [ ] Merge state/order and state/meta into state/todos.
-  - [ ] Add multiple lists.
   - [ ] In state submodules, use more consistent export default form:
     todos.actions, todos.reducer. export default {actions, reducer}
   - [ ] api.workspace.cycleNextList/cyclePrevList
