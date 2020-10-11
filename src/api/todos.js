@@ -1,7 +1,3 @@
-/*
-  ::TODO:: Reformat.
-*/
-
 import {actions} from '/state/todos'
 
 const createApi = (dispatch) => {
@@ -20,11 +16,12 @@ const createApi = (dispatch) => {
 
   api.toggle = (id, isDone) => dispatch(actions.toggle(id, isDone))
 
-  api.merge = (id) => {
-    console.log('api.todos.merge :: TODO')
-    const action = actions.merge(id)
-    dispatch(action)
-  }
+  // ::TODO::
+  // api.merge = (id) => {
+  //   console.log('api.todos.merge :: TODO')
+  //   const action = actions.merge(id)
+  //   dispatch(action)
+  // }
 
   return api
 

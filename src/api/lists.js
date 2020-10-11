@@ -1,4 +1,3 @@
-import {actions as todosActions} from '/state/todos'
 import {actions as listsActions} from '/state/lists'
 
 const createApi = (dispatch) => {
