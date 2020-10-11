@@ -19,4 +19,14 @@ actions.appendNote = (id, note) => ({
   },
 })
 
+actions.insertNote = (id, insertAfter, insertBefore, note) => ({
+  type: ACTION_TYPES.LISTS__INSERT_NOTE,
+  payload: {
+    id,
+    insertAfter,
+    insertBefore,
+    note,
+  },
+})
+
 export default actions

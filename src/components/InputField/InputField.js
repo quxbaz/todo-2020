@@ -56,10 +56,13 @@ const mapDispatchToProps = (dispatch) => {
   const api = createApi(dispatch)
   return {
     onSubmit (text) {
-      api.workspace.createNote({
-        text,
-        createdBy: 'INPUT_FIELD',
-      })
+
+      // ::TODO:: Remove this. Replace with api.lists.createCreate(<listId>, props)
+      // api.workspace.createNote({
+      //   text,
+      //   createdBy: 'INPUT_FIELD',
+      // })
+
     },
   }
 }

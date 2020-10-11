@@ -21,6 +21,10 @@ Todo
   - [ ] Fork react-redux to pass down {api} into mapDispatchToProps.
   - [ ] Re-evaluate the use of uniqId. It's probably conflicting with
     redux devtool persist feature.
+  - [ ] Fix destroy note.
+  - [X] Do not use activeList property. The assumption that only one
+    list is going to be visible at one time is not a good assumption
+    to make. Remove activeList from workspace.
 
 * BRANCH: refactor/state
   - [ ] Remove state/order and shift functionality into list.todos

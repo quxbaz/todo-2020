@@ -5,7 +5,6 @@ import ReduxThunk from 'redux-thunk'
 import {workspace} from './workspace'
 import {lists} from './lists'
 import {notes} from './notes'
-import {order} from './order'
 import {notesMeta} from './notesMeta'
 
 const _createStore = () => {
@@ -14,7 +13,6 @@ const _createStore = () => {
     lists,
     notes,
     notesMeta,
-    order,
   })
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
   const middleware = applyMiddleware(
