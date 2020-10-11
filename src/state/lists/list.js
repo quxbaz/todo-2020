@@ -13,6 +13,14 @@ const list = (state=init, action) => {
     return {...state, id, title}
   }
 
+  if (action.type === ACTION_TYPES.LISTS__APPEND_NOTE) {
+    const {note} = action.payload
+    return {
+      ...state,
+      notes: [...state.notes, note],
+    }
+  }
+
   if (action.type === ACTION_TYPES.LISTS__ADD_NOTE) {
     const {note} = action.payload
     return {

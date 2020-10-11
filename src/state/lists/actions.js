@@ -11,8 +11,8 @@ actions.create = ({title}) => ({
   },
 })
 
-actions.addNote = (id, note) => ({
-  type: ACTION_TYPES.LISTS__ADD_NOTE,
+actions.appendNote = (id, note) => ({
+  type: ACTION_TYPES.LISTS__APPEND_NOTE,
   payload: {
     id,
     note,

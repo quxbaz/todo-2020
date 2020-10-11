@@ -9,7 +9,8 @@ const ACTION_TYPES = {
     lists namespace
   */
   LISTS__CREATE:   'todo-2020/lists/CREATE',
-  LISTS__ADD_NOTE: 'todo-2020/lists/ADD_NOTE',
+  LISTS__APPEND_NOTE: 'todo-2020/lists/APPEND_NOTE',
+  LISTS__INSERT_NOTE: 'todo-2020/lists/INSERT_NOTE',
 
   /*
     notes namespace

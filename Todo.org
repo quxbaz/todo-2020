@@ -19,6 +19,8 @@ Todo
     correctly. Probably a conflict with uniqId. How to make work with
     uniqId?
   - [ ] Fork react-redux to pass down {api} into mapDispatchToProps.
+  - [ ] Re-evaluate the use of uniqId. It's probably conflicting with
+    redux devtool persist feature.
 
 * BRANCH: refactor/state
   - [ ] Remove state/order and shift functionality into list.todos

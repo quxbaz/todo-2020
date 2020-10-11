@@ -19,7 +19,7 @@ const createApi = (dispatch) => {
   api.createNote = (props) => {
     const action = dispatch(notesActions.create(props))
     dispatch(
-      listsActions.addNote(
+      listsActions.appendNote(
         getState(dispatch).workspace.activeList,
         action.payload.id
       )
