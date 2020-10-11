@@ -11,9 +11,6 @@ Todo
   - [ ] Remove InputField at some point and make last item
     undeletable.
   - [ ] Add workspaces/tags/organization/etc.
-  - [::MIDDLEWARE::] Write middleware to automaticanlly add .payload {} and meta {}
-    to action if missing. Then refactor reducers to always assume a
-    payload object.
   - [ ] Merge state/order and state/meta into state/todos.
   - [ ] api.workspace.cycleNextList/cyclePrevList
   - [ ] Find out why redux dev tools 'persist' feature isn't working
