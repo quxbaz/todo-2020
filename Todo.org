@@ -1,7 +1,7 @@
 Todo
 
 * RESUME
-  Get list switching to work. Each list should contain its own todo items.
+  --
 
 * NOW
   - [ ] Make basic TODO app.
@@ -14,19 +14,18 @@ Todo
   - [ ] Add workspaces/tags/organization/etc.
   - [ ] Rename todos/todo -> notes/note.
   - [ ] Remove redux-logger.
-  - [ ] Rename TODO_ actions to use double underscore for namespacing TODO__
-  - [ ] Rename components -> com
+  - [X] Rename TODO_ actions to use double underscore for namespacing TODO__
   - [::MIDDLEWARE::] Write middleware to automaticanlly add .payload {} and meta {}
     to action if missing. Then refactor reducers to always assume a
     payload object.
   - [ ] Merge state/order and state/meta into state/todos.
   - [ ] Add multiple lists.
-  - [ ] In reducers, use 'if' form instead of 'switch' statement.
-  - [ ] In reducers, use 'if' form and in each if block declare the
-    expected 'arguments' from 'payload'. See src/state/lists/lists.js
   - [ ] In state submodules, use more consistent export default form:
     todos.actions, todos.reducer. export default {actions, reducer}
   - [ ] api.workspace.cycleNextList/cyclePrevList
+  - [ ] Find out why redux dev tools 'persist' feature isn't working
+    correctly. Probably a conflict with uniqId. How to make work with
+    uniqId?
 
 * BRANCH: refactor/state
   - [ ] Remove state/order and shift functionality into list.todos

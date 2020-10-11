@@ -1,18 +1,20 @@
-import ACTION_TYPES from './ACTION_TYPES'
+import ACTION_TYPES from '/state/ACTION_TYPES'
 
 const init = {
   recent: null,
 }
 
-const reducer = (state=init, action) => {
-  switch (action.type) {
-    case ACTION_TYPES.TODOS_CREATE:
-      state = {...state, recent: action.payload.id}
-    default:
-      return state
+const meta = (state=init, action) => {
+
+  if (action.type === ACTION_TYPES.TODOS_CREATE) {
+    const {id} = action.payload
+    return {...state, recent: id}
   }
+
+  return state
+
 }
 
 export {
-  reducer,
+  meta,
 }

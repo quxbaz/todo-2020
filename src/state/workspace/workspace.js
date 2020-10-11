@@ -6,26 +6,15 @@ const init = {
 
 const workspace = (state=init, action) => {
 
-  // ::TODO::MIDDLEWARE::
-  if (action.payload == null) {
-    action = {...action, payload: {}}
+  if (action.type === ACTION_TYPES.WORKSPACE__SET_ACTIVE_LIST) {
+    const {id} = action.payload
+    return {
+      ...state,
+      activeList: id,
+    }
   }
-  if (action.meta == null) {
-    action = {...action, meta: {}}
-  }
-  //
 
-  const {id} = action.payload
-
-  switch (action.type) {
-    case ACTION_TYPES.WORKSPACE__SET_ACTIVE_LIST:
-      return {
-        ...state,
-        activeList: id,
-      }
-    default:
-      return state
-  }
+  return state
 
 }
 

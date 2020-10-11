@@ -6,16 +6,16 @@ import ReduxThunk from 'redux-thunk'
 import {workspace} from './workspace'
 import {lists} from './lists'
 import {todos} from './todos'
-import {reducer as orderReducer} from './order'
-import {reducer as metaReducer} from './meta'
+import {order} from './order'
+import {meta} from './meta'
 
 const _createStore = () => {
   const reducer = combineReducers({
     workspace,
     lists,
     todos,
-    order: orderReducer,
-    meta: metaReducer,
+    order,
+    meta,
   })
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
   const middleware = applyMiddleware(
