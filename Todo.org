@@ -1,5 +1,8 @@
 Todo
 
+* RESUME
+  Get list switching to work. Each list should contain its own todo items.
+
 * NOW
   - [ ] Make basic TODO app.
   - [ ] Hover state on <Switch>
