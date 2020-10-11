@@ -11,7 +11,7 @@ const AppComponent = ({store, activeList}) => (
     <Provider store={store}>
       <SideNav />
       <div className={css.ListFrame}>
-        <InputField />
+        <InputField listId={activeList.id} />
         <List list={activeList} />
       </div>
     </Provider>

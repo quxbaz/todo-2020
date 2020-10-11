@@ -25,6 +25,7 @@ Todo
   - [X] Do not use activeList property. The assumption that only one
     list is going to be visible at one time is not a good assumption
     to make. Remove activeList from workspace.
+  - [ ] Rename notesMeta.recent -> lastCreated
 
 * BRANCH: refactor/state
   - [ ] Remove state/order and shift functionality into list.todos

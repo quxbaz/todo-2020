@@ -49,20 +49,18 @@ function InputField ({onSubmit}) {
 }
 
 InputField.propTypes = {
+  listId: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, {listId}) => {
   const api = createApi(dispatch)
   return {
     onSubmit (text) {
-
-      // ::TODO:: Remove this. Replace with api.lists.createCreate(<listId>, props)
-      // api.workspace.createNote({
-      //   text,
-      //   createdBy: 'INPUT_FIELD',
-      // })
-
+      api.lists.createNote(listId, {
+        text,
+        createdBy: 'INPUT_FIELD',
+      })
     },
   }
 }
