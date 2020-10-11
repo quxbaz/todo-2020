@@ -10,12 +10,12 @@ Todo
     [pos 0]. Merge text with previous item.
   - [ ] Remove InputField at some point and make last item
     undeletable.
-  - [ ] Add workspaces/tags/organization/etc.
-  - [ ] Merge state/order and state/meta into state/todos.
+  - [X] Merge state/order into state/todos.
   - [ ] api.workspace.cycleNextList/cyclePrevList
   - [ ] Find out why redux dev tools 'persist' feature isn't working
     correctly. Probably a conflict with uniqId. How to make work with
     uniqId?
+  - [ ] Fork react-redux to pass down {api} into mapDispatchToProps.
 
 * BRANCH: refactor/state
   - [ ] Remove state/order and shift functionality into list.todos
@@ -37,6 +37,8 @@ Todo
   - [ ] Add linting.
 
 * Features
-  - Search
-  - Filter
-  - Sort
+  - [ ] Change single-line <input> elements to multi-line editables.
+  - [ ] Search
+  - [ ] Filter
+  - [ ] Sort
+  - [ ] Add workspaces/tags/organization/etc.

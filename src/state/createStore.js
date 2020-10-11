@@ -6,15 +6,15 @@ import {workspace} from './workspace'
 import {lists} from './lists'
 import {notes} from './notes'
 import {order} from './order'
-import {meta} from './meta'
+import {notesMeta} from './notesMeta'
 
 const _createStore = () => {
   const reducer = combineReducers({
     workspace,
     lists,
     notes,
+    notesMeta,
     order,
-    meta,
   })
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
   const middleware = applyMiddleware(

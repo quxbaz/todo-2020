@@ -4,7 +4,7 @@ const init = {
   recent: null,
 }
 
-const meta = (state=init, action) => {
+const notesMeta = (state=init, action) => {
 
   if (action.type === ACTION_TYPES.NOTES__CREATE) {
     const {id} = action.payload
@@ -16,5 +16,5 @@ const meta = (state=init, action) => {
 }
 
 export {
-  meta,
+  notesMeta,
 }
