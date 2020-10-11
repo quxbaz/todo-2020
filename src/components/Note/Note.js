@@ -111,7 +111,7 @@ Note.propTypes = {
 }
 
 const mapStateToProps = (state, {note}) => ({
-  isLastCreated: note.id === state.notesMeta.recent,
+  isLastCreated: note.id === state.notesMeta.lastCreated,
 })
 
 const mapDispatchToProps = (dispatch) => {

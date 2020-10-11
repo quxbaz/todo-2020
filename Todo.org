@@ -21,7 +21,6 @@ Todo
     redux devtool persist feature.
   - [ ] Fix destroy note.
     to make. Remove activeList from workspace.
-  - [ ] Rename notesMeta.recent -> lastCreated
 
 * BRANCH: refactor/state
   - [ ] Remove state/order and shift functionality into list.todos
