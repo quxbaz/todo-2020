@@ -11,7 +11,7 @@ const {
   ENTER_AT_END,
   ENTER_AT_POS,
   BACKSPACE_AT_START_OF_EMPTY_LINE,
-  BACKSPACE_AT_START_OF_NEMPTY_LINE,
+  BACKSPACE_AT_START_OF_NON_EMPTY_LINE,
 } = NOTE_EVENTS
 
 class NoteInput extends React.Component {
@@ -36,32 +36,26 @@ class NoteInput extends React.Component {
       ? input.selectionEnd
       : input.selectionStart
 
-    // Up
     if (event.keyCode === 38)
       d(ARROW_UP)
 
-    // Down
     else if (event.keyCode === 40)
-      props.onArrowDown()
+      d(ARROW_DOWN)
 
-    // Left
     else if (event.keyCode === 37 && pos === 0)
-      props.onArrowLeftAtStart()
+      d(ARROW_LEFT_AT_START)
 
-    // Right
     else if (event.keyCode === 39 && pos === input.value.length)
-      props.onArrowRightAtEnd()
+      d(ARROW_RIGHT_AT_END)
 
-    // Enter
     else if (event.keyCode === 13)
-      if (pos === 0) props.onEnterAtStart()
-      else if (pos === input.value.length) props.onEnterAtEnd()
-      else props.onEnterAtPos()
+      if (pos === 0) d(ENTER_AT_START)
+      else if (pos === input.value.length) d(ENTER_AT_END)
+      else d(ENTER_AT_POS)
 
-    // Backspace
     else if (event.keyCode === 8)
-      if (note.text === '') props.onBackspaceAtStartOf()
-      else if (pos === 0) props.onBackspaceAtStartOfNonEmptyLine()
+      if (note.text === '') d(BACKSPACE_AT_START_OF_EMPTY_LINE)
+      else if (pos === 0) d(BACKSPACE_AT_START_OF_NON_EMPTY_LINE)
 
   }
 

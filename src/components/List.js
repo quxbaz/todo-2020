@@ -74,9 +74,34 @@ const List = ({
   // }
 
   const handleNoteEvent = (noteId, event) => {
+
     if (event.type === NOTE_EVENTS.ARROW_UP) {
-      console.log(NOTE_EVENTS.ARROW_UP)
     }
+
+    else if (event.type === NOTE_EVENTS.ARROW_DOWN) {
+    }
+
+    else if (event.type === NOTE_EVENTS.ARROW_LEFT_AT_START) {
+    }
+
+    else if (event.type === NOTE_EVENTS.ARROW_RIGHT_AT_END) {
+    }
+
+    else if (event.type === NOTE_EVENTS.ENTER_AT_START) {
+    }
+
+    else if (event.type === NOTE_EVENTS.ENTER_AT_END) {
+    }
+
+    else if (event.type === NOTE_EVENTS.ENTER_AT_POS) {
+    }
+
+    else if (event.type === NOTE_EVENTS.BACKSPACE_AT_START_OF_EMPTY_LINE) {
+    }
+
+    else if (event.type === NOTE_EVENTS.BACKSPACE_AT_START_OF_NON_EMPTY_LINE) {
+    }
+
   }
 
   return (
