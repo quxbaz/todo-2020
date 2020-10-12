@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const noop = () => {}
-
 class NoteInput extends React.Component {
 
   constructor (props) {
