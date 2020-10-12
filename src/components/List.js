@@ -36,6 +36,7 @@
 import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import {noop} from '/util'
 import {createApi} from '/api'
 import Note, {NOTE_EVENTS} from './Note'
 
@@ -73,12 +74,24 @@ const List = ({
   //   else if (event.keyCode === 40) moveCaret(event, pos, 'DOWN')
   // }
 
-  const handleNoteEvent = (noteId, noteRef, event) => {
+  const ifPrev = (noteElement, yes, no=noop) => {
+    const prev = noteElement.previousSibling
+    if (prev) yes(prev, prev.querySelector('input'))
+    else no()
+  }
+
+  const ifNext = (noteElement, yes, no=noop) => {
+    const next = noteElement.nextSibling
+    if (next) yes(next, next.querySelector('input'))
+    else no()
+  }
+
+  const handleNoteEvent = (noteId, noteElement, event) => {
 
     if (event.type === NOTE_EVENTS.ARROW_UP) {
-      console.log(noteId)
-      console.log(noteRef)
-      console.log(event)
+      ifPrev(noteElement, (prev, input) => {
+        input.focus()
+      })
     }
 
     else if (event.type === NOTE_EVENTS.ARROW_DOWN) {
@@ -110,12 +123,14 @@ const List = ({
   return (
     <div ref={ref}>
       <h2>{list.title}</h2>
-      {notes.map((note, i) => (
-        <Note
-          key={note.id}
-          note={note}
-          onNoteEvent={handleNoteEvent} />
-      ))}
+      <div>
+        {notes.map((note, i) => (
+          <Note
+            key={note.id}
+            note={note}
+            onNoteEvent={handleNoteEvent} />
+        ))}
+      </div>
     </div>
   )
 
