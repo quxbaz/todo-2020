@@ -13,19 +13,12 @@ function createApp () {
   const api = createApi(store.dispatch.bind(store))
   const list0 = api.lists.create({title: 'list-0'})
   const list1 = api.lists.create({title: 'list-1'})
-  api.workspace.setActiveList(list0)
+  api.lists.createNote(list1, null, {text: 'one'})
+  api.lists.createNote(list1, null, {text: 'two'})
+  api.lists.createNote(list1, null, {text: 'three'})
 
-  // const note0 = api.notes.create({text: 'zero'})
-  // const note1 = api.notes.create({text: 'one'})
-  // api.notes.toggle(note1, true)
-  // const note2 = api.notes.create({text: 'two'})
+  api.workspace.setActiveList(list1)
 
-  // const note3 = api.notes.create({text: 'three'})
-  // const note4 = api.notes.create({text: 'four'})
-  // const note5 = api.notes.create({text: 'five'})
-
-  // api.notes.toggle(note1, true)
-  // api.notes.toggle(note3, true)
 
   // ::END TEMP::
 
