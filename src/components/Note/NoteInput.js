@@ -50,7 +50,7 @@ class NoteInput extends React.Component {
       else d(ENTER_AT_POS, {pos})
 
     else if (event.keyCode === 8)
-      if (note.text === '') d(BACKSPACE_AT_START_OF_EMPTY_LINE)
+      if (input.value === '') d(BACKSPACE_AT_START_OF_EMPTY_LINE)
       else if (pos === 0) d(BACKSPACE_AT_START_OF_NON_EMPTY_LINE)
 
   }
