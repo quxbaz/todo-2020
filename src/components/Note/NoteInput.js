@@ -22,15 +22,11 @@ class NoteInput extends React.Component {
     this.handleKeyDown = this.handleKeyDown.bind(this)
   }
 
-  dispatch (type, props={}) {
-    this.props.onNoteEvent({type, ...props})
-  }
-
   handleKeyDown (event) {
 
-    const {props} = this
+    const {onNoteEvent} = this.props
     const input = this.ref.current
-    const d = this.dispatch.bind(this)
+    const d = (type, props) => onNoteEvent({type, ...props})
 
     const pos = input.selectionDirection === 'forward'
       ? input.selectionEnd
