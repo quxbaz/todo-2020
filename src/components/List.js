@@ -1,3 +1,32 @@
+/*
+
+  ::TODO::
+
+  The <Note> component should be the place describing its input
+  events. <List> should not be interpreting fine-grained events like
+  reading from event.keyCode. Instead <Note> should expose
+  onArrowUp/onArrowDown/onEnterKey functions.
+
+  For convenience it can package the exposure of these related event
+  handlers into something else instead of having all the logic being
+  wired in <Note>; something more generic and reusable.
+
+  Instead of plugging into every handler individually a la:
+
+    <Component
+      onArrowUp={...}
+      onArrowDown={...}
+      onEnterAtEndOfLine={...}
+      onEnterAtStartOfLine={...}
+      onEnterAtMiddleOfLine={...} />
+
+  You can perhaps package them up, or something.
+
+  Input should be a special input that handles the low-level event
+  logic and exposes high level callbacks.
+
+*/
+
 import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
@@ -45,7 +74,7 @@ const List = ({
         <Note
           key={note.id}
           note={note}
-          onEnterAtEnd={noteId => onEnterAtEnd(list.id, noteId)}
+          onEnterAtEnd={onEnterAtEnd}
           onKeyDown={handleKeyDown} />
       ))}
     </div>
@@ -66,25 +95,10 @@ const mapStateToProps = (state, {list}) => ({
 const mapDispatchToProps = (dispatch, {list}) => {
   const api = createApi(dispatch)
   return {
-    onEnterAtEnd (listId, noteId) {
-
+    onEnterAtEnd (noteId) {
       // ::RESUME::
-
-      // ::TODO:: Too much indirection here from <TODO> to <NOTE>. Try
-      // to alleviate this confusion without breaking any architectual
-      // principles.
-
-      // ::TODO:: Resolve some silliness here. We're using both {list}
-      // in ownProps and listId in parameters. Which way is
-      // correct. Should we assume that {list} is always going to
-      // available. Or should the component be complete agnostic in
-      // passing parameters to whatever container may wrap it.
-
-
-
-      console.log('onEnterAtEnd')
       const pos = list.notes.indexOf(noteId) + 1
-      api.lists.createNote(listId, pos)
+      api.lists.createNote(list.id, pos)
     },
   }
 }
