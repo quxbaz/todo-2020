@@ -25,6 +25,12 @@
   Input should be a special input that handles the low-level event
   logic and exposes high level callbacks.
 
+  Move caret should occur in the special <Input> component.
+
+  ::TODO::
+
+  - Is 'useRef' necessary?
+
 */
 
 import React, {useRef} from 'react'
@@ -40,31 +46,72 @@ const List = ({
 
   const ref = useRef()
 
-  function moveCaret (event, pos, DIRECTION) {
+  // ::TODO:: Move section 'moveCaret' functionality to <NoteInput>
+  // function moveCaret (event, pos, DIRECTION) {
 
-    function exec (input, pos) {
-      requestAnimationFrame(() => {
-        input.setSelectionRange(pos, pos)
-      })
+  //   function exec (input, pos) {
+  //     requestAnimationFrame(() => {
+  //       input.setSelectionRange(pos, pos)
+  //     })
+  //   }
+
+  //   const sourceInput = event.currentTarget
+  //   const sourceNote = sourceInput.closest('.Note')
+  //   const targetNote = DIRECTION === 'UP' ? sourceNote.previousSibling : sourceNote.nextSibling
+
+  //   if (targetNote) {
+  //     const targetInput = targetNote.querySelector('input')
+  //     targetInput.focus()
+  //     exec(targetInput, pos)
+  //   } else {
+  //     exec(sourceInput, DIRECTION === 'UP' ? 0 : sourceInput.value.length)
+  //   }
+
+  // }
+
+  // function handleKeyDown (event, id, pos) {
+  //   if (event.keyCode === 38) moveCaret(event, pos, 'UP')
+  //   else if (event.keyCode === 40) moveCaret(event, pos, 'DOWN')
+  // }
+
+  const inputMap = {
+
+    onArrowUp () {
+      console.log('onArrowUp')
+    },
+
+    onArrowDown () {
+      console.log('onArrowDown')
+    },
+
+    onArrowLeftAtStart () {
+      console.log('onArrowLeftAtStart')
+    },
+
+    onArrowRightAtEnd () {
+      console.log('onArrowRightAtEnd')
+    },
+
+    onEnterAtStart () {
+      console.log('onEnterAtStart')
+    },
+
+    onEnterAtEnd () {
+      console.log('onEnterAtEnd')
+    },
+
+    onEnterAtPos () {
+      console.log('onEnterAtPos')
+    },
+
+    onBackspaceAtStartOfEmptyLine () {
+      console.log('onBackspaceAtStartOfEmptyLine')
+    },
+
+    onBackspaceAtStartOfNonEmptyLine () {
+      console.log('onBackspaceAtStartOfNonEmptyLine')
     }
 
-    const sourceInput = event.currentTarget
-    const sourceNote = sourceInput.closest('.Note')
-    const targetNote = DIRECTION === 'UP' ? sourceNote.previousSibling : sourceNote.nextSibling
-
-    if (targetNote) {
-      const targetInput = targetNote.querySelector('input')
-      targetInput.focus()
-      exec(targetInput, pos)
-    } else {
-      exec(sourceInput, DIRECTION === 'UP' ? 0 : sourceInput.value.length)
-    }
-
-  }
-
-  function handleKeyDown (event, id, pos) {
-    if (event.keyCode === 38) moveCaret(event, pos, 'UP')
-    else if (event.keyCode === 40) moveCaret(event, pos, 'DOWN')
   }
 
   return (
@@ -74,8 +121,7 @@ const List = ({
         <Note
           key={note.id}
           note={note}
-          onEnterAtEnd={onEnterAtEnd}
-          onKeyDown={handleKeyDown} />
+          inputMap={inputMap} />
       ))}
     </div>
   )
