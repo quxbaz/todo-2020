@@ -1,12 +1,3 @@
-/*
-
-  ::TODO
-
-  Mostly a <input> element interprets and exposes special
-  functionality specifically relevant to note editing.
-
-*/
-
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -19,50 +10,6 @@ class NoteInput extends React.Component {
     this.ref = React.createRef()
     this.handleKeyDown = this.handleKeyDown.bind(this)
   }
-
-  // handleKeyDown (event) {
-  //   const {ref} = this
-  //   const {inputMap} = this.props
-  //   const input = ref.current.querySelector('input')
-  //   const pos = input.selectionDirection === 'forward'
-  //     ? input.selectionEnd
-  //     : input.selectionStart
-  //   onKeyDown(event, note.id, pos)
-  //   if (event.keyCode === 13 /* ENTER */) {
-  //     if (pos === input.value.length) onEnterAtEnd(note.id)
-  //     else if (pos === 0) onEnterAtStart(note.id)
-  //     else onEnterAtPos(note.id, note.text, pos)
-  //   } else if (event.keyCode === 8 /* BACKSPACE */) {
-  //     if (note.text === '') {
-  //       withPrevInput(prev => {
-  //         event.preventDefault()
-  //         prev.focus()
-  //       }, () => {
-  //         document.getElementById('InputField').focus()
-  //       })
-  //       onRemove(note.id)
-  //     } else if (pos === 0) {
-  //       withPrevInput(prev => {
-  //         event.preventDefault()
-  //         prev.focus()
-  //         // ::TODO:: Focus at last character
-  //         onMergeWithPrev(note.id, note.text)
-  //       })
-  //     }
-  //   } else if (event.keyCode === 37 /* LEFT */ && pos === 0) {
-  //     withPrevInput((prev) => {
-  //       event.preventDefault()
-  //       prev.focus()
-  //       prev.setSelectionRange(prev.value.length, prev.value.length)
-  //     })
-  //   } else if (event.keyCode === 39 /* RIGHT */ && pos === input.value.length) {
-  //     withNextInput((next) => {
-  //       event.preventDefault()
-  //       next.focus()
-  //       next.setSelectionRange(0, 0)
-  //     })
-  //   }
-  // }
 
   handleKeyDown (event) {
 
