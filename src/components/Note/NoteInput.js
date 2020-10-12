@@ -45,8 +45,8 @@ class NoteInput extends React.Component {
       d(ARROW_RIGHT_AT_END)
 
     else if (event.keyCode === 13)
-      if (pos === 0) d(ENTER_AT_START)
-      else if (pos === input.value.length) d(ENTER_AT_END)
+      if (input.value.length === 0 || pos === input.value.length) d(ENTER_AT_END)
+      else if (pos === 0) d(ENTER_AT_START)
       else d(ENTER_AT_POS)
 
     else if (event.keyCode === 8)

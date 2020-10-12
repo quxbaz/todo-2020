@@ -2,31 +2,48 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {createApi} from '/api'
-import Note from '/components/Note'
+import Note, {NOTE_EVENTS} from '/components/Note'
 import handleNoteEvent from './handleNoteEvent'
 
-const List = ({list, notes, onEnterAtEnd}) => {
+class List extends React.Component {
 
-  return (
-    <div>
-      <h2>{list.title}</h2>
+  constructor(props) {
+    super(props)
+    this.handleNoteEvent = this.handleNoteEvent.bind(this)
+  }
+
+  handleNoteEvent (noteId, noteDom, event) {
+    const {props} = this
+    handleNoteEvent(noteId, noteDom, event, {
+      [NOTE_EVENTS.ENTER_AT_END]: props.onEnterAtEnd,
+    })
+  }
+
+  render () {
+    const {list, notes} = this.props
+    return (
       <div>
-        {notes.map((note, i) => (
-          <Note
-            key={note.id}
-            note={note}
-            onNoteEvent={handleNoteEvent} />
-        ))}
+        <h2>{list.title}</h2>
+        <div>
+          {notes.map((note, i) => (
+            <Note
+              key={note.id}
+              note={note}
+              onNoteEvent={this.handleNoteEvent} />
+          ))}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 
 }
 
 List.propTypes = {
   list: PropTypes.object.isRequired,
   notes: PropTypes.array.isRequired,
+  onEnterAtStart: PropTypes.func.isRequired,
   onEnterAtEnd: PropTypes.func.isRequired,
+  onEnterAtPos: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state, {list}) => ({
@@ -36,10 +53,19 @@ const mapStateToProps = (state, {list}) => ({
 const mapDispatchToProps = (dispatch, {list}) => {
   const api = createApi(dispatch)
   return {
+    onEnterAtStart (noteId) {
+      console.log('start')
+      // const pos = list.notes.indexOf(noteId) + 1
+      // api.lists.createNote(list.id, pos)
+    },
     onEnterAtEnd (noteId) {
-      // ::RESUME::
       const pos = list.notes.indexOf(noteId) + 1
       api.lists.createNote(list.id, pos)
+    },
+    onEnterAtPos (noteId) {
+      console.log('pos')
+      // const pos = list.notes.indexOf(noteId) + 1
+      // api.lists.createNote(list.id, pos)
     },
   }
 }

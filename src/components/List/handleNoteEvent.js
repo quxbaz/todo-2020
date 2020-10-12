@@ -1,21 +1,26 @@
 import {NOTE_EVENTS} from '/components/Note'
-import moveCaret from './moveCaret'
+import _moveCaret from './moveCaret'
 
-const handleNoteEvent = (noteId, noteDom, event) => {
+const handleNoteEvent = (noteId, noteDom, event, eventMap) => {
+
+  const moveCaret = (DIRECTION) => _moveCaret(noteDom, DIRECTION)
 
   if (event.type === NOTE_EVENTS.ARROW_UP)
-    moveCaret(noteDom, 'UP')
+    moveCaret('UP')
   else if (event.type === NOTE_EVENTS.ARROW_DOWN)
-    moveCaret(noteDom, 'DOWN')
+    moveCaret('DOWN')
   else if (event.type === NOTE_EVENTS.ARROW_LEFT_AT_START)
-    moveCaret(noteDom, 'BACKWARD')
+    moveCaret('BACKWARD')
   else if (event.type === NOTE_EVENTS.ARROW_RIGHT_AT_END)
-    moveCaret(noteDom, 'FORWARD')
+    moveCaret('FORWARD')
 
   else if (event.type === NOTE_EVENTS.ENTER_AT_START) {
   }
 
   else if (event.type === NOTE_EVENTS.ENTER_AT_END) {
+    eventMap[NOTE_EVENTS.ENTER_AT_END](noteId)
+    // Wait for DOM node to exist.
+    requestAnimationFrame(() => moveCaret('DOWN'))
   }
 
   else if (event.type === NOTE_EVENTS.ENTER_AT_POS) {

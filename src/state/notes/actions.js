@@ -3,21 +3,17 @@ import ACTION_TYPES from '/state/ACTION_TYPES'
 
 const actions = {}
 
-// ::TODO:: Clean this up.
 actions.create = (props) => ({
   type: ACTION_TYPES.NOTES__CREATE,
   payload: {
     id: uniqId(),
     text: props.text || '',
 
-    // ::TODO:: Remove.
-    timestamp: Date.now(),
-
-    // ::TODO:: Remove these hacks.
-    insertAfter: props.insertAfter,
-    insertBefore: props.insertBefore,
+    // ::TODO:: Remove these hacks. They belong in UI event fields,
+    // not in app state.
     createdBy: props.createdBy,
     wasCreatedAtStartPos: props.wasCreatedAtStartPos || false,
+
   }
 })
 
@@ -29,12 +25,6 @@ actions.remove = (id) => ({
 actions.update = (id, props) => ({
   type: ACTION_TYPES.NOTES__UPDATE,
   payload: {id, props},
-})
-
-// Merges a note with the one previos to it.
-actions.merge = (id) => ({
-  type: ACTION_TYPES.NOTES__MERGE,
-  payload: {id},
 })
 
 export default actions
