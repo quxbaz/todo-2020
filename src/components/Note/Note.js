@@ -10,13 +10,7 @@ import NoteInput from './NoteInput'
 
 const Note = ({
   note, isLastCreated,
-
-  inputMap,
-
-  onChange, onToggle, onRemove, onMergeWithPrev,
-
-  // onKeyDown, onEnterAtEnd, onEnterAtStart, onEnterAtPos,
-
+  onChange, onToggle, onRemove, onNoteEvent,
 }) => {
 
   // const ref = useRef()
@@ -43,7 +37,6 @@ const Note = ({
 
   // handleKeyDown (event) {
   //   const {ref} = this
-  //   const {inputMap} = this.props
   //   const input = ref.current.querySelector('input')
   //   const pos = input.selectionDirection === 'forward'
   //     ? input.selectionEnd
@@ -85,12 +78,6 @@ const Note = ({
   //   }
   // }
 
-
-  inputMap = {
-    ...inputMap,
-    onChange: (event) => onChange(note.id, event.target.value),
-  }
-
   return (
     <div className={'Note ' + css.Note}>
       <Switch
@@ -100,7 +87,8 @@ const Note = ({
         <NoteInput
           className={classNames(css.Input, {[css.isDone]: note.isDone})}
           value={note.text}
-          {...inputMap} />
+          onChange={event => onChange(note.id, event.target.value)}
+          onNoteEvent={event => onNoteEvent(note.id, event)} />
       </div>
       <Button className={css.RemoveButton} onClick={() => onRemove(note.id)}>
         🗑
@@ -115,21 +103,14 @@ Note.propTypes = {
   isLastCreated: PropTypes.bool.isRequired,
   onToggle: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
-
-  // onMergeWithPrev: PropTypes.func.isRequired,
-
-  // onChange: PropTypes.func.isRequired,
-  // onKeyDown: PropTypes.func.isRequired,
-  // onEnterAtEnd: PropTypes.func.isRequired,
-  // onEnterAtStart: PropTypes.func.isRequired,
-  // onEnterAtPos: PropTypes.func.isRequired,
-
+  onNoteEvent: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state, {note}) => ({
   isLastCreated: note.id === state.notesMeta.lastCreated,
 })
 
+// ::TODO:: Remove obsolete handlers.
 const mapDispatchToProps = (dispatch) => {
   const api = createApi(dispatch)
   return {

@@ -37,7 +37,7 @@ import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {createApi} from '/api'
-import Note from './Note'
+import Note, {NOTE_EVENTS} from './Note'
 
 const List = ({
   list, notes,
@@ -46,7 +46,6 @@ const List = ({
 
   const ref = useRef()
 
-  // ::TODO:: Move section 'moveCaret' functionality to <NoteInput>
   // function moveCaret (event, pos, DIRECTION) {
 
   //   function exec (input, pos) {
@@ -74,44 +73,10 @@ const List = ({
   //   else if (event.keyCode === 40) moveCaret(event, pos, 'DOWN')
   // }
 
-  const inputMap = {
-
-    onArrowUp () {
-      console.log('onArrowUp')
-    },
-
-    onArrowDown () {
-      console.log('onArrowDown')
-    },
-
-    onArrowLeftAtStart () {
-      console.log('onArrowLeftAtStart')
-    },
-
-    onArrowRightAtEnd () {
-      console.log('onArrowRightAtEnd')
-    },
-
-    onEnterAtStart () {
-      console.log('onEnterAtStart')
-    },
-
-    onEnterAtEnd () {
-      console.log('onEnterAtEnd')
-    },
-
-    onEnterAtPos () {
-      console.log('onEnterAtPos')
-    },
-
-    onBackspaceAtStartOfEmptyLine () {
-      console.log('onBackspaceAtStartOfEmptyLine')
-    },
-
-    onBackspaceAtStartOfNonEmptyLine () {
-      console.log('onBackspaceAtStartOfNonEmptyLine')
+  const handleNoteEvent = (noteId, event) => {
+    if (event.type === NOTE_EVENTS.ARROW_UP) {
+      console.log(NOTE_EVENTS.ARROW_UP)
     }
-
   }
 
   return (
@@ -121,7 +86,7 @@ const List = ({
         <Note
           key={note.id}
           note={note}
-          inputMap={inputMap} />
+          onNoteEvent={handleNoteEvent} />
       ))}
     </div>
   )
