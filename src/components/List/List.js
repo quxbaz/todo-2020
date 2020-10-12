@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import {splitAt, getState} from '/util'
 import {createApi} from '/api'
 import Note, {NOTE_EVENTS} from '/components/Note'
 import handleNoteEvent from './handleNoteEvent'
@@ -56,17 +57,24 @@ const mapDispatchToProps = (dispatch, {list}) => {
   const api = createApi(dispatch)
   return {
     onEnterAtStart (noteId) {
-      const i = list.notes.indexOf(noteId)
-      api.lists.createNote(list.id, i)
+      const index = list.notes.indexOf(noteId)
+      api.lists.createNote(list.id, index)
     },
     onEnterAtEnd (noteId) {
-      const i = list.notes.indexOf(noteId) + 1
-      api.lists.createNote(list.id, i)
+      const index = list.notes.indexOf(noteId) + 1
+      api.lists.createNote(list.id, index)
     },
-    onEnterAtPos (noteId) {
-      console.log('pos')
-      // const pos = list.notes.indexOf(noteId) + 1
-      // api.lists.createNote(list.id, pos)
+    onEnterAtPos (noteId, pos) {
+      let [left, right] = splitAt(
+        getState(dispatch).notes[noteId].text,
+        pos
+      )
+      api.notes.update(noteId, {text: left})
+      api.lists.createNote(
+        list.id,
+        list.notes.indexOf(noteId) + 1,
+        {text: right}
+      )
     },
   }
 }

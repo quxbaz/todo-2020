@@ -57,6 +57,8 @@ const insert = (array, i, item) => ([
 
 const noop = () => {}
 
+const splitAt = (x, i) => [x.slice(0, i), x.slice(i)]
+
 export {
   omit,
   sortBy,
@@ -67,4 +69,5 @@ export {
   without,
   insert,
   noop,
+  splitAt,
 }

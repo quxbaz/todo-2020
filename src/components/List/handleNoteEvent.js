@@ -23,8 +23,8 @@ const handleNoteEvent = (noteId, noteDom, event, eventMap) => {
   }
 
   else if (event.type === NOTE_EVENTS.ENTER_AT_POS) {
-    eventMap[NOTE_EVENTS.ENTER_AT_POS](noteId)
-    requestAnimationFrame(() => moveCaret('DOWN'))  // Wait for DOM node to exist.
+    eventMap[NOTE_EVENTS.ENTER_AT_POS](noteId, event.pos)
+    requestAnimationFrame(() => moveCaret('FORWARD'))  // Wait for DOM node to exist.
   }
 
   else if (event.type === NOTE_EVENTS.BACKSPACE_AT_START_OF_EMPTY_LINE) {
