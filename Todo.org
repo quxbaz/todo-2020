@@ -20,6 +20,11 @@ Todo
   - [ ] Re-evaluate the use of uniqId. It's probably conflicting with
     redux devtool persist feature.
   - [ ] Fix destroy note.
+  - [ ] Remove api.notes.create()
+  - [X] Deprecate and remove .insertBefore and insertAfter
+    properties. Use pos instead and move calls to api.lists.createNote
+    to <List>
+  - [ ] Remove all references to .insertAfter/.insertBefore
 
 * BRANCH: refactor/state
   - [ ] Remove state/order and shift functionality into list.todos

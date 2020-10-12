@@ -57,7 +57,7 @@ const mapDispatchToProps = (dispatch, {listId}) => {
   const api = createApi(dispatch)
   return {
     onSubmit (text) {
-      api.lists.createNote(listId, {
+      api.lists.createNote(listId, null, {
         text,
         createdBy: 'INPUT_FIELD',
       })

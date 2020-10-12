@@ -130,10 +130,6 @@ const mapDispatchToProps = (dispatch) => {
       console.log('MERGE')
       api.notes.merge(id)
     },
-    onEnterAtEnd (id) {
-      // ::BOOKMARK::
-      api.notes.create({text: '', insertAfter: id, createdBy: 'NOTE_ITEM'})
-    },
     onEnterAtStart (id) {
       api.notes.create({
         text: '',

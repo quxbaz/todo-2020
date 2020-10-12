@@ -1,11 +1,13 @@
 import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {values} from '/util'
 import {createApi} from '/api'
 import Note from './Note'
 
-const List = ({list, notes}) => {
+const List = ({
+  list, notes,
+  onEnterAtEnd,
+}) => {
 
   const ref = useRef()
 
@@ -43,6 +45,7 @@ const List = ({list, notes}) => {
         <Note
           key={note.id}
           note={note}
+          onEnterAtEnd={noteId => onEnterAtEnd(list.id, noteId)}
           onKeyDown={handleKeyDown} />
       ))}
     </div>
@@ -53,10 +56,37 @@ const List = ({list, notes}) => {
 List.propTypes = {
   list: PropTypes.object.isRequired,
   notes: PropTypes.array.isRequired,
+  onEnterAtEnd: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state, {list}) => ({
   notes: list.notes.map(id => state.notes[id]),
 })
 
-export default connect(mapStateToProps, null)(List)
+const mapDispatchToProps = (dispatch, {list}) => {
+  const api = createApi(dispatch)
+  return {
+    onEnterAtEnd (listId, noteId) {
+
+      // ::RESUME::
+
+      // ::TODO:: Too much indirection here from <TODO> to <NOTE>. Try
+      // to alleviate this confusion without breaking any architectual
+      // principles.
+
+      // ::TODO:: Resolve some silliness here. We're using both {list}
+      // in ownProps and listId in parameters. Which way is
+      // correct. Should we assume that {list} is always going to
+      // available. Or should the component be complete agnostic in
+      // passing parameters to whatever container may wrap it.
+
+
+
+      console.log('onEnterAtEnd')
+      const pos = list.notes.indexOf(noteId) + 1
+      api.lists.createNote(listId, pos)
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(List)
