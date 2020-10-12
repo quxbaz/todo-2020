@@ -15,7 +15,9 @@ class List extends React.Component {
   handleNoteEvent (noteId, noteDom, event) {
     const {props} = this
     handleNoteEvent(noteId, noteDom, event, {
+      [NOTE_EVENTS.ENTER_AT_START]: props.onEnterAtStart,
       [NOTE_EVENTS.ENTER_AT_END]: props.onEnterAtEnd,
+      [NOTE_EVENTS.ENTER_AT_POS]: props.onEnterAtPos,
     })
   }
 
@@ -54,13 +56,12 @@ const mapDispatchToProps = (dispatch, {list}) => {
   const api = createApi(dispatch)
   return {
     onEnterAtStart (noteId) {
-      console.log('start')
-      // const pos = list.notes.indexOf(noteId) + 1
-      // api.lists.createNote(list.id, pos)
+      const i = list.notes.indexOf(noteId)
+      api.lists.createNote(list.id, i)
     },
     onEnterAtEnd (noteId) {
-      const pos = list.notes.indexOf(noteId) + 1
-      api.lists.createNote(list.id, pos)
+      const i = list.notes.indexOf(noteId) + 1
+      api.lists.createNote(list.id, i)
     },
     onEnterAtPos (noteId) {
       console.log('pos')

@@ -14,16 +14,17 @@ const handleNoteEvent = (noteId, noteDom, event, eventMap) => {
   else if (event.type === NOTE_EVENTS.ARROW_RIGHT_AT_END)
     moveCaret('FORWARD')
 
-  else if (event.type === NOTE_EVENTS.ENTER_AT_START) {
-  }
+  else if (event.type === NOTE_EVENTS.ENTER_AT_START)
+    eventMap[NOTE_EVENTS.ENTER_AT_START](noteId)
 
   else if (event.type === NOTE_EVENTS.ENTER_AT_END) {
     eventMap[NOTE_EVENTS.ENTER_AT_END](noteId)
-    // Wait for DOM node to exist.
-    requestAnimationFrame(() => moveCaret('DOWN'))
+    requestAnimationFrame(() => moveCaret('DOWN'))  // Wait for DOM node to exist.
   }
 
   else if (event.type === NOTE_EVENTS.ENTER_AT_POS) {
+    eventMap[NOTE_EVENTS.ENTER_AT_POS](noteId)
+    requestAnimationFrame(() => moveCaret('DOWN'))  // Wait for DOM node to exist.
   }
 
   else if (event.type === NOTE_EVENTS.BACKSPACE_AT_START_OF_EMPTY_LINE) {
