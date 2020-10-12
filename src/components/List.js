@@ -89,6 +89,7 @@ const List = ({
   const handleNoteEvent = (noteId, noteElement, event) => {
 
     if (event.type === NOTE_EVENTS.ARROW_UP) {
+      // ::RESUME::
       ifPrev(noteElement, (prev, input) => {
         input.focus()
       })
