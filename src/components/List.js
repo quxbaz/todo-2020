@@ -73,9 +73,12 @@ const List = ({
   //   else if (event.keyCode === 40) moveCaret(event, pos, 'DOWN')
   // }
 
-  const handleNoteEvent = (noteId, event) => {
+  const handleNoteEvent = (noteId, noteRef, event) => {
 
     if (event.type === NOTE_EVENTS.ARROW_UP) {
+      console.log(noteId)
+      console.log(noteRef)
+      console.log(event)
     }
 
     else if (event.type === NOTE_EVENTS.ARROW_DOWN) {

@@ -1,5 +1,5 @@
 import css from './style.css'
-import React, {useEffect} from 'react'
+import React, {useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
@@ -13,7 +13,7 @@ const Note = ({
   onChange, onToggle, onRemove, onNoteEvent,
 }) => {
 
-  // const ref = useRef()
+  const ref = useRef()
 
   // useEffect(() => {
   //   if (isLastCreated && note.createdBy === 'NOTE_ITEM' && !note.wasCreatedAtStartPos)
@@ -78,8 +78,10 @@ const Note = ({
   //   }
   // }
 
+  const handleNoteEvent = (event) => onNoteEvent(note.id, ref.current, event)
+
   return (
-    <div className={'Note ' + css.Note}>
+    <div ref={ref} className={'Note ' + css.Note}>
       <Switch
         isOn={note.isDone}
         onClick={() => onToggle(note.id, !note.isDone)} />
@@ -88,7 +90,7 @@ const Note = ({
           className={classNames(css.Input, {[css.isDone]: note.isDone})}
           value={note.text}
           onChange={event => onChange(note.id, event.target.value)}
-          onNoteEvent={event => onNoteEvent(note.id, event)} />
+          onNoteEvent={handleNoteEvent} />
       </div>
       <Button className={css.RemoveButton} onClick={() => onRemove(note.id)}>
         🗑

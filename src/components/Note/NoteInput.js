@@ -26,7 +26,7 @@ class NoteInput extends React.Component {
 
     const {onNoteEvent} = this.props
     const input = this.ref.current
-    const d = (type, props) => onNoteEvent({type, ...props})
+    const d = (type, props) => onNoteEvent({type, input, ...props})
 
     const pos = input.selectionDirection === 'forward'
       ? input.selectionEnd
