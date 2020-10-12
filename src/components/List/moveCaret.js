@@ -25,11 +25,8 @@ const execMoveCaret = (noteDom, pos) => {
 }
 
 const moveCaret = (noteDom, DIRECTION) => {
-
   const input = noteDom.querySelector('input')
   const currentPos = getCaretPosition(input)
-
-
   switch (DIRECTION) {
     case 'UP'       : withPrev(noteDom, (prev) => execMoveCaret(prev, currentPos)); break
     case 'DOWN'     : withNext(noteDom, (next) => execMoveCaret(next, currentPos)); break
@@ -37,7 +34,6 @@ const moveCaret = (noteDom, DIRECTION) => {
     case 'FORWARD'  : withNext(noteDom, (prev) => execMoveCaret(prev, 0)); break
     default         : throw 'DIRECTION is invalid.'
   }
-
 }
 
 export default moveCaret
