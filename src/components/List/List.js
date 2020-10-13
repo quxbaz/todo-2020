@@ -91,7 +91,7 @@ const mapDispatchToProps = (dispatch, {list}) => {
     onBackspaceAtStartOfNonEmptyLine (noteId) {
       const i = list.notes.indexOf(noteId)
       if (i === 0) return
-      api.lists.merge(list.id, list.notes[i - 1], noteId)
+      api.lists.mergeNotes(list.id, list.notes[i - 1], noteId)
     },
   }
 }

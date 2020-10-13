@@ -11,12 +11,12 @@ const ACTION_TYPES = {
   LISTS__CREATE:       'todo-2020/lists/CREATE',
   LISTS__CREATE_NOTE:  'todo-2020/lists/CREATE_NOTE',
   LISTS__DESTROY_NOTE: 'todo-2020/lists/DESTROY_NOTE',
+  LISTS__MERGE_NOTES:  'todo-2020/lists/MERGE_NOTES',
 
   /*
     notes namespace
   */
   NOTES__UPDATE: 'todo-2020/notes/UPDATE',
-  NOTES__APPEND_TEXT: 'todo-2020/notes/APPEND_TEXT',
 
 }
 

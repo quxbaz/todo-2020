@@ -32,6 +32,14 @@ const list = (state=init, action) => {
     }
   }
 
+  if (action.type === ACTION_TYPES.LISTS__MERGE_NOTES) {
+    const {note1, note2} = action.payload
+    return {
+      ...state,
+      notes: without(state.notes, note2),
+    }
+  }
+
   return state
 
 }

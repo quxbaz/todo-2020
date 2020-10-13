@@ -5,8 +5,6 @@ Todo
 
 * NOW
   - [ ] Make basic TODO app.
-  - [X] On backspace, if text still exists and caret is in
-    [pos 0]. Merge text with previous item.
   - [ ] Remove InputField at some point and make last item
     undeletable.
   - [ ] api.workspace.cycleNextList/cyclePrevList

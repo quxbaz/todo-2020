@@ -25,12 +25,12 @@ const notes = (state={}, action) => {
     }
   }
 
-  if (action.type === ACTION_TYPES.NOTES__APPEND_TEXT) {
-    const {id} = action.payload
-    return {
+  if (action.type === ACTION_TYPES.LISTS__MERGE_NOTES) {
+    const {note1, note2} = action.payload
+    return omit({
       ...state,
-      [id]: note(state[id], action),
-    }
+      [note1]: note(state[note1], action),
+    }, note2)
   }
 
   return state

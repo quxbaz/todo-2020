@@ -22,7 +22,7 @@ const note = (state, action) => {
     return {...state, ...props}
   }
 
-  if (action.type === ACTION_TYPES.NOTES__APPEND_TEXT) {
+  if (action.type === ACTION_TYPES.LISTS__MERGE_NOTES) {
     const {text} = action.payload
     return {
       ...state,

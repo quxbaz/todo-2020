@@ -28,4 +28,14 @@ actions.destroyNote = (id, note) => ({
   payload: {id, note},
 })
 
+actions.mergeNotes = (id, note1, note2) => (dispatch, getState) => {
+  dispatch({
+    type: ACTION_TYPES.LISTS__MERGE_NOTES,
+    payload: {
+      id, note1, note2,
+      text: getState().notes[note2].text,
+    },
+  })
+}
+
 export default actions

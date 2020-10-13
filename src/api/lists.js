@@ -1,6 +1,4 @@
-import {getState} from '/util'
-import {actions as noteActions} from '/state/notes'
-import {actions as actions} from '/state/lists'
+import {actions} from '/state/lists'
 
 const createApi = (dispatch) => {
 
@@ -20,10 +18,8 @@ const createApi = (dispatch) => {
     dispatch(actions.destroyNote(id, note))
   }
 
-  api.merge = (id, note1, note2) => {
-    const {text} = getState(dispatch).notes[note2]
-    dispatch(actions.destroyNote(id, note2))
-    dispatch(noteActions.appendText(note1, text))
+  api.mergeNotes = (id, note1, note2) => {
+    dispatch(actions.mergeNotes(id, note1, note2))
   }
 
   return api
