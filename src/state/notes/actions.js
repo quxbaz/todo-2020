@@ -8,4 +8,9 @@ actions.update = (id, props) => ({
   payload: {id, props},
 })
 
+actions.appendText = (id, text) => ({
+  type: ACTION_TYPES.NOTES__APPEND_TEXT,
+  payload: {id, text},
+})
+
 export default actions

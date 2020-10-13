@@ -22,6 +22,14 @@ const note = (state, action) => {
     return {...state, ...props}
   }
 
+  if (action.type === ACTION_TYPES.NOTES__APPEND_TEXT) {
+    const {text} = action.payload
+    return {
+      ...state,
+      text: state.text + text,
+    }
+  }
+
   return state
 
 }

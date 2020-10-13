@@ -18,6 +18,8 @@ const withNext = (noteDom, yes, no=noop) => {
 
 const execMoveCaret = (noteDom, pos) => {
   const input = noteDom.querySelector('input')
+  if (pos === 'END')
+    pos = noteDom.querySelector('input').value.length
   requestAnimationFrame(() => {
     input.focus()
     input.setSelectionRange(pos, pos)
@@ -28,11 +30,11 @@ const moveCaret = (noteDom, DIRECTION) => {
   const input = noteDom.querySelector('input')
   const currentPos = getCaretPosition(input)
   switch (DIRECTION) {
-    case 'UP'       : withPrev(noteDom, (prev) => execMoveCaret(prev, currentPos)); break
-    case 'DOWN'     : withNext(noteDom, (next) => execMoveCaret(next, currentPos)); break
-    case 'BACKWARD' : withPrev(noteDom, (prev) => execMoveCaret(prev, -1)); break
-    case 'FORWARD'  : withNext(noteDom, (prev) => execMoveCaret(prev, 0)); break
-    default         : throw 'DIRECTION is invalid.'
+    case 'UP'             : withPrev(noteDom, (prev) => execMoveCaret(prev, currentPos)); break
+    case 'DOWN'           : withNext(noteDom, (next) => execMoveCaret(next, currentPos)); break
+    case 'BACKWARD'       : withPrev(noteDom, (prev) => execMoveCaret(prev, 'END')); break
+    case 'FORWARD'        : withNext(noteDom, (prev) => execMoveCaret(prev, 0)); break
+    default               : throw 'DIRECTION is invalid.'
   }
 }
 

@@ -21,7 +21,15 @@ const notes = (state={}, action) => {
     const {id} = action.payload
     return {
       ...state,
-      [id]: note(state[id], action)
+      [id]: note(state[id], action),
+    }
+  }
+
+  if (action.type === ACTION_TYPES.NOTES__APPEND_TEXT) {
+    const {id} = action.payload
+    return {
+      ...state,
+      [id]: note(state[id], action),
     }
   }
 

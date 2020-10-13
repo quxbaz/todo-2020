@@ -89,9 +89,10 @@ const mapDispatchToProps = (dispatch, {list}) => {
       api.lists.destroyNote(list.id, noteId)
     },
     onBackspaceAtStartOfNonEmptyLine (noteId) {
-      console.log('backspace non empty line')
+      const i = list.notes.indexOf(noteId)
+      if (i === 0) return
+      api.lists.merge(list.id, list.notes[i - 1], noteId)
     },
-
   }
 }
 

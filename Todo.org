@@ -35,3 +35,5 @@ Todo
   - [ ] Filter
   - [ ] Sort
   - [ ] Add workspaces/tags/organization/etc.
+  - [ ] Undo
+  - [ ] Redo

@@ -16,6 +16,7 @@ const ACTION_TYPES = {
     notes namespace
   */
   NOTES__UPDATE: 'todo-2020/notes/UPDATE',
+  NOTES__APPEND_TEXT: 'todo-2020/notes/APPEND_TEXT',
 
 }
 

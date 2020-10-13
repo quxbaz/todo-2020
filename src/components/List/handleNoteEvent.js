@@ -36,6 +36,7 @@ const handleNoteEvent = (noteId, noteDom, event, eventMap) => {
   }
 
   else if (event.type === NOTE_EVENTS.BACKSPACE_AT_START_OF_NON_EMPTY_LINE) {
+    moveCaret('BACKWARD')
     eventMap[NOTE_EVENTS.BACKSPACE_AT_START_OF_NON_EMPTY_LINE](noteId)
   }
 
