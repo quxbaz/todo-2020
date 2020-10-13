@@ -11,11 +11,10 @@ Todo
     undeletable.
   - [ ] api.workspace.cycleNextList/cyclePrevList
 
-* BRANCH: refactor/state
-  - [ ] Remove state/order and shift functionality into list.todos
-
-* UX
+* UI/UX
   - [ ] Handle ENTER-UP.
+  - [ ] Hover state on Delete.
+  - [ ] Hover state on Toggle.
 
 * Learn
   - [ ] GraphQL.
