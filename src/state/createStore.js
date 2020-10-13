@@ -1,7 +1,5 @@
 import {applyMiddleware, combineReducers, createStore, compose} from 'redux'
 import ReduxThunk from 'redux-thunk'
-
-// ::TODO:: Fix naming.
 import {workspace} from './workspace'
 import {lists} from './lists'
 import {notes} from './notes'
