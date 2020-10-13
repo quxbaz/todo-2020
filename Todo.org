@@ -26,7 +26,6 @@ Todo
     to <List>
   - [ ] Remove all references to .insertAfter/.insertBefore
   - [ ] Remove NOTE__CREATE action and move to LIST__CREATE_NOTE.
-  - [ ] Use listId, noteId instead of id/list/note in api/actions/reducers.
 
 * BRANCH: refactor/state
   - [ ] Remove state/order and shift functionality into list.todos
