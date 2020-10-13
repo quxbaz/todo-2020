@@ -21,8 +21,6 @@ Todo
     redux devtool persist feature.
   - [ ] Remove api.notes.create()
   - [ ] Remove createdBy field.
-  - [ ] Remove notes.actions.create()
-  - [ ] Remove NOTE__CREATE action and move to LIST__CREATE_NOTE.
 
 * BRANCH: refactor/state
   - [ ] Remove state/order and shift functionality into list.todos

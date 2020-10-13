@@ -9,7 +9,7 @@ const init = {
 const note = (state, action) => {
 
   if (action.type === ACTION_TYPES.LISTS__CREATE_NOTE) {
-    const {props, createdBy, wasCreatedAtStartPos} = action.payload
+    const {props} = action.payload
     return {
       ...init,
       id: props.id,
