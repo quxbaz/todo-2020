@@ -5,26 +5,17 @@ Todo
 
 * NOW
   - [ ] Make basic TODO app.
-  - [ ] Hover state on <Switch>
-  - [ ] On backspace, if text still exists and caret is in
+  - [X] On backspace, if text still exists and caret is in
     [pos 0]. Merge text with previous item.
   - [ ] Remove InputField at some point and make last item
     undeletable.
-  - [ ] Re-evaluate if there's a better method than using
-    .insertAfter/.insertBefore on payload.
   - [ ] api.workspace.cycleNextList/cyclePrevList
-  - [ ] Find out why redux dev tools 'persist' feature isn't working
-    correctly. Probably a conflict with uniqId. How to make work with
-    uniqId?
-  - [ ] Fork react-redux to pass down {api} into mapDispatchToProps.
-  - [ ] Re-evaluate the use of uniqId. It's probably conflicting with
-    redux devtool persist feature.
 
 * BRANCH: refactor/state
   - [ ] Remove state/order and shift functionality into list.todos
 
 * UX
-  - [ ] Handle SHIFT-UP.
+  - [ ] Handle ENTER-UP.
 
 * Learn
   - [ ] GraphQL.
