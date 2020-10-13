@@ -17,8 +17,7 @@ const notes = (state={}, action) => {
     return omit(state, note)
   }
 
-  if (action.type === ACTION_TYPES.NOTES__UPDATE ||
-      action.type === ACTION_TYPES.NOTES__TOGGLE) {
+  if (action.type === ACTION_TYPES.NOTES__UPDATE) {
     const {id} = action.payload
     return {
       ...state,

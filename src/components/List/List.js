@@ -67,11 +67,11 @@ const mapDispatchToProps = (dispatch, {list}) => {
     },
     onEnterAtStart (noteId) {
       const index = list.notes.indexOf(noteId)
-      api.lists.createNote(list.id, index)
+      api.lists.createNote(list.id, {}, index)
     },
     onEnterAtEnd (noteId) {
       const index = list.notes.indexOf(noteId) + 1
-      api.lists.createNote(list.id, index)
+      api.lists.createNote(list.id, {}, index)
     },
     onEnterAtPos (noteId, pos) {
       let [left, right] = splitAt(
@@ -81,8 +81,8 @@ const mapDispatchToProps = (dispatch, {list}) => {
       api.notes.update(noteId, {text: left})
       api.lists.createNote(
         list.id,
-        list.notes.indexOf(noteId) + 1,
-        {text: right}
+        {text: right},
+        list.notes.indexOf(noteId) + 1
       )
     },
     onBackspaceAtStartOfEmptyLine (noteId) {

@@ -13,12 +13,7 @@ const note = (state, action) => {
     return {
       ...init,
       id: props.id,
-      text: props.text,
-
-      // ::TODO:: Remove this.
-      createdBy,
-      wasCreatedAtStartPos,
-
+      text: props.text || '',
     }
   }
 
@@ -28,11 +23,6 @@ const note = (state, action) => {
       ...state,
       ...action.payload.props,
     }
-  }
-
-  if (action.type === ACTION_TYPES.NOTES__TOGGLE) {
-    const {isDone} = action.payload
-    return {...state, isDone}
   }
 
   return state

@@ -49,7 +49,7 @@ const without = (array, ...values) => {
     return result
 }
 
-const insert = (array, i, item) => ([
+const insert = (array, item, i) => ([
   ...array.slice(0, i),
   item,
   ...array.slice(i),

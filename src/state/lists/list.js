@@ -18,7 +18,9 @@ const list = (state=init, action) => {
     const {props, pos} = action.payload
     return {
       ...state,
-      notes: [...state.notes, props.id],
+      notes: pos == null
+        ? [...state.notes, props.id]
+        : insert(state.notes, props.id, pos)
     }
   }
 
