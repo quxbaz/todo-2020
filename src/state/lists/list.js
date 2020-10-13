@@ -1,4 +1,4 @@
-import {insert} from '/util'
+import {insert, without} from '/util'
 import ACTION_TYPES from '/state/ACTION_TYPES'
 
 const init = {
@@ -30,11 +30,11 @@ const list = (state=init, action) => {
     }
   }
 
-  if (action.type === ACTION_TYPES.NOTES__REMOVE) {
-    const {id} = action.payload
+  if (action.type === ACTION_TYPES.LISTS__DESTROY_NOTE) {
+    const {note} = action.payload
     return {
       ...state,
-      notes: without(state.notes, id),
+      notes: without(state.notes, note),
     }
   }
 

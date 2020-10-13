@@ -26,11 +26,6 @@ const notes = (state={}, action) => {
     }
   }
 
-  // // ::TODO::
-  // if (action.type === ACTION_TYPES.NOTES__MERGE) {
-  //   omit(state, id)
-  // }
-
   return state
 
 }

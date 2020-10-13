@@ -7,10 +7,13 @@ const handleNoteEvent = (noteId, noteDom, event, eventMap) => {
 
   if (event.type === NOTE_EVENTS.ARROW_UP)
     moveCaret('UP')
+
   else if (event.type === NOTE_EVENTS.ARROW_DOWN)
     moveCaret('DOWN')
+
   else if (event.type === NOTE_EVENTS.ARROW_LEFT_AT_START)
     moveCaret('BACKWARD')
+
   else if (event.type === NOTE_EVENTS.ARROW_RIGHT_AT_END)
     moveCaret('FORWARD')
 
@@ -28,9 +31,12 @@ const handleNoteEvent = (noteId, noteDom, event, eventMap) => {
   }
 
   else if (event.type === NOTE_EVENTS.BACKSPACE_AT_START_OF_EMPTY_LINE) {
+    moveCaret('BACKWARD')
+    eventMap[NOTE_EVENTS.BACKSPACE_AT_START_OF_EMPTY_LINE](noteId)
   }
 
   else if (event.type === NOTE_EVENTS.BACKSPACE_AT_START_OF_NON_EMPTY_LINE) {
+    eventMap[NOTE_EVENTS.BACKSPACE_AT_START_OF_NON_EMPTY_LINE](noteId)
   }
 
 }

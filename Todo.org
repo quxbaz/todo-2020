@@ -25,6 +25,7 @@ Todo
     properties. Use pos instead and move calls to api.lists.createNote
     to <List>
   - [ ] Remove all references to .insertAfter/.insertBefore
+  - [ ] Remove NOTE__CREATE action and move to LIST__CREATE_NOTE.
 
 * BRANCH: refactor/state
   - [ ] Remove state/order and shift functionality into list.todos

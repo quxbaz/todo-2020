@@ -30,7 +30,7 @@ const moveCaret = (noteDom, DIRECTION) => {
   switch (DIRECTION) {
     case 'UP'       : withPrev(noteDom, (prev) => execMoveCaret(prev, currentPos)); break
     case 'DOWN'     : withNext(noteDom, (next) => execMoveCaret(next, currentPos)); break
-    case 'BACKWARD' : withPrev(noteDom, (prev) => execMoveCaret(prev, input.value.length)); break
+    case 'BACKWARD' : withPrev(noteDom, (prev) => execMoveCaret(prev, -1)); break
     case 'FORWARD'  : withNext(noteDom, (prev) => execMoveCaret(prev, 0)); break
     default         : throw 'DIRECTION is invalid.'
   }

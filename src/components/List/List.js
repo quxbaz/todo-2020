@@ -19,6 +19,8 @@ class List extends React.Component {
       [NOTE_EVENTS.ENTER_AT_START]: props.onEnterAtStart,
       [NOTE_EVENTS.ENTER_AT_END]: props.onEnterAtEnd,
       [NOTE_EVENTS.ENTER_AT_POS]: props.onEnterAtPos,
+      [NOTE_EVENTS.BACKSPACE_AT_START_OF_EMPTY_LINE]: props.onBackspaceAtStartOfEmptyLine,
+      [NOTE_EVENTS.BACKSPACE_AT_START_OF_NON_EMPTY_LINE]: props.onBackspaceAtStartOfNonEmptyLine,
     })
   }
 
@@ -47,6 +49,8 @@ List.propTypes = {
   onEnterAtStart: PropTypes.func.isRequired,
   onEnterAtEnd: PropTypes.func.isRequired,
   onEnterAtPos: PropTypes.func.isRequired,
+  onBackspaceAtStartOfEmptyLine: PropTypes.func.isRequired,
+  onBackspaceAtStartOfNonEmptyLine: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state, {list}) => ({
@@ -76,6 +80,13 @@ const mapDispatchToProps = (dispatch, {list}) => {
         {text: right}
       )
     },
+    onBackspaceAtStartOfEmptyLine (noteId) {
+      api.lists.destroyNote(list.id, noteId)
+    },
+    onBackspaceAtStartOfNonEmptyLine (noteId) {
+      console.log('backspace non empty line')
+    },
+
   }
 }
 

@@ -20,6 +20,10 @@ const createApi = (dispatch) => {
       dispatch(listsActions.insertNote(id, pos, note))
   }
 
+  api.destroyNote = (id, noteId) => {
+    dispatch(listsActions.destroyNote(id, noteId))
+  }
+
   return api
 
 }

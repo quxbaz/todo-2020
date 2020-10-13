@@ -24,4 +24,9 @@ actions.insertNote = (id, pos, note) => ({
   payload: {id, pos, note},
 })
 
+actions.destroyNote = (id, note) => ({
+  type: ACTION_TYPES.LISTS__DESTROY_NOTE,
+  payload: {id, note},
+})
+
 export default actions
