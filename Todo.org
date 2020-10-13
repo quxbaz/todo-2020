@@ -21,9 +21,6 @@ Todo
     redux devtool persist feature.
   - [ ] Fix destroy note.
   - [ ] Remove api.notes.create()
-  - [X] Deprecate and remove .insertBefore and insertAfter
-    properties. Use pos instead and move calls to api.lists.createNote
-    to <List>
   - [ ] Remove NOTE__CREATE action and move to LIST__CREATE_NOTE.
 
 * BRANCH: refactor/state
