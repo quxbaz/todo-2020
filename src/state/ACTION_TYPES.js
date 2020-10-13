@@ -4,6 +4,8 @@ const ACTION_TYPES = {
     workspace namespace
   */
   WORKSPACE__SET_ACTIVE_LIST: 'todo-2020/workspace/SET_ACTIVE_LIST',
+  WORKSPACE__CYCLE_NEXT_LIST: 'todo-2020/workspace/CYCLE_NEXT_LIST',
+  WORKSPACE__CYCLE_PREV_LIST: 'todo-2020/workspace/CYCLE_PREV_LIST',
 
   /*
     lists namespace

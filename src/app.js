@@ -23,9 +23,9 @@ function createApp () {
 
   window.addEventListener('keydown', ({keyCode}) => {
     if (keyCode === 33 /* PAGE UP*/)
-      api.workspace.cycleNextList()
-    else if (keyCode === 34 /* PAGE UP*/)
       api.workspace.cyclePrevList()
+    else if (keyCode === 34 /* PAGE DPOWN*/)
+      api.workspace.cycleNextList()
   })
 
   // ::END TEMP::
