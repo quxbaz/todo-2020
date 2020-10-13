@@ -19,10 +19,7 @@ const note = (state, action) => {
 
   if (action.type === ACTION_TYPES.NOTES__UPDATE) {
     const {props} = action.payload
-    return {
-      ...state,
-      ...action.payload.props,
-    }
+    return {...state, ...props}
   }
 
   return state
