@@ -25,7 +25,7 @@ class List extends React.Component {
   }
 
   render () {
-    const {list, notes} = this.props
+    const {list, notes, onRemove} = this.props
     return (
       <div>
         <h2>{list.title}</h2>
@@ -34,6 +34,7 @@ class List extends React.Component {
             <Note
               key={note.id}
               note={note}
+              onRemove={onRemove}
               onNoteEvent={this.handleNoteEvent} />
           ))}
         </div>
@@ -46,6 +47,7 @@ class List extends React.Component {
 List.propTypes = {
   list: PropTypes.object.isRequired,
   notes: PropTypes.array.isRequired,
+  onRemove: PropTypes.func.isRequired,
   onEnterAtStart: PropTypes.func.isRequired,
   onEnterAtEnd: PropTypes.func.isRequired,
   onEnterAtPos: PropTypes.func.isRequired,
@@ -60,6 +62,9 @@ const mapStateToProps = (state, {list}) => ({
 const mapDispatchToProps = (dispatch, {list}) => {
   const api = createApi(dispatch)
   return {
+    onRemove (noteId) {
+      api.lists.destroyNote(list.id, noteId)
+    },
     onEnterAtStart (noteId) {
       const index = list.notes.indexOf(noteId)
       api.lists.createNote(list.id, index)

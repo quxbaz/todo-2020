@@ -19,7 +19,6 @@ Todo
   - [ ] Fork react-redux to pass down {api} into mapDispatchToProps.
   - [ ] Re-evaluate the use of uniqId. It's probably conflicting with
     redux devtool persist feature.
-  - [ ] Fix destroy note.
   - [ ] Remove api.notes.create()
   - [ ] Remove NOTE__CREATE action and move to LIST__CREATE_NOTE.
 

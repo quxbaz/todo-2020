@@ -60,10 +60,6 @@ const mapDispatchToProps = (dispatch) => {
     onToggle (id, isDone) {
       api.notes.toggle(id, isDone)
     },
-    onRemove (id) {
-      // ::TODO:: Make this work.
-      api.notes.remove(id)
-    },
   }
 }
 
