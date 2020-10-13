@@ -7,10 +7,9 @@ Todo
   - [ ] Make basic TODO app.
   - [ ] Remove InputField at some point and make last item
     undeletable.
-  - [ ] api.workspace.cycleNextList/cyclePrevList
+  - [X] api.workspace.cycleNextList/cyclePrevList
 
 * UI/UX
-  - [ ] Handle ENTER-UP.
   - [ ] Hover state on Delete.
   - [ ] Hover state on Toggle.
 
