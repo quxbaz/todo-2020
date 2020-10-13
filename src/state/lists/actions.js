@@ -1,15 +1,21 @@
-import {uniqId} from '/util'
+import {values, uniqId, sortBy} from '/util'
 import ACTION_TYPES from '/state/ACTION_TYPES'
 
 const actions = {}
 
-actions.create = ({title}) => ({
-  type: ACTION_TYPES.LISTS__CREATE,
-  payload: {
-    id: uniqId(),
-    title,
-  },
-})
+actions.create = ({title}) => (dispatch, getState) => {
+  const id = uniqId()
+  const lists = sortBy(
+    values(getState().lists).concat({id, title}),
+    'title'
+  )
+  const pos = lists.findIndex(list => list.id === id)
+  const action = dispatch({
+    type: ACTION_TYPES.LISTS__CREATE,
+    payload: {id, title, pos},
+  })
+  return action
+}
 
 actions.createNote = (id, props, pos) => ({
   type: ACTION_TYPES.LISTS__CREATE_NOTE,

@@ -23,7 +23,7 @@ SideNav.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  lists: sortBy(values(state.lists), 'title'),
+  lists: state.workspace.lists.map(id => state.lists[id]),
 })
 
 export default connect(mapStateToProps, null)(SideNav)

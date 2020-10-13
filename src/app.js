@@ -11,6 +11,8 @@ function createApp () {
   // ::TODO::TEMP::
 
   const api = createApi(store.dispatch.bind(store))
+  const list3 = api.lists.create({title: 'list-3'})
+  const list2 = api.lists.create({title: 'list-2'})
   const list0 = api.lists.create({title: 'list-0'})
   const list1 = api.lists.create({title: 'list-1'})
   api.lists.createNote(list1, {text: 'one'})
@@ -19,16 +21,14 @@ function createApp () {
 
   api.workspace.setActiveList(list1)
 
-
-  // ::END TEMP::
-
-  // ::TODO::TEMP::
   window.addEventListener('keydown', ({keyCode}) => {
     if (keyCode === 33 /* PAGE UP*/)
-      api.workspace.setActiveList(list0)
+      api.workspace.cycleNextList()
     else if (keyCode === 34 /* PAGE UP*/)
-      api.workspace.setActiveList(list1)
+      api.workspace.cyclePrevList()
   })
+
+  // ::END TEMP::
 
   return {
     store,
