@@ -11,8 +11,7 @@ const lists = (state={}, action) => {
     }
   }
 
-  if (action.type === ACTION_TYPES.LISTS__APPEND_NOTE ||
-      action.type === ACTION_TYPES.LISTS__INSERT_NOTE ||
+  if (action.type === ACTION_TYPES.LISTS__CREATE_NOTE ||
       action.type === ACTION_TYPES.LISTS__DESTROY_NOTE) {
     const {id} = action.payload
     return {

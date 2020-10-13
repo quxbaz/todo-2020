@@ -13,9 +13,9 @@ function createApp () {
   const api = createApi(store.dispatch.bind(store))
   const list0 = api.lists.create({title: 'list-0'})
   const list1 = api.lists.create({title: 'list-1'})
-  api.lists.createNote(list1, null, {text: 'one'})
-  api.lists.createNote(list1, null, {text: 'two'})
-  api.lists.createNote(list1, null, {text: 'three'})
+  api.lists.createNote(list1, {text: 'one'})
+  api.lists.createNote(list1, {text: 'two'})
+  api.lists.createNote(list1, {text: 'three'})
 
   api.workspace.setActiveList(list1)
 

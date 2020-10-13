@@ -4,17 +4,17 @@ import note from './note'
 
 const notes = (state={}, action) => {
 
-  if (action.type === ACTION_TYPES.NOTES__CREATE) {
-    const {id} = action.payload
+  if (action.type === ACTION_TYPES.LISTS__CREATE_NOTE) {
+    const {props} = action.payload
     return {
       ...state,
-      [id]: note(undefined, action),
+      [props.id]: note(undefined, action),
     }
   }
 
-  if (action.type === ACTION_TYPES.NOTES__REMOVE) {
-    const {id} = action.payload
-    return omit(state, id)
+  if (action.type === ACTION_TYPES.LISTS__DESTROY_NOTE) {
+    const {note} = action.payload
+    return omit(state, note)
   }
 
   if (action.type === ACTION_TYPES.NOTES__UPDATE ||

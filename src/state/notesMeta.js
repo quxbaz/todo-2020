@@ -6,9 +6,9 @@ const init = {
 
 const notesMeta = (state=init, action) => {
 
-  if (action.type === ACTION_TYPES.NOTES__CREATE) {
-    const {id} = action.payload
-    return {...state, lastCreated: id}
+  if (action.type === ACTION_TYPES.LISTS__CREATE_NOTE) {
+    const {props} = action.payload
+    return {...state, lastCreated: props.id}
   }
 
   return state

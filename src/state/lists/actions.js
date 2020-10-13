@@ -11,17 +11,16 @@ actions.create = ({title}) => ({
   },
 })
 
-actions.appendNote = (id, note) => ({
-  type: ACTION_TYPES.LISTS__APPEND_NOTE,
+actions.createNote = (id, props, pos) => ({
+  type: ACTION_TYPES.LISTS__CREATE_NOTE,
   payload: {
     id,
-    note,
+    props: {
+      id: uniqId(),
+      ...props,
+    },
+    pos,
   },
-})
-
-actions.insertNote = (id, pos, note) => ({
-  type: ACTION_TYPES.LISTS__INSERT_NOTE,
-  payload: {id, pos, note},
 })
 
 actions.destroyNote = (id, note) => ({

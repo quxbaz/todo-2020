@@ -22,7 +22,7 @@ const Note = ({
     <div ref={ref} className={'Note ' + css.Note}>
       <Switch
         isOn={note.isDone}
-        onClick={() => onToggle(note.id, !note.isDone)} />
+        onClick={onToggle} />
       <div style={{width: '100%'}}>
         <NoteInput
           className={classNames(css.Input, {[css.isDone]: note.isDone})}
@@ -51,14 +51,14 @@ const mapStateToProps = (state, {note}) => ({
   isLastCreated: note.id === state.notesMeta.lastCreated,
 })
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, {note}) => {
   const api = createApi(dispatch)
   return {
     onChange (id, text) {
       api.notes.update(id, {text})
     },
-    onToggle (id, isDone) {
-      api.notes.toggle(id, isDone)
+    onToggle () {
+      api.notes.update(note.id, {isDone: !note.isDone})
     },
   }
 }
