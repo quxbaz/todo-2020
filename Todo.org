@@ -19,8 +19,6 @@ Todo
   - [ ] Fork react-redux to pass down {api} into mapDispatchToProps.
   - [ ] Re-evaluate the use of uniqId. It's probably conflicting with
     redux devtool persist feature.
-  - [ ] Remove api.notes.create()
-  - [ ] Remove createdBy field.
 
 * BRANCH: refactor/state
   - [ ] Remove state/order and shift functionality into list.todos
