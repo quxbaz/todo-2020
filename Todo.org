@@ -23,7 +23,6 @@ Todo
   - [ ] Remove createdBy field.
   - [ ] Remove notes.actions.create()
   - [ ] Remove NOTE__CREATE action and move to LIST__CREATE_NOTE.
-  - [X] Replace lists/actions append/insert note with createNote.
 
 * BRANCH: refactor/state
   - [ ] Remove state/order and shift functionality into list.todos
