@@ -9,17 +9,14 @@ const createApi = (dispatch) => {
     return action.payload.id
   }
 
-  api.createNote = (id, props, pos) => {
+  api.createNote = (id, props, pos) =>
     dispatch(actions.createNote(id, props, pos))
-  }
 
-  api.destroyNote = (id, note) => {
+  api.destroyNote = (id, note) =>
     dispatch(actions.destroyNote(id, note))
-  }
 
-  api.mergeNotes = (id, note1, note2) => {
+  api.mergeNotes = (id, note1, note2) =>
     dispatch(actions.mergeNotes(id, note1, note2))
-  }
 
   return api
 

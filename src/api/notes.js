@@ -4,7 +4,8 @@ const createApi = (dispatch) => {
 
   const api = {}
 
-  api.update = (id, state) => dispatch(actions.update(id, state))
+  api.update = (id, state) =>
+    dispatch(actions.update(id, state))
 
   return api
 
