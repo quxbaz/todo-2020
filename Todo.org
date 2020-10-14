@@ -12,6 +12,7 @@ Todo
   - [ ] Fix shadows.
     - [ ] One main element to wrap header, sidebar, and content.
     - [ ] Separate headers for sidebar and content.
+  - [ ] Add list input at top of <SideBar>
 
 * Visual design
   - [ ] Shadow around edges.
