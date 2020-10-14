@@ -10,7 +10,7 @@
 .Item {
   display: flex;
   align-items: center;
-  height: 34px;
+  height: 36px;
   padding: 0 20px;
   cursor: pointer;
 }
@@ -36,8 +36,13 @@
 }
 
 .Item a {
-  color: hsl(0, 0%, 47%);
   font-size: 12px;
   letter-spacing: 0.2px;
   text-decoration: none;
+  color: hsl(0, 0%, 16%);
+}
+
+.Item.isActive a {
+  font-weight: bold;
+  color: hsl(0, 0%, 20%);
 }
