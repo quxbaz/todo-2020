@@ -1,7 +1,7 @@
 .AppComponent {
   display: grid;
   grid-template-columns: 1fr 260px 720px 1fr;
-  grid-template-rows: 12px 1fr;
+  grid-template-rows: 24px 1fr;
   min-height: 600px;
   margin-top: 60px;
 }
@@ -12,7 +12,7 @@
   z-index: 1;
   background: linear-gradient(to right, hsl(199, 14%, 36%), hsl(198, 57%, 33%));
   border-radius: 3px 3px 0 0;
-  box-shadow: 0 3px 3px 0 hsla(216, 13%, 68%, 0.8);
+  /* box-shadow: 0 3px 3px 0 hsla(216, 13%, 68%, 0.8); */
 }
 
 .ListFrame {

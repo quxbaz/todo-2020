@@ -5,7 +5,7 @@
   z-index: 2;
   background: hsl(200, 32%, 19%);
   color: #fff;
-  box-shadow: 6px 6px 4px 0 hsla(216, 13%, 71%, 0.6);
+  /* box-shadow: 6px 6px 4px 0 hsla(216, 13%, 71%, 0.6); */
 }
 
 .Item {
