@@ -1,0 +1,14 @@
+.List {}
+
+.List h2 {
+  z-index: 1;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 10px 30px;
+  background: hsl(322, 77%, 67%);
+  border-radius: 0 0 32px 0;
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 0.4px;
+}

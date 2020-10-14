@@ -1,3 +1,4 @@
+import css from './style.css'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
@@ -27,7 +28,7 @@ class List extends React.Component {
   render () {
     const {list, notes, onRemove} = this.props
     return (
-      <div>
+      <div className={css.List}>
         <h2>{list.title}</h2>
         <div>
           {notes.map((note, i) => (

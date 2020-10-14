@@ -27,7 +27,6 @@
 .ListFrame {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
-  padding: 20px 32px;
   background: #fff;
   border-radius: 0 0 3px 0;
 }

@@ -24,9 +24,22 @@ function createApp () {
   api.lists.create({title: 'Remember'})
   api.lists.create({title: 'Thoughts'})
   api.lists.create({title: 'Woodworking'})
-  api.lists.createNote(list1, {text: 'one'})
-  api.lists.createNote(list1, {text: 'two'})
-  api.lists.createNote(list1, {text: 'three'})
+
+  // api.lists.createNote(list1, {text: 'one'})
+  // api.lists.createNote(list1, {text: 'two'})
+  // api.lists.createNote(list1, {text: 'three'})
+
+  api.lists.createNote(list1, {text: 'Table saw.'})
+  api.lists.createNote(list1, {text: 'Drafting table.'})
+  api.lists.createNote(list1, {text: 'Shelving.'})
+  api.lists.createNote(list1, {text: 'Precision grinding table.'})
+  api.lists.createNote(list1, {text: 'Router table.'})
+  api.lists.createNote(list1, {text: 'Horizontal drill.'})
+  api.lists.createNote(list1, {text: '($) Tensioned strop.'})
+  api.lists.createNote(list1, {text: 'Stone holder.'})
+  api.lists.createNote(list1, {text: '(H) Mochi press.'})
+  api.lists.createNote(list1, {text: 'New hand plane.'})
+  api.lists.createNote(list1, {text: 'Tortilla press.'})
 
   api.workspace.setActiveList(list1)
 
