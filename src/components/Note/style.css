@@ -1,9 +1,17 @@
 .Note {
   display: flex;
+  align-items: center;
   width: 100%;
   height: 32px;
   margin: 8px 0;
   padding: 0 30px;
+}
+
+.isFocused {
+  height: 48px;
+  border: 1px solid hsl(0, 0%, 59%);
+  border-left: none;
+  border-right: none;
 }
 
 .Switch {

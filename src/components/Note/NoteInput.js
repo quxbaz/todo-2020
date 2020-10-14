@@ -56,12 +56,14 @@ class NoteInput extends React.Component {
   }
 
   render () {
-    const {className, value, onChange} = this.props
+    const {className, value, onFocus, onBlur, onChange} = this.props
     return (
       <input
         ref={this.ref}
         className={className}
         value={value}
+        onFocus={onFocus}
+        onBlur={onBlur}
         onChange={onChange}
         onKeyDown={this.handleKeyDown} />
     )
@@ -72,6 +74,8 @@ class NoteInput extends React.Component {
 NoteInput.propTypes = {
   className: PropTypes.string,
   value: PropTypes.string.isRequired,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   onNoteEvent: PropTypes.func.isRequired,
 }
