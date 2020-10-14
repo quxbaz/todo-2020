@@ -2,8 +2,9 @@
   display: grid;
   grid-template-columns: 1fr 1000px 1fr;
   grid-template-rows: 1fr;
-  min-height: 600px;
+  height: calc(100vh - 120px);
   margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 .InnerAppComponent {

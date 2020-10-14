@@ -20,8 +20,7 @@ Todo
   - [ ] Work on primary typography.
 
 * UI/UX
-  - [ ] Independent scrolling in lists and list. Default height
-    100%. Revisit color bar at top.
+  - [ ] Independent scrolling in lists and list.
 
 * Learn
   - [ ] GraphQL.
