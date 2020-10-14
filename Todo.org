@@ -9,6 +9,9 @@ Todo
     undeletable.
   - [ ] Basic UI structure.
   - [ ] Accounts.
+  - [ ] Fix shadows.
+    - [ ] One main element to wrap header, sidebar, and content.
+    - [ ] Separate headers for sidebar and content.
 
 * Visual design
   - [ ] Shadow around edges.

@@ -5,12 +5,12 @@
 }
 
 html {
-  height: 100%;
   font-family: arial, sans-serif;
   font-size: 14px;
 }
 
 body {
-  height: 100%;
-  background: hsl(200, 85%, 65%);
+  /* background: hsl(200, 85%, 65%); */
+  background: hsla(189, 36%, 85%, 0.4);
+  /* background: #f0f; */
 }

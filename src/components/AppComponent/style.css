@@ -1,8 +1,8 @@
 .AppComponent {
   display: grid;
   grid-template-columns: 1fr 260px 720px 1fr;
-  grid-template-rows: 12px 100%;
-  min-height: 100%;
+  grid-template-rows: 12px 1fr;
+  min-height: 600px;
   margin-top: 60px;
 }
 
