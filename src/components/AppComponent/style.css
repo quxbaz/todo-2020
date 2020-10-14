@@ -33,3 +33,16 @@
   background: #fff;
   border-radius: 0 0 3px 0;
 }
+
+.ListFrame::-webkit-scrollbar {
+  width: 3px;
+}
+
+.ListFrame::-webkit-scrollbar-track {
+  background: none;
+}
+
+.ListFrame::-webkit-scrollbar-thumb {
+  /* background: hsla(0, 0%, 80%, 0.8); */
+  background: hsl(0, 0%, 25%);
+}

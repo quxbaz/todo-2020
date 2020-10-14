@@ -9,6 +9,19 @@
   border-radius: 0 0 0 3px;
 }
 
+.SideNav::-webkit-scrollbar {
+  width: 3px;
+}
+
+.SideNav::-webkit-scrollbar-track {
+  background: none;
+}
+
+.SideNav::-webkit-scrollbar-thumb {
+  /* background: hsla(0, 0%, 80%, 0.8); */
+  background: hsl(0, 0%, 25%);
+}
+
 .Item {
   display: flex;
   align-items: center;
