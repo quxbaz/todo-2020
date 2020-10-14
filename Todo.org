@@ -7,6 +7,8 @@ Todo
   - [ ] Make basic TODO app.
   - [ ] Remove InputField at some point and make last item
     undeletable.
+  - [ ] Basic UI structure.
+  - [ ] Accounts.
 
 * UI/UX
   --

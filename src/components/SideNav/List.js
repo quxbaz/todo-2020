@@ -10,8 +10,7 @@ const List = ({list, onClick}) => {
     onClick(list.id)
   }
   return (
-    <a
-      className={css.List}
+    <a className={css.List}
       href=""
       onClick={handleClick}>
       {list.title}

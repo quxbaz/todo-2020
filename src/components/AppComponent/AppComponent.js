@@ -7,15 +7,16 @@ import InputField from '/components/InputField'
 import List from '/components/List'
 
 const AppComponent = ({store, activeList}) => (
-  <div className={css.AppComponent}>
-    <Provider store={store}>
+  <Provider store={store}>
+    <div className={css.AppComponent}>
+      <div className={css.HeaderBar} />
       <SideNav />
       <div className={css.ListFrame}>
         <InputField listId={activeList.id} />
         <List list={activeList} />
       </div>
-    </Provider>
-  </div>
+    </div>
+  </Provider>
 )
 
 AppComponent.propTypes = {

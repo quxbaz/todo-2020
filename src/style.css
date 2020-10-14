@@ -4,8 +4,13 @@
   padding: 0;
 }
 
-body {
+html {
+  height: 100%;
   font-family: arial, sans-serif;
   font-size: 14px;
-  background: hsl(200, 82%, 70%);
+}
+
+body {
+  height: 100%;
+  background: hsl(200, 85%, 65%);
 }

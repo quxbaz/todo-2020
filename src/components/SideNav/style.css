@@ -1,5 +1,37 @@
 .SideNav {
-  outline: 1px solid red;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  padding: 40px 0;
+  background: hsl(200, 32%, 19%);
+  color: #fff;
+}
+
+.Item {
+  display: flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 20px 0 34px;
+}
+
+.Item:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  top: -1px;
+  width: 30px;
+  height: 10px;
+  margin-right: 6px;
+  background: hsla(0, 0%, 82%, 0.8);
+}
+
+.Item + .Item {}
+
+.Item a {
+  color: hsla(0, 0%, 90%, 1);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  text-decoration: none;
 }
 
 .List {

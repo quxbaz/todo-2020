@@ -6,17 +6,15 @@ import {values, sortBy} from '/util'
 // import {createApi} from '/api'
 import List from './List'
 
-const SideNav = ({lists}) => {
-
-  return (
-    <div className={css.SideNav}>
-      {lists.map((list) => (
+const SideNav = ({lists}) => (
+  <div className={css.SideNav}>
+    {lists.map((list) => (
+      <div className={css.Item}>
         <List key={list.id} list={list} />
-      ))}
-    </div>
-  )
-
-}
+      </div>
+    ))}
+  </div>
+)
 
 SideNav.propTypes = {
   lists: PropTypes.array.isRequired,

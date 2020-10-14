@@ -1,10 +1,23 @@
 .AppComponent {
-  border: 1px solid red;
+  display: grid;
+  grid-template-columns: 1fr 260px 720px 1fr;
+  grid-template-rows: 10px 100%;
+  min-height: 100%;
+  margin-top: 60px;
+}
+
+.HeaderBar {
+  grid-column: 2 / 4;
+  grid-row: 1 / 2;
+  background: #888;
+  border-radius: 4px 4px 0 0;
 }
 
 .ListFrame {
-  width: 500px;
-  margin: 0 auto;
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  /* width: 500px; */
+  /* margin: 0 auto; */
   padding: 20px 32px;
   background: #fff;
 }
