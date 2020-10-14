@@ -16,9 +16,10 @@
   font-size: 16px;
 }
 
-.Switch:hover {
+.Switch:hover > div {
+  color: hsla(0, 0%, 15%, 1);
   transform-origin: center center;
-  transform: scale(1.4);
+  transform: scale(1.6);
 }
 
 .RemoveButton {
@@ -34,7 +35,7 @@
 
 .RemoveButton:hover .RemoveIcon {
   transform-origin: center center;
-  transform: scale(1.4);
+  transform: scale(1.6);
 }
 
 .Input {

@@ -4,8 +4,9 @@
   z-index: 1;
   position: relative;
   display: inline-block;
+  left: -1px;
   margin-bottom: 14px;
-  padding: 10px 30px;
+  padding: 10px 31px;
   background: hsl(322, 77%, 67%);
   border-radius: 0 0 32px 0;
   color: #fff;

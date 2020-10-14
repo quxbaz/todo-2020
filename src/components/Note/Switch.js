@@ -4,7 +4,9 @@ import PropTypes from 'prop-types'
 
 const Switch = ({isOn, onClick}) => (
   <div className={css.Switch} onClick={onClick}>
-    {isOn ? '☒' : '☐'}
+    <div>
+      {isOn ? '☒' : '☐'}
+    </div>
   </div>
 )
 
