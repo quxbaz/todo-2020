@@ -8,10 +8,12 @@ import List from '/components/List'
 const AppComponent = ({store, activeList}) => (
   <Provider store={store}>
     <div className={css.AppComponent}>
-      <div className={css.HeaderBar} />
-      <SideNav />
-      <div className={css.ListFrame}>
-        <List list={activeList} />
+      <div className={css.InnerAppComponent}>
+        <div className={css.HeaderBar} />
+        <SideNav />
+        <div className={css.ListFrame}>
+          <List list={activeList} />
+        </div>
       </div>
     </div>
   </Provider>

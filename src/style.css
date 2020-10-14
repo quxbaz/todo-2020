@@ -10,7 +10,6 @@ html {
 }
 
 body {
-  /* background: hsl(200, 85%, 65%); */
-  background: hsla(189, 36%, 85%, 0.4);
-  /* background: #f0f; */
+  background: hsl(200, 85%, 65%);
+  /* background: hsl(42, 100%, 98%); */
 }

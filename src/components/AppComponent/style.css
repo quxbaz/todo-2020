@@ -1,25 +1,33 @@
 .AppComponent {
   display: grid;
-  grid-template-columns: 1fr 260px 720px 1fr;
-  grid-template-rows: 24px 1fr;
+  grid-template-columns: 1fr 1000px 1fr;
+  grid-template-rows: 1fr;
   min-height: 600px;
   margin-top: 60px;
 }
 
+.InnerAppComponent {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 40px 1fr;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  box-shadow: 0 2px 10px 0 hsla(216, 37%, 48%, 0.2);
+}
+
 .HeaderBar {
-  grid-column: 2 / 4;
+  grid-column: 1 / 3;
   grid-row: 1 / 2;
   z-index: 1;
   background: linear-gradient(to right, hsl(199, 14%, 36%), hsl(198, 57%, 33%));
   border-radius: 3px 3px 0 0;
-  /* box-shadow: 0 3px 3px 0 hsla(216, 13%, 68%, 0.8); */
+  box-shadow: 0 3px 3px 0 hsla(216, 13%, 68%, 0.5);
 }
 
 .ListFrame {
-  grid-column: 3 / 4;
+  grid-column: 2 / 3;
   grid-row: 2 / 3;
-  /* width: 500px; */
-  /* margin: 0 auto; */
   padding: 20px 32px;
   background: #fff;
+  border-radius: 0 0 3px 0;
 }
