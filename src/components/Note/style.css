@@ -15,6 +15,11 @@
   font-size: 16px;
 }
 
+.Switch:hover {
+  transform-origin: center center;
+  transform: scale(1.4);
+}
+
 .RemoveButton {
   cursor: pointer;
   display: flex;
@@ -26,17 +31,10 @@
   font-size: 16px;
 }
 
-/* .RemoveButton:hover:before { */
-/*   position: absolute; */
-/*   content: ""; */
-/*   top: -1px; */
-/*   left: -1px; */
-/*   width: 33px; */
-/*   height: 32px; */
-/*   border-radius: 100px; */
-/*   background: #aaa; */
-/*   opacity: 0.2; */
-/* } */
+.RemoveButton:hover .RemoveIcon {
+  transform-origin: center center;
+  transform: scale(1.4);
+}
 
 .Input {
   fontSize: 14px;

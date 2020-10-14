@@ -11,10 +11,10 @@ function createApp () {
   // ::TODO::TEMP::
 
   const api = createApi(store.dispatch.bind(store))
-  const list3 = api.lists.create({title: 'list-3'})
-  const list2 = api.lists.create({title: 'list-2'})
   const list0 = api.lists.create({title: 'list-0'})
   const list1 = api.lists.create({title: 'list-1'})
+  const list2 = api.lists.create({title: 'list-2'})
+  const list3 = api.lists.create({title: 'list-3'})
   api.lists.createNote(list1, {text: 'one'})
   api.lists.createNote(list1, {text: 'two'})
   api.lists.createNote(list1, {text: 'three'})

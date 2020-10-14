@@ -9,8 +9,7 @@ Todo
     undeletable.
 
 * UI/UX
-  - [ ] Hover state on Delete.
-  - [ ] Hover state on Toggle.
+  --
 
 * Learn
   - [ ] GraphQL.

@@ -31,7 +31,7 @@ const Note = ({
           onNoteEvent={handleNoteEvent} />
       </div>
       <Button className={css.RemoveButton} onClick={() => onRemove(note.id)}>
-        🗑
+        <span className={css.RemoveIcon}>🗑</span>
       </Button>
     </div>
   )
