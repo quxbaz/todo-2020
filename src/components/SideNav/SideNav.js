@@ -9,8 +9,8 @@ import List from './List'
 const SideNav = ({lists}) => (
   <div className={css.SideNav}>
     {lists.map((list) => (
-      <div className={css.Item}>
-        <List key={list.id} list={list} />
+      <div key={list.id} className={css.Item}>
+        <List list={list} />
       </div>
     ))}
   </div>
