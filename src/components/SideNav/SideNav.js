@@ -2,16 +2,12 @@ import css from './style.css'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {values, sortBy} from '/util'
-// import {createApi} from '/api'
 import List from './List'
 
 const SideNav = ({lists}) => (
   <div className={css.SideNav}>
     {lists.map((list) => (
-      <div key={list.id} className={css.Item}>
-        <List list={list} />
-      </div>
+      <List key={list.id} list={list} />
     ))}
   </div>
 )

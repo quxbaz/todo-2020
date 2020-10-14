@@ -5,10 +5,15 @@ Todo
 
 * NOW
   - [ ] Make basic TODO app.
-  - [ ] Remove InputField at some point and make last item
+  - [X] Remove InputField at some point and make last item
     undeletable.
   - [ ] Basic UI structure.
   - [ ] Accounts.
+
+* Visual design
+  - [ ] Shadow around edges.
+  - [ ] Lighten body background.
+  - [ ] Work on primary typography.
 
 * UI/UX
   --

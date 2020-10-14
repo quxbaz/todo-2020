@@ -2,25 +2,35 @@ import css from './style.css'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import classNames from 'classnames'
 import {createApi} from '/api'
 
-const List = ({list, onClick}) => {
+
+const List = ({list, isActive, onClick}) => {
   const handleClick = (event) => {
     event.preventDefault()
     onClick(list.id)
   }
   return (
-    <a className={css.List}
-      href=""
+    <div
+      key={list.id}
+      className={classNames(css.Item, {
+        [css.isActive]: isActive,
+      })}
       onClick={handleClick}>
-      {list.title}
-    </a>
+        <a className={css.List} href="">{list.title}</a>
+    </div>
   )
 }
 
 List.propTypes = {
   list: PropTypes.object.isRequired,
+  isActive: PropTypes.bool.isRequired,
 }
+
+const mapStateToProps = (state, {list}) => ({
+  isActive: state.workspace.activeList === list.id,
+})
 
 const mapDispatchToProps = (dispatch) => {
   const api = createApi(dispatch)
@@ -31,4 +41,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(List)
+export default connect(mapStateToProps, mapDispatchToProps)(List)

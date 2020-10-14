@@ -1,7 +1,7 @@
 .AppComponent {
   display: grid;
   grid-template-columns: 1fr 260px 720px 1fr;
-  grid-template-rows: 10px 100%;
+  grid-template-rows: 12px 100%;
   min-height: 100%;
   margin-top: 60px;
 }
@@ -9,8 +9,10 @@
 .HeaderBar {
   grid-column: 2 / 4;
   grid-row: 1 / 2;
-  background: #888;
-  border-radius: 4px 4px 0 0;
+  z-index: 1;
+  background: linear-gradient(to right, hsl(199, 14%, 36%), hsl(198, 57%, 33%));
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 3px 3px 0 hsla(216, 13%, 68%, 0.8);
 }
 
 .ListFrame {
