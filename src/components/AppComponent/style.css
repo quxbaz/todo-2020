@@ -28,6 +28,8 @@
 .ListFrame {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
+  max-height: calc(100vh - 40px - 120px);
+  overflow-y: auto;
   background: #fff;
   border-radius: 0 0 3px 0;
 }

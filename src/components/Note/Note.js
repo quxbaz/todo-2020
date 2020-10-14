@@ -20,13 +20,17 @@ const Note = ({
   const handleNoteEvent = (event) => onNoteEvent(note.id, ref.current, event)
 
   return (
-    <div ref={ref} className={classNames('Note', css.Note, {
-      [css.isFocused]: isFocused,
-    })}>
+    <div
+      ref={ref}
+      className={classNames('Note', css.Note, {
+        [css.isFocused]: isFocused,
+      })}>
       <Switch
         isOn={note.isDone}
         onClick={onToggle} />
-      <div style={{width: '100%'}}>
+      <div
+        className={css.TextDiv}
+        onClick={() => ref.current.querySelector('input').focus()}>
         <NoteInput
           className={classNames(css.Input, {[css.isDone]: note.isDone})}
           value={note.text}
