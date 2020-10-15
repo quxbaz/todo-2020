@@ -22,10 +22,6 @@
   transition: background 250ms linear;
 }
 
-.Note:last-child {
-  border-bottom-color: #fff;
-}
-
 .TextDiv {
   width: 100%;
   height: 100%;
