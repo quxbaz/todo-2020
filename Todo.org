@@ -14,7 +14,7 @@ Todo
   - [ ] Shift0-LEFT/RIGHT to navigate lists. Remove test commend using
     pgup/down.
   - [ ] Get sequencer working again.
-  - [ ] Delete lists.
+  - [ ] Delete lists functionality.
 
 * Visual design
   --
