@@ -7,20 +7,14 @@ Todo
   - [ ] Make basic TODO app.
   - [X] Remove InputField at some point and make last item
     undeletable.
-  - [ ] Basic UI structure.
   - [ ] Accounts.
-  - [ ] Fix shadows.
-    - [ ] One main element to wrap header, sidebar, and content.
-    - [ ] Separate headers for sidebar and content.
   - [ ] Add list input at top of <SideBar>
 
 * Visual design
-  - [ ] Shadow around edges.
-  - [ ] Lighten body background.
-  - [ ] Work on primary typography.
+  - [X] Work on primary typography.
 
 * UI/UX
-  - [ ] Independent scrolling in lists and list.
+  --
 
 * Learn
   - [ ] GraphQL.
