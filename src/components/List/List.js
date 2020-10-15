@@ -30,15 +30,19 @@ class List extends React.Component {
     return (
       <div className={css.List}>
         <h2>{list.title}</h2>
-        <div>
-          {notes.map((note, i) => (
-            <Note
-              key={note.id}
-              note={note}
-              onRemove={onRemove}
-              onNoteEvent={this.handleNoteEvent} />
-          ))}
-        </div>
+        {notes.length === 0 ? (
+          <div>EMPTY</div>
+        ) : (
+          <div>
+            {notes.map((note, i) => (
+              <Note
+                key={note.id}
+                note={note}
+                onRemove={onRemove}
+                onNoteEvent={this.handleNoteEvent} />
+            ))}
+          </div>
+        )}
       </div>
     )
   }

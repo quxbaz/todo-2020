@@ -8,7 +8,9 @@ Todo
   - [X] Remove InputField at some point and make last item
     undeletable.
   - [ ] Accounts.
+  - [ ] Prev/Next list nav UI.
   - [ ] Add list input at top of <SideBar>
+  - [ ] Add empty notes page.
 
 * Visual design
   - [X] Work on primary typography.
