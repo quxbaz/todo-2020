@@ -43,3 +43,4 @@ Todo
   - [ ] Undo
   - [ ] Redo
   - [ ] Routing URLS to specific lists and notes.
+  - [ ] Re-order notes.
