@@ -2,10 +2,12 @@ import css from './style.css'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import FilterField from './FilterField'
 import List from './List'
 
 const SideNav = ({lists}) => (
   <div className={css.SideNav}>
+    <FilterField />
     {lists.map((list) => (
       <List key={list.id} list={list} />
     ))}

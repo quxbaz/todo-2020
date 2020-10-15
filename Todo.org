@@ -44,3 +44,7 @@ Todo
   - [ ] Redo
   - [ ] Routing URLS to specific lists and notes.
   - [ ] Re-order notes.
+
+* OPTIMIZATION
+  - [ ] Improve react rendering performance and interop with redux
+    (useMemo, useCallback).
