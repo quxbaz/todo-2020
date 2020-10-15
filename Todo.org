@@ -13,7 +13,6 @@ Todo
   - [ ] Get sequencer working again.
   - [ ] Delete lists functionality.
   - [X] Add list input at top of <SideBar>
-  - [X] Filter lists.
 
 * Visual design
   --
