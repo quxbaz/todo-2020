@@ -9,7 +9,9 @@ const AppComponent = ({store, activeList}) => (
   <Provider store={store}>
     <div className={css.AppComponent}>
       <div className={css.InnerAppComponent}>
-        <div className={css.HeaderBar} />
+        <div className={css.HeaderBar}>
+          <div className={css.HeaderBarIcon}>🗇</div>
+        </div>
         <SideNav />
         <div className={css.ListFrame}>
           <List list={activeList} />
