@@ -12,11 +12,10 @@ const Empty = ({listId, onSubmit}) => {
     if (text.trim() === '') return
     onSubmit(listId, text)
     requestAnimationFrame(() => {
-      const newInput = document.querySelector('.Note')
-        .querySelector('input')
-      newInput.focus()
-      document.querySelector('.Note').classList.add(css.NoteJustCreatedFromEmpty)
-      // newInput.classList.add(css.NoteJustCreatedFromEmpty)
+      const noteDom = document.querySelector('.Note')
+      const inputDom = noteDom.querySelector('input')
+      inputDom.focus()
+      noteDom.classList.add(css.NoteJustCreatedFromEmpty)
     })
   }
   const handleChange = (event) => {

@@ -11,6 +11,9 @@ Todo
   - [ ] Prev/Next list nav UI.
   - [ ] Clear marked notes on list.
   - [ ] Add list input at top of <SideBar>
+  - [ ] Shift0-LEFT/RIGHT to navigate lists. Remove test commend using
+    pgup/down.
+  - [ ] Get sequencer working again.
 
 * Visual design
   --
