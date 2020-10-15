@@ -9,11 +9,11 @@ Todo
     undeletable.
   - [ ] Accounts.
   - [ ] Prev/Next list nav UI.
+  - [ ] Clear marked notes on list.
   - [ ] Add list input at top of <SideBar>
-  - [ ] Add empty notes page.
 
 * Visual design
-  - [X] Work on primary typography.
+  --
 
 * UI/UX
   --
