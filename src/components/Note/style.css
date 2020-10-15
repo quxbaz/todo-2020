@@ -18,7 +18,7 @@
 }
 
 .isFocused {
-  border-color: hsl(0, 0%, 59%);
+  border-color: hsla(0, 0%, 81%, 0.8);
   transition: background 250ms linear;
 }
 
