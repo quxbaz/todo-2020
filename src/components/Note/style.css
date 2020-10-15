@@ -47,7 +47,12 @@
   transform: scale(1.6);
 }
 
+.Note:hover .RemoveButton {
+  visibility: visible;
+}
+
 .RemoveButton {
+  visibility: hidden;
   cursor: pointer;
   display: flex;
   justify-content: flex-end;
