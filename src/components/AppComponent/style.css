@@ -30,7 +30,6 @@
 .HeaderBarIcon {
   pointer-events: none;
   position: relative;
-  top: -1px;
   left: 11px;
   font-size: 24px;
   font-weight: bold;
