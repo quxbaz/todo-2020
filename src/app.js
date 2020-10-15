@@ -66,7 +66,8 @@ function createApp () {
   api.lists.createNote(list1, {text: 'New hand plane.'})
   api.lists.createNote(list1, {text: 'Tortilla press.'})
 
-  api.workspace.setActiveList(list1)
+  // api.workspace.setActiveList(list1)
+  api.workspace.setActiveList(list2)
 
   window.addEventListener('keydown', ({keyCode}) => {
     if (keyCode === 33 /* PAGE UP*/)

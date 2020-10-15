@@ -1,5 +1,5 @@
 import css from './style.css'
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useState, useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
@@ -9,7 +9,7 @@ import Button from './Button'
 import NoteInput from './NoteInput'
 
 const Note = ({
-  note, isLastCreated,
+  note,
   onChange, onToggle, onRemove,
   onNoteEvent,
 }) => {
@@ -49,16 +49,11 @@ const Note = ({
 
 Note.propTypes = {
   note: PropTypes.object.isRequired,
-  isLastCreated: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   onToggle: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
   onNoteEvent: PropTypes.func.isRequired,
 }
-
-const mapStateToProps = (state, {note}) => ({
-  isLastCreated: note.id === state.notesMeta.lastCreated,
-})
 
 const mapDispatchToProps = (dispatch, {note}) => {
   const api = createApi(dispatch)
@@ -72,4 +67,4 @@ const mapDispatchToProps = (dispatch, {note}) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Note)
+export default connect(null, mapDispatchToProps)(Note)

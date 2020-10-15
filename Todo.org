@@ -39,3 +39,4 @@ Todo
   - [ ] Add workspaces/tags/organization/etc.
   - [ ] Undo
   - [ ] Redo
+  - [ ] Routing URLS to specific lists and notes.

@@ -1,14 +1,64 @@
-.List {}
+.List {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 57px 1fr;
+  position: relative;
+  height: 100%;
+}
+
+.List header {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
 
 .List h2 {
+  display: inline-block;
   position: relative;
   left: -1px;
-  display: inline-block;
-  padding: 10px 31px;
   margin: 17px 30px 4px 30px;
+  padding: 10px 31px;
   background: hsl(198, 46%, 23%);
   color: #fff;
   border-radius: 32px;
   font-size: 1rem;
   letter-spacing: 0.4px;
+}
+
+.Empty {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  display: flex;
+  justify-content: center;
+  padding-top: 20%;
+}
+
+.Empty form {
+  width: 100%;
+  text-align: center;
+}
+
+.Empty input {
+  display: inline-block;
+  padding: 0 16px;
+  width: 90%;
+  height: 54px;
+  font-size: 1.3rem;
+}
+
+.Empty input::placeholder {
+  color: hsl(0, 0%, 65%);
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.NoteJustCreatedFromEmpty {
+  animation: fadeIn 250ms linear;
+}
+
+.ListContent {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
 }
