@@ -12,7 +12,7 @@ Todo
     pgup/down.
   - [ ] Get sequencer working again.
   - [ ] Delete lists functionality.
-  - [ ] Fix bug in submit form where list can find item (Outside),
+  - [X] Fix bug in submit form where list can find item (Outside),
     typing "Out" and should be able to create "Out" list.
   - [ ] Rename list feature.
   - [ ] Prevent duplicate list titles.

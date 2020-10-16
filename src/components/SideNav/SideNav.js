@@ -21,10 +21,20 @@ const SideNav = ({lists, onSubmitFilter}) => {
   const [filter, setFilter] = useState('')
   const resetFilter = () => setFilter('')
 
+  const filteredLists = lists
+    .filter(list => includes(list.title, filter))
+
+  const listComponents = filteredLists
+    .map(list => <List key={list.id} list={list} />)
+
+  const text = filter.trim()
+  const shouldShowCreateList = text.length > 0 &&
+    !filteredLists.some(list => list.title.trim() === text)
+
   const handleSubmit = (event) => {
     event.preventDefault()
     const text = filter.trim()
-    if (listComponents.length > 0 || text.length === 0)
+    if (text.length === 0 || !shouldShowCreateList)
       return
     const id = onSubmitFilter(text)
     resetFilter()
@@ -36,10 +46,6 @@ const SideNav = ({lists, onSubmitFilter}) => {
     })
   }
 
-  const listComponents = lists
-    .filter(list => includes(list.title, filter))
-    .map(list => <List key={list.id} list={list} />)
-
   return (
     <div className={css.SideNav}>
       <FilterField
@@ -47,9 +53,8 @@ const SideNav = ({lists, onSubmitFilter}) => {
         onChange={setFilter}
         onSubmit={handleSubmit} />
       <div ref={content} className={css.Content}>
-        {listComponents.length > 0
-          ? listComponents
-          : <CreateList text={filter.trim()} onClick={handleSubmit} />}
+        {shouldShowCreateList && <CreateList text={filter.trim()} onClick={handleSubmit} />}
+        {listComponents}
       </div>
     </div>
   )
