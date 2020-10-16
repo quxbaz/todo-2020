@@ -5,10 +5,15 @@ import {connect} from 'react-redux'
 import {createApi} from '/api'
 
 const CreateList = ({text, onClick}) => {
+  const handleClick = () => {
+    onClick()
+  }
   return (
-    <div className={css.CreateList}>
-      <span className={css.CreateListText}>{text}</span>
-      <span className={css.CreateNewText}>create*</span>
+    <div className={css.CreateList} onClick={handleClick}>
+      <span className={css.CreateListText}>
+        {text}
+        <span className={css.CreateNewText}>create*</span>
+      </span>
     </div>
   )
 }

@@ -127,13 +127,12 @@
   border-radius: 32px;
 }
 
+.CreateListText {
+  overflow-x: hidden;
+}
+
 .CreateNewText {
   margin-left: 4px;
   font-weight: bold;
   color: #000;
-}
-
-.CreateListText {
-  word-wrap: break-word;
-  word-break: break-all;
 }
