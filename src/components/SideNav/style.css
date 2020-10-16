@@ -109,14 +109,14 @@
 }
 
 .ItemJustCreated {
-  animation: ItemJustCreated 1s linear;
+  animation: ItemJustCreated 0.5s linear;
 }
 
 @keyframes FadeIn {
-  0% {opacity: 0; width: 16px; min-width: 16px;}
+  0% {width: 16px; min-width: 16px; opacity: 0;}
   70% {opacity: 0.4;}
-  92% {width: 16px; min-width: 16px;}
-  100% {opacity: 1; width: 32px; min-width: 32px;}
+  90% {width: 16px; min-width: 16px;}
+  100% {width: 32px; min-width: 32px; opacity: 1;}
 }
 
 .ItemJustCreated.isActive:before {
