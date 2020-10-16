@@ -1,7 +1,7 @@
 Todo
 
 * RESUME
-  --
+  - Make sure submit rules are correct/working.
 
 * NOW
   - [ ] Make basic TODO app.

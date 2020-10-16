@@ -15,6 +15,8 @@ const includes = (a, b) => {
   return a.includes(b)
 }
 
+// ::RESUME::
+
 const SideNav = ({lists, onSubmitFilter}) => {
 
   const content = useRef()
