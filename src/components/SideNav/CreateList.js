@@ -5,9 +5,7 @@ import {connect} from 'react-redux'
 import {createApi} from '/api'
 
 const CreateList = ({text, onClick}) => {
-  const handleClick = () => {
-    onClick()
-  }
+  const handleClick = () => onClick(text)
   return (
     <div className={css.CreateList} onClick={handleClick}>
       <span className={css.CreateListText}>
@@ -23,11 +21,13 @@ CreateList.propTypes = {
   onClick: PropTypes.func.isRequired,
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, props) => {
   const api = createApi(dispatch)
   return {
-    onClick () {
-      console.log('click')
+    onClick (text) {
+      const id = api.lists.create({title: text})
+      api.workspace.setActiveList(id)
+      props.onClick()
     }
   }
 }

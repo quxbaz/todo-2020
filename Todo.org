@@ -13,6 +13,8 @@ Todo
   - [ ] Get sequencer working again.
   - [ ] Delete lists functionality.
   - [X] Add list input at top of <SideBar>
+  - [ ] Scroll to created list in sidenav after creation.
+  - [ ] Highlight created list in sidenav after creation.
 
 * Visual design
   --

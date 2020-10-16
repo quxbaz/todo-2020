@@ -16,6 +16,7 @@ const includes = (a, b) => {
 
 const SideNav = ({lists}) => {
   const [filter, setFilter] = useState('Cooking1')
+  const resetFilter = () => setFilter('')
   const listComponents = lists
     .filter(list => includes(list.title, filter))
     .map(list => <List key={list.id} list={list} />)
@@ -27,7 +28,7 @@ const SideNav = ({lists}) => {
       <div className={css.Content}>
         {listComponents.length > 0
           ? listComponents
-          : <CreateList text={filter.trim()} />}
+          : <CreateList text={filter.trim()} onClick={resetFilter} />}
       </div>
     </div>
   )
