@@ -1,5 +1,5 @@
 import css from './style.css'
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {createApi} from '/api'
@@ -17,16 +17,23 @@ const includes = (a, b) => {
 
 const SideNav = ({lists, onSubmitFilter}) => {
 
+  const content = useRef()
   const [filter, setFilter] = useState('')
   const resetFilter = () => setFilter('')
 
   const handleSubmit = (event) => {
     event.preventDefault()
     const text = filter.trim()
-    if (listComponents.length === 0 && text.length > 0) {
-      onSubmitFilter(text)
-      resetFilter()
-    }
+    if (listComponents.length > 0 && text.length === 0)
+      return
+    const id = onSubmitFilter(text)
+    resetFilter()
+    requestAnimationFrame(() => {
+      const list = content.current
+        .querySelector(`.List[attr-id="${id}"]`)
+      list.scrollIntoView({block: 'center'})
+      list.classList.add(css.ItemJustCreated)
+    })
   }
 
   const listComponents = lists
@@ -39,7 +46,7 @@ const SideNav = ({lists, onSubmitFilter}) => {
         value={filter}
         onChange={setFilter}
         onSubmit={handleSubmit} />
-      <div className={css.Content}>
+      <div ref={content} className={css.Content}>
         {listComponents.length > 0
           ? listComponents
           : <CreateList text={filter.trim()} onClick={handleSubmit} />}
@@ -64,6 +71,7 @@ const mapDispatchToProps = (dispatch) => {
     onSubmitFilter (text) {
       const id = api.lists.create({title: text})
       api.workspace.setActiveList(id)
+      return id
     },
   }
 }

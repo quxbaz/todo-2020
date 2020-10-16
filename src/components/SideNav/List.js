@@ -5,7 +5,6 @@ import {connect} from 'react-redux'
 import classNames from 'classnames'
 import {createApi} from '/api'
 
-
 const List = ({list, isActive, onClick}) => {
   const handleClick = (event) => {
     event.preventDefault()
@@ -13,8 +12,8 @@ const List = ({list, isActive, onClick}) => {
   }
   return (
     <div
-      key={list.id}
-      className={classNames(css.Item, {
+      attr-id={list.id}
+      className={classNames('List', css.Item, {
         [css.isActive]: isActive,
       })}
       onClick={handleClick}>

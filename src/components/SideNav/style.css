@@ -103,6 +103,26 @@
   color: hsl(0, 0%, 20%);
 }
 
+@keyframes ItemJustCreated {
+  from {background: hsla(0, 0%, 85%, 0.8);}
+  to {background: none;}
+}
+
+.ItemJustCreated {
+  animation: ItemJustCreated 1s linear;
+}
+
+@keyframes FadeIn {
+  0% {opacity: 0; width: 16px; min-width: 16px;}
+  70% {opacity: 0.4;}
+  92% {width: 16px; min-width: 16px;}
+  100% {opacity: 1; width: 32px; min-width: 32px;}
+}
+
+.ItemJustCreated.isActive:before {
+  animation: FadeIn 1.2s linear;
+}
+
 .CreateList {
   display: flex;
   align-items: center;
