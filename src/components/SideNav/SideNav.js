@@ -5,21 +5,27 @@ import {connect} from 'react-redux'
 import FilterField from './FilterField'
 import List from './List'
 
+const includes = (a, b) => {
+  if (b === '')
+    return true
+  a = a.trim().toLowerCase()
+  b = b.trim().toLowerCase()
+  return a.includes(b)
+}
+
 const SideNav = ({lists}) => {
   const [filter, setFilter] = useState('')
-  const handleFilterChange = (text) => {
-    setFilter(text)
-  }
-  const match = (text) => text.toLowerCase()
-    .includes(filter.toLowerCase())
+  const listComponents = lists
+    .filter(list => includes(list.title, filter))
+    .map(list => <List key={list.id} list={list} />)
   return (
     <div className={css.SideNav}>
       <FilterField
         value={filter}
-        onChange={handleFilterChange} />
-      {lists.map((list) => (
-        match(list.title) && <List key={list.id} list={list} />
-      ))}
+        onChange={setFilter} />
+      {listComponents.length > 0
+        ? listComponents
+        : <div />}
     </div>
   )
 }
