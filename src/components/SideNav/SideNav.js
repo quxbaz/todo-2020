@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import FilterField from './FilterField'
 import List from './List'
+import CreateList from './CreateList'
 
 const includes = (a, b) => {
   if (b === '')
@@ -14,7 +15,7 @@ const includes = (a, b) => {
 }
 
 const SideNav = ({lists}) => {
-  const [filter, setFilter] = useState('')
+  const [filter, setFilter] = useState('Cooking1')
   const listComponents = lists
     .filter(list => includes(list.title, filter))
     .map(list => <List key={list.id} list={list} />)
@@ -26,7 +27,7 @@ const SideNav = ({lists}) => {
       <div className={css.Content}>
         {listComponents.length > 0
           ? listComponents
-          : <div />}
+          : <CreateList text={filter.trim()} />}
       </div>
     </div>
   )
