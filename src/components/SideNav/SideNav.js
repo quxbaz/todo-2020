@@ -24,7 +24,7 @@ const SideNav = ({lists, onSubmitFilter}) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     const text = filter.trim()
-    if (listComponents.length > 0 && text.length === 0)
+    if (listComponents.length > 0 || text.length === 0)
       return
     const id = onSubmitFilter(text)
     resetFilter()
