@@ -22,7 +22,7 @@
 
 .Option:hover {
   /* border-color: hsla(203, 80%, 54%, 0.5); */
-  border-color: hsla(0, 0%, 70%, 0.4);
+  /* border-color: hsla(0, 0%, 70%, 0.4); */
 }
 
 .OptionText {
