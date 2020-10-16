@@ -7,8 +7,8 @@ import {createApi} from '/api'
 const CreateList = ({text, onClick}) => {
   return (
     <div className={css.CreateList}>
-      <div className={css.CreateNewText}>create new list</div>
-      <div className={css.CreateListText}>{text}</div>
+      <span className={css.CreateListText}>{text}</span>
+      <span className={css.CreateNewText}>create*</span>
     </div>
   )
 }
