@@ -16,6 +16,7 @@ Todo
     typing "Out" and should be able to create "Out" list.
   - [ ] Rename list feature.
   - [ ] Prevent duplicate list titles.
+  - [ ] If is filtering, disable pink slider icon.
 
 * Visual design
   --
