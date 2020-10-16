@@ -6,7 +6,7 @@ const CreateList = ({text, onClick}) => (
   <div className={css.CreateList} onClick={onClick}>
     <span className={css.CreateListText}>
       {text}
-      <span className={css.CreateNewText}>create*</span>
+      <span className={css.CreateNewText}>create</span>
     </span>
   </div>
 )

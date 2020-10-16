@@ -6,6 +6,7 @@ import {splitAt, getState} from '/util'
 import {createApi} from '/api'
 import Note, {NOTE_EVENTS} from '/components/Note'
 import handleNoteEvent from './handleNoteEvent'
+import OptionsBar from './OptionsBar'
 import Empty from './Empty'
 
 class List extends React.Component {
@@ -30,7 +31,10 @@ class List extends React.Component {
     const {list, notes, onRemove} = this.props
     return (
       <div className={css.List}>
-        <header><h2>{list.title}</h2></header>
+        <OptionsBar />
+        <header>
+          <h2>{list.title}</h2>
+        </header>
         {notes.length === 0 ? (
           <Empty listId={list.id} />
         ) : (
