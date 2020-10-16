@@ -73,6 +73,18 @@
   transform: none;
 }
 
+.isFilterActive .Item.isActive:before {
+  width: 16px;
+  min-width: 16px;
+  background-image: none;
+  transition: none;
+}
+
+.isFilterActive .Item.isActive a {
+  font-weight: normal;
+  color: hsl(0, 0%, 16%);
+}
+
 .Item:before {
   content: "";
   position: relative;

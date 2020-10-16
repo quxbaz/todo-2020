@@ -2,6 +2,7 @@ import css from './style.css'
 import React, {useState, useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import classNames from 'classnames'
 import {createApi} from '/api'
 import FilterField from './FilterField'
 import List from './List'
@@ -14,8 +15,6 @@ const includes = (a, b) => {
   b = b.trim().toLowerCase()
   return a.includes(b)
 }
-
-// ::RESUME::
 
 const SideNav = ({lists, onSubmitFilter}) => {
 
@@ -49,7 +48,9 @@ const SideNav = ({lists, onSubmitFilter}) => {
   }
 
   return (
-    <div className={css.SideNav}>
+    <div className={classNames(css.SideNav, {
+      [css.isFilterActive]: text.length > 0,
+    })}>
       <FilterField
         value={filter}
         onChange={setFilter}

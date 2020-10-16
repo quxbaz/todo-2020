@@ -1,7 +1,7 @@
 Todo
 
 * RESUME
-  - Make sure submit rules are correct/working.
+  --
 
 * NOW
   - [ ] Make basic TODO app.
@@ -10,13 +10,8 @@ Todo
   - [ ] Clear marked notes on list.
   - [ ] Shift0-LEFT/RIGHT to navigate lists. Remove test commend using
     pgup/down.
-  - [ ] Get sequencer working again.
-  - [ ] Delete lists functionality.
-  - [X] Fix bug in submit form where list can find item (Outside),
-    typing "Out" and should be able to create "Out" list.
   - [ ] Rename list feature.
-  - [ ] Prevent duplicate list titles.
-  - [ ] If is filtering, disable pink slider icon.
+  - [ ] Delete lists functionality.
 
 * Visual design
   --
