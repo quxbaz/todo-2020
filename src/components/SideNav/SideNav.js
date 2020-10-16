@@ -23,9 +23,11 @@ const SideNav = ({lists}) => {
       <FilterField
         value={filter}
         onChange={setFilter} />
-      {listComponents.length > 0
-        ? listComponents
-        : <div />}
+      <div className={css.Content}>
+        {listComponents.length > 0
+          ? listComponents
+          : <div />}
+      </div>
     </div>
   )
 }

@@ -1,23 +1,35 @@
+@value pageLayoutPaddingHeight: 120px;
+@value headingBarHeight: 40px;
+@value paddingHeight: 40px;
+@value filterHeight: 45px;
+@value SideNavHeight: calc(100vh - pageLayoutPaddingHeight - headingBarHeight);
+@value ContentHeight: calc(SideNavHeight - paddingHeight - filterHeight);
+
 .SideNav {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
-  max-height: calc(100vh - 40px - 120px);
-  overflow-y: auto;
-  padding: 20px 0;
+  max-height: SideNavHeight;
+  overflow-y: hidden;
+  padding: calc(paddingHeight / 2) 0;
   background: hsla(0, 0%, 99%, 1);
   border-right: 1px solid hsl(0, 0%, 59%);
   border-radius: 0 0 0 3px;
 }
 
-.SideNav::-webkit-scrollbar {
+.Content {
+  max-height: ContentHeight;
+  overflow-y: auto;
+}
+
+.Content::-webkit-scrollbar {
   width: 3px;
 }
 
-.SideNav::-webkit-scrollbar-track {
+.Content::-webkit-scrollbar-track {
   background: none;
 }
 
-.SideNav::-webkit-scrollbar-thumb {
+.Content::-webkit-scrollbar-thumb {
   background: hsl(0, 0%, 25%);
 }
 

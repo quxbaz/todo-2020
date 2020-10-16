@@ -49,6 +49,7 @@ function createApp () {
   api.lists.create({title: 'Woodworking'})
   api.lists.create({title: 'Woodworking'})
   api.lists.create({title: 'Woodworking'})
+  api.lists.create({title: 'ZZ Last'})
 
   // api.lists.createNote(list1, {text: 'one'})
   // api.lists.createNote(list1, {text: 'two'})
