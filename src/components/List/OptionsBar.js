@@ -22,8 +22,9 @@ const OptionsBar = ({onRemove}) => {
   }
   return (
     <div className={css.OptionsBar}>
+      <Option onClick={handleClickRename}>Delete checked</Option>
       <Option onClick={handleClickRename}>Rename</Option>
-      <Option onClick={onRemove}>Remove</Option>
+      <Option onClick={onRemove}>Delete</Option>
     </div>
   )
 }
