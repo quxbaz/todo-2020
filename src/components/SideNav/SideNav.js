@@ -29,13 +29,19 @@ const SideNav = ({lists, onSubmitFilter}) => {
     .map(list => <List key={list.id} list={list} />)
 
   const text = filter.trim()
-  const shouldShowCreateList = text.length > 0 &&
+
+  /*
+    Only show the "create*" button if (1) The filter text is non-empty
+    and (2) The filter text does not EXACTLY match any existing list
+    titles.
+  */
+  const shouldShowCreateText = text.length > 0 &&
     !filteredLists.some(list => list.title.trim() === text)
 
   const handleSubmit = (event) => {
     event.preventDefault()
     const text = filter.trim()
-    if (text.length === 0 || !shouldShowCreateList)
+    if (text.length === 0 || !shouldShowCreateText)
       return
     const id = onSubmitFilter(text)
     resetFilter()
@@ -56,7 +62,7 @@ const SideNav = ({lists, onSubmitFilter}) => {
         onChange={setFilter}
         onSubmit={handleSubmit} />
       <div ref={content} className={css.Content}>
-        {shouldShowCreateList && <CreateList text={filter.trim()} onClick={handleSubmit} />}
+        {shouldShowCreateText && <CreateList text={filter.trim()} onClick={handleSubmit} />}
         {listComponents}
       </div>
     </div>
@@ -70,7 +76,9 @@ SideNav.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  lists: state.workspace.lists.map(id => state.lists[id]),
+  lists: state.workspace.lists
+    .map(id => state.lists[id])
+    .filter(list => list.isAlive)
 })
 
 const mapDispatchToProps = (dispatch) => {

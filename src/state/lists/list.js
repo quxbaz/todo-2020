@@ -5,6 +5,7 @@ const init = {
   id: '',
   title: '',
   notes: [],
+  isAlive: true,
 }
 
 const list = (state=init, action) => {
@@ -12,6 +13,11 @@ const list = (state=init, action) => {
   if (action.type === ACTION_TYPES.LISTS__CREATE) {
     const {id, title} = action.payload
     return {...state, id, title}
+  }
+
+  if (action.type === ACTION_TYPES.LISTS__DISCARD) {
+    const {id} = action.payload
+    return {...state, isAlive: false}
   }
 
   if (action.type === ACTION_TYPES.LISTS__CREATE_NOTE) {

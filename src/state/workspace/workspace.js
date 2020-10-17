@@ -8,14 +8,6 @@ const init = {
 
 const workspace = (state=init, action) => {
 
-  if (action.type === ACTION_TYPES.LISTS__CREATE) {
-    const {id, pos} = action.payload
-    return {
-      ...state,
-      lists: insert(state.lists, id, pos),
-    }
-  }
-
   if (action.type === ACTION_TYPES.WORKSPACE__SET_ACTIVE_LIST) {
     const {id} = action.payload
     return {
@@ -41,6 +33,20 @@ const workspace = (state=init, action) => {
       ...state,
       activeList: state.lists[i],
     }
+  }
+
+  if (action.type === ACTION_TYPES.LISTS__CREATE) {
+    const {id, pos} = action.payload
+    return {
+      ...state,
+      lists: insert(state.lists, id, pos),
+    }
+  }
+
+  if (action.type === ACTION_TYPES.LISTS__DISCARD) {
+    const {id} = action.payload
+    if (state.activeList !== id) return state
+    else return {...state, activeList: null}
   }
 
   return state

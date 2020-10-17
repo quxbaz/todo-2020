@@ -17,6 +17,11 @@ actions.create = ({title}) => (dispatch, getState) => {
   return action
 }
 
+actions.discard = (id) => ({
+  type: ACTION_TYPES.LISTS__DISCARD,
+  payload: {id},
+})
+
 actions.createNote = (id, props, pos) => ({
   type: ACTION_TYPES.LISTS__CREATE_NOTE,
   payload: {

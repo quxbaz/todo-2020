@@ -14,7 +14,9 @@ const AppComponent = ({store, activeList}) => (
         </div>
         <SideNav />
         <div className={css.ListFrame}>
-          <List list={activeList} />
+          {activeList == null
+            ? <div />
+            : <List list={activeList} />}
         </div>
       </div>
     </div>
@@ -23,7 +25,7 @@ const AppComponent = ({store, activeList}) => (
 
 AppComponent.propTypes = {
   store: PropTypes.object.isRequired,
-  activeList: PropTypes.object.isRequired,
+  activeList: PropTypes.object,
 }
 
 const mapStateToProps = (state) => ({

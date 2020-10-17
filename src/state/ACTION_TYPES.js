@@ -11,6 +11,7 @@ const ACTION_TYPES = {
     lists namespace
   */
   LISTS__CREATE:       'todo-2020/lists/CREATE',
+  LISTS__DISCARD:      'todo-2020/lists/DISCARD',
   LISTS__CREATE_NOTE:  'todo-2020/lists/CREATE_NOTE',
   LISTS__DESTROY_NOTE: 'todo-2020/lists/DESTROY_NOTE',
   LISTS__MERGE_NOTES:  'todo-2020/lists/MERGE_NOTES',

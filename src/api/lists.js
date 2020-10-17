@@ -9,10 +9,8 @@ const createApi = (dispatch) => {
     return action.payload.id
   }
 
-  api.remove = (id) => {
-    console.log('remove', id)
-    // dispatch(actions.remove(id))
-  }
+  api.discard = (id) =>
+    dispatch(actions.discard(id))
 
   api.createNote = (id, props, pos) =>
     dispatch(actions.createNote(id, props, pos))

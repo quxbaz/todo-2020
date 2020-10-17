@@ -37,7 +37,7 @@ const mapDispatchToProps = (dispatch, {listId}) => {
   const api = createApi(dispatch)
   return {
     onRemove (id) {
-      api.lists.remove(listId)
+      api.lists.discard(listId)
     },
   }
 }
