@@ -15,12 +15,8 @@
   align-items: center;
   height: 40px;
   padding: 0 24px;
-
-  /* // ::RESUME:: */
   /* background: hsl(122, 90%, 37%); */
-  /* background: linear-gradient(to right, hsla(-38, 93%, 66%, 0.4), hsla(-38, 93%, 66%, 0.8)); */
   background: hsla(-38, 93%, 66%, 0.7);
-
   color: #fff;
   border-radius: 3px;
   box-shadow: 0 3px 3px hsla(0, 0%, 70%, 0.3);
