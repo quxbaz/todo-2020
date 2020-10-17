@@ -15,6 +15,8 @@ Todo
   - [ ] Trash bin. Restore from trash.
   - [ ] / shortcut to focus on filter.
   - [ ] Light divider line before Trash in lists.
+  - [ ] Enable emacs hotkeys.
+  - [ ] Shortcuts screen.
 
 * Visual design
   --
