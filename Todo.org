@@ -12,6 +12,7 @@ Todo
     pgup/down.
   - [ ] Rename list feature.
   - [ ] Delete lists functionality.
+  - [ ] Trash bin. Restore from trash.
 
 * Visual design
   --

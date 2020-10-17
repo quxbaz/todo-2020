@@ -4,30 +4,41 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {createApi} from '/api'
 
-const Option = ({children}) => (
-  <a className={css.Option}>
+const Option = ({children, onClick}) => (
+  <a className={css.Option} onClick={onClick}>
     <span className={css.OptionText}>
       {children}
     </span>
   </a>
 )
 
-const OptionsBar = () => {
+Option.propTypes = {
+  onClick: PropTypes.func.isRequired,
+}
+
+const OptionsBar = ({onRemove}) => {
+  const handleClickRename = () => {
+    console.log('rename')
+  }
   return (
     <div className={css.OptionsBar}>
-      <Option>Rename</Option>
-      <Option>Delete</Option>
+      <Option onClick={handleClickRename}>Rename</Option>
+      <Option onClick={onRemove}>Remove</Option>
     </div>
   )
 }
 
-OptionsBar.propTypes = {}
-
-const mapStateToProps = () => ({})
-
-const mapDispatchToProps = (dispatch) => {
-  const api = createApi(dispatch)
-  return {}
+OptionsBar.propTypes = {
+  listId: PropTypes.string.isRequired,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(OptionsBar)
+const mapDispatchToProps = (dispatch, {listId}) => {
+  const api = createApi(dispatch)
+  return {
+    onRemove (id) {
+      api.lists.remove(listId)
+    },
+  }
+}
+
+export default connect(null, mapDispatchToProps)(OptionsBar)
