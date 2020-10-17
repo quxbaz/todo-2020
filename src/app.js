@@ -1,14 +1,24 @@
 import React from 'react'
 import {createStore} from './state'
+import {createZone} from '/toasts'
 import AppComponent from './components/AppComponent'
 
 // ::TEMP::
+import {createToast} from '/toasts'
 import {createApi} from './api'
 
 function createApp () {
+
+  createZone('toast-zone')
+
   const store = createStore()
 
   // ::TODO::TEMP::
+
+  // createToast('toast-zone', {
+  //   text: '"Design" moved to trash.',
+  //   duration: 9999,
+  // })
 
   const api = createApi(store.dispatch.bind(store))
   const list0 = api.lists.create({title: 'Cooking'})

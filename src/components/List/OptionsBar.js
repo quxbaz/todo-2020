@@ -3,6 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {createApi} from '/api'
+import {createToast} from '/toasts'
 
 const Option = ({children, onClick}) => (
   <a className={css.Option} onClick={onClick}>
@@ -30,14 +31,17 @@ const OptionsBar = ({onDelete}) => {
 }
 
 OptionsBar.propTypes = {
-  listId: PropTypes.string.isRequired,
+  list: PropTypes.object.isRequired,
 }
 
-const mapDispatchToProps = (dispatch, {listId}) => {
+const mapDispatchToProps = (dispatch, {list}) => {
   const api = createApi(dispatch)
   return {
     onDelete (id) {
-      api.lists.discard(listId)
+      api.lists.discard(list.id)
+      createToast('toast-zone', {
+        text: `"${list.title}" moved to trash.`,
+      })
     },
   }
 }

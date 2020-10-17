@@ -31,7 +31,7 @@ class List extends React.Component {
     const {list, notes, onRemove} = this.props
     return (
       <div className={css.List}>
-        <OptionsBar listId={list.id} />
+        <OptionsBar list={list} />
         <header>
           <h2>{list.title}</h2>
         </header>
