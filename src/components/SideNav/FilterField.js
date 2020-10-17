@@ -7,6 +7,7 @@ const FilterField = ({value, onChange, onSubmit}) => (
     <input
       className={css.FilterInput}
       placeholder='Find / create'
+      title="Ctrl + /"
       value={value}
       onChange={(event) => onChange(event.target.value)} />
   </form>
