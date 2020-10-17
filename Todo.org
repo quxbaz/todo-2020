@@ -13,7 +13,6 @@ Todo
   - [ ] Rename list feature.
   - [ ] Delete lists functionality.
   - [ ] Trash bin. Restore from trash.
-  - [ ] / shortcut to focus on filter.
   - [ ] Light divider line before Trash in lists.
   - [ ] Enable emacs hotkeys.
   - [ ] Shortcuts screen.
