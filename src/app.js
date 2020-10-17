@@ -93,6 +93,7 @@ function createApp () {
     store,
     component: <AppComponent store={store} />
   }
+
 }
 
 export {

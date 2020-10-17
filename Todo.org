@@ -17,7 +17,6 @@ Todo
   - [ ] Light divider line before Trash in lists.
   - [ ] Enable emacs hotkeys.
   - [ ] Shortcuts screen.
-  - [ ] Handle state of empty list pane after deleting a list.
 
 * Visual design
   --
