@@ -6,7 +6,7 @@ const FilterField = ({value, onChange, onSubmit}) => (
   <form className={css.FilterField} onSubmit={onSubmit}>
     <input
       className={css.FilterInput}
-      placeholder='Filter'
+      placeholder='Find / create'
       value={value}
       onChange={(event) => onChange(event.target.value)} />
   </form>
