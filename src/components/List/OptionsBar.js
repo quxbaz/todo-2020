@@ -16,7 +16,7 @@ Option.propTypes = {
   onClick: PropTypes.func.isRequired,
 }
 
-const OptionsBar = ({onRemove}) => {
+const OptionsBar = ({onDelete}) => {
   const handleClickRename = () => {
     console.log('rename')
   }
@@ -24,7 +24,7 @@ const OptionsBar = ({onRemove}) => {
     <div className={css.OptionsBar}>
       <Option onClick={handleClickRename}>Delete checked</Option>
       <Option onClick={handleClickRename}>Rename</Option>
-      <Option onClick={onRemove}>Delete</Option>
+      <Option onClick={onDelete}>Delete</Option>
     </div>
   )
 }
@@ -36,7 +36,7 @@ OptionsBar.propTypes = {
 const mapDispatchToProps = (dispatch, {listId}) => {
   const api = createApi(dispatch)
   return {
-    onRemove (id) {
+    onDelete (id) {
       api.lists.discard(listId)
     },
   }
