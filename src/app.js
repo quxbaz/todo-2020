@@ -22,9 +22,10 @@ function createApp () {
 
   const api = createApi(store.dispatch.bind(store))
   const list0 = api.lists.create({title: 'Cooking'})
-  const list1 = api.lists.create({title: 'Design'})
-  const list2 = api.lists.create({title: 'Programming'})
-  const list3 = api.lists.create({title: 'Gamedev'})
+
+  api.lists.create({title: 'Design'})
+  api.lists.create({title: 'Programming'})
+  api.lists.create({title: 'Gamedev'})
   api.lists.create({title: 'Marketing'})
   api.lists.create({title: 'Making'})
   api.lists.create({title: 'Outside'})
@@ -34,7 +35,6 @@ function createApp () {
   api.lists.create({title: 'Remember'})
   api.lists.create({title: 'Thoughts'})
   api.lists.create({title: 'Woodworking'})
-
   api.lists.create({title: 'Woodworking'})
   api.lists.create({title: 'AA Woodworking: New Project/Workshop Ideas Continued'})
   api.lists.create({title: 'Woodworking'})
@@ -61,24 +61,20 @@ function createApp () {
   api.lists.create({title: 'Woodworking'})
   api.lists.create({title: 'ZZ Last'})
 
-  // api.lists.createNote(list1, {text: 'one'})
-  // api.lists.createNote(list1, {text: 'two'})
-  // api.lists.createNote(list1, {text: 'three'})
+  api.lists.createNote(list0, {text: 'Table saw.', isDone: true})
 
-  api.lists.createNote(list1, {text: 'Table saw.'})
-  api.lists.createNote(list1, {text: 'Drafting table.'})
-  api.lists.createNote(list1, {text: 'Shelving.'})
-  api.lists.createNote(list1, {text: 'Precision grinding table.'})
-  api.lists.createNote(list1, {text: 'Router table.'})
-  api.lists.createNote(list1, {text: 'Horizontal drill.'})
-  api.lists.createNote(list1, {text: '($) Tensioned strop.'})
-  api.lists.createNote(list1, {text: 'Stone holder.'})
-  api.lists.createNote(list1, {text: '(H) Mochi press.'})
-  api.lists.createNote(list1, {text: 'New hand plane.'})
-  api.lists.createNote(list1, {text: 'Tortilla press.'})
+  api.lists.createNote(list0, {text: 'Drafting table.', isDone: true})
+  api.lists.createNote(list0, {text: 'Shelving.', isDone: true})
+  api.lists.createNote(list0, {text: 'Precision grinding table.', isDone: true})
+  api.lists.createNote(list0, {text: 'Router table.', isDone: true})
+  api.lists.createNote(list0, {text: 'Horizontal drill.'})
+  api.lists.createNote(list0, {text: '($) Tensioned strop.'})
+  api.lists.createNote(list0, {text: 'Stone holder.'})
+  api.lists.createNote(list0, {text: '(H) Mochi press.'})
+  api.lists.createNote(list0, {text: 'New hand plane.'})
+  api.lists.createNote(list0, {text: 'Tortilla press.'})
 
-  api.workspace.setActiveList(list1)
-  // api.workspace.setActiveList(list2)
+  api.workspace.setActiveList(list0)
 
   window.addEventListener('keydown', ({keyCode}) => {
     if (keyCode === 33 /* PAGE UP*/)

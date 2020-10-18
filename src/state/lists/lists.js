@@ -14,7 +14,8 @@ const lists = (state={}, action) => {
   if (action.type === ACTION_TYPES.LISTS__DISCARD ||
       action.type === ACTION_TYPES.LISTS__CREATE_NOTE ||
       action.type === ACTION_TYPES.LISTS__DESTROY_NOTE ||
-      action.type === ACTION_TYPES.LISTS__MERGE_NOTES) {
+      action.type === ACTION_TYPES.LISTS__MERGE_NOTES ||
+      action.type === ACTION_TYPES.LISTS__CLEAR_NOTES) {
     const {id} = action.payload
     return {
       ...state,

@@ -33,6 +33,11 @@ const notes = (state={}, action) => {
     }, note2)
   }
 
+  if (action.type === ACTION_TYPES.LISTS__CLEAR_NOTES) {
+    const {notes} = action.payload
+    return omit(state, ...notes)
+  }
+
   return state
 
 }

@@ -46,6 +46,14 @@ const list = (state=init, action) => {
     }
   }
 
+  if (action.type === ACTION_TYPES.LISTS__CLEAR_NOTES) {
+    const {id, notes} = action.payload
+    return {
+      ...state,
+      notes: without(state.notes, ...notes),
+    }
+  }
+
   return state
 
 }

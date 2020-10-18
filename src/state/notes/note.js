@@ -14,6 +14,9 @@ const note = (state, action) => {
       ...init,
       id: props.id,
       text: props.text || '',
+      isDone: typeof props.isDone === 'boolean'
+        ? props.isDone
+        : false,
     }
   }
 

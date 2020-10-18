@@ -25,24 +25,30 @@ Option.propTypes = {
 
 const OptionsBar = ({anyNotesChecked, onClear, onDelete}) => {
 
-  const handleClearShortcut = (event) => {
-    if (event.altKey && event.key === 'c') {
-      event.preventDefault()
-      if (anyNotesChecked)
-        onClear()
-    }
-  }
+  // useEffect(() => {
+  //   window.addEventListener('click', onClear)
+  // }, [])
 
-  useEffect(() => {
-    window.addEventListener('keydown', handleClearShortcut)
-    return () => window.removeEventListener('keydown', handleClearShortcut)
-  })
+  // const handleClearShortcut = (event) => {
+  //   console.log('foo')
+  //   if (event.altKey && event.key === 'c') {
+  //     event.preventDefault()
+  //     if (anyNotesChecked) {
+  //       onClear()
+  //     }
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   window.addEventListener('keydown', handleClearShortcut)
+  //   return () => window.removeEventListener('keydown', handleClearShortcut)
+  // })
 
   const handleClickRename = () => {
-    console.log('rename')
+    console.log('RENAME')
   }
 
-  const className = classNames(css.OptionsBar, {
+  const className = classNames('FOO', css.OptionsBar, {
     [css.anyNotesChecked]: anyNotesChecked,
   })
 
@@ -51,7 +57,9 @@ const OptionsBar = ({anyNotesChecked, onClear, onDelete}) => {
       <Option
         className={css.Clear}
         title='Alt-c'
-        onClick={onClear}>Clear checked notes</Option>
+        onClick={onClear}>
+        Clear checked notes
+      </Option>
       <Option onClick={handleClickRename}>Rename</Option>
       <Option onClick={onDelete}>Delete</Option>
     </div>
@@ -77,6 +85,7 @@ const mapDispatchToProps = (dispatch, {list}) => {
   return {
     onClear () {
       api.lists.clearNotes(list.id)
+      // api.lists.destroyNote(list.id, list.notes[0])
     },
     onDelete (id) {
       api.lists.discard(list.id)
