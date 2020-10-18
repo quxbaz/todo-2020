@@ -13,17 +13,6 @@
   padding: 0 16px 0 30px;
 }
 
-.Clear {
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-.anyNotesChecked .Clear {
-  pointer-events: auto;
-  opacity: 1;
-  transform-origin: center center;
-}
-
 .Option {
   padding: 6px 16px 6px 18px;
   cursor: pointer;
@@ -48,6 +37,32 @@
 .OptionText:after {
   content: "*";
   margin-left: 1px;
+}
+
+.Clear {
+  pointer-events: none;
+  opacity: 0.5;
+  border-radius: 3px;
+  transition-property: opacity, background;
+  transition-duration: 0.1s;
+  transition-timing-function: linear;
+}
+
+.Clear .OptionText {}
+
+.anyNotesChecked .Clear {
+  pointer-events: auto;
+  background: hsl(200, 95%, 56%);
+  box-shadow: 0 2px 3px hsla(200, 50%, 90%, 1);
+  opacity: 1;
+}
+
+.anyNotesChecked .Clear:hover {
+  background: hsl(200, 95%, 56%);
+}
+
+.anyNotesChecked .Clear .OptionText {
+  color: #fff;
 }
 
 .List header {
