@@ -1,7 +1,7 @@
-function omit (obj, key) {
-  const newObj = {...obj}
-  delete newObj[key]
-  return newObj
+function omit (obj, ...keys) {
+  const copy = {...obj}
+  keys.forEach(key => delete copy[key])
+  return copy
 }
 
 function sortBy (list, key) {
