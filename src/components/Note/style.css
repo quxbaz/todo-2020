@@ -33,6 +33,7 @@
 
 .Switch {
   cursor: pointer;
+  user-select: none;
   display: flex;
   justify-content: left;
   align-items: center;
