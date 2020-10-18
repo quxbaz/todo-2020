@@ -21,6 +21,9 @@ const createApi = (dispatch) => {
   api.mergeNotes = (id, note1, note2) =>
     dispatch(actions.mergeNotes(id, note1, note2))
 
+  api.clearNotes = (id) =>
+    dispatch(actions.clearNotes(id))
+
   return api
 
 }

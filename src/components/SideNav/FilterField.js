@@ -6,7 +6,7 @@ const FilterField = ({value, onChange, onSubmit}) => {
 
   const ref = useRef()
 
-  const focus = (event) => {
+  const handleFocusShortcut = (event) => {
     if (event.ctrlKey && event.key === '/') {
       event.preventDefault()
       ref.current.focus()
@@ -14,8 +14,8 @@ const FilterField = ({value, onChange, onSubmit}) => {
   }
 
   useEffect(() => {
-    window.addEventListener('keydown', focus)
-    return () => window.removeEventListener('keydown', focus)
+    window.addEventListener('keydown', handleFocusShortcut)
+    return () => window.removeEventListener('keydown', handleFocusShortcut)
   })
 
   return (

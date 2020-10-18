@@ -1,14 +1,15 @@
 import css from './style.css'
-import React from 'react'
+import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
 import {createApi} from '/api'
 import {createToast} from '/toasts'
 
-const Option = ({children, className, onClick}) => (
+const Option = ({children, className, title, onClick}) => (
   <a
     className={classNames(css.Option, className)}
+    title={title}
     onClick={onClick}>
     <span className={css.OptionText}>
       {children}
@@ -18,25 +19,44 @@ const Option = ({children, className, onClick}) => (
 
 Option.propTypes = {
   className: PropTypes.string,
+  title: PropTypes.string,
   onClick: PropTypes.func.isRequired,
 }
 
 const OptionsBar = ({anyNotesChecked, onClear, onDelete}) => {
+
+  const handleClearShortcut = (event) => {
+    if (event.altKey && event.key === 'c') {
+      event.preventDefault()
+      if (anyNotesChecked)
+        onClear()
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleClearShortcut)
+    return () => window.removeEventListener('keydown', handleClearShortcut)
+  })
+
   const handleClickRename = () => {
     console.log('rename')
   }
+
   const className = classNames(css.OptionsBar, {
     [css.anyNotesChecked]: anyNotesChecked,
   })
+
   return (
     <div className={className}>
       <Option
         className={css.Clear}
+        title='Alt-c'
         onClick={onClear}>Clear checked notes</Option>
       <Option onClick={handleClickRename}>Rename</Option>
       <Option onClick={onDelete}>Delete</Option>
     </div>
   )
+
 }
 
 OptionsBar.propTypes = {
@@ -56,7 +76,7 @@ const mapDispatchToProps = (dispatch, {list}) => {
   const api = createApi(dispatch)
   return {
     onClear () {
-      console.log('CLEAR')
+      api.lists.clearNotes(list.id)
     },
     onDelete (id) {
       api.lists.discard(list.id)

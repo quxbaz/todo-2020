@@ -15,6 +15,7 @@ const ACTION_TYPES = {
   LISTS__CREATE_NOTE:  'todo-2020/lists/CREATE_NOTE',
   LISTS__DESTROY_NOTE: 'todo-2020/lists/DESTROY_NOTE',
   LISTS__MERGE_NOTES:  'todo-2020/lists/MERGE_NOTES',
+  LISTS__CLEAR_NOTES:  'todo-2020/lists/CLEAR_NOTES',
 
   /*
     notes namespace

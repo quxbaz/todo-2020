@@ -49,4 +49,23 @@ actions.mergeNotes = (id, note1, note2) => (dispatch, getState) => {
   })
 }
 
+actions.clearNotes = (id, note) => (dispatch, getState) => {
+  const state = getState()
+  const list = state.lists[id]
+  const notes = list.notes.map(id => state.notes[id])
+    .filter(note => note.isDone)
+    .map(note => note.text)
+
+  console.log(notes)
+
+  // dispatch({
+  //   type: ACTION_TYPES.LISTS__CLEAR_NOTES,
+  //   payload: {
+  //     id,
+  //     notes,
+  //   },
+  // })
+
+}
+
 export default actions
