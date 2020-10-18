@@ -49,7 +49,7 @@ const SideNav = ({lists, onSubmitFilter, onClickTrash}) => {
     resetFilter()
     requestAnimationFrame(() => {
       const list = content.current
-        .querySelector(`.List[attr-id="${id}"]`)
+        .querySelector(`.${css.Item}[attr-id="${id}"]`)
       list.scrollIntoView({block: 'center'})
       list.classList.add(css.ItemJustCreated)
     })
