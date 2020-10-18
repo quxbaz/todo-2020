@@ -16,7 +16,7 @@ const FilterField = ({value, onChange, onSubmit}) => {
   useEffect(() => {
     window.addEventListener('keydown', handleFocusShortcut)
     return () => window.removeEventListener('keydown', handleFocusShortcut)
-  })
+  }, [])
 
   return (
     <form className={css.FilterField} onSubmit={onSubmit}>

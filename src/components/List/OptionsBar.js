@@ -1,5 +1,5 @@
 import css from './style.css'
-import React, {useEffect} from 'react'
+import React, {useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
@@ -25,35 +25,39 @@ Option.propTypes = {
 
 const OptionsBar = ({anyNotesChecked, onClear, onDelete}) => {
 
-  // useEffect(() => {
-  //   window.addEventListener('click', onClear)
-  // }, [])
+  const ref = useRef()
 
-  // const handleClearShortcut = (event) => {
-  //   console.log('foo')
-  //   if (event.altKey && event.key === 'c') {
-  //     event.preventDefault()
-  //     if (anyNotesChecked) {
-  //       onClear()
-  //     }
-  //   }
-  // }
+  const handleClearShortcut = (event) => {
+    if (!(event.altKey && event.key === 'c') || !anyNotesChecked)
+      return
+    event.preventDefault()
+    /*
+      We have to indirectly trigger an artificial click event on the
+      "Clear" button because we run into a react pipeline rendering
+      error if we make the onClear call straight off a keydown
+      event. Very weird, but this seemingly erroneous behavior is
+      completely reproducible.
+    */
+    const mouseEvent = new MouseEvent('click', {view: window, bubbles: true})
+    ref.current.querySelector(`.${css.Option}`)
+      .dispatchEvent(mouseEvent)
+  }
 
-  // useEffect(() => {
-  //   window.addEventListener('keydown', handleClearShortcut)
-  //   return () => window.removeEventListener('keydown', handleClearShortcut)
-  // })
+  useEffect(() => {
+    window.addEventListener('keydown', handleClearShortcut)
+    return () => window.removeEventListener('keydown', handleClearShortcut)
+  }, [])
 
   const handleClickRename = () => {
     console.log('RENAME')
   }
 
-  const className = classNames('FOO', css.OptionsBar, {
+  const className = classNames(css.OptionsBar, {
     [css.anyNotesChecked]: anyNotesChecked,
   })
 
   return (
-    <div className={className}>
+    <div ref={ref} className={className}>
       <Option
         className={css.Clear}
         title='Alt-c'
