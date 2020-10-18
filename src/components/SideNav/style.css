@@ -183,3 +183,35 @@
   content: "*";
   margin-left: 1px;
 }
+
+.TrashItem {
+  /* border-top: 1px solid hsla(0, 0%, 81%, 0.8); */
+  /* background: #f0f; */
+  /* justify-content: center; */
+}
+
+.isFilterActive .TrashItem {
+  display: none;
+}
+
+.TrashItem a {
+  font-weight: bold;
+}
+
+.TrashItem a:after {
+  content: "*";
+  margin-left: 1px;
+  /* font-weight: bold; */
+}
+
+.TrashItem:before {
+  background: hsl(200, 85%, 65%);
+  /* background: hsl(24, 93%, 63%); */
+  /* transform: rotate(0); */
+  /* width: 32px; */
+}
+
+.TrashItem:hover:before {
+  background: hsl(200, 85%, 65%);
+  /* background: hsl(24, 93%, 63%); */
+}

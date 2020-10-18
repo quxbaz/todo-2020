@@ -7,6 +7,7 @@ import {createApi} from '/api'
 import FilterField from './FilterField'
 import List from './List'
 import CreateList from './CreateList'
+import TrashItem from './TrashItem'
 
 const includes = (a, b) => {
   if (b === '')
@@ -64,6 +65,7 @@ const SideNav = ({lists, onSubmitFilter}) => {
       <div ref={content} className={css.Content}>
         {shouldShowCreateText && <CreateList text={filter.trim()} onClick={handleSubmit} />}
         {listComponents}
+        <TrashItem />
       </div>
     </div>
   )
