@@ -2,25 +2,18 @@ import css from './style.css'
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import {connect} from 'react-redux'
-import {createApi} from '/api'
 
-const TrashItem = () => {
+const TrashItem = ({onClick}) => {
   const className = classNames(css.TrashItem, css.Item)
   return (
-    <div className={className}>
+    <div className={className} onClick={onClick}>
       <a>Trash</a>
     </div>
   )
 }
 
-TrashItem.propTypes = {}
-
-const mapStateToProps = () => ({})
-
-const mapDispatchToProps = (dispatch) => {
-  const api = createApi(dispatch)
-  return {}
+TrashItem.propTypes = {
+  onClick: PropTypes.func.isRequired,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TrashItem)
+export default TrashItem

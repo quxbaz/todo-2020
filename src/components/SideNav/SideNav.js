@@ -17,9 +17,10 @@ const includes = (a, b) => {
   return a.includes(b)
 }
 
-const SideNav = ({lists, onSubmitFilter}) => {
+const SideNav = ({lists, onSubmitFilter, onClickTrash}) => {
 
   const content = useRef()
+  const [activePane, setActivePane] = useState('')
   const [filter, setFilter] = useState('')
   const resetFilter = () => setFilter('')
 
@@ -65,7 +66,7 @@ const SideNav = ({lists, onSubmitFilter}) => {
       <div ref={content} className={css.Content}>
         {shouldShowCreateText && <CreateList text={filter.trim()} onClick={handleSubmit} />}
         {listComponents}
-        <TrashItem />
+        <TrashItem onClick={onClickTrash} />
       </div>
     </div>
   )
@@ -75,6 +76,7 @@ const SideNav = ({lists, onSubmitFilter}) => {
 SideNav.propTypes = {
   lists: PropTypes.array.isRequired,
   onSubmitFilter: PropTypes.func.isRequired,
+  onClickTrash: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
@@ -90,6 +92,9 @@ const mapDispatchToProps = (dispatch) => {
       const id = api.lists.create({title: text})
       api.workspace.setActiveList(id)
       return id
+    },
+    onClickTrash () {
+      console.log('::TODO::')
     },
   }
 }
