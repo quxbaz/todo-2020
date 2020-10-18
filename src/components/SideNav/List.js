@@ -13,11 +13,21 @@ const List = ({list, isActive, onClick}) => {
   return (
     <div
       attr-id={list.id}
-      className={classNames('List', css.Item, {
+      className={classNames(css.Item, {
         [css.isActive]: isActive,
       })}
       onClick={handleClick}>
-        <a className={css.List} href="">{list.title}</a>
+        <a href="">
+          {list.title}
+          {list.notes.length > 0 && (
+            <>
+              <span className={css.Dot}>&middot;</span>
+              <span className={css.Length}>
+                {list.notes.length}
+              </span>
+            </>
+          )}
+        </a>
     </div>
   )
 }

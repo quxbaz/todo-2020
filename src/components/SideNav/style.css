@@ -135,6 +135,17 @@
   animation: FadeIn 1.2s linear;
 }
 
+.Dot {
+  margin: 0 3px;
+  color: hsl(0, 0%, 60%);
+}
+
+.Length {
+  font-family: courier new;
+  font-weight: normal;
+  color: hsl(0, 0%, 60%);
+}
+
 .CreateList {
   display: flex;
   align-items: center;
