@@ -17,6 +17,12 @@ const handleNoteEvent = (noteId, noteDom, event, eventMap) => {
   else if (event.type === NOTE_EVENTS.ARROW_RIGHT_AT_END)
     moveCaret('FORWARD')
 
+  else if (event.type === NOTE_EVENTS.MOVE_TO_START_OF_LINE)
+    moveCaret('START')
+
+  else if (event.type === NOTE_EVENTS.MOVE_TO_END_OF_LINE)
+    moveCaret('END')
+
   else if (event.type === NOTE_EVENTS.ENTER_AT_START)
     eventMap[NOTE_EVENTS.ENTER_AT_START](noteId)
 

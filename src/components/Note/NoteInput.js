@@ -7,6 +7,8 @@ const {
   ARROW_DOWN,
   ARROW_LEFT_AT_START,
   ARROW_RIGHT_AT_END,
+  MOVE_TO_START_OF_LINE,
+  MOVE_TO_END_OF_LINE,
   ENTER_AT_START,
   ENTER_AT_END,
   ENTER_AT_POS,
@@ -43,6 +45,16 @@ class NoteInput extends React.Component {
 
     else if (event.keyCode === 39 && pos === input.value.length)
       d(ARROW_RIGHT_AT_END)
+
+    else if (event.altKey && event.key === 'a') {
+      event.preventDefault()
+      d(MOVE_TO_START_OF_LINE)
+    }
+
+    else if (event.altKey && event.key === 'e') {
+      event.preventDefault()
+      d(MOVE_TO_END_OF_LINE)
+    }
 
     else if (event.keyCode === 13)
       if (input.value.length === 0 || pos === input.value.length) d(ENTER_AT_END)

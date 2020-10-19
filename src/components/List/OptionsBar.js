@@ -1,5 +1,5 @@
 import css from './style.css'
-import React, {useRef, useEffect} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
@@ -23,9 +23,15 @@ Option.propTypes = {
   onClick: PropTypes.func.isRequired,
 }
 
+const MODES = {
+  NULL: Symbol('NULL'),
+  RENAME: Symbol('RENAME'),
+}
+
 const OptionsBar = ({list, anyNotesChecked, onClear, onDelete}) => {
 
   const ref = useRef()
+  const [mode, setMode] = useState(MODES.NULL)
 
   const handleShortcuts = (event) => {
     if (event.altKey && event.key === 'c' && anyNotesChecked) {
