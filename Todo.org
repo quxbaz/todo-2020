@@ -6,14 +6,8 @@ Todo
 * NOW
   - [ ] Make basic TODO app.
   - [ ] Accounts.
-  - [ ] Prev/Next list nav UI.
-  - [ ] Clear marked notes on list.
-  - [ ] Shift0-LEFT/RIGHT to navigate lists. Remove test commend using
-    pgup/down.
-  - [ ] Rename list feature.
-  - [ ] Enable emacs hotkeys.
   - [ ] Shortcuts screen.
-  - [ ] Shortcut to mark note. Add title attribute.
+  - [ ] Rename list feature.
 
 * Visual design
   --
