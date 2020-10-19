@@ -76,14 +76,17 @@ function createApp () {
 
   api.workspace.setActiveList(list0)
 
-  window.addEventListener('keydown', ({keyCode}) => {
-    if (keyCode === 33 /* PAGE UP*/)
-      api.workspace.cyclePrevList()
-    else if (keyCode === 34 /* PAGE DPOWN*/)
-      api.workspace.cycleNextList()
-  })
-
   // ::END TEMP::
+
+  window.addEventListener('keydown', (event) => {
+    if (event.ctrlKey && event.key === 'ArrowUp') {
+      event.preventDefault()
+      api.workspace.cyclePrevList()
+    } else if (event.ctrlKey && event.key === 'ArrowDown') {
+      event.preventDefault()
+      api.workspace.cycleNextList()
+    }
+  })
 
   return {
     store,
