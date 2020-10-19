@@ -32,10 +32,10 @@ class NoteInput extends React.Component {
       ? input.selectionEnd
       : input.selectionStart
 
-    if (event.keyCode === 38)
+    if (event.keyCode === 38 || (event.altKey && event.key === 'p'))
       d(ARROW_UP)
 
-    else if (event.keyCode === 40)
+    else if (event.keyCode === 40 || (event.altKey && event.key === 'n'))
       d(ARROW_DOWN)
 
     else if (event.keyCode === 37 && pos === 0)
