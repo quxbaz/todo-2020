@@ -18,13 +18,20 @@ const Note = ({
   const [isFocused, setIsFocused] = useState(false)
 
   const handleNoteEvent = (event) => onNoteEvent(note.id, ref.current, event)
+  const handleKeyDown = (event) => {
+    if (event.altKey && event.key === 'm') {
+      event.preventDefault()
+      onToggle()
+    }
+  }
 
   return (
     <div
       ref={ref}
       className={classNames('Note', css.Note, {
         [css.isFocused]: isFocused,
-      })}>
+      })}
+      onKeyDown={handleKeyDown}>
       <Switch
         isOn={note.isDone}
         onClick={onToggle} />
