@@ -17,6 +17,8 @@ Todo
   - [ ] Enable emacs hotkeys.
   - [ ] Shortcuts screen.
   - [ ] Animate new list title.
+  - [ ] Handle scrolling case where list item is deleted.
+  - [ ] Shortcut to mark note. Add title attribute.
 
 * Visual design
   --

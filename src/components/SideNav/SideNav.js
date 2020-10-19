@@ -1,5 +1,5 @@
 import css from './style.css'
-import React, {useState, useRef} from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
@@ -19,16 +19,14 @@ const includes = (a, b) => {
 
 const SideNav = ({lists, onSubmitFilter, onClickTrash}) => {
 
-  const content = useRef()
-  const [activePane, setActivePane] = useState('')
   const [filter, setFilter] = useState('')
-  const resetFilter = () => setFilter('')
+  const [lastCreated, setLastCreated] = useState(null)
 
   const filteredLists = lists
     .filter(list => includes(list.title, filter))
 
   const listComponents = filteredLists
-    .map(list => <List key={list.id} list={list} />)
+    .map(list => <List key={list.id} list={list} lastCreated={lastCreated} />)
 
   const text = filter.trim()
 
@@ -45,14 +43,8 @@ const SideNav = ({lists, onSubmitFilter, onClickTrash}) => {
     const text = filter.trim()
     if (text.length === 0 || !shouldShowCreateText)
       return
-    const id = onSubmitFilter(text)
-    resetFilter()
-    requestAnimationFrame(() => {
-      const list = content.current
-        .querySelector(`.${css.Item}[attr-id="${id}"]`)
-      list.scrollIntoView({block: 'center'})
-      list.classList.add(css.ItemJustCreated)
-    })
+    setLastCreated(onSubmitFilter(text))
+    setFilter('')
   }
 
   return (
@@ -63,7 +55,7 @@ const SideNav = ({lists, onSubmitFilter, onClickTrash}) => {
         value={filter}
         onChange={setFilter}
         onSubmit={handleSubmit} />
-      <div ref={content} className={css.Content}>
+      <div className={css.Content}>
         {shouldShowCreateText && <CreateList text={filter.trim()} onClick={handleSubmit} />}
         {listComponents}
         <TrashItem onClick={onClickTrash} />

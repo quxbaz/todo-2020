@@ -115,13 +115,13 @@
   color: hsl(0, 0%, 20%);
 }
 
-@keyframes ItemJustCreated {
+@keyframes ItemBorn {
   from {background: hsla(0, 0%, 85%, 0.8);}
   to {background: none;}
 }
 
-.ItemJustCreated {
-  animation: ItemJustCreated 0.5s linear;
+.ItemBorn {
+  animation: ItemBorn 0.5s linear;
 }
 
 @keyframes FadeIn {
@@ -131,7 +131,7 @@
   100% {width: 32px; min-width: 32px; opacity: 1;}
 }
 
-.ItemJustCreated.isActive:before {
+.ItemBorn.isActive:before {
   animation: FadeIn 1.2s linear;
 }
 

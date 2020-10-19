@@ -15,7 +15,7 @@ const Empty = ({listId, onSubmit}) => {
       const noteDom = document.querySelector('.Note')
       const inputDom = noteDom.querySelector('input')
       inputDom.focus()
-      noteDom.classList.add(css.NoteJustCreatedFromEmpty)
+      noteDom.classList.add(css.NoteBornFromEmpty)
     })
   }
   const handleChange = (event) => {
