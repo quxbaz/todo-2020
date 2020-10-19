@@ -11,13 +11,8 @@ Todo
   - [ ] Shift0-LEFT/RIGHT to navigate lists. Remove test commend using
     pgup/down.
   - [ ] Rename list feature.
-  - [ ] Delete lists functionality.
-  - [ ] Trash bin. Restore from trash.
-  - [ ] Light divider line before Trash in lists.
   - [ ] Enable emacs hotkeys.
   - [ ] Shortcuts screen.
-  - [ ] Animate new list title.
-  - [ ] Handle scrolling case where list item is deleted.
   - [ ] Shortcut to mark note. Add title attribute.
 
 * Visual design
@@ -49,6 +44,7 @@ Todo
   - [ ] Redo
   - [ ] Routing URLS to specific lists and notes.
   - [ ] Re-order notes.
+  - [ ] Trash bin.
 
 * OPTIMIZATION
   - [ ] Improve react rendering performance and interop with redux
