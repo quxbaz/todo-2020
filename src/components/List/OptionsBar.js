@@ -23,30 +23,26 @@ Option.propTypes = {
   onClick: PropTypes.func.isRequired,
 }
 
-const OptionsBar = ({anyNotesChecked, onClear, onDelete}) => {
+const OptionsBar = ({list, anyNotesChecked, onClear, onDelete}) => {
 
   const ref = useRef()
 
-  const handleClearShortcut = (event) => {
-    if (!(event.altKey && event.key === 'c') || !anyNotesChecked)
-      return
-    event.preventDefault()
-    /*
-      We have to indirectly trigger an artificial click event on the
-      "Clear" button because we run into a react pipeline rendering
-      error if we make the onClear call straight off a keydown
-      event. Very weird, but this seemingly erroneous behavior is
-      completely reproducible.
-    */
-    const mouseEvent = new MouseEvent('click', {view: window, bubbles: true})
-    ref.current.querySelector(`.${css.Option}`)
-      .dispatchEvent(mouseEvent)
+  const handleShortcuts = (event) => {
+    if (event.altKey && event.key === 'c' && anyNotesChecked) {
+      // We have to trigger an artificial click event here to trigger a
+      // synthetic React event otherwise we run into a weird rendering error.
+      const mouseEvent = new MouseEvent('click', {view: window, bubbles: true})
+      ref.current.querySelector(`.${css.Clear}`)
+        .dispatchEvent(mouseEvent)
+    } else if (event.altKey && event.key === 'd') {
+      onDelete()
+    }
   }
 
   useEffect(() => {
-    window.addEventListener('keydown', handleClearShortcut)
-    return () => window.removeEventListener('keydown', handleClearShortcut)
-  }, [])
+    window.addEventListener('keydown', handleShortcuts)
+    return () => window.removeEventListener('keydown', handleShortcuts)
+  }, [list.id, anyNotesChecked])
 
   const handleClickRename = () => {
     console.log('RENAME')
@@ -65,7 +61,12 @@ const OptionsBar = ({anyNotesChecked, onClear, onDelete}) => {
         Clear checked notes
       </Option>
       <Option onClick={handleClickRename}>Rename</Option>
-      <Option onClick={onDelete}>Delete</Option>
+      <Option
+        className={css.Delete}
+        title='Alt-d'
+        onClick={onDelete}>
+        Delete
+      </Option>
     </div>
   )
 
@@ -91,7 +92,7 @@ const mapDispatchToProps = (dispatch, {list}) => {
       api.lists.clearNotes(list.id)
       // api.lists.destroyNote(list.id, list.notes[0])
     },
-    onDelete (id) {
+    onDelete () {
       api.lists.discard(list.id)
       createToast('toast-zone', {
         text: `"${list.title}" moved to trash.`,

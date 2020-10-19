@@ -9,11 +9,7 @@ const List = ({list, isActive, lastCreated, onClick}) => {
 
   const ref = useRef()
   const [isBorn, setIsBorn] = useState(false)
-
-  const handleClick = (event) => {
-    event.preventDefault()
-    onClick(list.id)
-  }
+  const [wasClicked, setWasClicked] = useState(false)
 
   useEffect(() => {
     if (list.id === lastCreated)
@@ -21,9 +17,15 @@ const List = ({list, isActive, lastCreated, onClick}) => {
   }, [])
 
   useEffect(() => {
-    if (isActive)
+    if (isActive && !wasClicked)
       ref.current.scrollIntoView({block: 'center'})
-  }, [isActive])
+  }, [isActive, wasClicked])
+
+  const handleClick = (event) => {
+    event.preventDefault()
+    setWasClicked(true)
+    onClick(list.id)
+  }
 
   return (
     <div
