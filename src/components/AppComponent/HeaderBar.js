@@ -9,7 +9,7 @@ const HeaderBar = () => {
   return (
     <div className={css.HeaderBar}>
       <div className={css.HeaderBarIcon}>🗇</div>
-      <div className={css.HeaderBarMenu}>
+      <div className={css.HeaderBarMenu} tabIndex={-1} onBlur={() => setIsOpen(false)}>
         <div className={css.HeaderBarMenuIcon} title='Menu' onClick={toggle}>
           <div>&#9776;</div>
         </div>
