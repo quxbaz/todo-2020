@@ -2,7 +2,6 @@ import {insert} from '/util'
 import ACTION_TYPES from '/state/ACTION_TYPES'
 
 const init = {
-  lists: [],
   activeList: null,
 }
 
@@ -36,14 +35,6 @@ const workspace = (state=init, action) => {
     return {
       ...state,
       activeList: state.lists[i],
-    }
-  }
-
-  if (action.type === ACTION_TYPES.LISTS__CREATE) {
-    const {id, pos} = action.payload
-    return {
-      ...state,
-      lists: insert(state.lists, id, pos),
     }
   }
 

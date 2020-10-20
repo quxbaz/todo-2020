@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
+import {values, sortBy} from '/util'
 import {createApi} from '/api'
 import FilterField from './FilterField'
 import List from './List'
@@ -72,9 +73,11 @@ SideNav.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  lists: state.workspace.lists
-    .map(id => state.lists[id])
-    .filter(list => list.isAlive)
+  lists: sortBy(
+    values(state.lists)
+      .filter(list => list.isAlive),
+    'title'
+  ),
 })
 
 const mapDispatchToProps = (dispatch) => {
