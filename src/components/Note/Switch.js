@@ -3,7 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Switch = ({isOn, onClick}) => (
-  <div className={css.Switch} onClick={onClick} title="Alt-m">
+  <div className={css.Switch} onClick={onClick} title="Alt-x">
     <div>
       {isOn ? '☒' : '☐'}
     </div>
