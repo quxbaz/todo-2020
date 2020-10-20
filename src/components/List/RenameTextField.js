@@ -8,7 +8,9 @@ const RenameTextField = ({text, onBlur, onChange, onSubmit}) => {
 
   useEffect(() => {
     input.current.focus()
-    input.current.setSelectionRange(0, -1)
+    requestAnimationFrame(() => {
+      input.current.setSelectionRange(0, -1)
+    })
   }, [])
 
   return (
