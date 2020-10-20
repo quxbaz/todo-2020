@@ -7,7 +7,6 @@ Todo
   - [ ] Make basic TODO app.
   - [ ] Accounts.
   - [ ] Shortcuts screen.
-  - [X] Rename list feature.
 
 * Visual design
   --
