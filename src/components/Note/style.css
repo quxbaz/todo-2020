@@ -9,22 +9,21 @@
 }
 
 .Note:hover {
-  background: hsla(0, 0%, 90%, 0.4);
+  background: hsla(0, 0%, 90%, 0.35);
 }
 
-.Note.isFocused:hover {
-  background: none;
-}
+/* .Note:focus-within { */
+/*   border-bottom-color: hsl(0, 0%, 59%); */
+/*   transition: background 250ms linear; */
+/* } */
 
-.isFocused {
-  /* border-bottom-color: hsla(0, 0%, 81%, 0.8); */
-  border-bottom-color: hsl(0, 0%, 59%);
-  transition: background 250ms linear;
-}
+/* .Note:focus-within:hover { */
+/*   background: none; */
+/* } */
 
-.Note.isFocused:only-child {
-  border-color: #fff;
-}
+/* .Note:focus-within:only-child { */
+/*   border-color: #fff; */
+/* } */
 
 .TextDiv {
   width: 100%;

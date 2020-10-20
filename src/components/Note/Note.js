@@ -1,5 +1,5 @@
 import css from './style.css'
-import React, {useState, useRef} from 'react'
+import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
@@ -15,7 +15,6 @@ const Note = ({
 }) => {
 
   const ref = useRef()
-  const [isFocused, setIsFocused] = useState(false)
 
   const handleNoteEvent = (event) => onNoteEvent(note.id, ref.current, event)
   const handleKeyDown = (event) => {
@@ -28,9 +27,7 @@ const Note = ({
   return (
     <div
       ref={ref}
-      className={classNames('Note', css.Note, {
-        [css.isFocused]: isFocused,
-      })}
+      className={css.Note}
       onKeyDown={handleKeyDown}>
       <Switch
         isOn={note.isDone}
@@ -41,8 +38,6 @@ const Note = ({
         <NoteInput
           className={classNames(css.Input, {[css.isDone]: note.isDone})}
           value={note.text}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
           onChange={event => onChange(note.id, event.target.value)}
           onNoteEvent={handleNoteEvent} />
       </div>

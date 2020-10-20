@@ -1,5 +1,4 @@
 import {getSortedLists} from '/state/lists/selectors'
-// import {values, sortBy} from '/util'
 import ACTION_TYPES from '/state/ACTION_TYPES'
 
 const actions = {}

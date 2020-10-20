@@ -1,4 +1,5 @@
 import css from './style.css'
+import NoteCss from '/components/Note/style.css'
 import React, {useState, useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
@@ -12,7 +13,7 @@ const Empty = ({listId, onSubmit}) => {
     if (text.trim() === '') return
     onSubmit(listId, text)
     requestAnimationFrame(() => {
-      const noteDom = document.querySelector('.Note')
+      const noteDom = document.querySelector(`.${NoteCss.Note}`)
       const inputDom = noteDom.querySelector('input')
       inputDom.focus()
       noteDom.classList.add(css.NoteBornFromEmpty)
