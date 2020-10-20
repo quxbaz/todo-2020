@@ -29,10 +29,6 @@ const OptionsBar = ({list, anyNotesChecked, onClear, onDelete}) => {
     return () => window.removeEventListener('keydown', handleShortcuts)
   }, [list.id, anyNotesChecked])
 
-  const handleClickRename = () => {
-    console.log('::TODO::')
-  }
-
   const className = classNames(css.OptionsBar, {
     [css.anyNotesChecked]: anyNotesChecked,
   })
@@ -45,7 +41,7 @@ const OptionsBar = ({list, anyNotesChecked, onClear, onDelete}) => {
         onClick={onClear}>
         Clear checked notes
       </Option>
-      <RenameOption listId={list.id} />
+      <RenameOption list={list} />
       <Option
         className={css.Delete}
         title='Alt-d'

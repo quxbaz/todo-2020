@@ -3,37 +3,48 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {createApi} from '/api'
 import Option from './Option'
-import RenameField from './RenameField'
+import RenameTextField from './RenameTextField'
 
-const RenameOption = ({listId, onSubmit}) => {
+const RenameOption = ({list, onSubmit}) => {
 
+  const [text, setText] = useState(list.title)
   const [isEditing, setIsEditing] = useState(false)
 
   const handleShortcut = (event) => {
     if (event.altKey && event.key === 'r')
-      handleClick()
+      setIsEditing(true)
+    else if (event.key === 'Escape')
+      setIsEditing(false)
   }
+
+  useEffect(
+    () => setText(list.title),
+    [isEditing]
+  )
 
   useEffect(() => {
     setIsEditing(false)
     window.addEventListener('keydown', handleShortcut)
     return () => window.removeEventListener('keydown', handleShortcut)
-  }, [listId])
+  }, [list.id])
 
-  const handleSubmit = (text) => {
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    if (text.trim() === '') return
+    setIsEditing(false)
     onSubmit(text)
   }
 
-  const handleClick = () => {
-    setIsEditing(true)
-  }
-
   return isEditing ? (
-    <RenameField onSubmit={handleSubmit} />
+    <RenameTextField
+      text={text}
+      onBlur={() => setIsEditing(false)}
+      onChange={value => setText(value)}
+      onSubmit={handleSubmit} />
   ) : (
     <Option
       title='Alt-r'
-      onClick={handleClick}>
+      onClick={() => setIsEditing(true)}>
       Rename
     </Option>
   )
@@ -41,15 +52,15 @@ const RenameOption = ({listId, onSubmit}) => {
 }
 
 RenameOption.propTypes = {
-  listId: PropTypes.string.isRequired,
+  list: PropTypes.object.isRequired,
   onSubmit: PropTypes.func.isRequired,
 }
 
-const mapDispatchToProps = (dispatch, {listId}) => {
+const mapDispatchToProps = (dispatch, {list}) => {
   const api = createApi(dispatch)
   return {
     onSubmit (text) {
-      console.log('SUBMIT:', listId, text)
+      api.lists.update(list.id, {title: text})
     },
   }
 }

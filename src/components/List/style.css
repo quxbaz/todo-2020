@@ -7,7 +7,6 @@
 }
 
 .OptionsBar {
-  /* background: #f0f; */
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -38,6 +37,18 @@
 .OptionText:after {
   content: "*";
   margin-left: 1px;
+}
+
+.RenameTextField input {
+  height: 28px;
+  padding: 0 8px;
+  font-size: 12px;
+  background: #fff;
+  outline: none;
+}
+
+.anyNotesChecked .RenameTextField input {
+  margin-left: 16px;
 }
 
 .Clear {

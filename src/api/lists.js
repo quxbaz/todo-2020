@@ -9,6 +9,9 @@ const createApi = (dispatch) => {
     return action.payload.id
   }
 
+  api.update = (id, props) =>
+    dispatch(actions.update(id, props))
+
   api.discard = (id) =>
     dispatch(actions.discard(id))
 

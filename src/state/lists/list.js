@@ -15,6 +15,11 @@ const list = (state=init, action) => {
     return {...state, id, title}
   }
 
+  if (action.type === ACTION_TYPES.LISTS__UPDATE) {
+    const {id, ...props} = action.payload
+    return {...state, ...props}
+  }
+
   if (action.type === ACTION_TYPES.LISTS__DISCARD) {
     const {id} = action.payload
     return {...state, isAlive: false}

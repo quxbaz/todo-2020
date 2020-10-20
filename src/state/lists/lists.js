@@ -11,7 +11,8 @@ const lists = (state={}, action) => {
     }
   }
 
-  if (action.type === ACTION_TYPES.LISTS__DISCARD ||
+  if (action.type === ACTION_TYPES.LISTS__UPDATE ||
+      action.type === ACTION_TYPES.LISTS__DISCARD ||
       action.type === ACTION_TYPES.LISTS__CREATE_NOTE ||
       action.type === ACTION_TYPES.LISTS__DESTROY_NOTE ||
       action.type === ACTION_TYPES.LISTS__MERGE_NOTES ||
