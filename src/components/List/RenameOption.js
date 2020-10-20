@@ -1,3 +1,4 @@
+import SideNavCss from '/components/SideNav/style.css'
 import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
@@ -33,6 +34,11 @@ const RenameOption = ({list, onSubmit}) => {
     if (text.trim() === '') return
     setIsEditing(false)
     onSubmit(text)
+    requestAnimationFrame(() => {
+      document.querySelector(
+        `.${SideNavCss.Item}[attr-id="${list.id}"]`
+      ).scrollIntoView({block: 'center'})
+    })
   }
 
   return isEditing ? (
