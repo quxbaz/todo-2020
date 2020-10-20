@@ -7,6 +7,7 @@
 }
 
 .OptionsBar {
+  /* background: #f0f; */
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -15,9 +16,8 @@
 
 .Option {
   padding: 6px 16px 6px 18px;
-  cursor: pointer;
   border-radius: 32px;
-  transition: all 100ms linear;
+  transition: background 100ms linear;
 }
 
 .Option:hover {
@@ -29,6 +29,7 @@
 }
 
 .OptionText {
+  cursor: pointer;
   font-size: 13px;
   font-weight: bold;
   color: hsl(200, 100%, 40%);

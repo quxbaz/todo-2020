@@ -1,37 +1,16 @@
 import css from './style.css'
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
 import {createApi} from '/api'
 import {createToast} from '/toasts'
-
-const Option = ({children, className, title, onClick}) => (
-  <a
-    className={classNames(css.Option, className)}
-    title={title}
-    onClick={onClick}>
-    <span className={css.OptionText}>
-      {children}
-    </span>
-  </a>
-)
-
-Option.propTypes = {
-  className: PropTypes.string,
-  title: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
-}
-
-const MODES = {
-  NULL: Symbol('NULL'),
-  RENAME: Symbol('RENAME'),
-}
+import Option from './Option'
+import RenameOption from './RenameOption'
 
 const OptionsBar = ({list, anyNotesChecked, onClear, onDelete}) => {
 
   const ref = useRef()
-  const [mode, setMode] = useState(MODES.NULL)
 
   const handleShortcuts = (event) => {
     if (event.altKey && event.key === 'c' && anyNotesChecked) {
@@ -51,7 +30,7 @@ const OptionsBar = ({list, anyNotesChecked, onClear, onDelete}) => {
   }, [list.id, anyNotesChecked])
 
   const handleClickRename = () => {
-    console.log('RENAME')
+    console.log('::TODO::')
   }
 
   const className = classNames(css.OptionsBar, {
@@ -66,7 +45,7 @@ const OptionsBar = ({list, anyNotesChecked, onClear, onDelete}) => {
         onClick={onClear}>
         Clear checked notes
       </Option>
-      <Option onClick={handleClickRename}>Rename</Option>
+      <RenameOption listId={list.id} />
       <Option
         className={css.Delete}
         title='Alt-d'
@@ -96,7 +75,6 @@ const mapDispatchToProps = (dispatch, {list}) => {
   return {
     onClear () {
       api.lists.clearNotes(list.id)
-      // api.lists.destroyNote(list.id, list.notes[0])
     },
     onDelete () {
       api.lists.discard(list.id)
