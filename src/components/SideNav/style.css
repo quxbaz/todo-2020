@@ -97,7 +97,7 @@
   background: hsla(0, 0%, 82%, 0.8);
   border-radius: 32px;
   transform: rotate(-2deg);
-  transition: all 100ms ease-out;
+  /* transition: all 100ms ease-out; */
 }
 
 .Item a {
@@ -121,7 +121,7 @@
 }
 
 .ItemBorn {
-  animation: ItemBorn 0.5s linear;
+  /* animation: ItemBorn 0.5s linear; */
 }
 
 @keyframes FadeIn {
@@ -132,7 +132,7 @@
 }
 
 .ItemBorn.isActive:before {
-  animation: FadeIn 1.2s linear;
+  /* animation: FadeIn 1.2s linear; */
 }
 
 .Dot {
@@ -169,7 +169,6 @@
   background: hsla(0, 0%, 82%, 0.5);
   border-radius: 32px;
   transform: rotate(-37deg);
-  transition: all 100ms ease-out;
 }
 
 .CreateList:hover {
