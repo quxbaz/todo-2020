@@ -94,15 +94,9 @@
 the middle of the screen. */
 .Shortcuts {
   position: absolute;
-  width: 700px;
-  margin: 0 auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #f0f;
-  background: #fff;
-  height: 100vh;
-  opacity: 0.95;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: hsl(0, 0%, 0%, 0.36);
 }
 
 .ListFrame {

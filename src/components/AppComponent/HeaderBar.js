@@ -25,16 +25,10 @@ const HeaderBar = () => {
         </div>
         {isOpen && (
           <div className={css.HeaderBarMenuContent}>
-            <Shortcuts />
             <div className={css.MenuContentLine}>
               View shortcut keys
             </div>
-            <div className={css.MenuContentLine}>
-              Menu line 2
-            </div>
-            <div className={css.MenuContentLine}>
-              Menu line 3
-            </div>
+            <Shortcuts />
           </div>
         )}
       </div>
