@@ -1,16 +1,23 @@
 import css from './style.css'
 import React from 'react'
+import PropTypes from 'prop-types'
 import {createPortal} from 'react-dom'
 
-const Frame = ({children}) => (
-  <div className={css.Shortcuts}>
+const Frame = ({children, onClickOutside}) => (
+  <div className={css.Shortcuts} onClick={onClickOutside}>
     <div className={css.ShortcutsContent1}>
-      <div className={css.ShortcutsContent2}>
+      <div
+        className={css.ShortcutsContent2}
+        onClick={event => event.stopPropagation()}>
         {children}
       </div>
     </div>
   </div>
 )
+
+Frame.propTypes = {
+  onClickOutside: PropTypes.func.isRequired,
+}
 
 const Item = ({shortcut, command}) => (
   <li>
@@ -31,16 +38,22 @@ const Separator = ({children}) => (
   </div>
 )
 
-const Shortcuts = () => {
+const Shortcuts = ({onClickOutside}) => {
   return createPortal(
-    <Frame>
+    <Frame onClickOutside={onClickOutside}>
       <h2>Shortcuts</h2>
       <ul>
+        <Separator>Info</Separator>
+        <Item shortcut='Alt-h' command='View shortcuts' />
         <Separator>Navigation</Separator>
         <Item shortcut='Ctrl-/' command='Focus search box' />
         <Item shortcut='Ctrl-⇧' command='Cycle to prev list' />
         <Item shortcut='Ctrl-⇩' command='Cycle to next list' />
         <Separator>Notes</Separator>
+        <Item shortcut='Alt-p' command='Move to previous line.' />
+        <Item shortcut='Alt-n' command='Move to next line.' />
+        <Item shortcut='Alt-e' command='Move to end of line.' />
+        <Item shortcut='Alt-e' command='Move to start of line.' />
         <Item shortcut='Alt-x' command='Check note' />
         <Item shortcut='Alt-c' command='Clear checked notes' />
         <Separator>Lists</Separator>
@@ -50,6 +63,10 @@ const Shortcuts = () => {
     </Frame>,
     document.getElementById('Modals')
   )
+}
+
+Shortcuts.propTypes = {
+  onClickOutside: PropTypes.func.isRequired,
 }
 
 export default Shortcuts

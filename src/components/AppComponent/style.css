@@ -97,7 +97,7 @@
   display: grid;
   grid-template-columns: 1fr minmax(500px, 60vh) 1fr;
   grid-template-rows: 1fr 60vh 1fr;
-  background: hsl(0, 0%, 0%, 0.36);
+  background: hsl(0, 0%, 0%, 0.5);
 }
 
 .ShortcutsContent1 {
@@ -110,6 +110,16 @@
   background: #fff;
   border-radius: 3px;
   box-shadow: 0 4px 6px hsla(0, 0%, 40%, 0.5);
+  outline: none;
+}
+
+.Shortcuts button {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  outline: none;
 }
 
 .Shortcuts h2 {

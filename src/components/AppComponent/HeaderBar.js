@@ -40,7 +40,7 @@ const HeaderBar = () => {
             </div>
           </div>
         )}
-        {showShortcuts && <Shortcuts />}
+        {showShortcuts && <Shortcuts onClickOutside={() => setShowShortcuts(false)} />}
       </div>
     </div>
   )
