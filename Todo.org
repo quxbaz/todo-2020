@@ -8,6 +8,8 @@ Todo
   - [ ] Accounts.
   - [X] Shortcuts screen.
   - [ ] Fix cycleNext/Prev List.
+  - [ ] Try react portals for toasts?
+  - [ ] Try react portals for modals?
 
 * Visual design
   --
