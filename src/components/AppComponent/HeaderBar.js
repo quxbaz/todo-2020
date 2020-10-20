@@ -35,6 +35,7 @@ const HeaderBar = () => {
           <div className={css.HeaderBarMenuContent}>
             <div
               className={css.MenuContentLine}
+              title='Ctrl-h'
               onClick={() => {
                 setIsMenuOpen(false)
                 setShowShortcuts(true)
