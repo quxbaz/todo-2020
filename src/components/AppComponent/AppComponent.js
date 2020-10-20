@@ -8,6 +8,7 @@ import List from '/components/List'
 
 const AppComponent = ({store, activeList}) => (
   <Provider store={store}>
+    <div id='Modals' className={css.Modals} />
     <div className={css.AppComponent}>
       <div className={css.InnerAppComponent}>
         <HeaderBar />

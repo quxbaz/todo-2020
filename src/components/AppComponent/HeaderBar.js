@@ -1,5 +1,6 @@
 import css from './style.css'
 import React, {useState, useEffect} from 'react'
+import Shortcuts from './Shortcuts'
 
 const HeaderBar = () => {
 
@@ -24,6 +25,7 @@ const HeaderBar = () => {
         </div>
         {isOpen && (
           <div className={css.HeaderBarMenuContent}>
+            <Shortcuts />
             <div className={css.MenuContentLine}>
               View shortcut keys
             </div>
