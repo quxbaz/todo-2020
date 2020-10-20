@@ -1,10 +1,19 @@
 import css from './style.css'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 const HeaderBar = () => {
 
   const [isOpen, setIsOpen] = useState(false)
   const toggle = () => setIsOpen(!isOpen)
+
+  const handleEscape = (event) => {
+    if (event.key === 'Escape') setIsOpen(false)
+  }
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleEscape)
+    return () => window.removeEventListener('keydown', handleEscape)
+  }, [])
 
   return (
     <div className={css.HeaderBar}>
