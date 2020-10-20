@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import classNames from 'classnames'
 import {values, sortBy} from '/util'
 import {createApi} from '/api'
+import {getSortedLists} from '/state/lists/selectors'
 import FilterField from './FilterField'
 import List from './List'
 import CreateList from './CreateList'
@@ -73,11 +74,7 @@ SideNav.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  lists: sortBy(
-    values(state.lists)
-      .filter(list => list.isAlive),
-    'title'
-  ),
+  lists: getSortedLists(state),
 })
 
 const mapDispatchToProps = (dispatch) => {
