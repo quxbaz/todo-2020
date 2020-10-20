@@ -59,6 +59,14 @@ const noop = () => {}
 
 const splitAt = (x, i) => [x.slice(0, i), x.slice(i)]
 
+const chain = (acc) => ({
+  values: () => chain(values(acc)),
+  map: (fn) => chain(acc.map(fn)),
+  filter: (fn) => chain(acc.filter(fn)),
+  sortBy: (key) => chain(sortBy(acc, key)),
+  get: () => acc,
+})
+
 export {
   omit,
   sortBy,
@@ -70,4 +78,5 @@ export {
   insert,
   noop,
   splitAt,
+  chain,
 }
