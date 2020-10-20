@@ -4,11 +4,16 @@ import Shortcuts from './Shortcuts'
 
 const HeaderBar = () => {
 
-  const [isOpen, setIsOpen] = useState(false)
-  const toggle = () => setIsOpen(!isOpen)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const toggle = () => setIsMenuOpen(!isMenuOpen)
+
+  const [showShortcuts, setShowShortcuts] = useState(false)
 
   const handleEscape = (event) => {
-    if (event.key === 'Escape') setIsOpen(false)
+    if (event.key === 'Escape') {
+      setIsMenuOpen(false)
+      setShowShortcuts(false)
+    }
   }
 
   useEffect(() => {
@@ -19,18 +24,23 @@ const HeaderBar = () => {
   return (
     <div className={css.HeaderBar}>
       <div className={css.HeaderBarIcon}>🗇</div>
-      <div className={css.HeaderBarMenu} tabIndex={-1} onBlur={() => setIsOpen(false)}>
+      <div className={css.HeaderBarMenu} tabIndex={-1} onBlur={() => setIsMenuOpen(false)}>
         <div className={css.HeaderBarMenuIcon} title='Menu' onClick={toggle}>
           <div>&#9776;</div>
         </div>
-        {isOpen && (
+        {isMenuOpen && (
           <div className={css.HeaderBarMenuContent}>
-            <div className={css.MenuContentLine}>
+            <div
+              className={css.MenuContentLine}
+              onClick={() => {
+                setIsMenuOpen(false)
+                setShowShortcuts(true)
+              }}>
               View shortcut keys
             </div>
-            <Shortcuts />
           </div>
         )}
+        {showShortcuts && <Shortcuts />}
       </div>
     </div>
   )

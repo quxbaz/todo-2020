@@ -13,7 +13,7 @@ function createApp () {
 
   const store = createStore()
 
-  // ::TODO::TEMP::
+  // ::TEMP::
 
   // createToast('toast-zone', {
   //   text: '"Design" moved to trash.',
