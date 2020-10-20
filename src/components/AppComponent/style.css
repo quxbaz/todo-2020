@@ -29,6 +29,7 @@
 }
 
 .HeaderBarIcon {
+  visibility: hidden;
   pointer-events: none;
   position: relative;
   left: 12px;
