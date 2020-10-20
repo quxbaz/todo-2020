@@ -6,7 +6,7 @@ Todo
 * NOW
   - [ ] Make basic TODO app.
   - [ ] Accounts.
-  - [ ] Shortcuts screen.
+  - [X] Shortcuts screen.
 
 * Visual design
   --
