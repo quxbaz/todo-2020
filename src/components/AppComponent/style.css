@@ -95,8 +95,8 @@
   top: 0; left: 0;
   width: 100vw; height: 100vh;
   display: grid;
-  grid-template-columns: 1fr minmax(500px, 60vh) 1fr;
-  grid-template-rows: 1fr 60vh 1fr;
+  grid-template-columns: 1fr minmax(600px, 70vh) 1fr;
+  grid-template-rows: 1fr 65vh 1fr;
   background: hsl(0, 0%, 0%, 0.5);
 }
 
@@ -181,6 +181,19 @@
   letter-spacing: 0.5px;
   text-transform: uppercase;
   color: hsl(0, 0%, 70%);
+}
+
+.Columns2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ColumnLeft {
+  grid-column: 1 / 2;
+}
+
+.ColumnRight {
+  grid-column: 2 / 3;
 }
 
 .ListFrame {

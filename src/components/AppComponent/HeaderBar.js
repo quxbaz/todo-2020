@@ -9,17 +9,20 @@ const HeaderBar = () => {
 
   const [showShortcuts, setShowShortcuts] = useState(false)
 
-  const handleEscape = (event) => {
+  const handleKey = (event) => {
     if (event.key === 'Escape') {
       setIsMenuOpen(false)
       setShowShortcuts(false)
+    } else if (event.ctrlKey && event.key === 'h') {
+      event.preventDefault()
+      setShowShortcuts(!showShortcuts)
     }
   }
 
   useEffect(() => {
-    window.addEventListener('keydown', handleEscape)
-    return () => window.removeEventListener('keydown', handleEscape)
-  }, [])
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [showShortcuts])
 
   return (
     <div className={css.HeaderBar}>

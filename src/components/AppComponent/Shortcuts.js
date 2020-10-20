@@ -44,18 +44,24 @@ const Shortcuts = ({onClickOutside}) => {
       <h2>Shortcuts</h2>
       <ul>
         <Separator>Info</Separator>
-        <Item shortcut='Alt-h' command='View shortcuts' />
+        <Item shortcut='Ctrl-h' command='View shortcuts' />
         <Separator>Navigation</Separator>
         <Item shortcut='Ctrl-/' command='Focus search box' />
         <Item shortcut='Ctrl-⇧' command='Cycle to prev list' />
         <Item shortcut='Ctrl-⇩' command='Cycle to next list' />
         <Separator>Notes</Separator>
-        <Item shortcut='Alt-p' command='Move to previous line.' />
-        <Item shortcut='Alt-n' command='Move to next line.' />
-        <Item shortcut='Alt-e' command='Move to end of line.' />
-        <Item shortcut='Alt-e' command='Move to start of line.' />
-        <Item shortcut='Alt-x' command='Check note' />
-        <Item shortcut='Alt-c' command='Clear checked notes' />
+        <div className={css.Columns2}>
+          <div className={css.ColumnLeft}>
+            <Item shortcut='Alt-p' command='Move to previous line' />
+            <Item shortcut='Alt-n' command='Move to next line' />
+            <Item shortcut='Alt-e' command='Move to end of line' />
+            <Item shortcut='Alt-e' command='Move to start of line' />
+          </div>
+          <div className={css.ColumnRight}>
+            <Item shortcut='Alt-x' command='Check note' />
+            <Item shortcut='Alt-c' command='Clear checked notes' />
+          </div>
+        </div>
         <Separator>Lists</Separator>
         <Item shortcut='Alt-r' command='Rename list' />
         <Item shortcut='Alt-d' command='Delete list' />
