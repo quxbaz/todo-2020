@@ -1,9 +1,11 @@
 import {chain} from '/util'
 
-const getSortedLists = (state) => (
+const _cond = (list) => list.isAlive
+
+const getSortedLists = (state, cond=_cond) => (
   chain(state.lists)
     .values()
-    .filter(list => list.isAlive)
+    .filter(cond)
     .sortBy('title')
     .get()
 )
