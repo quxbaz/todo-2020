@@ -196,17 +196,19 @@
 
 .TrashItem {}
 
+.TrashItem:before {display: none;}
+
 .isFilterActive .TrashItem {
   display: none;
 }
 
-.TrashItem a {}
+/* .TrashItem a {} */
 
 .TrashItem a:after {
   content: "*";
   margin-left: 1px;
 }
 
-.TrashItem:before {
-  display: none;
+.isTrashActive a {
+  font-weight: bold;
 }

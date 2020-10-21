@@ -1,10 +1,13 @@
 import css from './style.css'
 import React from 'react'
 import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
 import classNames from 'classnames'
 
-const TrashItem = ({onClick}) => {
-  const className = classNames(css.TrashItem, css.Item)
+const TrashItem = ({isActive, onClick}) => {
+  const className = classNames(css.TrashItem, css.Item, {
+    [css.isTrashActive]: isActive,
+  })
   return (
     <div className={className} onClick={onClick}>
       <a>Trash</a>
@@ -13,7 +16,12 @@ const TrashItem = ({onClick}) => {
 }
 
 TrashItem.propTypes = {
+  isActive: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
 }
 
-export default TrashItem
+const mapStateToProps = (state) => ({
+  isActive: state.workspace.activeList === '@@TRASH',
+})
+
+export default connect(mapStateToProps)(TrashItem)
