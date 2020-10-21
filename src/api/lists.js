@@ -4,8 +4,8 @@ const createApi = (dispatch) => {
 
   const api = {}
 
-  api.create = ({title}) => {
-    const action = dispatch(actions.create({title}))
+  api.create = (props) => {
+    const action = dispatch(actions.create(props))
     return action.payload.id
   }
 
