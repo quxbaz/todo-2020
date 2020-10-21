@@ -86,7 +86,7 @@ const mapDispatchToProps = (dispatch) => {
       return id
     },
     onClickTrash () {
-      console.log('::TODO::')
+      api.workspace.setActiveList('@@TRASH')
     },
   }
 }
