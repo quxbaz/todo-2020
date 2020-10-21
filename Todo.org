@@ -32,6 +32,7 @@ Todo
   - [ ] Prepend a line with '#' to make it a header line.
   - [ ] Route URLs to lists.
   - [ ] Add workspaces/tags/organization/etc.
+  - [ ] Work on efficiency and test on large datasets (> 10k notes).
 
 * Features                                                     :LOW_PRIORITY:
   - [ ] Undo/redo.
