@@ -6,6 +6,7 @@ Todo
 * NOW
   - [ ] Make basic TODO app.
   - [ ] Accounts.
+  - [X] Trash bin.
 
 * Visual design
   --
@@ -26,8 +27,7 @@ Todo
     - [ ] CRUD operations.
   - [ ] Add linting.
 
-* Features
-  - [ ] Trash bin.
+* Features                                                        :IMPORTANT:
   - [ ] Route URLs to lists.
   - [ ] Add workspaces/tags/organization/etc.
 
