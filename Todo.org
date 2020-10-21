@@ -28,13 +28,12 @@ Todo
 
 * Features
   - [ ] Trash bin.
+  - [ ] Route URLs to lists.
+  - [ ] Add workspaces/tags/organization/etc.
+
+* Features                                                     :LOW_PRIORITY:
   - [ ] Undo/redo.
   - [ ] Change single-line <input> elements to multi-line editables.
-  - [ ] Search
-  - [ ] Filter
-  - [ ] Sort
-  - [ ] Add workspaces/tags/organization/etc.
-  - [ ] Routing URLS to specific lists and notes.
   - [ ] Drag-n-drop notes.
 
 * OPTIMIZATION
