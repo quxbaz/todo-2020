@@ -10,7 +10,7 @@ import NoteInput from './NoteInput'
 
 const Note = ({
   note,
-  onChange, onToggle, onRemove,
+  onFocus, onChange, onToggle, onRemove,
   onNoteEvent,
 }) => {
 
@@ -39,6 +39,7 @@ const Note = ({
         <NoteInput
           className={classNames(css.Input, {[css.isDone]: note.isDone})}
           value={note.text}
+          onFocus={onFocus}
           onChange={event => onChange(note.id, event.target.value)}
           onNoteEvent={handleNoteEvent} />
       </div>
@@ -52,6 +53,7 @@ const Note = ({
 
 Note.propTypes = {
   note: PropTypes.object.isRequired,
+  onFocus: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onToggle: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,

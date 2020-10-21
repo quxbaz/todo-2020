@@ -1,5 +1,6 @@
 import css from './style.css'
-import React from 'react'
+import NoteCss from '/components/Note/style.css'
+import React, {useReducer, useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {splitAt, getState} from '/util'
@@ -9,9 +10,35 @@ import handleNoteEvent from './handleNoteEvent'
 import OptionsBar from './OptionsBar'
 import Empty from './Empty'
 
+const reducer = (state, action) => {
+  const {id, index} = action.payload
+  switch (action.type) {
+    case 'SET_INDEX':
+      return {...state, [id]: index}
+    default:
+      return state
+  }
+}
+
 const List = (props) => {
 
   const {list, notes, onRemove} = props
+
+  const ref = useRef()
+  const [state, dispatch] = useReducer(reducer, {})
+
+  useEffect(() => {
+    if (state[list.id] == null) {
+      dispatch({
+        type: 'SET_INDEX',
+        payload: {id: list.id, index: 0},
+      })
+    }
+    const input = ref.current
+      .querySelectorAll(`.${NoteCss.Note} input`)[state[list.id]]
+    if (input)
+      input.focus()
+  }, [list.id])
 
   const _handleNoteEvent = (noteId, noteDom, event) => {
     handleNoteEvent(noteId, noteDom, event, {
@@ -27,7 +54,7 @@ const List = (props) => {
   }
 
   return (
-    <div className={css.List}>
+    <div ref={ref} className={css.List}>
       <OptionsBar list={list} />
       <header>
         <h2>{list.title}</h2>
@@ -40,6 +67,10 @@ const List = (props) => {
             <Note
               key={note.id}
               note={note}
+              onFocus={() => dispatch({
+                type: 'SET_INDEX',
+                payload: {id: list.id, index: i},
+              })}
               onRemove={onRemove}
               onNoteEvent={_handleNoteEvent} />
           ))}
