@@ -1,4 +1,4 @@
-@value entryHeight: 40px;
+@value entryHeight: 60px;
 
 .TrashView {
 }
@@ -56,21 +56,32 @@
 
 .EntryContent {
   cursor: pointer;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid black;
+  color: hsl(0, 0%, 16%);
+}
+
+.EntryTitle {
+  padding: 4px 8px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: hsl(0, 0%, 16%);
-  padding: 4px 8px;
-  border: 1px solid black;
 }
 
-/* .EntryContent:before { */
-/*   content: ""; */
-/*   position: relative; */
-/*   display: inline-block; */
-/*   top: 1px; */
-/*   width: 8px; */
-/*   height: 100%; */
-/*   margin-right: 7px; */
-/*   background: #000; */
-/* } */
+.EntryInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 8px;
+  background: hsl(0, 0%, 90%);
+  border-top: 1px solid #000;
+}
+
+.DeleteEntry {
+  font-family: courier new;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: hsl(0, 0%, 14%);
+}

@@ -16,7 +16,15 @@ const TrashView = ({lists, onEmptyTrash}) => {
         {lists.map((list, i) => (
           <div key={list.id} className={getColClassName(i)}>
             <div className={css.EntryContent}>
-              {list.title} {i}
+              <div className={css.EntryTitle}>
+                {list.title} {i}
+              </div>
+              <div className={css.EntryInfo}>
+                {list.notes.length === 0
+                  ? '- -'
+                  : `${list.notes.length} notes`}
+                <a className={css.DeleteEntry}>DELETE</a>
+              </div>
             </div>
           </div>
         ))}
