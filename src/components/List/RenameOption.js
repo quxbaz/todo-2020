@@ -12,10 +12,12 @@ const RenameOption = ({list, onSubmit}) => {
   const [isEditing, setIsEditing] = useState(false)
 
   const handleShortcut = (event) => {
-    if (event.altKey && event.key === 'r')
+    if (event.ctrlKey && event.key === 'r') {
+      event.preventDefault()
       setIsEditing(true)
-    else if (event.key === 'Escape')
+    } else if (event.key === 'Escape') {
       setIsEditing(false)
+    }
   }
 
   useEffect(
@@ -49,7 +51,7 @@ const RenameOption = ({list, onSubmit}) => {
       onSubmit={handleSubmit} />
   ) : (
     <Option
-      title='Alt-r'
+      title='Ctrl-r'
       onClick={() => setIsEditing(true)}>
       Rename
     </Option>

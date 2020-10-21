@@ -19,7 +19,8 @@ const OptionsBar = ({list, anyNotesChecked, onClear, onDelete}) => {
       const mouseEvent = new MouseEvent('click', {view: window, bubbles: true})
       ref.current.querySelector(`.${css.Clear}`)
         .dispatchEvent(mouseEvent)
-    } else if (event.altKey && event.key === 'd') {
+    } else if (event.ctrlKey && event.key === 'd') {
+      event.preventDefault()
       onDelete()
     }
   }
@@ -44,7 +45,7 @@ const OptionsBar = ({list, anyNotesChecked, onClear, onDelete}) => {
       <RenameOption list={list} />
       <Option
         className={css.Delete}
-        title='Alt-d'
+        title='Ctrl-d'
         onClick={onDelete}>
         Delete
       </Option>
