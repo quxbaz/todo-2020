@@ -17,6 +17,7 @@ const Note = ({
   const ref = useRef()
 
   const handleNoteEvent = (event) => onNoteEvent(note.id, ref.current, event)
+
   const handleKeyDown = (event) => {
     if (event.altKey && event.key === 'x') {
       event.preventDefault()

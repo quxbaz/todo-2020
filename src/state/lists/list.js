@@ -59,6 +59,28 @@ const list = (state=init, action) => {
     }
   }
 
+  if (action.type === ACTION_TYPES.LISTS__ORDER_NOTE_UP) {
+    const {id, note} = action.payload
+    const pos = state.notes.indexOf(note)
+    if (pos === 0)
+      return state
+    return {
+      ...state,
+      notes: insert(without(state.notes, note), note, pos - 1),
+    }
+  }
+
+  if (action.type === ACTION_TYPES.LISTS__ORDER_NOTE_DOWN) {
+    const {id, note} = action.payload
+    const pos = state.notes.indexOf(note)
+    if (pos === state.notes.length - 1)
+      return state
+    return {
+      ...state,
+      notes: insert(without(state.notes, note), note, pos + 1),
+    }
+  }
+
   return state
 
 }

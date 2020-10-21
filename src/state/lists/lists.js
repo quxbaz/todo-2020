@@ -16,7 +16,9 @@ const lists = (state={}, action) => {
       action.type === ACTION_TYPES.LISTS__CREATE_NOTE ||
       action.type === ACTION_TYPES.LISTS__DESTROY_NOTE ||
       action.type === ACTION_TYPES.LISTS__MERGE_NOTES ||
-      action.type === ACTION_TYPES.LISTS__CLEAR_NOTES) {
+      action.type === ACTION_TYPES.LISTS__CLEAR_NOTES ||
+      action.type === ACTION_TYPES.LISTS__ORDER_NOTE_UP ||
+      action.type === ACTION_TYPES.LISTS__ORDER_NOTE_DOWN) {
     const {id} = action.payload
     return {
       ...state,

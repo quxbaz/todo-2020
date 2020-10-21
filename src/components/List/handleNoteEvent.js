@@ -5,7 +5,13 @@ const handleNoteEvent = (noteId, noteDom, event, eventMap) => {
 
   const moveCaret = (DIRECTION) => _moveCaret(noteDom, DIRECTION)
 
-  if (event.type === NOTE_EVENTS.ARROW_UP)
+  if (event.type === NOTE_EVENTS.ORDER_UP)
+    eventMap[NOTE_EVENTS.ORDER_UP](noteId)
+
+  else if (event.type === NOTE_EVENTS.ORDER_DOWN)
+    eventMap[NOTE_EVENTS.ORDER_DOWN](noteId)
+
+  else if (event.type === NOTE_EVENTS.ARROW_UP)
     moveCaret('UP')
 
   else if (event.type === NOTE_EVENTS.ARROW_DOWN)

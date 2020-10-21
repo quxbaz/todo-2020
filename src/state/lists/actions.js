@@ -60,4 +60,14 @@ actions.clearNotes = (id, note) => (dispatch, getState) => {
   })
 }
 
+actions.orderNoteUp = (id, note) => ({
+  type: ACTION_TYPES.LISTS__ORDER_NOTE_UP,
+  payload: {id, note},
+})
+
+actions.orderNoteDown = (id, note) => ({
+  type: ACTION_TYPES.LISTS__ORDER_NOTE_DOWN,
+  payload: {id, note},
+})
+
 export default actions

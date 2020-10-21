@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import NOTE_EVENTS from './NOTE_EVENTS'
 
 const {
+  ORDER_UP,
+  ORDER_DOWN,
   ARROW_UP,
   ARROW_DOWN,
   ARROW_LEFT_AT_START,
@@ -34,7 +36,17 @@ class NoteInput extends React.Component {
       ? input.selectionEnd
       : input.selectionStart
 
-    if (event.keyCode === 38 || (event.altKey && event.key === 'p'))
+    if (event.altKey && event.key === 'ArrowUp') {
+      event.preventDefault()
+      d(ORDER_UP)
+    }
+
+    else if (event.altKey && event.key === 'ArrowDown') {
+      event.preventDefault()
+      d(ORDER_DOWN)
+    }
+
+    else if (event.keyCode === 38 || (event.altKey && event.key === 'p'))
       d(ARROW_UP)
 
     else if (event.keyCode === 40 || (event.altKey && event.key === 'n'))

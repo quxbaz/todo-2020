@@ -27,6 +27,12 @@ const createApi = (dispatch) => {
   api.clearNotes = (id) =>
     dispatch(actions.clearNotes(id))
 
+  api.orderNoteUp = (id, note) =>
+    dispatch(actions.orderNoteUp(id, note))
+
+  api.orderNoteDown = (id, note) =>
+    dispatch(actions.orderNoteDown(id, note))
+
   return api
 
 }
