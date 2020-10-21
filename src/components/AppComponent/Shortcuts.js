@@ -60,6 +60,8 @@ const Shortcuts = ({onClickOutside}) => {
           <div className={css.ColumnRight}>
             <Item shortcut='Alt-x' command='Check note' />
             <Item shortcut='Alt-c' command='Clear checked notes' />
+            <Item shortcut='Alt-⇧' command='Rearrange note up' />
+            <Item shortcut='Alt-⇩' command='Rearrange note down' />
           </div>
         </div>
         <Separator>Lists</Separator>
