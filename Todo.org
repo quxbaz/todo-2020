@@ -6,6 +6,7 @@ Todo
 * NOW
   - [ ] Make basic TODO app.
   - [ ] Accounts.
+  - [X] Use hotkeys to reorder notes.
 
 * Visual design
   --
@@ -27,16 +28,15 @@ Todo
   - [ ] Add linting.
 
 * Features
+  - [ ] Trash bin.
+  - [ ] Undo/redo.
   - [ ] Change single-line <input> elements to multi-line editables.
   - [ ] Search
   - [ ] Filter
   - [ ] Sort
   - [ ] Add workspaces/tags/organization/etc.
-  - [ ] Undo
-  - [ ] Redo
   - [ ] Routing URLS to specific lists and notes.
-  - [X] Re-order notes.
-  - [ ] Trash bin.
+  - [ ] Drag-n-drop notes.
 
 * OPTIMIZATION
   - [ ] Improve react rendering performance and interop with redux
