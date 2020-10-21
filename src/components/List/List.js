@@ -9,15 +9,11 @@ import handleNoteEvent from './handleNoteEvent'
 import OptionsBar from './OptionsBar'
 import Empty from './Empty'
 
-class List extends React.Component {
+const List = (props) => {
 
-  constructor(props) {
-    super(props)
-    this.handleNoteEvent = this.handleNoteEvent.bind(this)
-  }
+  const {list, notes, onRemove} = props
 
-  handleNoteEvent (noteId, noteDom, event) {
-    const {props} = this
+  const _handleNoteEvent = (noteId, noteDom, event) => {
     handleNoteEvent(noteId, noteDom, event, {
       [NOTE_EVENTS.ORDER_UP]: props.onOrderUp,
       [NOTE_EVENTS.ORDER_DOWN]: props.onOrderDown,
@@ -30,30 +26,27 @@ class List extends React.Component {
     })
   }
 
-  render () {
-    const {list, notes, onRemove} = this.props
-    return (
-      <div className={css.List}>
-        <OptionsBar list={list} />
-        <header>
-          <h2>{list.title}</h2>
-        </header>
-        {notes.length === 0 ? (
-          <Empty listId={list.id} />
-        ) : (
-          <div className={css.ListContent}>
-            {notes.map((note, i) => (
-              <Note
-                key={note.id}
-                note={note}
-                onRemove={onRemove}
-                onNoteEvent={this.handleNoteEvent} />
-            ))}
-          </div>
-        )}
-      </div>
-    )
-  }
+  return (
+    <div className={css.List}>
+      <OptionsBar list={list} />
+      <header>
+        <h2>{list.title}</h2>
+      </header>
+      {notes.length === 0 ? (
+        <Empty listId={list.id} />
+      ) : (
+        <div className={css.ListContent}>
+          {notes.map((note, i) => (
+            <Note
+              key={note.id}
+              note={note}
+              onRemove={onRemove}
+              onNoteEvent={_handleNoteEvent} />
+          ))}
+        </div>
+      )}
+    </div>
+  )
 
 }
 
