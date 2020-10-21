@@ -11,6 +11,7 @@ Todo
   - [ ] Ask for confirmation before emptying trash.
   - [ ] Disable 'Empty trash' if empty.
   - [ ] Show preview of notes on hovering over lists.
+  - [ ] UI for perma-deleting lists.
 
 * Visual design
   --
