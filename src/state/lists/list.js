@@ -11,8 +11,10 @@ const init = {
 const list = (state=init, action) => {
 
   if (action.type === ACTION_TYPES.LISTS__CREATE) {
-    const {id, title} = action.payload
-    return {...state, id, title}
+    let {id, title, isAlive} = action.payload
+    if (isAlive == null)
+      isAlive = true
+    return {...state, id, title, isAlive}
   }
 
   if (action.type === ACTION_TYPES.LISTS__UPDATE) {
