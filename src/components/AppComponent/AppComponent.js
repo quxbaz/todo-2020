@@ -14,9 +14,8 @@ const AppComponent = ({store, activeList}) => (
         <HeaderBar />
         <SideNav />
         <div className={css.ListFrame}>
-          {activeList == null
-            ? <div className={css.EmptyPane} />
-            : <List list={activeList} />}
+          {activeList == null && <div className={css.EmptyPane} />}
+          {activeList != null && <List list={activeList} />}
         </div>
       </div>
     </div>
