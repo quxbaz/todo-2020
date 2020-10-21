@@ -68,7 +68,7 @@ const SideNav = ({lists, onSubmitFilter, onClickTrash}) => {
 }
 
 SideNav.propTypes = {
-  lists: PropTypes.array.isRequired,
+  lists: PropTypes.arrayOf(PropTypes.object).isRequired,
   onSubmitFilter: PropTypes.func.isRequired,
   onClickTrash: PropTypes.func.isRequired,
 }
