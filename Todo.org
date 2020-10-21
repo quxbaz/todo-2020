@@ -7,6 +7,7 @@ Todo
   - [ ] Make basic TODO app.
   - [ ] Accounts.
   - [X] Trash bin.
+  - [ ] Handle cycle actions from active TrashView.
 
 * Visual design
   --
