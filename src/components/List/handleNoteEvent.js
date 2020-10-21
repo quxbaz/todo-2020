@@ -52,6 +52,14 @@ const handleNoteEvent = (noteId, noteDom, event, eventMap) => {
     eventMap[NOTE_EVENTS.BACKSPACE_AT_START_OF_NON_EMPTY_LINE](noteId)
   }
 
+  else if (event.type === NOTE_EVENTS.TRASH_NOTE) {
+    if (noteDom.nextSibling == null)
+      moveCaret('UP')
+    else
+      moveCaret('DOWN')
+    eventMap[NOTE_EVENTS.TRASH_NOTE](noteId)
+  }
+
 }
 
 export default handleNoteEvent

@@ -26,6 +26,7 @@ class List extends React.Component {
       [NOTE_EVENTS.ENTER_AT_POS]: props.onEnterAtPos,
       [NOTE_EVENTS.BACKSPACE_AT_START_OF_EMPTY_LINE]: props.onBackspaceAtStartOfEmptyLine,
       [NOTE_EVENTS.BACKSPACE_AT_START_OF_NON_EMPTY_LINE]: props.onBackspaceAtStartOfNonEmptyLine,
+      [NOTE_EVENTS.TRASH_NOTE]: props.onTrashNote,
     })
   }
 
@@ -67,6 +68,7 @@ List.propTypes = {
   onEnterAtPos: PropTypes.func.isRequired,
   onBackspaceAtStartOfEmptyLine: PropTypes.func.isRequired,
   onBackspaceAtStartOfNonEmptyLine: PropTypes.func.isRequired,
+  onTrashNote: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state, {list}) => ({
@@ -112,6 +114,9 @@ const mapDispatchToProps = (dispatch, {list}) => {
       const i = list.notes.indexOf(noteId)
       if (i === 0) return
       api.lists.mergeNotes(list.id, list.notes[i - 1], noteId)
+    },
+    onTrashNote (noteId) {
+      api.lists.destroyNote(list.id, noteId)
     },
   }
 }

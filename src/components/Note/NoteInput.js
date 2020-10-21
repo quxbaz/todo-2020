@@ -16,6 +16,7 @@ const {
   ENTER_AT_POS,
   BACKSPACE_AT_START_OF_EMPTY_LINE,
   BACKSPACE_AT_START_OF_NON_EMPTY_LINE,
+  TRASH_NOTE,
 } = NOTE_EVENTS
 
 class NoteInput extends React.Component {
@@ -68,14 +69,21 @@ class NoteInput extends React.Component {
       d(MOVE_TO_END_OF_LINE)
     }
 
-    else if (event.keyCode === 13)
+    else if (event.keyCode === 13) {
       if (input.value.length === 0 || pos === input.value.length) d(ENTER_AT_END)
       else if (pos === 0) d(ENTER_AT_START)
       else d(ENTER_AT_POS, {pos})
+    }
 
-    else if (event.keyCode === 8)
+    else if (event.keyCode === 8) {
       if (input.value === '') d(BACKSPACE_AT_START_OF_EMPTY_LINE)
       else if (pos === 0) d(BACKSPACE_AT_START_OF_NON_EMPTY_LINE)
+    }
+
+    else if (event.altKey && event.key === 'd') {
+      event.preventDefault()
+      d(TRASH_NOTE)
+    }
 
   }
 

@@ -62,11 +62,12 @@ const Shortcuts = ({onClickOutside}) => {
             <Item shortcut='Alt-c' command='Clear checked notes' />
             <Item shortcut='Alt-⇧' command='Rearrange note up' />
             <Item shortcut='Alt-⇩' command='Rearrange note down' />
+            <Item shortcut='Alt-d' command='Delete note' />
           </div>
         </div>
         <Separator>Lists</Separator>
-        <Item shortcut='Ctrl-r' command='Rename list' />
-        <Item shortcut='Ctrl-d' command='Delete list' />
+        <Item shortcut='Alt-r' command='Rename list' />
+        <Item shortcut='Alt-q' command='Delete list' />
       </ul>
     </Frame>,
     document.getElementById('Modals')
