@@ -13,8 +13,8 @@ const Entry = ({list}) => (
       {list.notes.length === 0
         ? '- -'
         : `${list.notes.length} notes`}
-      <a className={css.DeleteEntry}>
-        Delete
+      <a className={css.DeleteEntry} title='Delete'>
+        🗙
       </a>
     </div>
   </div>

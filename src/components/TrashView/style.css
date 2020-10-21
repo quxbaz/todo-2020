@@ -32,16 +32,16 @@
 .TrashContent {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(auto-fill, 47px);
   column-gap: 26px;
-  row-gap: 13px;
+  row-gap: 20px;
   padding: 14px 26px 22px;
 }
 
 .Entry {
   width: 100%;
   height: 100%;
-  border: 1px solid black;
+  border: 1px solid #000;
+  box-shadow: 6px 6px hsla(200, 85%, 65%, 0.3);
   color: hsl(0, 0%, 16%);
   font-size: 12px;
   overflow: hidden;
@@ -55,18 +55,27 @@
 }
 
 .EntryInfo {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 4px 8px;
   background: hsl(0, 0%, 90%);
   border-top: 1px solid #000;
+  overflow: hidden;
 }
 
 .DeleteEntry {
-  font-family: courier new;
-  font-size: 11px;
-  letter-spacing: 1px;
-  color: hsl(0, 0%, 14%);
   cursor: pointer;
+  position: absolute;
+  top: -20px;
+  right: -6px;
+  font-size: 50px;
+  font-weight: bold;
+  color: hsla(0, 0%, 60%, 0.4);
+  transition: all 200ms linear;
+}
+
+.DeleteEntry:hover {
+  color: hsla(0, 100%, 60%, 0.5);
 }
