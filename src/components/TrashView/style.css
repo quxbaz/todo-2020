@@ -67,6 +67,7 @@
 
 .DeleteEntry {
   cursor: pointer;
+  user-select: none;
   position: absolute;
   top: -20px;
   right: -6px;

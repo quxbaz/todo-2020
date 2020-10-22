@@ -1,3 +1,4 @@
+import {omit} from '/util'
 import ACTION_TYPES from '/state/ACTION_TYPES'
 import list from './list'
 
@@ -9,6 +10,11 @@ const lists = (state={}, action) => {
       ...state,
       [id]: list(undefined, action),
     }
+  }
+
+  if (action.type === ACTION_TYPES.LISTS__DESTROY) {
+    const {id} = action.payload
+    return omit(state, id)
   }
 
   if (action.type === ACTION_TYPES.LISTS__UPDATE ||

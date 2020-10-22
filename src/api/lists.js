@@ -15,6 +15,9 @@ const createApi = (dispatch) => {
   api.discard = (id) =>
     dispatch(actions.discard(id))
 
+  api.destroy = (id) =>
+    dispatch(actions.destroy(id))
+
   api.createNote = (id, props, pos) =>
     dispatch(actions.createNote(id, props, pos))
 

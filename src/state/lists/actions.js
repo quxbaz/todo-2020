@@ -21,6 +21,11 @@ actions.discard = (id) => ({
   payload: {id},
 })
 
+actions.destroy = (id) => ({
+  type: ACTION_TYPES.LISTS__DESTROY,
+  payload: {id},
+})
+
 actions.createNote = (id, props, pos) => ({
   type: ACTION_TYPES.LISTS__CREATE_NOTE,
   payload: {
