@@ -98,6 +98,7 @@
 
 .Preview {
   z-index: 1;
+  pointer-events: none;
   position: absolute;
   outline: 1px solid red;
   background: #f0f;
