@@ -12,7 +12,7 @@ const Preview = ({rect, list, notes}) => {
   ].map(Math.round))
 
   // ::RESUME::
-  // - Use mouseOver instead of mouseEnter.
+  // - Render to the left on the last row to avoid overflow.
 
   return createPortal(
     <div className={css.Preview} style={{
