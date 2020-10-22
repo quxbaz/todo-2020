@@ -45,7 +45,9 @@ Todo
     - [ ] Animate sliding action.
     - [ ] Redo createToast interface for creation. A <ToastContainer>
       component should exist near the top level and accept actions to
-      create new toasts. Use context api (probably).
+      create new toasts. Use context api (probably). ToastContainer
+      should manage its own state, and probably use the useReducer
+      hook.
 
 * OPTIMIZATION
   - [ ] Improve react rendering performance and interop with redux
