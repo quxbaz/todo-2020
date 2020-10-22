@@ -1,4 +1,4 @@
-import {chain} from '/util'
+import {values, chain} from '/util'
 
 const _cond = (list) => list.isAlive
 
@@ -8,6 +8,10 @@ const getSortedLists = (state, cond=_cond) => (
     .filter(cond)
     .sortBy('title')
     .get()
+)
+
+const isTrashEmpty = (state) => (
+  !(values(state.lists).some(list => list.isAlive))
 )
 
 export {
