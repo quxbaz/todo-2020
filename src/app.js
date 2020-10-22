@@ -21,14 +21,14 @@ function createApp () {
   // })
 
   const api = createApi(store.dispatch.bind(store))
-  const list0 = api.lists.create({title: 'Cooking'})
+  const list0 = api.lists.create({title: 'Cooking', isAlive: false})
 
   api.lists.create({title: 'Design'})
   api.lists.create({title: 'Programming'})
   api.lists.create({title: 'Gamedev'})
   api.lists.create({title: 'Marketing'})
 
-  for (let i=0; i < 500; i++) {
+  for (let i=0; i < 100; i++) {
     api.lists.create({isAlive: false, title: 'My Great List'})
   }
 

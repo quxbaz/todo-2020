@@ -9,6 +9,7 @@ Todo
   - [X] Trash bin.
   - [ ] Handle cycle actions from active TrashView.
   - [ ] Show preview of notes on hovering over lists.
+  - [ ] Restore list.
 
 * Visual design
   --

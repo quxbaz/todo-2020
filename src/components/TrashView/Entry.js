@@ -1,13 +1,14 @@
 import css from './style.css'
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Preview from './Preview'
 
 const Entry = ({list, onDeleteEntry}) => {
 
+  const ref = useRef()
   const [isDeleting, setIsDeleting] = useState(false)
-  const [isHovering, setIsHovering] = useState(false)
+  const [showPreview, setShowPreview] = useState(false)
 
   const handleDeleteEntry = () => {
     if (isDeleting) return
@@ -18,11 +19,11 @@ const Entry = ({list, onDeleteEntry}) => {
   }
 
   const handleMouseEnter = (event) => {
-    setIsHovering(true)
+    setShowPreview(true)
   }
 
   const handleMouseLeave = (event) => {
-    setIsHovering(false)
+    // setShowPreview(false)
   }
 
   const props = {
@@ -35,7 +36,7 @@ const Entry = ({list, onDeleteEntry}) => {
 
   return (
     <>
-      <div {...props} >
+      <div ref={ref} {...props}>
         <div className={css.EntryTitle}>
           <span>{list.title}</span>
         </div>
@@ -51,7 +52,11 @@ const Entry = ({list, onDeleteEntry}) => {
           </a>
         </div>
       </div>
-      <Preview />
+      {showPreview && (
+        <Preview
+          rect={ref.current.getBoundingClientRect()}
+          list={list} />
+      )}
     </>
   )
 
