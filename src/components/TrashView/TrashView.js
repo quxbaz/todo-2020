@@ -32,7 +32,7 @@ const Entry = ({list, onDeleteEntry}) => {
       </div>
       <div className={css.EntryInfo}>
         {list.notes.length === 0
-          ? <span style={{opacity: 0}}>-</span>
+          ? '- -'
           : `${list.notes.length} · notes`}
         <a
           className={css.DeleteEntry}

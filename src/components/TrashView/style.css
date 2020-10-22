@@ -82,17 +82,10 @@
 .DeleteEntry {
   cursor: pointer;
   user-select: none;
-  position: absolute;
-  top: -20px;
-  right: -6px;
-  font-size: 50px;
-  font-weight: bold;
-  color: hsla(0, 0%, 60%, 0.4);
-  transition: all 200ms linear;
 }
 
 .DeleteEntry:hover {
-  color: hsla(0, 100%, 60%, 0.5);
+  color: hsla(0, 100%, 60%, 1);
 }
 
 div.Modal {
