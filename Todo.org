@@ -7,9 +7,9 @@ Todo
   - [ ] Make basic TODO app.
   - [ ] Accounts.
   - [X] Trash bin.
-  - [ ] Handle cycle actions from active TrashView.
-  - [ ] Show preview of notes on hovering over lists.
-  - [ ] Restore list.
+  - [X] Handle cycle actions from active TrashView.
+  - [X] Show preview of notes on hovering over lists.
+  - [X] Restore list.
 
 * Visual design
   --
