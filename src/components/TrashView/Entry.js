@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Preview from './Preview'
 
-const Entry = ({list, onDeleteEntry}) => {
+const Entry = ({i, list, onDeleteEntry}) => {
 
   const ref = useRef()
   const [isDeleting, setIsDeleting] = useState(false)
@@ -18,21 +18,19 @@ const Entry = ({list, onDeleteEntry}) => {
     }, 500)
   }
 
-  const handleMouseEnter = (event) => {
-    setShowPreview(true)
-  }
-
-  const handleMouseLeave = (event) => {
-    setShowPreview(false)
-  }
-
   const props = {
     className: classNames(css.Entry, {
       [css.isDeleting]: isDeleting,
     }),
-    onMouseEnter: handleMouseEnter,
-    onMouseLeave: handleMouseLeave,
+    onMouseEnter: () => setShowPreview(true),
+    onMouseLeave: () => setShowPreview(true),
   }
+
+  // ::TEMP::
+  requestAnimationFrame(() => {
+    if (i === 1 || list.id === '16')
+      setShowPreview(true)
+  })
 
   return (
     <>
@@ -54,6 +52,7 @@ const Entry = ({list, onDeleteEntry}) => {
       </div>
       {showPreview && (
         <Preview
+          i={i}
           rect={ref.current.getBoundingClientRect()}
           list={list} />
       )}
@@ -63,6 +62,7 @@ const Entry = ({list, onDeleteEntry}) => {
 }
 
 Entry.propTypes = {
+  i: PropTypes.number.isRequired,
   list: PropTypes.object.isRequired,
   onDeleteEntry: PropTypes.func.isRequired,
 }

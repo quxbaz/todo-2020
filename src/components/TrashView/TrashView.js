@@ -17,8 +17,8 @@ const TrashView = ({lists, onDeleteEntry}) => {
         <EmptyButton />
       </header>
       <div className={css.TrashContent}>
-        {lists.map(list => (
-          <Entry key={list.id} list={list} onDeleteEntry={onDeleteEntry} />
+        {lists.map((list, i) => (
+          <Entry key={list.id} i={i} list={list} onDeleteEntry={onDeleteEntry} />
         ))}
       </div>
     </div>
