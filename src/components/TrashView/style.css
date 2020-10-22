@@ -56,6 +56,10 @@
   overflow: hidden;
 }
 
+.Entry:hover {
+  outline: 1px solid #00f;
+}
+
 .isDeleting {
   opacity: 0;
   transition: all 0.4s linear;
