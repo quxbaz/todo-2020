@@ -10,6 +10,8 @@ Todo
   - [X] Handle cycle actions from active TrashView.
   - [X] Show preview of notes on hovering over lists.
   - [X] Restore list.
+  - [X] Should preview be relative to TrashView/Content? Scrolling
+    might be an issue.
 
 * Visual design
   --
