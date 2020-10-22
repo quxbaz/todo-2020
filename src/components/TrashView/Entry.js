@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Preview from './Preview'
 
-const Entry = ({i, list, onDeleteEntry}) => {
+const Entry = ({i, list, onRestore, onDelete}) => {
 
   const ref = useRef()
   const [isDeleting, setIsDeleting] = useState(false)
@@ -14,7 +14,7 @@ const Entry = ({i, list, onDeleteEntry}) => {
     if (isDeleting) return
     setIsDeleting(true)
     setTimeout(() => {
-      onDeleteEntry(list.id)
+      onDelete(list.id)
     }, 500)
   }
 
@@ -36,12 +36,20 @@ const Entry = ({i, list, onDeleteEntry}) => {
           {list.notes.length === 0
             ? <i style={{color: 'hsla(0, 0%, 55%, 0.8)'}}>Empty</i>
             : `${list.notes.length} · notes`}
-          <a
-            className={css.DeleteEntry}
-            title='Delete'
-            onClick={handleDeleteEntry}>
-            🗙
-          </a>
+          <div>
+            <a
+              className={css.RestoreEntry}
+              title='Restore'
+              onClick={() => onRestore(list.id)}>
+              Restore
+            </a>
+            <a
+              className={css.DeleteEntry}
+              title='Delete'
+              onClick={handleDeleteEntry}>
+              Delete
+            </a>
+          </div>
         </div>
       </div>
       {showPreview && list.notes.length > 0 && (
@@ -58,7 +66,8 @@ const Entry = ({i, list, onDeleteEntry}) => {
 Entry.propTypes = {
   i: PropTypes.number.isRequired,
   list: PropTypes.object.isRequired,
-  onDeleteEntry: PropTypes.func.isRequired,
+  onRestore: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 }
 
 export default Entry

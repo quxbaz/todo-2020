@@ -90,14 +90,21 @@
   overflow: hidden;
 }
 
-.DeleteEntry {
-  font-size: 18px;
+.RestoreEntry, .DeleteEntry {
   cursor: pointer;
-  user-select: none;
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  color: hsl(200, 100%, 30%);
 }
 
-.DeleteEntry:hover {
-  color: hsla(0, 100%, 60%, 1);
+.RestoreEntry:hover, .DeleteEntry:hover {
+  color: hsl(200, 100%, 50%);
+}
+
+.DeleteEntry {
+  margin-left: 8px;
 }
 
 .Preview {

@@ -8,7 +8,7 @@ import EmptyView from './EmptyView'
 import EmptyButton from './EmptyButton'
 import Entry from './Entry'
 
-const TrashView = ({lists, onDeleteEntry}) => {
+const TrashView = ({lists, onRestore, onDelete}) => {
   return lists.length === 0 ? (
     <EmptyView />
   ) : (
@@ -18,7 +18,8 @@ const TrashView = ({lists, onDeleteEntry}) => {
       </header>
       <div className={css.TrashContent}>
         {lists.map((list, i) => (
-          <Entry key={list.id} i={i} list={list} onDeleteEntry={onDeleteEntry} />
+          <Entry key={list.id} i={i} list={list}
+            onRestore={onRestore} onDelete={onDelete} />
         ))}
       </div>
     </div>
@@ -27,7 +28,8 @@ const TrashView = ({lists, onDeleteEntry}) => {
 
 TrashView.propTypes = {
   lists: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onDeleteEntry: PropTypes.func.isRequired,
+  onRestore: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
@@ -37,7 +39,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   const api = createApi(dispatch)
   return {
-    onDeleteEntry (id) {
+    onRestore (id) {
+      api.lists.update(id, {isAlive: true})
+    },
+    onDelete (id) {
       api.lists.destroy(id)
     },
   }
