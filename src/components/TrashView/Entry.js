@@ -23,14 +23,8 @@ const Entry = ({i, list, onDeleteEntry}) => {
       [css.isDeleting]: isDeleting,
     }),
     onMouseEnter: () => setShowPreview(true),
-    onMouseLeave: () => setShowPreview(true),
+    onMouseLeave: () => setShowPreview(false),
   }
-
-  // ::TEMP::
-  requestAnimationFrame(() => {
-    if (i === 1 || list.id === '16')
-      setShowPreview(true)
-  })
 
   return (
     <>
@@ -50,7 +44,7 @@ const Entry = ({i, list, onDeleteEntry}) => {
           </a>
         </div>
       </div>
-      {showPreview && (
+      {showPreview && list.notes.length > 0 && (
         <Preview
           i={i}
           rect={ref.current.getBoundingClientRect()}

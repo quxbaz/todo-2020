@@ -3,6 +3,7 @@ import React, {useState, useRef, useEffect} from 'react'
 import {createPortal} from 'react-dom'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import Note from './Note'
 
 const Preview = ({i, rect, list, notes}) => {
 
@@ -11,10 +12,12 @@ const Preview = ({i, rect, list, notes}) => {
   const [pos, setPos] = useState([0, 0])
 
   useEffect(() => {
+    const width = ref.current.clientWidth
     setPos([
-      rect.x + (isFarRight ? ref.current.clientWidth * -1 : rect.width),
+      rect.x + (isFarRight ? (width * -1) - 10 : rect.width + 10),
       rect.y
     ].map(Math.round))
+    ref.current.style.opacity = 0.95
   }, [])
 
   return createPortal(
@@ -22,14 +25,12 @@ const Preview = ({i, rect, list, notes}) => {
       left: pos[0],
       top: pos[1],
     }}>
-      PREVIEW
-      <ul>
+      <header>{list.title}</header>
+      <div>
         {notes.map(note => (
-          <li key={note.id}>
-            {note.text}
-          </li>
+          <Note key={note.id} note={note} />
         ))}
-      </ul>
+      </div>
     </div>,
     document.body
   )
