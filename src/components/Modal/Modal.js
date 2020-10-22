@@ -5,12 +5,12 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import {useEscapeKey} from '/hooks'
 
-const Modal = ({children, className, onClose}) => {
+const Modal = ({children, className, style, onClose}) => {
   useEscapeKey(onClose)
   return createPortal(
     <>
       <div className={css.Backdrop} onClick={onClose} />
-      <div className={classNames(css.Modal, className)}>
+      <div className={classNames(css.Modal, className)} style={style}>
         {children}
       </div>
     </>,
@@ -20,6 +20,7 @@ const Modal = ({children, className, onClose}) => {
 
 Modal.propTypes = {
   className: PropTypes.string,
+  style: PropTypes.object,
   onClose: PropTypes.func,
 }
 
