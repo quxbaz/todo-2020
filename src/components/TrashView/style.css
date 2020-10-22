@@ -47,6 +47,11 @@
   overflow: hidden;
 }
 
+.isDeleting {
+  opacity: 0;
+  transition: all 0.4s linear;
+}
+
 .EntryTitle {
   padding: 4px 8px;
   white-space: nowrap;

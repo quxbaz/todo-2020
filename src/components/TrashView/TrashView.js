@@ -1,16 +1,24 @@
 import css from './style.css'
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import classNames from 'classnames'
 import {createApi} from '/api'
 import {getSortedLists} from '/state/lists/selectors'
 
 const Entry = ({list, onDeleteEntry}) => {
+  const [isDeleting, setIsDeleting] = useState(false)
   const handleDeleteEntry = () => {
-    onDeleteEntry(list.id)
+    if (isDeleting) return
+    setIsDeleting(true)
+    setTimeout(() => {
+      onDeleteEntry(list.id)
+    }, 500)
   }
   return (
-    <div className={css.Entry}>
+    <div className={classNames(css.Entry, {
+      [css.isDeleting]: isDeleting,
+    })}>
       <div className={css.EntryTitle}>
         {list.title}
       </div>
