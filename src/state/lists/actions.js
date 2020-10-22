@@ -11,10 +11,14 @@ actions.create = (props) => ({
   },
 })
 
-actions.update = (id, props) => ({
-  type: ACTION_TYPES.LISTS__UPDATE,
-  payload: {id, ...props},
-})
+actions.update = (id, props) => (dispatch, getState) => {
+  if (typeof props === 'function')
+    props = props(getState().lists[id])
+  dispatch({
+    type: ACTION_TYPES.LISTS__UPDATE,
+    payload: {id, ...props},
+  })
+}
 
 actions.discard = (id) => ({
   type: ACTION_TYPES.LISTS__DISCARD,
