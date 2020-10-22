@@ -17,10 +17,16 @@ const Entry = ({list, onDeleteEntry}) => {
       onDeleteEntry(list.id)
     }, 500)
   }
+  const handleMouseOver = (event) => {
+    // ::TODO::
+    console.log('MOUSEOVER')
+  }
   return (
-    <div className={classNames(css.Entry, {
-      [css.isDeleting]: isDeleting,
-    })}>
+    <div
+      className={classNames(css.Entry, {
+        [css.isDeleting]: isDeleting,
+      })}
+      onMouseOver={handleMouseOver}>
       <div className={css.EntryTitle}>
         {list.title}
       </div>
