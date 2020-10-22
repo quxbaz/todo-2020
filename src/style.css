@@ -13,3 +13,12 @@ body {
   background: hsl(200, 85%, 65%);
   /* background: hsl(42, 100%, 98%); */
 }
+
+:global
+#Modals {
+  z-index: 200;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}

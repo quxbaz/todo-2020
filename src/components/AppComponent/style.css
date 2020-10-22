@@ -1,11 +1,3 @@
-.Modals {
-  z-index: 2;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
 .AppComponent {
   display: grid;
   grid-template-columns: 1fr 1000px 1fr;
