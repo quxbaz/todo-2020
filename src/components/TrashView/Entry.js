@@ -34,7 +34,7 @@ const Entry = ({i, list, onDeleteEntry}) => {
         </div>
         <div className={css.EntryInfo}>
           {list.notes.length === 0
-            ? '- -'
+            ? <i style={{color: 'hsla(0, 0%, 55%, 0.8)'}}>Empty</i>
             : `${list.notes.length} · notes`}
           <a
             className={css.DeleteEntry}
