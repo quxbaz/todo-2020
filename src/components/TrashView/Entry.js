@@ -23,7 +23,7 @@ const Entry = ({list, onDeleteEntry}) => {
   }
 
   const handleMouseLeave = (event) => {
-    // setShowPreview(false)
+    setShowPreview(false)
   }
 
   const props = {

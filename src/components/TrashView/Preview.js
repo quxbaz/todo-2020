@@ -1,27 +1,25 @@
 import css from './style.css'
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
+import {createPortal} from 'react-dom'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 
 const Preview = ({rect, list, notes}) => {
 
-  // const [pos, setPos] = useState([0, 0])
+  const [pos, setPos] = useState(() => [
+    rect.x + rect.width,
+    rect.y
+  ].map(Math.round))
 
-  // useEffect(() => {
-  //   setPos([rect.x + rect.width, rect.y,])
-  // }, [])
+  // ::RESUME::
+  // - Use mouseOver instead of mouseEnter.
 
-  const [pos, setPos] = useState(() => [rect.x, rect.y])
-
-  return (
+  return createPortal(
     <div className={css.Preview} style={{
-      left: Math.round(pos[0]) + 'px',
-      top: Math.round(pos[1]) + 'px',
+      left: pos[0] + 'px',
+      top: pos[1] + 'px',
     }}>
-      PREVIEW [{Math.round(pos[0])}, {Math.round(pos[1])}]
-      ::TODO:: Render this into a portal from the topmost element so
-      you can use getBoundingClientRect() properly. It is getting the
-      offset from the screen, not the parent component.
+      PREVIEW
       <ul>
         {notes.map(note => (
           <li key={note.id}>
@@ -29,7 +27,8 @@ const Preview = ({rect, list, notes}) => {
           </li>
         ))}
       </ul>
-    </div>
+    </div>,
+    document.body
   )
 
 }
