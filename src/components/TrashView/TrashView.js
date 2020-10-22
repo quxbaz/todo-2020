@@ -6,6 +6,7 @@ import classNames from 'classnames'
 import {createApi} from '/api'
 import {getSortedLists} from '/state/lists/selectors'
 import EmptyView from './EmptyView'
+import EmptyButton from './EmptyButton'
 
 const Entry = ({list, onDeleteEntry}) => {
   const [isDeleting, setIsDeleting] = useState(false)
@@ -25,8 +26,8 @@ const Entry = ({list, onDeleteEntry}) => {
       </div>
       <div className={css.EntryInfo}>
         {list.notes.length === 0
-          ? '- -'
-          : `${list.notes.length} notes`}
+          ? <span style={{opacity: 0}}>-</span>
+          : `${list.notes.length} · notes`}
         <a
           className={css.DeleteEntry}
           title='Delete'
@@ -43,13 +44,13 @@ Entry.propTypes = {
   onDeleteEntry: PropTypes.func.isRequired,
 }
 
-const TrashView = ({lists, onEmptyTrash, onDeleteEntry}) => {
+const TrashView = ({lists, onDeleteEntry}) => {
   return lists.length === 0 ? (
     <EmptyView />
   ) : (
     <div className={css.TrashView}>
       <header className={css.Header}>
-        <a onClick={onEmptyTrash}>Empty trash</a>
+        <EmptyButton />
       </header>
       <div className={css.TrashContent}>
         {lists.map((list, i) => (
@@ -72,9 +73,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   const api = createApi(dispatch)
   return {
-    onEmptyTrash () {
-      api.lists.emptyTrash()
-    },
     onDeleteEntry (id) {
       api.lists.destroy(id)
     },
