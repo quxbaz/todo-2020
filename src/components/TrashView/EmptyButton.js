@@ -15,7 +15,10 @@ const EmptyButton = ({onEmptyTrash}) => {
 
   return (
     <div className={css.EmptyButton}>
-      {isOpen ? (
+      <a onClick={() => setIsOpen(true)}>
+        Empty all trash
+      </a>
+      {isOpen && (
         <Modal className={css.Modal} onClose={close}>
           <div>Permanently delete all trash?</div>
           <div className={css.ModalOptions}>
@@ -27,10 +30,6 @@ const EmptyButton = ({onEmptyTrash}) => {
               className={css.DeleteButton}>Empty all trash</button>
           </div>
         </Modal>
-      ) : (
-        <a onClick={() => setIsOpen(true)}>
-          Empty all trash
-        </a>
       )}
     </div>
   )
