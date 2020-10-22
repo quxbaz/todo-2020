@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import classNames from 'classnames'
 import {createApi} from '/api'
 import {getSortedLists} from '/state/lists/selectors'
+import EmptyView from './EmptyView'
 
 const Entry = ({list, onDeleteEntry}) => {
   const [isDeleting, setIsDeleting] = useState(false)
@@ -42,18 +43,22 @@ Entry.propTypes = {
   onDeleteEntry: PropTypes.func.isRequired,
 }
 
-const TrashView = ({lists, onEmptyTrash, onDeleteEntry}) => (
-  <div className={css.TrashView}>
-    <header className={css.Header}>
-      <a onClick={onEmptyTrash}>Empty trash</a>
-    </header>
-    <div className={css.TrashContent}>
-      {lists.map((list, i) => (
-        <Entry key={list.id} list={list} onDeleteEntry={onDeleteEntry} />
-      ))}
+const TrashView = ({lists, onEmptyTrash, onDeleteEntry}) => {
+  return lists.length === 0 ? (
+    <EmptyView />
+  ) : (
+    <div className={css.TrashView}>
+      <header className={css.Header}>
+        <a onClick={onEmptyTrash}>Empty trash</a>
+      </header>
+      <div className={css.TrashContent}>
+        {lists.map((list, i) => (
+          <Entry key={list.id} list={list} onDeleteEntry={onDeleteEntry} />
+        ))}
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 TrashView.propTypes = {
   lists: PropTypes.arrayOf(PropTypes.object).isRequired,
