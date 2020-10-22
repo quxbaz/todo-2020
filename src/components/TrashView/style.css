@@ -60,20 +60,22 @@
   transition: all 0.4s linear;
 }
 
-.EntryTitle {
-  padding: 4px 8px;
+.EntryTitle, .EntryInfo {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 12px;
+}
+
+.EntryTitle span {
   white-space: nowrap;
   overflow: hidden;
-  text-align: center;
   text-overflow: ellipsis;
 }
 
 .EntryInfo {
   position: relative;
-  display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 4px 8px;
   background: hsl(0, 0%, 90%);
   border-top: 1px solid #000;
   overflow: hidden;

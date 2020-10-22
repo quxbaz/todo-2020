@@ -28,7 +28,7 @@ const Entry = ({list, onDeleteEntry}) => {
       })}
       onMouseOver={handleMouseOver}>
       <div className={css.EntryTitle}>
-        {list.title}
+        <span>{list.title}</span>
       </div>
       <div className={css.EntryInfo}>
         {list.notes.length === 0
