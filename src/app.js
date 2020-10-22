@@ -29,7 +29,10 @@ function createApp () {
   api.lists.create({title: 'Marketing'})
 
   for (let i=0; i < 100; i++) {
-    api.lists.create({isAlive: false, title: 'My Great List'})
+    const id = api.lists.create({isAlive: false, title: 'My Great List'})
+    api.lists.update(id, list => ({
+      title: list.title + ` ${list.id}`,
+    }))
   }
 
   api.lists.create({isAlive: false, title: 'Making'})
@@ -79,6 +82,37 @@ function createApp () {
   api.lists.createNote(list0, {text: '(H) Mochi press.'})
   api.lists.createNote(list0, {text: 'New hand plane.'})
   api.lists.createNote(list0, {text: 'Tortilla press.'})
+  api.lists.createNote(list0, {text: 'Drafting table.', isDone: true})
+  api.lists.createNote(list0, {text: 'Shelving.', isDone: true})
+  api.lists.createNote(list0, {text: 'Precision grinding table.', isDone: true})
+  api.lists.createNote(list0, {text: 'Router table.', isDone: true})
+  api.lists.createNote(list0, {text: 'Horizontal drill.'})
+  api.lists.createNote(list0, {text: '($) Tensioned strop.'})
+  api.lists.createNote(list0, {text: 'Stone holder.'})
+  api.lists.createNote(list0, {text: '(H) Mochi press.'})
+  api.lists.createNote(list0, {text: 'New hand plane.'})
+  api.lists.createNote(list0, {text: 'Tortilla press.'})
+
+  api.lists.createNote('16', {text: 'Drafting table.', isDone: true})
+  api.lists.createNote('16', {text: 'Shelving.', isDone: true})
+  api.lists.createNote('16', {text: 'Precision grinding table.', isDone: true})
+  api.lists.createNote('16', {text: 'Router table.', isDone: true})
+  api.lists.createNote('16', {text: 'Horizontal drill.'})
+  api.lists.createNote('16', {text: '($) Tensioned strop.'})
+  api.lists.createNote('16', {text: 'Stone holder.'})
+  api.lists.createNote('16', {text: '(H) Mochi press.'})
+  api.lists.createNote('16', {text: 'New hand plane.'})
+  api.lists.createNote('16', {text: 'Tortilla press.'})
+  api.lists.createNote('16', {text: 'Drafting table.', isDone: true})
+  api.lists.createNote('16', {text: 'Shelving.', isDone: true})
+  api.lists.createNote('16', {text: 'Precision grinding table.', isDone: true})
+  api.lists.createNote('16', {text: 'Router table.', isDone: true})
+  api.lists.createNote('16', {text: 'Horizontal drill.'})
+  api.lists.createNote('16', {text: '($) Tensioned strop.'})
+  api.lists.createNote('16', {text: 'Stone holder.'})
+  api.lists.createNote('16', {text: '(H) Mochi press.'})
+  api.lists.createNote('16', {text: 'New hand plane.'})
+  api.lists.createNote('16', {text: 'Tortilla press.'})
 
   // api.workspace.setActiveList(list0)
   api.workspace.setActiveList('@@TRASH')
