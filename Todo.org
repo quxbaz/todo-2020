@@ -41,6 +41,11 @@ Todo
   - [ ] Undo/redo.
   - [ ] Drag-n-drop notes.
   - [ ] Change single-line <input> elements to multi-line editables.
+  - [ ] Toasts
+    - [ ] Animate sliding action.
+    - [ ] Redo createToast interface for creation. A <ToastContainer>
+      component should exist near the top level and accept actions to
+      create new toasts. Use context api (probably).
 
 * OPTIMIZATION
   - [ ] Improve react rendering performance and interop with redux
