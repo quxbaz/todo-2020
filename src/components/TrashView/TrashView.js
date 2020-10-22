@@ -68,7 +68,7 @@ const mapDispatchToProps = (dispatch) => {
   const api = createApi(dispatch)
   return {
     onEmptyTrash () {
-      console.log('EMPTY TRASH')
+      api.lists.emptyTrash()
     },
     onDeleteEntry (id) {
       api.lists.destroy(id)

@@ -36,6 +36,9 @@ const createApi = (dispatch) => {
   api.orderNoteDown = (id, note) =>
     dispatch(actions.orderNoteDown(id, note))
 
+  api.emptyTrash = () =>
+    dispatch(actions.emptyTrash())
+
   return api
 
 }

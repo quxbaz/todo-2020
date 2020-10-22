@@ -20,6 +20,7 @@ const ACTION_TYPES = {
   LISTS__CLEAR_NOTES:     'todo-2020/lists/CLEAR_NOTES',
   LISTS__ORDER_NOTE_UP:   'todo-2020/lists/ORDER_NOTE_UP',
   LISTS__ORDER_NOTE_DOWN: 'todo-2020/lists/ORDER_NOTE_DOWN',
+  LISTS__EMPTY_TRASH:     'todo-2020/lists/EMPTY_TRASH',
 
   /*
     notes namespace

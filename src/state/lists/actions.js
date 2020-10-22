@@ -75,4 +75,9 @@ actions.orderNoteDown = (id, note) => ({
   payload: {id, note},
 })
 
+actions.emptyTrash = () => ({
+  type: ACTION_TYPES.LISTS__EMPTY_TRASH,
+  payload: {},
+})
+
 export default actions

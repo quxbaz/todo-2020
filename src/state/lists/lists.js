@@ -1,4 +1,4 @@
-import {omit} from '/util'
+import {values, omit} from '/util'
 import ACTION_TYPES from '/state/ACTION_TYPES'
 import list from './list'
 
@@ -30,6 +30,14 @@ const lists = (state={}, action) => {
       ...state,
       [id]: list(state[id], action),
     }
+  }
+
+  if (action.type === ACTION_TYPES.LISTS__EMPTY_TRASH) {
+    const newState = {}
+    values(state)
+      .filter(list => list.isAlive)
+      .forEach(list => newState[list.id] = list)
+    return newState
   }
 
   return state
