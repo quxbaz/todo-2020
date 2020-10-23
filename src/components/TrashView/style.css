@@ -136,9 +136,17 @@
   text-overflow: ellipsis;
 }
 
+.Note:before {
+  content: "- ";
+}
+
 .Note.isDone {
   text-decoration: line-through;
   opacity: 0.3;
+}
+
+.Note.isDone:before {
+  visbility: hidden;
 }
 
 .Note + .Note {
