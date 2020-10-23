@@ -9,6 +9,10 @@ module.exports = {
   devtool: 'inline-source-map',
   // devtool: 'eval',
 
+  devServer: {
+    historyApiFallback: true,
+  },
+
   output: {
     filename: 'bundle.js',
     publicPath: '/assets/',
