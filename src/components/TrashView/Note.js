@@ -6,6 +6,7 @@ import classNames from 'classnames'
 const Note = ({note}) => (
   <div className={classNames(css.Note, {
     [css.isDone]: note.isDone,
+    [css.isHeaderNote]: note.text[0] === '#',
   })}>
     {note.text}
   </div>

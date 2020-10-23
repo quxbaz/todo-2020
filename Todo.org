@@ -4,7 +4,6 @@ Todo
   --
 
 * NOW
-  - [ ] Make basic TODO app.
   - [ ] Accounts.
 
 * Visual design
@@ -27,7 +26,6 @@ Todo
   - [ ] Add linting.
 
 * Features                                                        :IMPORTANT:
-  - [ ] Prepend a line with '#' to make it a header line.
   - [ ] Full view mode. See all lists and all notes on the entire screen.
   - [ ] Route URLs to lists.
   - [ ] Add workspaces/tags/organization/etc.
