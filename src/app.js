@@ -5,7 +5,7 @@ import {createZone} from '/toasts'
 import AppComponent from './components/AppComponent'
 
 // ::TEST::
-import createNormalDataset from '/test/data/createNormalDataset'
+import useNormalDataset from '/test/data/useNormalDataset'
 
 function createApp () {
 
@@ -23,7 +23,7 @@ function createApp () {
   })
 
   // ::TEST::
-  createNormalDataset(store)
+  useNormalDataset(store)
   // ::END TEST::
 
   return {

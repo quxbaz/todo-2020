@@ -1,7 +1,7 @@
 import {values, getRandomItem} from '/util'
 import {createApi} from '/api'
 
-const createNormalDataset = (store) => {
+const useNormalDataset = (store) => {
 
   const api = createApi(store.dispatch)
 
@@ -179,6 +179,7 @@ const createNormalDataset = (store) => {
 
   {
     const id = api.lists.create({title: 'Gifts'})
+    api.workspace.setActiveList(id)
     api.lists.createNote(id, {text: 'Cutting board'})
     api.lists.createNote(id, {text: 'Bread board'})
     api.lists.createNote(id, {text: 'Butcher block'})
@@ -353,9 +354,9 @@ const createNormalDataset = (store) => {
     api.lists.createNote(id, {text: 'Don\'t break out walls when inserting cross pin.'})
   }
 
-  const lists = values(store.getState().lists).filter(list => list.isAlive)
-  api.workspace.setActiveList(getRandomItem(lists).id)
+  // const lists = values(store.getState().lists).filter(list => list.isAlive)
+  // api.workspace.setActiveList(getRandomItem(lists).id)
 
 }
 
-export default createNormalDataset
+export default useNormalDataset
