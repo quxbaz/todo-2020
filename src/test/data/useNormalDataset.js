@@ -196,6 +196,24 @@ const useNormalDataset = (store) => {
   }
 
   {
+    const id = api.lists.create({title: 'Gifts', isAlive: false})
+    api.workspace.setActiveList(id)
+    api.lists.createNote(id, {text: '# Boards'})
+    api.lists.createNote(id, {text: 'Cutting board'})
+    api.lists.createNote(id, {text: 'Bread board'})
+    api.lists.createNote(id, {text: 'Butcher block'})
+    api.lists.createNote(id, {text: '# Tools'})
+    api.lists.createNote(id, {text: 'Chopper'})
+    api.lists.createNote(id, {text: 'Bread cutter'})
+    api.lists.createNote(id, {text: 'Dog bowl station'})
+    api.lists.createNote(id, {text: 'Tortilla, roti press'})
+    api.lists.createNote(id, {text: '# Misc'})
+    api.lists.createNote(id, {text: 'Cookies'})
+    api.lists.createNote(id, {text: 'Sprout seeds'})
+    api.lists.createNote(id, {text: 'Hot sauce variety'})
+  }
+
+  {
     const id = api.lists.create({title: 'Tools to Acquire'})
     api.lists.createNote(id, {text: 'Precision framing square.'})
     api.lists.createNote(id, {text: 'Large machinist square.'})
