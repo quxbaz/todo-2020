@@ -25,6 +25,27 @@
 /*   border-color: #fff; */
 /* } */
 
+.isHeaderNote {
+  background: hsl(198, 57%, 33%);
+}
+
+.isHeaderNote .Switch {
+  visibility: hidden;
+}
+
+.isHeaderNote input {
+  text-align: center;
+  color: #fff;
+}
+
+.isHeaderNote .RemoveButton {
+  color: #fff;
+}
+
+.isHeaderNote:hover {
+  background: hsl(198, 57%, 38%);
+}
+
 .TextDiv {
   width: 100%;
   height: 100%;

@@ -25,10 +25,14 @@ const Note = ({
     }
   }
 
+  const className = classNames(css.Note, {
+    [css.isHeaderNote]: note.text[0] === '#',
+  })
+
   return (
     <div
       ref={ref}
-      className={css.Note}
+      className={className}
       onKeyDown={handleKeyDown}>
       <Switch
         isOn={note.isDone}
