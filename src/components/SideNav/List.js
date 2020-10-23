@@ -36,7 +36,7 @@ const List = ({list, isActive, lastCreated, onClick}) => {
         [css.isActive]: isActive,
       })}
       onClick={handleClick}>
-        <a href="">
+        <a>
           {list.title}
           {list.notes.length > 0 && (
             <>
