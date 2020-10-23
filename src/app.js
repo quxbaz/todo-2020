@@ -1,5 +1,6 @@
 import React from 'react'
 import {createStore} from './state'
+import {createApi} from '/api'
 import {createZone} from '/toasts'
 import AppComponent from './components/AppComponent'
 
@@ -10,6 +11,7 @@ function createApp () {
 
   createZone('toast-zone')
   const store = createStore()
+  const api = createApi(store.dispatch)
   window.addEventListener('keydown', (event) => {
     if (event.ctrlKey && event.key === 'ArrowUp') {
       event.preventDefault()
