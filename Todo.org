@@ -9,6 +9,7 @@ Todo
   - [X] Trash bin.
   - [X] Handle cycle actions from active TrashView.
   - [X] Restore list.
+  - [ ] Create default dataset.
 
 * Visual design
   --
