@@ -67,6 +67,10 @@ const chain = (acc) => ({
   get: () => acc,
 })
 
+const getRandomItem = (list) => (
+  list[Math.floor(Math.random() * list.length)]
+)
+
 export {
   omit,
   sortBy,
