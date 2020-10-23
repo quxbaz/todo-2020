@@ -83,4 +83,5 @@ export {
   noop,
   splitAt,
   chain,
+  getRandomItem,
 }
