@@ -6,8 +6,6 @@ Todo
 * NOW
   - [ ] Make basic TODO app.
   - [ ] Accounts.
-  - [X] Trash bin.
-  - [X] Handle cycle actions from active TrashView.
   - [ ] Create default dataset.
 
 * Visual design
