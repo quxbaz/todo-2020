@@ -1,3 +1,4 @@
+import {last} from '/util'
 import {getSortedLists} from '/state/lists/selectors'
 import ACTION_TYPES from '/state/ACTION_TYPES'
 
@@ -14,6 +15,13 @@ actions.cycleNextList = () => (dispatch, getState) => {
     return
   const lists = getSortedLists(state)
     .map(list => list.id)
+  if (state.workspace.activeList === '@@TRASH' && lists.length > 0) {
+    dispatch({
+      type: ACTION_TYPES.WORKSPACE__CYCLE_NEXT_LIST,
+      payload: {listId: lists[0]},
+    })
+    return
+  }
   if (lists.length <= 1)
     return
   let index = lists.indexOf(state.workspace.activeList)
@@ -33,6 +41,13 @@ actions.cyclePrevList = () => (dispatch, getState) => {
     return
   const lists = getSortedLists(state)
     .map(list => list.id)
+  if (state.workspace.activeList === '@@TRASH' && lists.length > 0) {
+    dispatch({
+      type: ACTION_TYPES.WORKSPACE__CYCLE_NEXT_LIST,
+      payload: {listId: last(lists)},
+    })
+    return
+  }
   if (lists.length <= 1)
     return
   let index = lists.indexOf(state.workspace.activeList)
