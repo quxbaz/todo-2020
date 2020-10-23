@@ -40,7 +40,7 @@ const Entry = ({i, list, onRestore, onDelete}) => {
             <a
               className={css.RestoreEntry}
               title='Restore'
-              onClick={() => onRestore(list.id)}>
+              onClick={() => onRestore(list)}>
               Restore
             </a>
             <a

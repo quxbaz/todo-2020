@@ -3,6 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {createApi} from '/api'
+import {createToast} from '/toasts'
 import {getSortedLists} from '/state/lists/selectors'
 import EmptyView from './EmptyView'
 import EmptyButton from './EmptyButton'
@@ -39,8 +40,11 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   const api = createApi(dispatch)
   return {
-    onRestore (id) {
-      api.lists.update(id, {isAlive: true})
+    onRestore (list) {
+      api.lists.update(list.id, {isAlive: true})
+      createToast('toast-zone', {
+        text: `Restored "${list.title}"`,
+      })
     },
     onDelete (id) {
       api.lists.destroy(id)
