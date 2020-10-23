@@ -35,6 +35,8 @@ Todo
   - [ ] Route URLs to lists.
   - [ ] Add workspaces/tags/organization/etc.
   - [ ] Work on efficiency and test on large datasets (> 10k notes).
+  - [ ] Fullscreen update. The app should be full viewport width by
+    default.
 
 * Features                                                     :LOW_PRIORITY:
   - [ ] Undo/redo.
