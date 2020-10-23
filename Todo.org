@@ -4,6 +4,7 @@ Todo
   --
 
 * NOW
+  - [ ] Route URLs to lists.
   - [ ] Accounts.
 
 * Visual design
@@ -19,21 +20,19 @@ Todo
 
 * TODO
   - [ ] Add persisted data layer (todo items).
-  - [ ] Basic styling (CSS grid based, visually grid based).
   - [ ] Add networking layer.
     - [ ] Persistence.
     - [ ] CRUD operations.
-  - [ ] Add linting.
 
 * Features                                                        :IMPORTANT:
   - [ ] Full view mode. See all lists and all notes on the entire screen.
-  - [ ] Route URLs to lists.
   - [ ] Add workspaces/tags/organization/etc.
   - [ ] Work on efficiency and test on large datasets (> 10k notes).
-  - [ ] Fullscreen update. The app should be full viewport width by
-    default.
+  - [ ] Full viewport update. The app should take up all screen space
+    by default.
 
 * Features                                                     :LOW_PRIORITY:
+  - [ ] Add linting.
   - [ ] Undo/redo.
   - [ ] Drag-n-drop notes.
   - [ ] Change single-line <input> elements to multi-line editables.
