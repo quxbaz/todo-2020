@@ -3,7 +3,6 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
-import {values, sortBy} from 'qux'
 import {createApi} from 'api'
 import {getSortedLists} from 'state/lists/selectors'
 import FilterField from './FilterField'
@@ -24,11 +23,13 @@ const SideNav = ({lists, onSubmitFilter, onClickTrash}) => {
   const [filter, setFilter] = useState('')
   const [lastCreated, setLastCreated] = useState(null)
 
-  const filteredLists = lists
-    .filter(list => includes(list.title, filter))
+  const filteredLists = lists.filter(
+    list => includes(list.title, filter)
+  )
 
-  const listComponents = filteredLists
-    .map(list => <List key={list.id} list={list} lastCreated={lastCreated} />)
+  const listComponents = filteredLists.map(
+    list => <List key={list.id} list={list} lastCreated={lastCreated} />
+  )
 
   const text = filter.trim()
 
@@ -37,8 +38,9 @@ const SideNav = ({lists, onSubmitFilter, onClickTrash}) => {
     and (2) The filter text does not EXACTLY match any existing list
     titles.
   */
-  const shouldShowCreateText = text.length > 0 &&
-    !filteredLists.some(list => list.title.trim() === text)
+  const shouldShowCreateText = (
+    text.length > 0 && !filteredLists.some(list => list.title.trim() === text)
+  )
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -50,9 +52,10 @@ const SideNav = ({lists, onSubmitFilter, onClickTrash}) => {
   }
 
   return (
-    <div className={classNames(css.SideNav, {
-      [css.isFilterActive]: text.length > 0,
-    })}>
+    <div
+      className={classNames(css.SideNav, {
+        [css.isFilterActive]: text.length > 0,
+      })}>
       <FilterField
         value={filter}
         onChange={setFilter}
