@@ -1,6 +1,7 @@
 import css from './style.css'
 import React from 'react'
 import PropTypes from 'prop-types'
+import {BrowserRouter as Router} from 'react-router-dom'
 import {connect, Provider} from 'react-redux'
 import HeaderBar from './HeaderBar'
 import SideNav from 'components/SideNav'
@@ -20,15 +21,17 @@ const AppComponent = ({store, activeList, list}) => {
 
   return (
     <Provider store={store}>
-      <div className={css.AppComponent}>
-        <div className={css.InnerAppComponent}>
-          <HeaderBar />
-          <SideNav />
-          <div className={css.ListFrame}>
-            {renderContent()}
+      <Router>
+        <div className={css.AppComponent}>
+          <div className={css.InnerAppComponent}>
+            <HeaderBar />
+            <SideNav />
+            <div className={css.ListFrame}>
+              {renderContent()}
+            </div>
           </div>
         </div>
-      </div>
+      </Router>
     </Provider>
   )
 
