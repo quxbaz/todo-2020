@@ -1,5 +1,5 @@
-import {insert, without} from '/util'
-import ACTION_TYPES from '/state/ACTION_TYPES'
+import {insert, without} from 'qux'
+import ACTION_TYPES from 'state/ACTION_TYPES'
 
 const init = {
   id: '',

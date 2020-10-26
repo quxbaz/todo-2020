@@ -1,9 +1,9 @@
 import css from './style.css'
-import NoteCss from '/components/Note/style.css'
+import NoteCss from 'components/Note/style.css'
 import React, {useState, useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {createApi} from '/api'
+import {createApi} from 'api'
 
 const Empty = ({listId, onSubmit}) => {
   const input = useRef()

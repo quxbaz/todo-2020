@@ -41,13 +41,10 @@ module.exports = {
   },
 
   resolve: {
-    /*
-      Enables absolute imports from the /src directory. Example:
-
-        import {sortBy} from '/util'
-    */
-    roots: [
-      path.resolve('./src'),
+    modules: [
+      // Enables absolute imports relative to the src/ directory.
+      path.resolve(__dirname, 'src'),
+      'node_modules',
     ],
   },
 

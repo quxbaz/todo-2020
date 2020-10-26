@@ -1,5 +1,5 @@
-import {values, getRandomItem} from '/util'
-import {createApi} from '/api'
+import {values, getRandomItem} from 'qux'
+import {createApi} from 'api'
 
 const useNormalDataset = (store) => {
 

@@ -1,6 +1,6 @@
-import {last} from '/util'
-import {getSortedLists} from '/state/lists/selectors'
-import ACTION_TYPES from '/state/ACTION_TYPES'
+import {last} from 'qux'
+import {getSortedLists} from 'state/lists/selectors'
+import ACTION_TYPES from 'state/ACTION_TYPES'
 
 const actions = {}
 

@@ -1,4 +1,4 @@
-import {actions} from '/state/lists'
+import {actions} from 'state/lists'
 
 const createApi = (dispatch) => {
 

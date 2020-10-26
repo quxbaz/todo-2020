@@ -3,7 +3,7 @@ import React from 'react'
 import {createPortal} from 'react-dom'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import {useEscapeKey} from '/hooks'
+import {useEscapeKey} from 'hooks'
 
 const Modal = ({children, className, style, onClose}) => {
   useEscapeKey(onClose)

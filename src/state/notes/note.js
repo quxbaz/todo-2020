@@ -1,4 +1,4 @@
-import ACTION_TYPES from '/state/ACTION_TYPES'
+import ACTION_TYPES from 'state/ACTION_TYPES'
 
 const init = {
   id: '',

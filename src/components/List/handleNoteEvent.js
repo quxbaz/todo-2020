@@ -1,4 +1,4 @@
-import {NOTE_EVENTS} from '/components/Note'
+import {NOTE_EVENTS} from 'components/Note'
 import _moveCaret from './moveCaret'
 
 const handleNoteEvent = (noteId, noteDom, event, eventMap) => {

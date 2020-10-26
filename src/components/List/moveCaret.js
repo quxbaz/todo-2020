@@ -1,4 +1,4 @@
-import {noop} from '/util'
+import {noop} from 'qux'
 
 const getCaretPosition = (input) => input.selectionDirection === 'forward'
   ? input.selectionEnd

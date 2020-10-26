@@ -1,4 +1,4 @@
-import {values, chain} from '/util'
+import {values, chain} from 'qux'
 
 const _cond = (list) => list.isAlive
 

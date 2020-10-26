@@ -1,5 +1,5 @@
-import {getState} from '/util'
-import {actions} from '/state/workspace'
+import {getState} from 'qux'
+import {actions} from 'state/workspace'
 
 const createApi = (dispatch) => {
 

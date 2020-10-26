@@ -1,5 +1,5 @@
-import {omit} from '/util'
-import ACTION_TYPES from '/state/ACTION_TYPES'
+import {omit} from 'qux'
+import ACTION_TYPES from 'state/ACTION_TYPES'
 import note from './note'
 
 const notes = (state={}, action) => {

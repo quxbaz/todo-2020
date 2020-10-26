@@ -2,10 +2,10 @@ import css from './style.css'
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {createApi} from '/api'
-import {createToast} from '/toasts'
-import {useEscapeKey} from '/hooks'
-import Modal from '/components/Modal'
+import {createApi} from 'api'
+import {createToast} from 'toasts'
+import {useEscapeKey} from 'hooks'
+import Modal from 'components/Modal'
 
 const EmptyButton = ({onEmptyTrash}) => {
 

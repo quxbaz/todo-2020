@@ -1,8 +1,8 @@
-import SideNavCss from '/components/SideNav/style.css'
+import SideNavCss from 'components/SideNav/style.css'
 import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {createApi} from '/api'
+import {createApi} from 'api'
 import Option from './Option'
 import RenameTextField from './RenameTextField'
 

@@ -1,5 +1,5 @@
-import {values, omit} from '/util'
-import ACTION_TYPES from '/state/ACTION_TYPES'
+import {values, omit} from 'qux'
+import ACTION_TYPES from 'state/ACTION_TYPES'
 import list from './list'
 
 const lists = (state={}, action) => {

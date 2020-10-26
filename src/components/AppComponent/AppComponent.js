@@ -3,9 +3,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect, Provider} from 'react-redux'
 import HeaderBar from './HeaderBar'
-import SideNav from '/components/SideNav'
-import TrashView from '/components/TrashView'
-import List from '/components/List'
+import SideNav from 'components/SideNav'
+import TrashView from 'components/TrashView'
+import List from 'components/List'
 
 const AppComponent = ({store, activeList, list}) => {
 
