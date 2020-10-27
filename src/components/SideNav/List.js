@@ -3,7 +3,7 @@ import React, {useState, useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
-import {createApi} from 'api'
+import {WithApi} from 'api'
 
 const List = ({list, isActive, lastCreated, onClick}) => {
 
@@ -63,13 +63,12 @@ const mapStateToProps = (state, {list}) => ({
   isActive: state.workspace.activeList === list.id,
 })
 
-const mapDispatchToProps = (dispatch) => {
-  const api = createApi(dispatch)
-  return {
-    onClick (id) {
-      api.workspace.setActiveList(id)
-    },
-  }
-}
+const mapDispatchToProps = (dispatch, {api}) => ({
+  onClick (id) {
+    api.workspace.setActiveList(id)
+  },
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(List)
+export default WithApi(
+  connect(mapStateToProps, mapDispatchToProps)(List)
+)

@@ -26,10 +26,7 @@ function createApp () {
   useNormalDataset(store)
   // ::END TEST::
 
-  return {
-    store,
-    component: <AppComponent store={store} />
-  }
+  return <AppComponent {...{store, api}} />
 
 }
 
