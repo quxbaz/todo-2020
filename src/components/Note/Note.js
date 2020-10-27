@@ -3,7 +3,7 @@ import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
-import {createApi} from 'api'
+import {WithApi} from 'api'
 import Switch from './Switch'
 import Button from './Button'
 import NoteInput from './NoteInput'
@@ -64,16 +64,15 @@ Note.propTypes = {
   onNoteEvent: PropTypes.func.isRequired,
 }
 
-const mapDispatchToProps = (dispatch, {note}) => {
-  const api = createApi(dispatch)
-  return {
-    onChange (id, text) {
-      api.notes.update(id, {text})
-    },
-    onToggle () {
-      api.notes.update(note.id, {isDone: !note.isDone})
-    },
-  }
-}
+const mapDispatchToProps = (dispatch, {api, note}) => ({
+  onChange (id, text) {
+    api.notes.update(id, {text})
+  },
+  onToggle () {
+    api.notes.update(note.id, {isDone: !note.isDone})
+  },
+})
 
-export default connect(null, mapDispatchToProps)(Note)
+export default WithApi(
+  connect(null, mapDispatchToProps)(Note)
+)

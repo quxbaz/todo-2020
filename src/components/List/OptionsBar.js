@@ -3,7 +3,7 @@ import React, {useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
-import {createApi} from 'api'
+import {WithApi} from 'api'
 import {createToast} from 'toasts'
 import Option from './Option'
 import RenameOption from './RenameOption'
@@ -67,19 +67,18 @@ const mapStateToProps = (state, {list}) => ({
     .some(note => note.isDone)
 })
 
-const mapDispatchToProps = (dispatch, {list}) => {
-  const api = createApi(dispatch)
-  return {
-    onClear () {
-      api.lists.clearNotes(list.id)
-    },
-    onDelete () {
-      api.lists.discard(list.id)
-      createToast('toast-zone', {
-        text: `"${list.title}" moved to trash.`,
-      })
-    },
-  }
-}
+const mapDispatchToProps = (dispatch, {api, list}) => ({
+  onClear () {
+    api.lists.clearNotes(list.id)
+  },
+  onDelete () {
+    api.lists.discard(list.id)
+    createToast('toast-zone', {
+      text: `"${list.title}" moved to trash.`,
+    })
+  },
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(OptionsBar)
+export default WithApi(
+  connect(mapStateToProps, mapDispatchToProps)(OptionsBar)
+)

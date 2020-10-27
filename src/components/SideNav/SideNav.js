@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
-import {createApi} from 'api'
+import {WithApi} from 'api'
 import {getSortedLists} from 'state/lists/selectors'
 import FilterField from './FilterField'
 import List from './List'
@@ -80,18 +80,17 @@ const mapStateToProps = (state) => ({
   lists: getSortedLists(state),
 })
 
-const mapDispatchToProps = (dispatch) => {
-  const api = createApi(dispatch)
-  return {
-    onSubmitFilter (text) {
-      const id = api.lists.create({title: text})
-      api.workspace.setActiveList(id)
-      return id
-    },
-    onClickTrash () {
-      api.workspace.setActiveList('@@TRASH')
-    },
-  }
-}
+const mapDispatchToProps = (dispatch, {api}) => ({
+  onSubmitFilter (text) {
+    const id = api.lists.create({title: text})
+    api.workspace.setActiveList(id)
+    return id
+  },
+  onClickTrash () {
+    api.workspace.setActiveList('@@TRASH')
+  },
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(SideNav)
+export default WithApi(
+  connect(mapStateToProps, mapDispatchToProps)(SideNav)
+)

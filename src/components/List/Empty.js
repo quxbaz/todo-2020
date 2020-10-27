@@ -3,7 +3,7 @@ import NoteCss from 'components/Note/style.css'
 import React, {useState, useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {createApi} from 'api'
+import {WithApi} from 'api'
 
 const Empty = ({listId, onSubmit}) => {
   const input = useRef()
@@ -44,13 +44,12 @@ Empty.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 }
 
-const mapDispatchToProps = (dispatch) => {
-  const api = createApi(dispatch)
-  return {
-    onSubmit (listId, text) {
-      api.lists.createNote(listId, {text})
-    }
-  }
-}
+const mapDispatchToProps = (dispatch, {api}) => ({
+  onSubmit (listId, text) {
+    api.lists.createNote(listId, {text})
+  },
+})
 
-export default connect(null, mapDispatchToProps)(Empty)
+export default WithApi(
+  connect(null, mapDispatchToProps)(Empty)
+)

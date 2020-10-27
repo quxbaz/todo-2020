@@ -1,9 +1,6 @@
-import {values, getRandomItem} from 'qux'
-import {createApi} from 'api'
+// import {values, getRandomItem} from 'qux'
 
-const useNormalDataset = (store) => {
-
-  const api = createApi(store.dispatch)
+const useNormalDataset = (api) => {
 
   {
     const id = api.lists.create({title: 'AA MAIN'})

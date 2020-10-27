@@ -2,7 +2,7 @@ import SideNavCss from 'components/SideNav/style.css'
 import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {createApi} from 'api'
+import {WithApi} from 'api'
 import Option from './Option'
 import RenameTextField from './RenameTextField'
 
@@ -64,13 +64,12 @@ RenameOption.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 }
 
-const mapDispatchToProps = (dispatch, {list}) => {
-  const api = createApi(dispatch)
-  return {
-    onSubmit (text) {
-      api.lists.update(list.id, {title: text})
-    },
-  }
-}
+const mapDispatchToProps = (dispatch, {api, list}) => ({
+  onSubmit (text) {
+    api.lists.update(list.id, {title: text})
+  },
+})
 
-export default connect(null, mapDispatchToProps)(RenameOption)
+export default WithApi(
+  connect(null, mapDispatchToProps)(RenameOption)
+)

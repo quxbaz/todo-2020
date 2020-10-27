@@ -4,7 +4,7 @@ import React, {useReducer, useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {splitAt, getState} from 'qux'
-import {createApi} from 'api'
+import {WithApi} from 'api'
 import Note, {NOTE_EVENTS} from 'components/Note'
 import handleNoteEvent from './handleNoteEvent'
 import OptionsBar from './OptionsBar'
@@ -99,50 +99,49 @@ const mapStateToProps = (state, {list}) => ({
   notes: list.notes.map(id => state.notes[id]),
 })
 
-const mapDispatchToProps = (dispatch, {list}) => {
-  const api = createApi(dispatch)
-  return {
-    onRemove (noteId) {
-      api.lists.destroyNote(list.id, noteId)
-    },
-    onOrderUp (noteId) {
-      api.lists.orderNoteUp(list.id, noteId)
-    },
-    onOrderDown (noteId) {
-      api.lists.orderNoteDown(list.id, noteId)
-    },
-    onEnterAtStart (noteId) {
-      const index = list.notes.indexOf(noteId)
-      api.lists.createNote(list.id, {}, index)
-    },
-    onEnterAtEnd (noteId) {
-      const index = list.notes.indexOf(noteId) + 1
-      api.lists.createNote(list.id, {}, index)
-    },
-    onEnterAtPos (noteId, pos) {
-      let [left, right] = splitAt(
-        getState(dispatch).notes[noteId].text,
-        pos
-      )
-      api.notes.update(noteId, {text: left})
-      api.lists.createNote(
-        list.id,
-        {text: right},
-        list.notes.indexOf(noteId) + 1
-      )
-    },
-    onBackspaceAtStartOfEmptyLine (noteId) {
-      api.lists.destroyNote(list.id, noteId)
-    },
-    onBackspaceAtStartOfNonEmptyLine (noteId) {
-      const i = list.notes.indexOf(noteId)
-      if (i === 0) return
-      api.lists.mergeNotes(list.id, list.notes[i - 1], noteId)
-    },
-    onTrashNote (noteId) {
-      api.lists.destroyNote(list.id, noteId)
-    },
-  }
-}
+const mapDispatchToProps = (dispatch, {api, list}) => ({
+  onRemove (noteId) {
+    api.lists.destroyNote(list.id, noteId)
+  },
+  onOrderUp (noteId) {
+    api.lists.orderNoteUp(list.id, noteId)
+  },
+  onOrderDown (noteId) {
+    api.lists.orderNoteDown(list.id, noteId)
+  },
+  onEnterAtStart (noteId) {
+    const index = list.notes.indexOf(noteId)
+    api.lists.createNote(list.id, {}, index)
+  },
+  onEnterAtEnd (noteId) {
+    const index = list.notes.indexOf(noteId) + 1
+    api.lists.createNote(list.id, {}, index)
+  },
+  onEnterAtPos (noteId, pos) {
+    let [left, right] = splitAt(
+      getState(dispatch).notes[noteId].text,
+      pos
+    )
+    api.notes.update(noteId, {text: left})
+    api.lists.createNote(
+      list.id,
+      {text: right},
+      list.notes.indexOf(noteId) + 1
+    )
+  },
+  onBackspaceAtStartOfEmptyLine (noteId) {
+    api.lists.destroyNote(list.id, noteId)
+  },
+  onBackspaceAtStartOfNonEmptyLine (noteId) {
+    const i = list.notes.indexOf(noteId)
+    if (i === 0) return
+    api.lists.mergeNotes(list.id, list.notes[i - 1], noteId)
+  },
+  onTrashNote (noteId) {
+    api.lists.destroyNote(list.id, noteId)
+  },
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(List)
+export default WithApi(
+  connect(mapStateToProps, mapDispatchToProps)(List)
+)

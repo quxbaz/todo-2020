@@ -23,7 +23,7 @@ function createApp () {
   })
 
   // ::TEST::
-  useNormalDataset(store)
+  useNormalDataset(api)
   // ::END TEST::
 
   return <AppComponent {...{store, api}} />

@@ -2,7 +2,7 @@ import css from './style.css'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {createApi} from 'api'
+import {WithApi} from 'api'
 import {createToast} from 'toasts'
 import {getSortedLists} from 'state/lists/selectors'
 import EmptyView from './EmptyView'
@@ -37,19 +37,18 @@ const mapStateToProps = (state) => ({
   lists: getSortedLists(state, list => !list.isAlive),
 })
 
-const mapDispatchToProps = (dispatch) => {
-  const api = createApi(dispatch)
-  return {
-    onRestore (list) {
-      api.lists.update(list.id, {isAlive: true})
-      createToast('toast-zone', {
-        text: `Restored "${list.title}"`,
-      })
-    },
-    onDelete (id) {
-      api.lists.destroy(id)
-    },
-  }
-}
+const mapDispatchToProps = (dispatch, {api}) => ({
+  onRestore (list) {
+    api.lists.update(list.id, {isAlive: true})
+    createToast('toast-zone', {
+      text: `Restored "${list.title}"`,
+    })
+  },
+  onDelete (id) {
+    api.lists.destroy(id)
+  },
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(TrashView)
+export default WithApi(
+  connect(mapStateToProps, mapDispatchToProps)(TrashView)
+)

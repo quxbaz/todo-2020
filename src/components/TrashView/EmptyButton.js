@@ -2,7 +2,7 @@ import css from './style.css'
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {createApi} from 'api'
+import {WithApi} from 'api'
 import {createToast} from 'toasts'
 import {useEscapeKey} from 'hooks'
 import Modal from 'components/Modal'
@@ -40,16 +40,15 @@ EmptyButton.propTypes = {
   onEmptyTrash: PropTypes.func.isRequired,
 }
 
-const mapDispatchToProps = (dispatch) => {
-  const api = createApi(dispatch)
-  return {
-    onEmptyTrash () {
-      api.lists.emptyTrash()
-      createToast('toast-zone', {
-        text: 'Trashcan emptied.',
-      })
-    },
-  }
-}
+const mapDispatchToProps = (dispatch, {api}) => ({
+  onEmptyTrash () {
+    api.lists.emptyTrash()
+    createToast('toast-zone', {
+      text: 'Trashcan emptied.',
+    })
+  },
+})
 
-export default connect(null, mapDispatchToProps)(EmptyButton)
+export default WithApi(
+  connect(null, mapDispatchToProps)(EmptyButton)
+)
