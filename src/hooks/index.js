@@ -1,5 +1,7 @@
-import useEscapeKey from './useEscapeKey'
+import useEscapeKeyListener from './useEscapeKeyListener'
+import useKeyDownListener from './useKeyDownListener'
 
 export {
-  useEscapeKey,
+  useEscapeKeyListener,
+  useKeyDownListener,
 }

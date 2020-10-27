@@ -4,14 +4,14 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {WithApi} from 'api'
 import {createToast} from 'toasts'
-import {useEscapeKey} from 'hooks'
+import {useEscapeKeyListener} from 'hooks'
 import Modal from 'components/Modal'
 
 const EmptyButton = ({onEmptyTrash}) => {
 
   const [isOpen, setIsOpen] = useState(false)
   const close = () => setIsOpen(false)
-  useEscapeKey(close)
+  useEscapeKeyListener(close)
 
   return (
     <div className={css.EmptyButton}>

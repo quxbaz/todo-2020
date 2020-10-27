@@ -12,15 +12,6 @@ function createApp () {
   createZone('toast-zone')
   const store = createStore()
   const api = createApi(store.dispatch)
-  window.addEventListener('keydown', (event) => {
-    if (event.ctrlKey && event.key === 'ArrowUp') {
-      event.preventDefault()
-      api.workspace.cyclePrevList()
-    } else if (event.ctrlKey && event.key === 'ArrowDown') {
-      event.preventDefault()
-      api.workspace.cycleNextList()
-    }
-  })
 
   // ::TEST::
   useNormalDataset(api)

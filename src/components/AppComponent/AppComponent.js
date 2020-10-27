@@ -4,12 +4,23 @@ import PropTypes from 'prop-types'
 import {BrowserRouter as Router} from 'react-router-dom'
 import {connect, Provider} from 'react-redux'
 import {ApiContext} from 'api'
+import {useKeyDownListener} from 'hooks'
 import HeaderBar from './HeaderBar'
 import SideNav from 'components/SideNav'
 import TrashView from 'components/TrashView'
 import List from 'components/List'
 
 const AppComponent = ({store, api, activeList, list}) => {
+
+  useKeyDownListener(event => {
+    if (event.ctrlKey && event.key === 'ArrowUp') {
+      event.preventDefault()
+      api.workspace.cyclePrevList()
+    } else if (event.ctrlKey && event.key === 'ArrowDown') {
+      event.preventDefault()
+      api.workspace.cycleNextList()
+    }
+  })
 
   const renderContent = () => {
     if (activeList == null)
