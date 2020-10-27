@@ -43,7 +43,7 @@ EmptyButton.propTypes = {
 const mapDispatchToProps = (dispatch, {api}) => ({
   onEmptyTrash () {
     api.lists.emptyTrash()
-    createToast('toast-zone', {
+    createToast('Toasts', {
       text: 'Trashcan emptied.',
     })
   },

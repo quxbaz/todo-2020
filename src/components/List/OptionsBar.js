@@ -73,7 +73,7 @@ const mapDispatchToProps = (dispatch, {api, list}) => ({
   },
   onDelete () {
     api.lists.discard(list.id)
-    createToast('toast-zone', {
+    createToast('Toasts', {
       text: `"${list.title}" moved to trash.`,
     })
   },

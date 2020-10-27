@@ -40,7 +40,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch, {api}) => ({
   onRestore (list) {
     api.lists.update(list.id, {isAlive: true})
-    createToast('toast-zone', {
+    createToast('Toasts', {
       text: `Restored "${list.title}"`,
     })
   },
