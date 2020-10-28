@@ -58,9 +58,9 @@ AppComponent.propTypes = {
   list: PropTypes.object,
 }
 
-const mapStateToProps = (state) => ({
+const mapState = (state) => ({
   activeList: state.workspace.activeList,
   list: state.lists[state.workspace.activeList],
 })
 
-export default connect(mapStateToProps)(AppComponent)
+export default connect(mapState)(AppComponent)

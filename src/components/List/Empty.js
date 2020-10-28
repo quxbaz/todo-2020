@@ -44,12 +44,12 @@ Empty.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 }
 
-const mapDispatchToProps = (dispatch, {api}) => ({
+const mapDispatch = (dispatch, {api}) => ({
   onSubmit (listId, text) {
     api.lists.createNote(listId, {text})
   },
 })
 
 export default WithApi(
-  connect(null, mapDispatchToProps)(Empty)
+  connect(null, mapDispatch)(Empty)
 )

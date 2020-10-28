@@ -64,12 +64,12 @@ RenameOption.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 }
 
-const mapDispatchToProps = (dispatch, {api, list}) => ({
+const mapDispatch = (dispatch, {api, list}) => ({
   onSubmit (text) {
     api.lists.update(list.id, {title: text})
   },
 })
 
 export default WithApi(
-  connect(null, mapDispatchToProps)(RenameOption)
+  connect(null, mapDispatch)(RenameOption)
 )

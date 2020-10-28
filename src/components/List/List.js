@@ -95,11 +95,11 @@ List.propTypes = {
   onTrashNote: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = (state, {list}) => ({
+const mapState = (state, {list}) => ({
   notes: list.notes.map(id => state.notes[id]),
 })
 
-const mapDispatchToProps = (dispatch, {api, list}) => ({
+const mapDispatch = (dispatch, {api, list}) => ({
   onRemove (noteId) {
     api.lists.destroyNote(list.id, noteId)
   },
@@ -143,5 +143,5 @@ const mapDispatchToProps = (dispatch, {api, list}) => ({
 })
 
 export default WithApi(
-  connect(mapStateToProps, mapDispatchToProps)(List)
+  connect(mapState, mapDispatch)(List)
 )

@@ -64,7 +64,7 @@ Note.propTypes = {
   onNoteEvent: PropTypes.func.isRequired,
 }
 
-const mapDispatchToProps = (dispatch, {api, note}) => ({
+const mapDispatch = (dispatch, {api, note}) => ({
   onChange (id, text) {
     api.notes.update(id, {text})
   },
@@ -74,5 +74,5 @@ const mapDispatchToProps = (dispatch, {api, note}) => ({
 })
 
 export default WithApi(
-  connect(null, mapDispatchToProps)(Note)
+  connect(null, mapDispatch)(Note)
 )

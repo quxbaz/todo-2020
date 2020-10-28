@@ -20,8 +20,8 @@ TrashItem.propTypes = {
   onClick: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = (state) => ({
+const mapState = (state) => ({
   isActive: state.workspace.activeList === '@@TRASH',
 })
 
-export default connect(mapStateToProps)(TrashItem)
+export default connect(mapState)(TrashItem)

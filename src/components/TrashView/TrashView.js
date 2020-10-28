@@ -33,11 +33,11 @@ TrashView.propTypes = {
   onDelete: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = (state) => ({
+const mapState = (state) => ({
   lists: getSortedLists(state, list => !list.isAlive),
 })
 
-const mapDispatchToProps = (dispatch, {api}) => ({
+const mapDispatch = (dispatch, {api}) => ({
   onRestore (list) {
     api.lists.update(list.id, {isAlive: true})
     createToast('Toasts', {
@@ -50,5 +50,5 @@ const mapDispatchToProps = (dispatch, {api}) => ({
 })
 
 export default WithApi(
-  connect(mapStateToProps, mapDispatchToProps)(TrashView)
+  connect(mapState, mapDispatch)(TrashView)
 )

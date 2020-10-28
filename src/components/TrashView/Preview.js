@@ -44,8 +44,8 @@ Preview.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.object,).isRequired,
 }
 
-const mapStateToProps = (state, {list}) => ({
+const mapState = (state, {list}) => ({
   notes: list.notes.map(id => state.notes[id]),
 })
 
-export default connect(mapStateToProps, null)(Preview)
+export default connect(mapState, null)(Preview)

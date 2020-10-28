@@ -61,13 +61,13 @@ OptionsBar.propTypes = {
   onDelete: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = (state, {list}) => ({
+const mapState = (state, {list}) => ({
   anyNotesChecked: list.notes
     .map(id => state.notes[id])
     .some(note => note.isDone)
 })
 
-const mapDispatchToProps = (dispatch, {api, list}) => ({
+const mapDispatch = (dispatch, {api, list}) => ({
   onClear () {
     api.lists.clearNotes(list.id)
   },
@@ -80,5 +80,5 @@ const mapDispatchToProps = (dispatch, {api, list}) => ({
 })
 
 export default WithApi(
-  connect(mapStateToProps, mapDispatchToProps)(OptionsBar)
+  connect(mapState, mapDispatch)(OptionsBar)
 )

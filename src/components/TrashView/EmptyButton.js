@@ -40,7 +40,7 @@ EmptyButton.propTypes = {
   onEmptyTrash: PropTypes.func.isRequired,
 }
 
-const mapDispatchToProps = (dispatch, {api}) => ({
+const mapDispatch = (dispatch, {api}) => ({
   onEmptyTrash () {
     api.lists.emptyTrash()
     createToast('Toasts', {
@@ -50,5 +50,5 @@ const mapDispatchToProps = (dispatch, {api}) => ({
 })
 
 export default WithApi(
-  connect(null, mapDispatchToProps)(EmptyButton)
+  connect(null, mapDispatch)(EmptyButton)
 )

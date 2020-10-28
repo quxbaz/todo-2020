@@ -59,16 +59,16 @@ List.propTypes = {
   onClick: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = (state, {list}) => ({
+const mapState = (state, {list}) => ({
   isActive: state.workspace.activeList === list.id,
 })
 
-const mapDispatchToProps = (dispatch, {api}) => ({
+const mapDispatch = (dispatch, {api}) => ({
   onClick (id) {
     api.workspace.setActiveList(id)
   },
 })
 
 export default WithApi(
-  connect(mapStateToProps, mapDispatchToProps)(List)
+  connect(mapState, mapDispatch)(List)
 )

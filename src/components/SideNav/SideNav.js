@@ -76,11 +76,11 @@ SideNav.propTypes = {
   onClickTrash: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = (state) => ({
+const mapState = (state) => ({
   lists: getSortedLists(state),
 })
 
-const mapDispatchToProps = (dispatch, {api}) => ({
+const mapDispatch = (dispatch, {api}) => ({
   onSubmitFilter (text) {
     const id = api.lists.create({title: text})
     api.workspace.setActiveList(id)
@@ -92,5 +92,5 @@ const mapDispatchToProps = (dispatch, {api}) => ({
 })
 
 export default WithApi(
-  connect(mapStateToProps, mapDispatchToProps)(SideNav)
+  connect(mapState, mapDispatch)(SideNav)
 )
