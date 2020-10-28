@@ -1,21 +1,16 @@
-var path = require('path');
-var webpack = require('webpack');
+var path = require('path')
 
 module.exports = {
 
   entry: path.resolve(__dirname, 'src/index.js'),
-
-  // devtool: 'source-map',
-  devtool: 'inline-source-map',
-  // devtool: 'eval',
-
-  devServer: {
-    historyApiFallback: true,
-  },
-
   output: {
     filename: 'bundle.js',
     publicPath: '/assets/',
+  },
+
+  devtool: 'inline-source-map',  // 'source-map', 'eval'
+  devServer: {
+    historyApiFallback: true,
   },
 
   module: {

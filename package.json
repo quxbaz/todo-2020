@@ -2,7 +2,7 @@
   "name": "todo-2020",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/quxbaz/todo-2020.git"
