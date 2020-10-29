@@ -9,6 +9,9 @@ Todo
   - [ ] Back to typescript.
   - [ ] Reselect or memoize.
   - [ ] Performance optimization.
+  - [ ] Re-do cycleNextList, cyclePrevList. That the body of the
+    action creator is so dense is a bad sign. Store the lists in
+    workspace again and make it simpler.
 
 * Visual design
   --
