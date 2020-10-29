@@ -1,7 +1,6 @@
 import {actions} from 'state/lists'
 
 const createApi = (dispatch) => {
-
   const api = {}
 
   api.create = (props) => {
@@ -40,7 +39,6 @@ const createApi = (dispatch) => {
     dispatch(actions.emptyTrash())
 
   return api
-
 }
 
 export default createApi

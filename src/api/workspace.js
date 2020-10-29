@@ -1,7 +1,6 @@
 import {actions} from 'state/workspace'
 
 const createApi = (dispatch) => {
-
   const api = {}
 
   api.create = ({title}) => {
@@ -20,7 +19,6 @@ const createApi = (dispatch) => {
     dispatch(actions.cyclePrevList())
 
   return api
-
 }
 
 export default createApi
