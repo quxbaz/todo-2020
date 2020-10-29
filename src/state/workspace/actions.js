@@ -1,5 +1,3 @@
-import {last} from 'qux'
-import {getSortedLists} from 'state/lists/selectors'
 import ACTION_TYPES from 'state/ACTION_TYPES'
 
 const actions = {}
@@ -9,56 +7,14 @@ actions.setActiveList = (id) => ({
   payload: {id},
 })
 
-actions.cycleNextList = () => (dispatch, getState) => {
-  const state = getState()
-  if (state.workspace.activeList == null)
-    return
-  const lists = getSortedLists(state)
-    .map(list => list.id)
-  if (state.workspace.activeList === '@@TRASH' && lists.length > 0) {
-    dispatch({
-      type: ACTION_TYPES.WORKSPACE__CYCLE_NEXT_LIST,
-      payload: {listId: lists[0]},
-    })
-    return
-  }
-  if (lists.length <= 1)
-    return
-  let index = lists.indexOf(state.workspace.activeList)
-  if (index === lists.length - 1)
-    index = -1
-  dispatch({
-    type: ACTION_TYPES.WORKSPACE__CYCLE_NEXT_LIST,
-    payload: {
-      listId: lists[index + 1],
-    },
-  })
+actions.cycleToNextList = () => {
+  // ::TODO::
+  return null
 }
 
-actions.cyclePrevList = () => (dispatch, getState) => {
-  const state = getState()
-  if (state.workspace.activeList == null)
-    return
-  const lists = getSortedLists(state)
-    .map(list => list.id)
-  if (state.workspace.activeList === '@@TRASH' && lists.length > 0) {
-    dispatch({
-      type: ACTION_TYPES.WORKSPACE__CYCLE_NEXT_LIST,
-      payload: {listId: last(lists)},
-    })
-    return
-  }
-  if (lists.length <= 1)
-    return
-  let index = lists.indexOf(state.workspace.activeList)
-  if (index === 0)
-    index = lists.length
-  dispatch({
-    type: ACTION_TYPES.WORKSPACE__CYCLE_PREV_LIST,
-    payload: {
-      listId: lists[index - 1],
-    },
-  })
+actions.cycleToPrevList = () => {
+  // ::TODO::
+  return null
 }
 
 export default actions
