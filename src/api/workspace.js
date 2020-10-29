@@ -14,11 +14,11 @@ const createApi = (dispatch, api) => ({
   },
 
   cycleToNextList () {
-    dispatch(actions.cycleToNextList())
+    // dispatch(actions.cycleToNextList())
   },
 
   cycleToPrevList () {
-    dispatch(actions.cycleToPrevList())
+    // dispatch(actions.cycleToPrevList())
   },
 
 })
