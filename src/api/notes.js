@@ -1,12 +1,11 @@
 import {actions} from 'state/notes'
 
-const createApi = (dispatch) => {
-  const api = {}
+const createApi = (dispatch, api) => ({
 
-  api.update = (id, state) =>
+  update (id, state) {
     dispatch(actions.update(id, state))
+  },
 
-  return api
-}
+})
 
 export default createApi

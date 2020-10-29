@@ -1,44 +1,52 @@
 import {actions} from 'state/lists'
 
-const createApi = (dispatch) => {
-  const api = {}
+const createApi = (dispatch, api) => ({
 
-  api.create = (props) => {
+  create (props) {
     const action = dispatch(actions.create(props))
     return action.payload.id
-  }
+  },
 
-  api.update = (id, props) =>
+  update (id, props) {
     dispatch(actions.update(id, props))
+  },
 
-  api.discard = (id) =>
+  discard (id) {
     dispatch(actions.discard(id))
+  },
 
-  api.destroy = (id) =>
+  destroy (id) {
     dispatch(actions.destroy(id))
+  },
 
-  api.createNote = (id, props, pos) =>
+  createNote (id, props, pos) {
     dispatch(actions.createNote(id, props, pos))
+  },
 
-  api.destroyNote = (id, note) =>
+  destroyNote (id, note) {
     dispatch(actions.destroyNote(id, note))
+  },
 
-  api.mergeNotes = (id, note1, note2) =>
+  mergeNotes (id, note1, note2) {
     dispatch(actions.mergeNotes(id, note1, note2))
+  },
 
-  api.clearNotes = (id) =>
+  clearNotes (id) {
     dispatch(actions.clearNotes(id))
+  },
 
-  api.orderNoteUp = (id, note) =>
+  orderNoteUp (id, note) {
     dispatch(actions.orderNoteUp(id, note))
+  },
 
-  api.orderNoteDown = (id, note) =>
+  orderNoteDown (id, note) {
     dispatch(actions.orderNoteDown(id, note))
+  },
 
-  api.emptyTrash = () =>
+  emptyTrash () {
     dispatch(actions.emptyTrash())
+  },
 
-  return api
-}
+})
 
 export default createApi

@@ -1,24 +1,28 @@
 import {actions} from 'state/workspace'
 
-const createApi = (dispatch) => {
-  const api = {}
+const createApi = (dispatch, api) => ({
 
-  api.create = ({title}) => {
+  create ({title}) {
     const action = actions.create({title})
     dispatch(action)
     return action.payload.id
-  }
+  },
 
-  api.setActiveList = (id) =>
+  setActiveList (id) {
     dispatch(actions.setActiveList(id))
 
-  api.cycleNextList = () =>
+    // ::TODO::
+    // api.history.setUrl(`/lists/${id}`)
+  },
+
+  cycleNextList () {
     dispatch(actions.cycleNextList())
+  },
 
-  api.cyclePrevList = () =>
+  cyclePrevList () {
     dispatch(actions.cyclePrevList())
+  },
 
-  return api
-}
+})
 
 export default createApi
