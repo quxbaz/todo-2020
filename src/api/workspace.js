@@ -1,4 +1,3 @@
-import {getState} from 'qux'
 import {actions} from 'state/workspace'
 
 const createApi = (dispatch) => {
