@@ -15,10 +15,10 @@ const AppComponent = ({store, api, activeList, list}) => {
   useKeyDownListener(event => {
     if (event.ctrlKey && event.key === 'ArrowUp') {
       event.preventDefault()
-      api.workspace.cyclePrevList()
+      api.workspace.cycleToPrevList()
     } else if (event.ctrlKey && event.key === 'ArrowDown') {
       event.preventDefault()
-      api.workspace.cycleNextList()
+      api.workspace.cycleToNextList()
     }
   })
 

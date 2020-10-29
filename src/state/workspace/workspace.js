@@ -14,8 +14,8 @@ const workspace = (state=init, action) => {
     }
   }
 
-  if (action.type === ACTION_TYPES.WORKSPACE__CYCLE_NEXT_LIST ||
-      action.type === ACTION_TYPES.WORKSPACE__CYCLE_PREV_LIST) {
+  if (action.type === ACTION_TYPES.WORKSPACE__CYCLE_TO_NEXT_LIST ||
+      action.type === ACTION_TYPES.WORKSPACE__CYCLE_TO_PREV_LIST) {
     const {listId} = action.payload
     return {...state, activeList: listId}
   }

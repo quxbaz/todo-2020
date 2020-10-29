@@ -10,17 +10,15 @@ const createApi = (dispatch, api) => ({
 
   setActiveList (id) {
     dispatch(actions.setActiveList(id))
-
-    // ::TODO::
-    // api.history.setUrl(`/lists/${id}`)
+    api.history.setUrl(`/lists/${id}`)
   },
 
-  cycleNextList () {
-    dispatch(actions.cycleNextList())
+  cycleToNextList () {
+    dispatch(actions.cycleToNextList())
   },
 
-  cyclePrevList () {
-    dispatch(actions.cyclePrevList())
+  cycleToPrevList () {
+    dispatch(actions.cycleToPrevList())
   },
 
 })
