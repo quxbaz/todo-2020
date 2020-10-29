@@ -8,6 +8,9 @@ Todo
   - [ ] Accounts.
   - [ ] Back to typescript.
   - [ ] Reselect or memoize.
+  - [ ] Use qux.
+  - [ ] Add jest.
+  - [ ] eslint.
   - [ ] Performance optimization.
   - [ ] Re-do cycleNextList, cyclePrevList. That the body of the
     action creator is so dense is a bad sign. Store the lists in
