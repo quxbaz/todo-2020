@@ -10,7 +10,7 @@ import SideNav from 'components/SideNav'
 import TrashView from 'components/TrashView'
 import List from 'components/List'
 
-const AppComponent = ({store, api, activeList, list}) => {
+const AppComponent = ({store, api, url, activeList, list}) => {
 
   useKeyDownListener(event => {
     if (event.ctrlKey && event.key === 'ArrowUp') {
@@ -33,7 +33,7 @@ const AppComponent = ({store, api, activeList, list}) => {
 
   return (
     <Provider store={store}>
-      <Router>
+      <Router path={url}>
         <ApiContext.Provider value={api}>
           <div className={css.AppComponent}>
             <div className={css.InnerAppComponent}>
@@ -54,11 +54,13 @@ const AppComponent = ({store, api, activeList, list}) => {
 AppComponent.propTypes = {
   store: PropTypes.object.isRequired,
   api: PropTypes.object.isRequired,
+  url: PropTypes.string.isRequired,
   activeList: PropTypes.string,
   list: PropTypes.object,
 }
 
 const mapState = (state) => ({
+  url: state.history.url,
   activeList: state.workspace.activeList,
   list: state.lists[state.workspace.activeList],
 })
