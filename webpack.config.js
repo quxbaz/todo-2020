@@ -8,7 +8,7 @@ module.exports = {
     publicPath: '/assets/',
   },
 
-  devtool: 'inline-source-map',  // 'source-map', 'eval'
+  devtool: 'source-map',  // 'source-map', 'eval'
   devServer: {
     historyApiFallback: true,
   },
