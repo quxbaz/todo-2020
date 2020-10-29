@@ -1,7 +1,7 @@
 import css from './style.css'
 import React from 'react'
 import PropTypes from 'prop-types'
-import {BrowserRouter as Router} from 'react-router-dom'
+import {Router} from 'stateful-router'
 import {connect, Provider} from 'react-redux'
 import {ApiContext} from 'api'
 import {useKeyDownListener} from 'hooks'
