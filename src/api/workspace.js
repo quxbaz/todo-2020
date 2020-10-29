@@ -13,10 +13,10 @@ const createApi = (dispatch) => {
   api.setActiveList = (id) =>
     dispatch(actions.setActiveList(id))
 
-  api.cycleNextList = (id) =>
+  api.cycleNextList = () =>
     dispatch(actions.cycleNextList())
 
-  api.cyclePrevList = (id) =>
+  api.cyclePrevList = () =>
     dispatch(actions.cyclePrevList())
 
   return api
