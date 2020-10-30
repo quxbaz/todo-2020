@@ -194,7 +194,6 @@ const useNormalDataset = (api) => {
 
   {
     const id = api.lists.create({title: 'Gifts', isAlive: false})
-    api.workspace.setActiveList(id)
     api.lists.createNote(id, {text: '# Boards'})
     api.lists.createNote(id, {text: 'Cutting board'})
     api.lists.createNote(id, {text: 'Bread board'})
