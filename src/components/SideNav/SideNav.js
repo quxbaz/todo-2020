@@ -83,7 +83,7 @@ const mapState = (state) => ({
 const mapDispatch = (dispatch, {api}) => ({
   onSubmitFilter (text) {
     const id = api.lists.create({title: text})
-    api.history.setUrl('/lists/${id}')
+    api.history.setUrl(`/lists/${id}`)
     return id
   },
   onClickTrash () {
