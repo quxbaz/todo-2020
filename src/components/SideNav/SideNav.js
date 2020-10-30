@@ -87,7 +87,7 @@ const mapDispatch = (dispatch, {api}) => ({
     return id
   },
   onClickTrash () {
-    api.workspace.setActiveList('@@TRASH')
+    api.history.setUrl('/trash')
   },
 })
 
