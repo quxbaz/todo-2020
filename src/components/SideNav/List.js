@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
 import {WithApi} from 'api'
+import {isListActive} from 'state/lists/selectors'
 
 const List = ({list, isActive, lastCreated, onClick}) => {
 
@@ -59,16 +60,13 @@ List.propTypes = {
   onClick: PropTypes.func.isRequired,
 }
 
-const mapState = (state, {list}) => ({
-  isActive: state.workspace.activeList === list.id,
-})
-
-const mapDispatch = (dispatch, {api}) => ({
+const mapProps = (state, {api, list}) => ({
+  isActive: isListActive(state, list.id),
   onClick (id) {
-    api.workspace.setActiveList(id)
+    api.history.setUrl(`/lists/${id}`)
   },
 })
 
 export default WithApi(
-  connect(mapState, mapDispatch)(List)
+  connect(mapProps)(List)
 )

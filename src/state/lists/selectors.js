@@ -10,10 +10,9 @@ const getSortedLists = (state, cond=_cond) => (
     .get()
 )
 
-const isTrashEmpty = (state) => (
-  !(values(state.lists).some(list => list.isAlive))
-)
+const isListActive = (state, id) => state.history.url === `/lists/${id}`
 
 export {
   getSortedLists,
+  isListActive,
 }

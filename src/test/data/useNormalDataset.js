@@ -176,7 +176,6 @@ const useNormalDataset = (api) => {
 
   {
     const id = api.lists.create({title: 'Gifts'})
-    // api.workspace.setActiveList(id)
     api.lists.createNote(id, {text: '# Boards'})
     api.lists.createNote(id, {text: 'Cutting board'})
     api.lists.createNote(id, {text: 'Bread board'})
@@ -370,9 +369,6 @@ const useNormalDataset = (api) => {
     api.lists.createNote(id, {text: 'How to push back comfortably? Should it be slightly raised?'})
     api.lists.createNote(id, {text: 'Don\'t break out walls when inserting cross pin.'})
   }
-
-  // const lists = values(store.getState().lists).filter(list => list.isAlive)
-  // api.workspace.setActiveList(getRandomItem(lists).id)
 
 }
 

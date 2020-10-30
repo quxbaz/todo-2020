@@ -8,7 +8,6 @@ const ACTION_TYPES = {
   /*
     workspace namespace
   */
-  WORKSPACE__SET_ACTIVE_LIST: 'workspace/SET_ACTIVE_LIST',
   WORKSPACE__CYCLE_TO_NEXT_LIST: 'workspace/CYCLE_TO_NEXT_LIST',
   WORKSPACE__CYCLE_TO_PREV_LIST: 'workspace/CYCLE_TO_PREV_LIST',
 

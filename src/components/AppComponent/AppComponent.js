@@ -10,7 +10,7 @@ import SideNav from 'components/SideNav'
 import TrashView from 'components/TrashView'
 import List from 'components/List'
 
-const AppComponent = ({store, api, url, activeList}) => {
+const AppComponent = ({store, api, url}) => {
 
   useKeyDownListener(event => {
     if (event.ctrlKey && event.key === 'ArrowUp') {
@@ -66,12 +66,10 @@ AppComponent.propTypes = {
   store: PropTypes.object.isRequired,
   api: PropTypes.object.isRequired,
   url: PropTypes.string.isRequired,
-  activeList: PropTypes.string,
 }
 
 const mapState = (state) => ({
   url: state.history.url,
-  activeList: state.workspace.activeList,
 })
 
 export default connect(mapState)(AppComponent)

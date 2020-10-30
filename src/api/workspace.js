@@ -8,11 +8,6 @@ const createApi = (dispatch, api) => ({
     return action.payload.id
   },
 
-  setActiveList (id) {
-    dispatch(actions.setActiveList(id))
-    api.history.setUrl(`/lists/${id}`)
-  },
-
   cycleToNextList () {
     // dispatch(actions.cycleToNextList())
   },
