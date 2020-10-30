@@ -1,7 +1,7 @@
 import css from './style.css'
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Router} from 'stateful-router'
+import {Router, Route} from 'stateful-router'
 import {connect, Provider} from 'react-redux'
 import {ApiContext} from 'api'
 import {useKeyDownListener} from 'hooks'
@@ -10,7 +10,7 @@ import SideNav from 'components/SideNav'
 import TrashView from 'components/TrashView'
 import List from 'components/List'
 
-const AppComponent = ({store, api, url, activeList, list}) => {
+const AppComponent = ({store, api, url, activeList}) => {
 
   useKeyDownListener(event => {
     if (event.ctrlKey && event.key === 'ArrowUp') {
@@ -22,31 +22,42 @@ const AppComponent = ({store, api, url, activeList, list}) => {
     }
   })
 
-  const renderContent = () => {
-    if (activeList == null)
-      return <div className={css.EmptyPane} />
-    else if (activeList === '@@TRASH')
-      return <TrashView />
-    else
-      return <List list={list} />
-  }
+  const Wrappers = ({children}) => (
+    <Provider store={store}>
+    <ApiContext.Provider value={api}>
+    <Router path={url}>
+      <div className={css.AppComponent}>
+        <div className={css.InnerAppComponent}>
+          {children}
+        </div>
+      </div>
+    </Router>
+    </ApiContext.Provider>
+    </Provider>
+  )
+
+  const Content = () => (
+    <>
+      <Route route={'/'}>
+        <div className={css.EmptyPane} />
+      </Route>
+      <Route route='/lists/:id'>
+        <List />
+      </Route>
+      <Route route='/trash'>
+        <TrashView />
+      </Route>
+    </>
+  )
 
   return (
-    <Provider store={store}>
-      <Router path={url}>
-        <ApiContext.Provider value={api}>
-          <div className={css.AppComponent}>
-            <div className={css.InnerAppComponent}>
-              <HeaderBar />
-              <SideNav />
-              <div className={css.ListFrame}>
-                {renderContent()}
-              </div>
-            </div>
-          </div>
-        </ApiContext.Provider>
-      </Router>
-    </Provider>
+    <Wrappers>
+      <HeaderBar />
+      <SideNav />
+      <div className={css.ListFrame}>
+        <Content />
+      </div>
+    </Wrappers>
   )
 
 }
@@ -56,13 +67,11 @@ AppComponent.propTypes = {
   api: PropTypes.object.isRequired,
   url: PropTypes.string.isRequired,
   activeList: PropTypes.string,
-  list: PropTypes.object,
 }
 
 const mapState = (state) => ({
   url: state.history.url,
   activeList: state.workspace.activeList,
-  list: state.lists[state.workspace.activeList],
 })
 
 export default connect(mapState)(AppComponent)
