@@ -11,6 +11,9 @@ function createApp () {
   const store = createStore()
   const api = createApi(store.dispatch)
 
+  if (process.env.NODE_ENV === 'development')
+    window.api = api
+
   // Set the store url value to the browser url.
   api.history.setUrl(location.pathname)
 
