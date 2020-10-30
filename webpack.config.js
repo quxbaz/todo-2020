@@ -1,5 +1,6 @@
 const path = require('path')
 const absolute = (...args) => path.resolve(__dirname, ...args)
+const webpack = require('webpack')
 
 module.exports = {
 
@@ -39,11 +40,14 @@ module.exports = {
     ],
   },
 
+  plugins: [
+    new webpack.EnvironmentPlugin({NODE_ENV: 'development'}),
+  ],
+
   resolve: {
     modules: [
-      // Enables absolute imports relative to the src/ directory.
-      absolute('src'),
-      'node_modules',
+      absolute('src'),  // Enable absolute imports relative to the src/ directory.
+      absolute('node_modules'),
     ],
   },
 
