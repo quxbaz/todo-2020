@@ -21,7 +21,7 @@ TrashItem.propTypes = {
 }
 
 const mapState = (state) => ({
-  isActive: state.workspace.activeList === '@@TRASH',
+  isActive: state.history.url === '/trash',
 })
 
 export default connect(mapState)(TrashItem)
