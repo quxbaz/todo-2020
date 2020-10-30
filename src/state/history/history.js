@@ -6,7 +6,7 @@ const init = {
 
 const history = (state=init, action) => {
 
-  if (action.type === ACTION_TYPES.URL__SET_URL) {
+  if (action.type === ACTION_TYPES.HISTORY__SET_URL) {
     const {url} = action.payload
     return {...state, url}
   }
