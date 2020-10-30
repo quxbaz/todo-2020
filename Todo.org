@@ -15,6 +15,7 @@ Todo
   - [ ] Re-do cycleNextList, cyclePrevList. That the body of the
     action creator is so dense is a bad sign. Store the lists in
     workspace again and make it simpler.
+  - [ ] Sync engine using service worker or websocket.
 
 * Visual design
   --
