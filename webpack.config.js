@@ -1,8 +1,9 @@
-var path = require('path')
+const path = require('path')
+const absolute = (...args) => path.resolve(__dirname, ...args)
 
 module.exports = {
 
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: absolute('src/index.js'),
   output: {
     filename: 'bundle.js',
     publicPath: '/assets/',
@@ -17,13 +18,16 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
         include: [
-          path.resolve(__dirname, './src'),
+          absolute('node_modules/stateful-router'),
         ],
-        loader: 'babel-loader',
-        query: {
-          presets: ['@babel/preset-env', '@babel/preset-react'],
-        },
+      },
+      {
+        test: /\.js$/,
+        include: [absolute('./src')],
+        use: ['babel-loader'],
       },
       {
         test: /\.css$/,
@@ -38,9 +42,9 @@ module.exports = {
   resolve: {
     modules: [
       // Enables absolute imports relative to the src/ directory.
-      path.resolve(__dirname, 'src'),
+      absolute('src'),
       'node_modules',
     ],
   },
 
-};
+}
