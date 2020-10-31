@@ -1,10 +1,10 @@
 const path = require('path')
-const absolute = (...args) => path.resolve(__dirname, ...args)
+const abs = (...args) => path.resolve(__dirname, ...args)
 const webpack = require('webpack')
 
 module.exports = {
 
-  entry: absolute('src/index.js'),
+  entry: abs('src/index.js'),
   output: {
     filename: 'bundle.js',
     publicPath: '/assets/',
@@ -22,12 +22,12 @@ module.exports = {
         enforce: 'pre',
         use: ['source-map-loader'],
         include: [
-          absolute('node_modules/stateful-router'),
+          abs('node_modules/stateful-router'),
         ],
       },
       {
         test: /\.js$/,
-        include: [absolute('./src')],
+        include: [abs('./src')],
         use: ['babel-loader'],
       },
       {
@@ -46,8 +46,8 @@ module.exports = {
 
   resolve: {
     modules: [
-      absolute('src'),  // Enable absolute imports relative to the src/ directory.
-      absolute('node_modules'),
+      abs('src'),  // Enable absolute imports relative to the src/ directory.
+      abs('node_modules'),
     ],
   },
 
