@@ -16,13 +16,13 @@ const memoize = (selector) => {
   }
 }
 
-// // Not tested.
+// // Not tested. Add cache-size property.
 // const memoizeWithIndex = (index, selector) => {
-//   const memoized = {}
+//   const cache = {}
 //   return () => {
-//     if (memoized[index] == null)
-//       memoized[index] = memoize(selector)
-//     return memoized[index]()
+//     if (cache[index] == null)
+//       cache[index] = memoize(selector)
+//     return cache[index]()
 //   }
 // }
 
