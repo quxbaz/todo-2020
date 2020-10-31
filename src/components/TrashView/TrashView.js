@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {WithApi} from 'api'
 import {createToast} from 'toasts'
-import {getSortedLists} from 'state/lists/selectors'
+import {getSortedLists} from 'state/lists'
 import EmptyView from './EmptyView'
 import EmptyButton from './EmptyButton'
 import Entry from './Entry'
@@ -33,8 +33,10 @@ TrashView.propTypes = {
   onDelete: PropTypes.func.isRequired,
 }
 
+const isDead = list => !list.isAlive
+
 const mapState = (state) => ({
-  lists: getSortedLists(state, list => !list.isAlive),
+  lists: getSortedLists(state.lists, isDead),
 })
 
 const mapDispatch = (dispatch, {api}) => ({

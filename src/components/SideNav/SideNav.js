@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
 import {WithApi} from 'api'
-import {getSortedLists} from 'state/lists/selectors'
+import {getSortedLists} from 'state/lists'
 import FilterField from './FilterField'
 import List from './List'
 import CreateList from './CreateList'
@@ -77,7 +77,7 @@ SideNav.propTypes = {
 }
 
 const mapState = (state) => ({
-  lists: getSortedLists(state),
+  lists: getSortedLists(state.lists),
 })
 
 const mapDispatch = (dispatch, {api}) => ({

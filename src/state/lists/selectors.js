@@ -1,18 +1,14 @@
-import {values, chain} from 'qux'
+import {chain} from 'qux'
+import {memoize} from '../state-util'
 
 const _cond = (list) => list.isAlive
 
-const getSortedLists = (state, cond=_cond) => (
-  chain(state.lists)
+export const getSortedLists = memoize((lists, cond=_cond) => (
+  chain(lists)
     .values()
     .filter(cond)
     .sortBy('title')
     .get()
-)
+))
 
-const isListActive = (state, id) => state.history.url === `/lists/${id}`
-
-export {
-  getSortedLists,
-  isListActive,
-}
+export const isListActive = (state, id) => state.history.url === `/lists/${id}`
