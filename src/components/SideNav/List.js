@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
 import {WithApi} from 'api'
-import {isListActive} from 'state/lists/selectors'
+import {isListActive} from 'state/lists'
 
 const List = ({list, isActive, lastCreated, onClick}) => {
 
