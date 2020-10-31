@@ -60,13 +60,16 @@ List.propTypes = {
   onClick: PropTypes.func.isRequired,
 }
 
-const mapProps = (state, {api, list}) => ({
+const mapState = (state, {list}) => ({
   isActive: isListActive(state, list.id),
+})
+
+const mapDispatch = (dispatch, {api}) => ({
   onClick (id) {
     api.history.setUrl(`/lists/${id}`)
   },
 })
 
 export default WithApi(
-  connect(mapProps)(List)
+  connect(mapState, mapDispatch)(List)
 )
