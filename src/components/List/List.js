@@ -3,7 +3,7 @@ import NoteCss from 'components/Note/style.css'
 import React, {useReducer, useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {splitAt, getState} from 'qux'
+import {splitAt} from 'qux'
 import {WithApi} from 'api'
 import Note, {NOTE_EVENTS} from 'components/Note'
 import handleNoteEvent from './handleNoteEvent'
@@ -125,7 +125,7 @@ const mapDispatch = (dispatch, {api, id}) => {
     },
     onEnterAtPos (noteId, pos) {
       let [left, right] = splitAt(
-        getState(dispatch).notes[noteId].text,
+        api.getState().notes[noteId].text,
         pos
       )
       api.notes.update(noteId, {text: left})

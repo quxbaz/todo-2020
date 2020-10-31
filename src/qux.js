@@ -31,12 +31,6 @@ function values (obj) {
   return Object.keys(obj).map(k => obj[k])
 }
 
-const getState = (dispatch) => {
-  let state = null
-  dispatch((d, getState) => state = getState())
-  return state
-}
-
 const last = (list) => list[list.length - 1]
 
 const without = (array, ...values) => {
@@ -76,7 +70,6 @@ export {
   sortBy,
   uniqId,
   values,
-  getState,
   last,
   without,
   insert,
