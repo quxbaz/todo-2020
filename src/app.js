@@ -9,7 +9,7 @@ import useNormalDataset from 'test/data/useNormalDataset'
 function createApp () {
 
   const store = createStore()
-  const api = createApi(store.dispatch)
+  const api = createApi(store.dispatch, store.getState)
 
   if (process.env.NODE_ENV === 'development')
     window.api = api
