@@ -1,9 +1,9 @@
 import {chain} from 'qux'
 import {memoize} from '../state-util'
 
-const _cond = (list) => list.isAlive
+const isAlive = (list) => list.isAlive
 
-export const getSortedLists = memoize((lists, cond=_cond) => (
+export const getSortedLists = memoize((lists, cond=isAlive) => (
   chain(lists)
     .values()
     .filter(cond)
