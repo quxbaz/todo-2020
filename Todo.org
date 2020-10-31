@@ -4,7 +4,6 @@ Todo
   --
 
 * NOW
-  - [ ] Route URLs to lists.
   - [ ] Accounts.
   - [ ] Back to typescript.
   - [ ] Reselect or memoize.
