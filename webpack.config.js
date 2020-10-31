@@ -2,7 +2,7 @@ const path = require('path')
 const abs = (...args) => path.resolve(__dirname, ...args)
 const webpack = require('webpack')
 
-module.exports = {
+module.exports = (env) => ({
 
   devtool: 'source-map',
   devServer: { historyApiFallback: true },
@@ -43,4 +43,4 @@ module.exports = {
     ],
   },
 
-}
+})
