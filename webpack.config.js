@@ -4,6 +4,7 @@ const webpack = require('webpack')
 
 module.exports = (env) => ({
 
+  mode: env,
   devtool: 'source-map',
   devServer: { historyApiFallback: true },
 
