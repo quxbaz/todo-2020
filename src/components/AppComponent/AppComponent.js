@@ -10,6 +10,34 @@ import SideNav from 'components/SideNav'
 import TrashView from 'components/TrashView'
 import List from 'components/List'
 
+const Wrappers = ({children, store, api, url}) => (
+  <Provider store={store}>
+  <ApiContext.Provider value={api}>
+  <Router path={url}>
+    <div className={css.AppComponent}>
+      <div className={css.InnerAppComponent}>
+        {children}
+      </div>
+    </div>
+  </Router>
+  </ApiContext.Provider>
+  </Provider>
+)
+
+const Content = () => (
+  <>
+    <Route route={'/'}>
+      <div className={css.EmptyPane} />
+    </Route>
+    <Route route='/lists/:id'>
+      <List />
+    </Route>
+    <Route route='/trash'>
+      <TrashView />
+    </Route>
+  </>
+)
+
 const AppComponent = ({store, api, url}) => {
 
   useKeyDownListener(event => {
@@ -22,36 +50,8 @@ const AppComponent = ({store, api, url}) => {
     }
   })
 
-  const Wrappers = ({children}) => (
-    <Provider store={store}>
-    <ApiContext.Provider value={api}>
-    <Router path={url}>
-      <div className={css.AppComponent}>
-        <div className={css.InnerAppComponent}>
-          {children}
-        </div>
-      </div>
-    </Router>
-    </ApiContext.Provider>
-    </Provider>
-  )
-
-  const Content = () => (
-    <>
-      <Route route={'/'}>
-        <div className={css.EmptyPane} />
-      </Route>
-      <Route route='/lists/:id'>
-        <List />
-      </Route>
-      <Route route='/trash'>
-        <TrashView />
-      </Route>
-    </>
-  )
-
   return (
-    <Wrappers>
+    <Wrappers {...{store, api, url}}>
       <HeaderBar />
       <SideNav />
       <div className={css.ListFrame}>
