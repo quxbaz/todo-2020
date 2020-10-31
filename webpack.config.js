@@ -4,16 +4,8 @@ const webpack = require('webpack')
 
 module.exports = {
 
-  entry: abs('src/index.js'),
-  output: {
-    filename: 'bundle.js',
-    publicPath: '/assets/',
-  },
-
-  devtool: 'source-map',  // 'source-map', 'eval'
-  devServer: {
-    historyApiFallback: true,
-  },
+  devtool: 'source-map',
+  devServer: { historyApiFallback: true },
 
   module: {
     rules: [
