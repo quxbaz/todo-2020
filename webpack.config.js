@@ -2,11 +2,18 @@ const path = require('path')
 const abs = (...args) => path.resolve(__dirname, ...args)
 const webpack = require('webpack')
 
-module.exports = (env) => ({
+module.exports = (env='production') => ({
 
   mode: env,
   devtool: 'source-map',
   devServer: { historyApiFallback: true },
+
+  output: env === 'production' ? {
+    filename: 'todo-2020.js',
+    path: abs('lib/'),
+    library: 'todo-2020',
+    libraryTarget: 'umd',
+  } : {},
 
   module: {
     rules: [
