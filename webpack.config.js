@@ -13,7 +13,10 @@ module.exports = (env='production') => ({
     path: abs('lib/'),
     library: 'todo-2020',
     libraryTarget: 'umd',
-  } : {},
+  } : {
+    filename: 'todo-2020.js',
+    publicPath: '/lib/',
+  },
 
   module: {
     rules: [
