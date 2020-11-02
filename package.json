@@ -37,7 +37,8 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --env=development",
-    "test": "jest --watch"
+    "start": "webpack-dev-server --env=development --mode=development",
+    "test": "jest --watch",
+    "build": "webpack --env=production --mode=production"
   }
 }
