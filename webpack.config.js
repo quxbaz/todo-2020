@@ -6,7 +6,11 @@ module.exports = (env='production') => ({
 
   mode: env,
   devtool: 'source-map',
-  devServer: { historyApiFallback: true },
+
+  devServer: {
+    contentBase: abs('public/'),
+    historyApiFallback: true,
+  },
 
   output: env === 'production' ? {
     filename: 'todo-2020.js',
