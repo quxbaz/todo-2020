@@ -47,7 +47,7 @@ module.exports = (env='production') => ({
   },
 
   plugins: [
-    new webpack.EnvironmentPlugin({NODE_ENV: 'development'}),
+    new webpack.EnvironmentPlugin({NODE_ENV: env}),
   ],
 
   resolve: {
