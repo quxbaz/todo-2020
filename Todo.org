@@ -17,6 +17,7 @@ Todo
   - [ ] Sync engine using service worker or websocket.
   - [ ] Expose API in app dev tool.
   - [ ] Hover and transition to help icon.
+  - [ ] Mobile support in progress NOTE.
 
 * Visual design
   --
