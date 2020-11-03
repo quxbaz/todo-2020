@@ -39,6 +39,6 @@
   "scripts": {
     "start": "webpack-dev-server --env=development --mode=development",
     "test": "jest --watch",
-    "build": "webpack --env=production --mode=production && gzip -q public/todo-2020.js && mv public/todo-2020.js.gz public/todo-2020.js"
+    "build": "webpack --env=production --mode=production && gzip -q public/todo-2020.js"
   }
 }
