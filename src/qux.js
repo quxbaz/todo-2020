@@ -65,6 +65,10 @@ const getRandomItem = (list) => (
   list[Math.floor(Math.random() * list.length)]
 )
 
+const compose = (...fns) => (value) => (
+  fns.reduceRight((acc, fn) => fn(acc), value)
+)
+
 export {
   omit,
   sortBy,
@@ -77,4 +81,5 @@ export {
   splitAt,
   chain,
   getRandomItem,
+  compose,
 }
