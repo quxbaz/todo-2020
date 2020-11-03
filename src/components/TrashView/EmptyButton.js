@@ -2,7 +2,7 @@ import css from './style.css'
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {WithApi} from 'api'
+import {provideApi} from 'api'
 import {createToast} from 'toasts'
 import {useEscapeKeyListener} from 'hooks'
 import Modal from 'components/Modal'
@@ -49,6 +49,6 @@ const mapDispatch = (dispatch, {api}) => ({
   },
 })
 
-export default WithApi(
+export default provideApi(
   connect(null, mapDispatch)(EmptyButton)
 )

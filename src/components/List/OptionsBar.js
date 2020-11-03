@@ -3,7 +3,7 @@ import React, {useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
-import {WithApi} from 'api'
+import {provideApi} from 'api'
 import {createToast} from 'toasts'
 import Option from './Option'
 import RenameOption from './RenameOption'
@@ -80,6 +80,6 @@ const mapDispatch = (dispatch, {api, list}) => ({
   },
 })
 
-export default WithApi(
+export default provideApi(
   connect(mapState, mapDispatch)(OptionsBar)
 )

@@ -2,7 +2,7 @@ import SideNavCss from 'components/SideNav/style.css'
 import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {WithApi} from 'api'
+import {provideApi} from 'api'
 import Option from './Option'
 import RenameTextField from './RenameTextField'
 
@@ -70,6 +70,6 @@ const mapDispatch = (dispatch, {api, list}) => ({
   },
 })
 
-export default WithApi(
+export default provideApi(
   connect(null, mapDispatch)(RenameOption)
 )

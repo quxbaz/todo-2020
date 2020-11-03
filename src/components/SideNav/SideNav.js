@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
-import {WithApi} from 'api'
+import {provideApi} from 'api'
 import {getSortedLists} from 'state/lists'
 import FilterField from './FilterField'
 import List from './List'
@@ -91,6 +91,6 @@ const mapDispatch = (dispatch, {api}) => ({
   },
 })
 
-export default WithApi(
+export default provideApi(
   connect(mapState, mapDispatch)(SideNav)
 )

@@ -1,9 +1,9 @@
 import ApiContext from './ApiContext'
 import createApi from './createApi'
-import WithApi from './WithApi'
+import provideApi from './provideApi'
 
 export {
   ApiContext,
   createApi,
-  WithApi,
+  provideApi,
 }

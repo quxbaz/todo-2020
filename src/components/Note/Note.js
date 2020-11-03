@@ -3,7 +3,7 @@ import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
-import {WithApi} from 'api'
+import {provideApi} from 'api'
 import Switch from './Switch'
 import Button from './Button'
 import NoteInput from './NoteInput'
@@ -73,6 +73,6 @@ const mapDispatch = (dispatch, {api, note}) => ({
   },
 })
 
-export default WithApi(
+export default provideApi(
   connect(null, mapDispatch)(Note)
 )

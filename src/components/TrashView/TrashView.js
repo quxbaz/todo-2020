@@ -2,7 +2,7 @@ import css from './style.css'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {WithApi} from 'api'
+import {provideApi} from 'api'
 import {createToast} from 'toasts'
 import {getSortedLists} from 'state/lists'
 import EmptyView from './EmptyView'
@@ -51,6 +51,6 @@ const mapDispatch = (dispatch, {api}) => ({
   },
 })
 
-export default WithApi(
+export default provideApi(
   connect(mapState, mapDispatch)(TrashView)
 )
