@@ -73,6 +73,7 @@ const mapDispatch = (dispatch, {api, list}) => ({
   },
   onDelete () {
     api.lists.discard(list.id)
+    api.history.home()
     createToast('Toasts', {
       text: `"${list.title}" moved to trash.`,
     })
