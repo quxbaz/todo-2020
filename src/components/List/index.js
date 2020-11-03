@@ -1,3 +1,3 @@
-import List from './List'
+import ListProvider from './ListProvider'
 
-export default List
+export default ListProvder
