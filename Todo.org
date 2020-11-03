@@ -15,9 +15,14 @@ Todo
     action creator is so dense is a bad sign. Store the lists in
     workspace again and make it simpler.
   - [ ] Sync engine using service worker or websocket.
-  - [ ] Expose API in app dev tool.
   - [ ] Hover and transition to help icon.
   - [ ] Mobile support in progress NOTE.
+  - [ ] Use .(t|j)sx convention for components for easier editor navigation. Update webpack.
+
+* Debug
+  - [ ] Expose API in app dev tool.
+  - [ ] Record every API call with params and return values with
+    timestamp and relative state before/after.
 
 * Visual design
   --
