@@ -7,7 +7,7 @@ import {ApiContext} from 'api'
 import {useKeyDownListener} from 'hooks'
 import HeaderBar from './HeaderBar'
 import SideNav from 'components/SideNav'
-import List from 'components/List/List'
+import List from 'components/List'
 import TrashView from 'components/TrashView'
 
 const Wrappers = ({children, store, api, url}) => (
