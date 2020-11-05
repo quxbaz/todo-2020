@@ -13,23 +13,28 @@ import Empty from './Empty'
 const reducer = (state, action) => {
   const {id, index} = action.payload
   switch (action.type) {
-    case 'SET_INDEX':
+    case 'SET_NOTE_INDEX':
       return {...state, [id]: index}
     default:
       return state
   }
 }
 
-const List = (props) => {
+const List = ({
+  list, notes,
+  onRemoveNote, onTrashNote,
+  onOrderUp, onOrderDown,
+  onEnterAtStart, onEnterAtEnd, onEnterAtPos,
+  onBackspaceAtStartOfEmptyLine, onBackspaceAtStartOfNonEmptyLine,
+}) => {
 
-  const {list, notes, onRemoveNote} = props
   const ref = useRef()
   const [state, dispatch] = useReducer(reducer, {})
 
   useEffect(() => {
     if (state[list.id] == null) {
       dispatch({
-        type: 'SET_INDEX',
+        type: 'SET_NOTE_INDEX',
         payload: {id: list.id, index: 0},
       })
     }
@@ -41,14 +46,14 @@ const List = (props) => {
 
   const _handleNoteEvent = (noteId, noteDom, event) => {
     handleNoteEvent(noteId, noteDom, event, {
-      [NOTE_EVENTS.ORDER_UP]: props.onOrderUp,
-      [NOTE_EVENTS.ORDER_DOWN]: props.onOrderDown,
-      [NOTE_EVENTS.ENTER_AT_START]: props.onEnterAtStart,
-      [NOTE_EVENTS.ENTER_AT_END]: props.onEnterAtEnd,
-      [NOTE_EVENTS.ENTER_AT_POS]: props.onEnterAtPos,
-      [NOTE_EVENTS.BACKSPACE_AT_START_OF_EMPTY_LINE]: props.onBackspaceAtStartOfEmptyLine,
-      [NOTE_EVENTS.BACKSPACE_AT_START_OF_NON_EMPTY_LINE]: props.onBackspaceAtStartOfNonEmptyLine,
-      [NOTE_EVENTS.TRASH_NOTE]: props.onTrashNote,
+      [NOTE_EVENTS.ORDER_UP]: onOrderUp,
+      [NOTE_EVENTS.ORDER_DOWN]: onOrderDown,
+      [NOTE_EVENTS.ENTER_AT_START]: onEnterAtStart,
+      [NOTE_EVENTS.ENTER_AT_END]: onEnterAtEnd,
+      [NOTE_EVENTS.ENTER_AT_POS]: onEnterAtPos,
+      [NOTE_EVENTS.BACKSPACE_AT_START_OF_EMPTY_LINE]: onBackspaceAtStartOfEmptyLine,
+      [NOTE_EVENTS.BACKSPACE_AT_START_OF_NON_EMPTY_LINE]: onBackspaceAtStartOfNonEmptyLine,
+      [NOTE_EVENTS.TRASH_NOTE]: onTrashNote,
     })
   }
 
@@ -67,7 +72,7 @@ const List = (props) => {
               key={note.id}
               note={note}
               onFocus={() => dispatch({
-                type: 'SET_INDEX',
+                type: 'SET_NOTE_INDEX',
                 payload: {id: list.id, index: i},
               })}
               onRemove={onRemoveNote}
@@ -84,6 +89,7 @@ List.propTypes = {
   list: PropTypes.object.isRequired,
   notes: PropTypes.array.isRequired,
   onRemoveNote: PropTypes.func.isRequired,
+  onTrashNote: PropTypes.func.isRequired,
   onOrderUp: PropTypes.func.isRequired,
   onOrderDown: PropTypes.func.isRequired,
   onEnterAtStart: PropTypes.func.isRequired,
@@ -91,7 +97,6 @@ List.propTypes = {
   onEnterAtPos: PropTypes.func.isRequired,
   onBackspaceAtStartOfEmptyLine: PropTypes.func.isRequired,
   onBackspaceAtStartOfNonEmptyLine: PropTypes.func.isRequired,
-  onTrashNote: PropTypes.func.isRequired,
 }
 
 const mapState = (state, {id}) => {
@@ -104,6 +109,9 @@ const mapState = (state, {id}) => {
 
 const mapDispatch = (dispatch, {api, id, list}) => ({
   onRemoveNote (noteId) {
+    api.lists.destroyNote(id, noteId)
+  },
+  onTrashNote (noteId) {
     api.lists.destroyNote(id, noteId)
   },
   onOrderUp (noteId) {
@@ -139,9 +147,6 @@ const mapDispatch = (dispatch, {api, id, list}) => ({
     const i = list.notes.indexOf(noteId)
     if (i === 0) return
     api.lists.mergeNotes(id, list.notes[i - 1], noteId)
-  },
-  onTrashNote (noteId) {
-    api.lists.destroyNote(id, noteId)
   },
 })
 
