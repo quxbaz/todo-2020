@@ -7,7 +7,6 @@ import AppComponent from './components/AppComponent'
 import useNormalDataset from 'test/data/useNormalDataset'
 
 function createApp () {
-
   const store = createStore()
   const api = createApi(store.dispatch, store.getState)
 
@@ -22,7 +21,6 @@ function createApp () {
   // ::END TEST::
 
   return <AppComponent {...{store, api}} />
-
 }
 
 export {
