@@ -11,14 +11,10 @@ actions.create = (props) => ({
   },
 })
 
-actions.update = (id, props) => (dispatch, getState) => {
-  if (typeof props === 'function')
-    props = props(getState().lists[id])
-  dispatch({
-    type: ACTION_TYPES.LISTS__UPDATE,
-    payload: {id, ...props},
-  })
-}
+actions.update = (id, props) => ({
+  type: ACTION_TYPES.LISTS__UPDATE,
+  payload: {id, ...props},
+})
 
 actions.discard = (id) => ({
   type: ACTION_TYPES.LISTS__DISCARD,
@@ -57,7 +53,7 @@ actions.mergeNotes = (id, note1, note2) => (dispatch, getState) => {
   })
 }
 
-actions.clearNotes = (id, note) => (dispatch, getState) => {
+actions.clearNotes = (id) => (dispatch, getState) => {
   const state = getState()
   const list = state.lists[id]
   const notes = list.notes.map(id => state.notes[id])
