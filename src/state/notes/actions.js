@@ -1,4 +1,3 @@
-import {uniqId} from 'qux'
 import ACTION_TYPES from 'state/ACTION_TYPES'
 
 const actions = {}
