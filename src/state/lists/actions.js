@@ -16,6 +16,12 @@ actions.update = (id, props) => ({
   payload: {id, ...props},
 })
 
+// const update = (id, props) => ({
+//   name: 'lists/update',
+//   path: ['lists', id],
+//   props,
+// })
+
 actions.discard = (id) => ({
   type: ACTION_TYPES.LISTS__DISCARD,
   payload: {id},
