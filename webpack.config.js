@@ -28,6 +28,8 @@ module.exports = (env='production') => ({
         enforce: 'pre',
         use: ['source-map-loader'],
         include: [
+          abs('node_modules/quick-state'),
+          abs('node_modules/qwux'),
           abs('node_modules/stateful-router'),
         ],
       },
